@@ -21,6 +21,20 @@ def conseils(request):
 	return render_to_response('conseils.html', {'foo': foo})
 
 
-def aliment_details(request, slug):
+def aliment_details(request, name):
 	aliment = Food.objects.get(name=name)
 	return render_to_response('aliment_details.html', {'aliment': aliment})	
+
+
+def carnet(request):
+    if request.method == 'POST': # If the form has been submitted...
+        form = GlycForm(request.POST) # A form bound to the POST data
+        if form.is_valid(): # All validation rules pass
+            # Process the data in form.cleaned_data
+            # ...
+            return HttpResponseRedirect('/carnet/') # Redirect after POST
+    else:
+        form = GlycForm() # An unbound form
+
+    return render_to_response('carnet.html', {'form': form,}, context_instance=RequestContext(request))
+

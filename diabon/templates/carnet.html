@@ -1,4 +1,14 @@
 {% extends "layout/base.html" %}
 {% block content %}
 {{ foo }}
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+
+<form  method="post" >{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Envoyer" />
+</form>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 {% endblock content %}

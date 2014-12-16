@@ -1,4 +1,6 @@
 from django.db import models
+from django import forms
+from django.forms import ModelForm
 
 class Category(models.Model):
 	name = models.CharField(max_length=200)
@@ -34,8 +36,14 @@ class User(models.Model):
 		return "%s" % (self.name)
 
 class Glyc(models.Model):
-	value = models.IntegerField()
+	value = models.FloatField()
 	time = models.DateTimeField()
+	note = models.CharField(max_length=150, default=' ')
 
 	def __unicode__(self):
 		return "%s" % (self.value)
+
+class GlycForm(ModelForm):
+    class Meta:
+    	model = Glyc
+    	fields = ['value', 'note']
