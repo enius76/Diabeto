@@ -4,18 +4,16 @@ from django.forms import ModelForm
 
 class Category(models.Model):
 	name = models.CharField(max_length=200)
-
+	slug = models.SlugField(max_length=200)
 	def __unicode__(self):
 		return "%s %s" % (self.name)
 
 class Food(models.Model):
 	name = models.CharField(max_length=200)
-	picture = models.ImageField(upload_to="static/upload/")
+	slug = models.SlugField(max_length=200)
 	weight = models.IntegerField()
 	glucide = models.IntegerField()
-
 	category = models.ForeignKey('Category')
-
 	def __unicode__(self):
 		return "%s" % (self.name)
 
@@ -37,7 +35,7 @@ class User(models.Model):
 
 class Glyc(models.Model):
 	value = models.FloatField()
-	time = models.DateTimeField()
+	#time = models.DateTimeField()
 	note = models.CharField(max_length=150, default=' ')
 
 	def __unicode__(self):

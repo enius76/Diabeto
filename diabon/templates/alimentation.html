@@ -1,4 +1,109 @@
 {% extends "layout/base.html" %}
 {% block content %}
-{{ foo }}
+
+			<header id="sub-header">
+
+				<!-- Sub Nav -->
+					<nav role="navigation" id="alimentation-sub-navigation">
+						<ul>
+							<li><a href={% url 'menu' %}>Mon Menu</a></li>
+							<li><a href="#">Aliment manquant</a></li>
+							<li><a href={% url 'catalogue' %}>Catalogue</a></li>
+						</ul>
+					</nav>
+
+			</header>
+			
+		<!-- Alimentation -->
+			<section id="alimentation" class="main style1 dark fullscreen">
+				<div class="content container 75%">
+					<header>
+						<span class="flaticon-restaurant23"></span>
+						<h2>Recherchez un aliment ou découvrez nos nombreuses recettes</h2>
+						<div class="border-search">
+							<div class="background-search">
+								<form action="" class="formulaire">
+					                <input class="champs-recherche" type="text" placeholder="Haricots verts, lasagnes, ..."/>
+					                <input class="btn-recherche flaticon-dark37" type="button" value="OK" />  
+				                </form>
+				                <div class="clear"></div>
+			            	</div>
+		            	</div>
+		            	
+					</header>
+					<footer>
+						<p>accédez aux autres fonctionnalités</p>
+						<a href="#work" class="button style2 down">More</a>
+					</footer>
+				</div>
+			</section>
+			
+		<!-- Fonctionnalités -->
+			<section id="work" class="main style3 secondary alimentation">
+				<div class="content container 75% features-container">
+					<header id="composer-menu">
+						<h2>Composez votre menu</h2>
+						<p>Nous savons qu'il est difficile de calculer de tête les glucides présent dans votre repas et c'est pour cela qu'un outil est à votre disposition pour savoir rapidement et simplement la valeur de votre menu.</p>
+					</header>
+					
+					<div class="container 75% alimentation-features">
+						<div class="row 0% images">
+							<div class="12u">
+				            	<div class="view view-first">  
+								     <img src="/static/images/thumbs/01.jpg" />  
+								     <div class="mask">  
+								     <h2>Mon menu</h2>  
+								     <p>Composez votre menu pour en connaître la valeur glucidique.</p>  
+								         <a href="{% url 'menu' %}" class="info">composer</a>  
+								     </div>  
+								</div>  
+							</div>
+						</div>
+					</div>
+
+					<header id="aliment-manquant">
+						<h2>Rajoutez un aliment à notre catalogue</h2>
+						<p>Vous n'avez pas trouvé l'aliment que vous recherchiez ? Aidez nous à remplir notre catalogue en nous soumettons votre aliment.</p>
+					</header>
+					<div class="container 75% alimentation-features">
+						<div class="row 0% images">
+							<div class="12u">
+				            	<div class="view view-first">  
+								     <img src="/static/images/thumbs/02.jpg" />  
+								     <div class="mask">  
+								     <h2>Aliment manquant</h2>  
+								     <p>Il manque un aliment dans notre catalogue ? Soumettez le nous.</p>  
+								         <a href="#" class="info">ajouter</a>  
+								     </div>  
+								</div>  
+							</div>
+						</div>
+					</div>
+
+					<header id="catalogue-complet">
+						<h2>Accédez au catalogue complet</h2>
+						<p>Recherchez un aliment en les triant par lettre ou en filtrant les catégories d'aliments.</p>
+					</header>
+					<div class="container 75% alimentation-features">
+						<div class="row 0% images">
+							<div class="12u">
+				            	<div class="view view-first">  
+								     <img src="/static/images/thumbs/03.jpg" />  
+								     <div class="mask">  
+								     <h2>Catalogue</h2>  
+								     <p>Accédez au catalogue complet de nos aliments.</p>  
+								         <a href={% url 'catalogue' %} class="info">accéder</a>  
+								     </div>  
+								</div>  
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</section>
+
+		<!-- Scroll to top -->
+        	<a href="#" class="back-to-top">Remonter</a>
+
+
 {% endblock content %}

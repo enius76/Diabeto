@@ -1,0 +1,37 @@
+{% extends "layout/base.html" %}
+{% block content %}
+
+
+
+<!-- Contact -->
+			<section id="contact" class="main style3 secondary">
+				<div class="content container">
+					<header>
+						<h2>Dites nous bonjour.</h2>
+						<p>Qu'il s'agisse d'une remarque, d'un conseil ou d'une question, notre équipe sera heureuse de vous répondre.</p>
+					</header>
+					<div class="box container 75%">
+					
+					<!-- Contact Form -->
+							<form method="post" action="#">
+								<div class="row 50%">
+									<div class="6u"><input type="text" name="name" placeholder="Name" /></div>
+									<div class="6u"><input type="email" name="email" placeholder="Email" /></div>
+								</div>
+								<div class="row 50%">
+									<div class="12u"><textarea name="message" placeholder="Message" rows="6"></textarea></div>
+								</div>
+								<div class="row">
+									<div class="12u">
+										<ul class="actions">
+											<li><input type="submit" value="Envoyer" /></li>
+										</ul>
+									</div>
+								</div>
+							</form>
+
+					</div>
+				</div>
+			</section>
+
+{% endblock content %}

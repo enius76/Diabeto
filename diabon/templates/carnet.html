@@ -1,14 +1,265 @@
 {% extends "layout/base.html" %}
 {% block content %}
-{{ foo }}
 
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+ <!-- Formulaire pour ajouter un relevé
 
-
-<form  method="post" >{% csrf_token %}
+ <form  method="post" >{% csrf_token %}
 {{ form.as_p }}
 <input type="submit" value="Envoyer" />
 </form>
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+-->
+
+
+
+			<header id="sub-header">
+
+				<!-- Sub Nav -->
+					<nav role="navigation" id="carnet-sub-navigation">
+						<ul>
+							<li><a href="#releves">Mes relevés</a></li>
+							<li><a href="#composer-menu">Mon menu</a></li>
+							<li><a href="#statistiques">Mes statistiques</a></li>
+							<li><a href="#agenda">Mon agenda</a></li>
+						</ul>
+					</nav>
+
+			</header>
+
+		<!-- Carnet -->
+			<section id="carnet" class="main style1 dark fullscreen">
+				<div class="content container 75%">
+					<header>
+						<span class="flaticon-small21"></span>
+						<h2>#Prénom, voici votre dernier relevé :</h2>
+						<div class="border-search">
+							<div class="background-search">
+								<span class="flaticon-thumbs16"></span>
+								<p class="glycemie">138.8 mg/dl</p>
+								<p class="date">effectué le 18 Novembre 2014 à 11h48</p>
+				                <div class="clear"></div>
+			            	</div>
+		            	</div>
+					</header>
+					<footer>
+						<p>accédez aux autres fonctionnalités</p>
+						<a href="#work" class="button style2 down">More</a>
+					</footer>
+				</div>
+			</section>
+			
+		<!-- Carnet -->
+			<section id="work" class="main style3 secondary carnet">
+				<div class="content container 75%">
+					<header id="releves">
+						<h2>Visualisez rapidement vos relevés</h2>
+						<p>Ajoutez facilement un relevé avec le '+'. Triez les résultats ou recherchez en un ou bien exportez les au format PDF pour les avoir toujours avec vous.</p>
+					</header>
+					
+				<!-- Relevés  -->
+					<div class="box container 75% a-propos">
+						<header>
+							<h2><span class="flaticon-injection2"></span>Mes relevés</h2>
+							<span class="btn-option" title="Exporter"><span class="flaticon-export"></span></span>
+							<span class="btn-option" title="Rechercher"><span class="flaticon-dark37"></span></span>
+							<span class="btn-option" title="Ajouter un relevé">+</span>
+							<div class="clear"></div>
+						</header>
+
+						<!-- Choix date -->
+						<nav id="releves-tri">
+	                        <ul>
+	                            <li><a href="sub_content/releves/aujourdhui.html" class="change_load actif">Aujourd'hui</a></li>
+	                            <li><a href="sub_content/releves/3-derniers-jours.html" class="change_load">3 derniers jours</a></li>
+	                            <li><a href="sub_content/releves/3-dernieres-semaines.html" class="change_load">3 dernières semaines</a></li>
+	                            <li><a href="sub_content/releves/3-derniers-mois.html" class="change_load">3 derniers mois</a></li>
+	                            <div class="clear"></div>
+	                        </ul>
+		                </nav>
+
+		                <div id="table-releve-container">
+		                	<table id="table-releves" class="tablesorter"> 
+								<thead> 
+									<tr> 
+									    <th>Date</th> 
+									    <th>Heure</th> 
+									    <th>Relevé</th> 
+									    <th class="note">Note</th>
+									</tr> 
+								</thead> 
+								<tbody> 
+									<tr> 
+									    <td>18 Jan 2014</td> 
+									    <td>11h54</td> 
+									    <td><div class="indice-green"></div>135 mg/dl</td> 
+									    <td>Tremblement ! J'ai augmenté ma dose d'insuline.</td> 
+									</tr> 
+								</tbody> 
+							</table> 
+		                </div>
+					</div>
+
+				<!-- Menu  -->					
+					<div id="composer-menu" class="container 75% alimentation-features">
+						<div class="row 0% images">
+							<div class="12u">
+				            	<div class="view view-first">  
+								     <img src="/static/images/thumbs/01.jpg" />  
+								     <div class="mask">  
+								     <h2>Mon menu</h2>  
+								     <p>Composez votre menu pour en connaître la valeur glucidique.</p>  
+								         <a href={% url 'menu' %} class="info">composer</a>  
+								     </div>  
+								</div>  
+							</div>
+						</div>
+					</div>
+
+				<!-- Stats  -->
+					<header id="statistiques">
+						<h2>Constatez votre évolution</h2>
+						<p>Visualisez en toute simplicité sous forme de graphique vos taux de glycémie et exportez vos résultats.</p>
+					</header>
+
+					<div class="box container 75% a-propos">
+						<header>
+							<h2><span class="flaticon-education12"></span>Mes statistiques</h2>
+							<span class="btn-option" title="Exporter"><span class="flaticon-export"></span></span>
+							<span class="btn-option" title="Rechercher"><span class="flaticon-dark37"></span></span>
+							<span class="btn-option" title="Ajouter un rendez-vous">+</span>
+							<div class="clear"></div>
+						</header>
+
+						<!-- Choix tri -->
+						<nav id="stats-tri">
+	                        <ul>
+	                            <li><a href="#" class="change_load actif">Aujourd'hui</a></li>
+	                            <li><a href="#" class="change_load">3 derniers jours</a></li>
+	                            <li><a href="#" class="change_load">3 dernières semaines</a></li>
+	                            <li><a href="#" class="change_load">3 derniers mois</a></li>
+	                            <div class="clear"></div>
+	                        </ul>
+		                </nav>
+						
+						<div id="carnetChart"></div>							
+					</div>
+
+				<!-- Agenda  -->
+					<header  id="agenda">
+						<h2>Gérez votre agenda</h2>
+						<p>Le diabète entraîne de nombreux rendez-vous médical et il n'est pas toujours facil de se rappeler de tout. Diab'ON vous permet de créer des rendez-vous avec des rappels pour ne jamais oublier.</p>
+					</header>
+
+					<div class="box container 75% a-propos">
+						<header>
+							<h2><span class="flaticon-small58"></span>Mon agenda</h2>
+							<span class="btn-option" title="Rechercher"><span class="flaticon-dark37"></span></span>
+							<span class="btn-option" title="Ajouter un rendez-vous">+</span>
+							<div class="clear"></div>
+						</header>
+						
+						<section class="main">
+			                <div class="custom-calendar-wrap">
+			                    <div id="custom-inner" class="custom-inner">
+			                        <div class="custom-header clearfix">
+			                            <nav>
+			                                <span id="custom-prev" class="custom-prev"></span>
+			                                <span id="custom-next" class="custom-next"></span>
+			                            </nav>
+			                            <h2 id="custom-month" class="custom-month"></h2>
+			                            <h3 id="custom-year" class="custom-year"></h3>
+			                        </div>
+			                        <div id="calendar" class="fc-calendar-container"></div>
+			                    </div>
+			                </div>
+			            </section>
+					</div>
+
+				</div>
+			</section>
+
+		<!-- Scroll to top -->
+        	<a href="#" class="back-to-top">Remonter</a>
+
+
+<script type="text/javascript">
+
+            $(function() {
+                $(document).on('shown.calendar.calendario', function(e, instance){
+                    if(!instance) instance = cal;
+                    var $cell = instance.getCell(new Date().getDate());
+                    if($cell.hasClass('fc-today')) $cell.trigger('click.calendario');
+                });
+            
+                var transEndEventNames = {
+                        'WebkitTransition' : 'webkitTransitionEnd',
+                        'MozTransition' : 'transitionend',
+                        'OTransition' : 'oTransitionEnd',
+                        'msTransition' : 'MSTransitionEnd',
+                        'transition' : 'transitionend'
+                    },
+                    transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
+                    $wrapper = $( '#custom-inner' ),
+                    $calendar = $( '#calendar' ),
+                    cal = $calendar.calendario({
+                        onDayClick : function( $el, data, dateProperties ) {
+
+                            if(data.content.length > 0 ) {
+                                showEvents(data.content, dateProperties );
+                            }
+
+                        },
+                        caldata : codropsEvents,
+                        displayWeekAbbr : true,
+                        events: 'click'
+                    } ),
+                    $month = $( '#custom-month' ).html( cal.getMonthName() ),
+                    $year = $( '#custom-year' ).html( cal.getYear() );
+
+                $( '#custom-next' ).on( 'click', function() {
+                    cal.gotoNextMonth( updateMonthYear );
+                } );
+                $( '#custom-prev' ).on( 'click', function() {
+                    cal.gotoPreviousMonth( updateMonthYear );
+                } );
+
+                function updateMonthYear() {                
+                    $month.html( cal.getMonthName() );
+                    $year.html( cal.getYear() );
+                }
+
+                // just an example..
+                function showEvents( contentEl, dateProperties ) {
+
+                    hideEvents();
+                    
+                    var $events = $( '<div id="custom-content-reveal" class="custom-content-reveal"><h4>Événements du ' + dateProperties.day + ' ' + dateProperties.monthname + ' ' + dateProperties.year + '</h4></div>' ),
+                        $close = $( '<span class="custom-content-close"></span>' ).on( 'click', hideEvents );
+
+                    $events.append( contentEl.join('') , $close ).insertAfter( $wrapper );
+                    
+                    setTimeout( function() {
+                        $events.css( 'top', '0%' );
+                    }, 25 );
+
+                }
+                function hideEvents() {
+
+                    var $events = $( '#custom-content-reveal' );
+                    if( $events.length > 0 ) {
+                        
+                        $events.css( 'top', '100%' );
+                        Modernizr.csstransitions ? $events.on( transEndEventName, function() { $( this ).remove(); } ) : $events.remove();
+
+                    }
+
+                }
+            
+            });
+		</script>
+
+
+
 {% endblock content %}

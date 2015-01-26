@@ -1,0 +1,24 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+<table>
+   <tr bgcolor="bbbbbbb">
+       <th>Nom de l'aliment</th>
+       <th>Portion</th>
+       <th>Glucides</th>
+   </tr>
+
+{% for aliment in aliments %}
+   <tr bgcolor="888888">
+       <td align="center"> <a href="{% url 'alimentdetails' aliment.slug %}" > {{aliment.name}} </a></td>
+       <td align="center"> {{aliment.weight}}g </td>
+       <td align="center"> {{aliment.glucide}}g </td>
+   </tr>
+{% endfor %}
+</table>
+{% endblock content %}
+
+
+
+
+
