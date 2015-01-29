@@ -3,12 +3,6 @@
 @import url('fonts.css');
 @import url('flaticon.css');
 
-/*
-	Big Picture by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
 /*********************************************************************************/
 /* Basic                                                                         */
 /*********************************************************************************/
@@ -867,7 +861,7 @@ form#nav-search input[type="submit"] {
 	}
 	
 	#alimentation-sub-navigation {
-		width: 18em;
+		width: 23em;
 		margin-left: auto;
 		margin-right: auto;
 		height: 3em;
@@ -881,9 +875,15 @@ form#nav-search input[type="submit"] {
 
 			#alimentation-sub-navigation ul li {
 				display: inline-block;
-				margin-left: 0.5em;
+				margin: 0 0.5em;
 				font-size: 1em;
 			}
+
+				#alimentation-sub-navigation span#icone-aliment-manquant {
+					font-size: 2em;
+					vertical-align: top;
+					margin-right: 6px;
+				}
 			
 				#alimentation-sub-navigation ul li a {
 					font-family: 'kenyan_coffeeregular';
@@ -909,7 +909,7 @@ form#nav-search input[type="submit"] {
 				}
 
 	#carnet-sub-navigation {
-		width: 24em;
+		width: 32em;
 		margin-left: auto;
 		margin-right: auto;
 		height: 3em;
@@ -923,7 +923,7 @@ form#nav-search input[type="submit"] {
 
 			#carnet-sub-navigation ul li {
 				display: inline-block;
-				margin-left: 0.5em;
+				margin: 0 0.5em;
 				font-size: 1em;
 			}
 			
@@ -951,7 +951,7 @@ form#nav-search input[type="submit"] {
 				}
 
 	#profil-sub-navigation {
-		width: 17em;
+		width: 22em;
 		margin-left: auto;
 		margin-right: auto;
 		height: 3em;
@@ -1090,6 +1090,7 @@ form#nav-search input[type="submit"] {
 		padding-top: 0.4em;
 		padding-bottom: 0.4em;
 		font-size: 2.5em;
+		text-shadow: 0px 0px 0.2em rgba(0,0,0,0.2);
 	}
 
 	#carnet p {
@@ -1119,19 +1120,16 @@ form#nav-search input[type="submit"] {
 	}
 
 	.a-propos span.btn-option {
-		font-family: 'tall_filmsregular';
-		font-size: 1.2em;
+		font-size: 2em;
 		position: relative;
 		float: right;
-		height: 2em;
-		width: 2.5em;
+		height: 1em;
+		width: 1.25em;
 		right: 0;
-		top: -2em;
-		background: #d7d7d7;
-		border-radius: 3px;
-		padding: 0.25em 0.8em;
-		margin-left: 0.5em;
-		color: white;
+		top: -1.25em;
+		margin-left: 1em;
+		padding-top: 0.15em;
+		color: #39454b;
 		-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
 		-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
 		-o-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
@@ -1140,7 +1138,7 @@ form#nav-search input[type="submit"] {
 	}
 
 	.a-propos span.btn-option:hover {
-		background: #39454b;
+		color: #5c89c7;
 		cursor: pointer;
 	}
 
@@ -1588,6 +1586,7 @@ table#table-releves {
 			padding-right: 1em;
 			padding-left: 1em;
 			font-size: 2.5em;
+			text-shadow: 0px 0px 0.2em rgba(0,0,0,0.2);
 		}
 
 		 #work.alimentation {
@@ -1604,13 +1603,13 @@ table#table-releves {
 
 		.border-search {
 			background: rgba(0,0,0,0.15);
-			border-radius: 40px;
+			border-radius: 25px;
 			padding: 0.4em;
 		}
 
 		.background-search {
 			background: white;
-			border-radius: 30px;
+			border-radius: 20px;
 			height: auto;
 			width: 100%;
 		}

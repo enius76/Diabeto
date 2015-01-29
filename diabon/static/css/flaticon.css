@@ -24,7 +24,7 @@
 
 #work.carnet .flaticon-dark37:before {
 	margin: -0.3em;
-	font-size:0.75em;
+	font-size: 0.75em;
 }
 
 /* --------- GRAPHIQUE STATS ----------- */
@@ -44,6 +44,7 @@
 
 #work.carnet .flaticon-export:before {
 	margin: -0.3em;
+	font-size: 0.75em;
 }
 
 /* --------- SERINGUE ----------- */
@@ -108,9 +109,13 @@
 }
 
 #alimentation .flaticon-restaurant23:before {
-	font-size: 3.5em;
+	font-size: 1em;
 	color: white;
 	padding: 0.2em;
+}
+
+#composer-menu .flaticon-restaurant23:before {
+	font-size: 1em;
 }
 
 /* --------- CARNET ----------- */
@@ -136,7 +141,7 @@
 }
 
 #carnet .flaticon-small21:before {
-	font-size: 3.5em;
+	font-size: 1em;
 	color: white;
 	padding: 0.2em 0.35em;
 }
@@ -175,7 +180,7 @@
 }
 
 #work.articles .flaticon-thumbs16:before {
-	font-size: 3.5em;
+	font-size: 1em;
 	padding: 0.2em 0.35em;
 }
 

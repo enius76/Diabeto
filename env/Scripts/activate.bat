@@ -1,5 +1,5 @@
 @echo off
-set "VIRTUAL_ENV=C:\Users\Florent\Desktop\imac3\web\diabon\env"
+set "VIRTUAL_ENV=C:\Users\Brice\Documents\GitHub\Diabeto\env"
 
 if defined _OLD_VIRTUAL_PROMPT (
     set "PROMPT=%_OLD_VIRTUAL_PROMPT%"

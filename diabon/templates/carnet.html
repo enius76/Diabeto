@@ -19,10 +19,10 @@
 				<!-- Sub Nav -->
 					<nav role="navigation" id="carnet-sub-navigation">
 						<ul>
-							<li><a href="#releves">Mes relevés</a></li>
-							<li><a href="#composer-menu">Mon menu</a></li>
-							<li><a href="#statistiques">Mes statistiques</a></li>
-							<li><a href="#agenda">Mon agenda</a></li>
+							<li><a href="#releves"><span class="flaticon-injection2"></span>Mes relevés</a></li>
+							<li><a href="#composer-menu"><span class="flaticon-restaurant23"></span>Mon menu</a></li>
+							<li><a href="#statistiques"><span class="flaticon-education12"></span>Mes statistiques</a></li>
+							<li><a href="#agenda"><span class="flaticon-small58"></span>Mon agenda</a></li>
 						</ul>
 					</nav>
 
@@ -32,8 +32,7 @@
 			<section id="carnet" class="main style1 dark fullscreen">
 				<div class="content container 75%">
 					<header>
-						<span class="flaticon-small21"></span>
-						<h2>#Prénom, voici votre dernier relevé :</h2>
+						<h2><span class="flaticon-small21"></span>#Prénom, voici votre dernier relevé :</h2>
 						<div class="border-search">
 							<div class="background-search">
 								<span class="flaticon-thumbs16"></span>
@@ -108,7 +107,7 @@
 				            	<div class="view view-first">  
 								     <img src="/static/images/thumbs/01.jpg" />  
 								     <div class="mask">  
-								     <h2>Mon menu</h2>  
+								     <h2><span class="flaticon-restaurant23"></span>Mon menu</h2>  
 								     <p>Composez votre menu pour en connaître la valeur glucidique.</p>  
 								         <a href={% url 'menu' %} class="info">composer</a>  
 								     </div>  
@@ -128,7 +127,6 @@
 							<h2><span class="flaticon-education12"></span>Mes statistiques</h2>
 							<span class="btn-option" title="Exporter"><span class="flaticon-export"></span></span>
 							<span class="btn-option" title="Rechercher"><span class="flaticon-dark37"></span></span>
-							<span class="btn-option" title="Ajouter un rendez-vous">+</span>
 							<div class="clear"></div>
 						</header>
 
@@ -259,6 +257,11 @@
             
             });
 		</script>
+
+        <!-- changement padding body -->
+            <script type="text/javascript">
+                $('body').css('padding-top', '7em');
+            </script>
 
 
 
