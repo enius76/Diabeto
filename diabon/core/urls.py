@@ -11,10 +11,7 @@ urlpatterns = patterns('',
 	url(r'^alimentation/catalogue/$', 'core.views.catalogue', name='catalogue'),
 	url(r'^alimentation/catalogue/(?P<category>[\w-]+)/$', 'core.views.catalogue', name='catalogueCategory'),
 	url(r'^alimentation/catalogue/(?P<letter>[\w-]+)/$', 'core.views.catalogue', name='catalogueLetter'),
-
 	url(r'^alimention/mon-menu/$', 'core.views.menu', name='menu'),
 	url(r'^mentions-legales/$', 'core.views.mentions', name='mentions'),
 	url(r'^equipe/$', 'core.views.equipe', name='equipe'),
-
-
 )

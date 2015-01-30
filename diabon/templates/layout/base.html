@@ -44,7 +44,11 @@
 			<header id="header">
 
 				<!-- Logo -->
-					<h1 id="logo"><a href={% url 'home' %}><img src="/static/images/logo2.png" alt="Diab'On" title="Accueil" /></a></h1>
+					<h1 id="logo">
+						<a href={% url 'home' %}>
+							<img src="/static/images/logo2.png" alt="Diab'On" title="Accueil" />
+						</a>
+					</h1>
 				
 				<!-- Nav -->
 					<nav role="navigation" id="navigation">
@@ -55,25 +59,91 @@
 									<input type="submit" value="OK" />
 								</form>
 							</li>
-							<li><a href={% url 'carnet' %}>Carnet</a></li>
-							<li><a href={% url 'alimentation' %}>Alimentation</a></li>
-							<li><a href={% url 'conseils' %}>Conseils</a></li>
-							<li><a href={% url 'profil' %}>Profil</a></li>
+							<li><a href={% url 'carnet' %}>
+								<span class="flaticon-book118"></span>Carnet
+							</a></li>
+							<li><a href={% url 'alimentation' %}>
+								<span class="flaticon-apple55"></span>Alimentation
+							</a></li>
+							<li><a href={% url 'conseils' %}>
+								<span class="flaticon-bald23"></span>Conseils</a>
+							</li>
+							<li style="display:none;"><a href={% url 'profil' %}>Profil</a></li>
+							<li>
+								<!-- Form login -->
+								<a id="modal_trigger" href="#modal" class="btn">Connexion</a>
+								
+								<div id="modal" class="popupContainer" style="display:none;">
+									<header class="popupHeader">
+										<span class="header_title">Connexion</span>
+										<span class="modal_close"><i class="fa fa-times"></i></span>
+									</header>
+									
+									<section class="popupBody">
+										<!-- Social Login -->
+										<div class="social_login">
+											<form>
+												<label>Email</label>
+												<input type="text" />
+												<br />
+
+												<label>Mot de passe</label>
+												<input type="password" />
+
+												<div class="checkbox">
+													<input id="remember" type="checkbox" />
+													<label for="remember">Se souvenir de moi</label>
+												</div>
+
+												<div class="action_btns">
+													<div class="one_half">
+														<a href="#user_register" class="btn back_btn">Inscription</a>
+													</div>
+													<div class="one_half last">
+														<a href="#" class="btn btn_red">Connexion</a>
+													</div>
+												</div>
+											</form>
+
+											<a href="#" class="forgot_password">Mot de passe oublié ?</a>
+										</div>
+
+										<!-- Register Form -->
+										<div class="user_register">
+											<form>
+												<label>Full Name</label>
+												<input type="text" />
+												<br />
+
+												<label>Email Address</label>
+												<input type="email" />
+												<br />
+
+												<label>Password</label>
+												<input type="password" />
+												<br />
+
+												<div class="checkbox">
+													<input id="send_updates" type="checkbox" />
+													<label for="send_updates">Send me occasional email updates</label>
+												</div>
+
+												<div class="action_btns">
+													<div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
+													<div class="one_half last"><a href="#" class="btn btn_red">Register</a></div>
+												</div>
+											</form>
+										</div>
+									</section>
+								</div>
+							</li>
 						</ul>
 					</nav>
 
 			</header>
 
-
-
-
 			<!-- contenu dynamique -->
 		    <div id="content">{% block content %}{% endblock content %} </div>
-
-
-
-
-
 
 <!-- Footer -->
 			<footer id="footer">
@@ -108,6 +178,35 @@
 		<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     	<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
     	<script src="/static/js/morris-stats.js"></script>
+		<script src="/static/js/jquery.leanModal.min.js"></script>
+
+	<!-- Login -->
+		<script type="text/javascript">
+			$("#modal_trigger").leanModal({top : 60, overlay : 0.6, closeButton: ".modal_close" });
+			$(function(){
+				// Calling Login Form
+				$("#login_form").click(function(){
+					$(".social_login").hide();
+					$(".user_login").show();
+					return false;
+				});
+				// Calling Register Form
+				$("#register_form").click(function(){
+					$(".social_login").hide();
+					$(".user_register").show();
+					$(".header_title").text('Register');
+					return false;
+				});
+				// Going back to Social Forms
+				$(".back_btn").click(function(){
+					$(".user_login").hide();
+					$(".user_register").hide();
+					$(".social_login").show();
+					$(".header_title").text('Login');
+					return false;
+				});
+			})
+		</script>
 
 	</body>
 </html>
