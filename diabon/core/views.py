@@ -65,3 +65,15 @@ def equipe(request):
 def menu(request):
 	foo = ''
 	return render_to_response('mon-menu.html', {'foo': foo})	
+
+def connexion(request):
+    foo = ''
+    return render_to_response('connexion.html', {'foo': foo})
+
+def inscription(request):
+    foo = ''
+    return render_to_response('inscription.html', {'foo': foo})
+
+def inscription_details(request):
+    foo = ''
+    return render_to_response('inscription-details.html', {'foo': foo})

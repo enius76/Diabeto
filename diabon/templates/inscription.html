@@ -1,0 +1,35 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+
+<!-- Inscription -->
+    <section id="work" class="main style3 secondary inscription">
+        <div class="content container 75%">
+            <header>
+                <h2>Créez votre compte DiabON</h2>
+                <p>Cela ne vous prendra que 3 minutes pour remplir au mieux votre profil</p>
+            </header>
+
+        <!-- Recherche -->
+        <div id="inscription-container">
+            <form id="inscription-form" action="">
+                <label>Prénom et nom</label>
+                <input type="text" name="surname" id="surname" placeholder="Prénom"/>
+                <input type="text" name="name" id="name" placeholder="Nom"/>
+
+                <label>Adresse e-mail</label>
+                <input type="email" name="email" id="email" placeholder="exemple@diabon.fr"/>
+
+                <label>Choisissez un mot de passe</label>
+                <input type="password" name="password" id="password" />
+
+                <label>Confirmez votre mot de passe</label>
+                <input type="password" name="password-confirmation" id="password-confirmation" />
+
+                <a href={% url 'inscription-details' %}><input type="submit" name="inscription" value="Etape suivante"/></a>
+            </form>
+        </div>                 
+    </section>
+
+
+{% endblock content %}

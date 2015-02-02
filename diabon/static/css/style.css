@@ -783,10 +783,10 @@ form#nav-search input[type="submit"] {
 		}
 
 		#logo img {
-			height: 48px;
+			height: 1em;
 			padding-left: 0.5em;
 			padding-right: 0.5em;
-			margin-top: 0.35em;
+			margin-top: 0.3em;
 		}
 	
 	#navigation {
@@ -837,6 +837,16 @@ form#nav-search input[type="submit"] {
 
 				#navigation ul li a:hover {
 					opacity: 0.5;
+				}
+
+				#navigation ul li#connexion a {
+					background: white;
+					padding: 0.25em 0.8em;
+					color: #5c89c7;
+					height: 1.5em;
+					line-height: 1em;
+					border-radius: 3px;
+					margin-top: 0.55em;
 				}
 
 			#navigation ul li.search {
@@ -951,7 +961,7 @@ form#nav-search input[type="submit"] {
 				}
 
 	#profil-sub-navigation {
-		width: 22em;
+		width: 21.5em;
 		margin-left: auto;
 		margin-right: auto;
 		height: 3em;
@@ -993,201 +1003,265 @@ form#nav-search input[type="submit"] {
 				}
 
 /*********************************************************************************/
-/* Form login								                                     */
+/* Connexion								                                     */
 /*********************************************************************************/
 
-#lean_overlay {
-    position: fixed;
-    z-index:100;
-    top: 0px;
-    left: 0px;
-    height:100%;
-    width:100%;
-    display: none;
+#work.connexion {
+	padding-top: 3em;
+	padding-bottom: 3em;
 }
 
-.popupContainer{
-	position:absolute;
-	width: 101%;
-	height: auto;
-	padding: 17em;
-	left: 18em !important;
-	top: -6em !important;
-	background: rgba(0,0,0,0.25);
-	border-radius: 4px;
-}
-
-#modal_trigger {display:block;}
-
-#modal form label {display:initial;}
-
-#modal a.forgot_password {
-	font-family: inherit;
-	font-size: 1em;
-	color: #455a64;
-	height: 2.5em;
-	opacity: 1;
-	-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-	-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-	-o-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-	-ms-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-	transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-}
-
-#modal a.forgot_password:hover {
-	opacity: 0.5;
-}
-
-a#modal_trigger.btn {
-	font-family: 'tall_filmsregular';
-	font-weight: bold;
-	font-size: 1.4em;
-	color: #5c89c7;
+#work.connexion #connexion-container {
+	border-radius: 3px;
+	text-align: center;
+	box-shadow: 1px 1px 2px #e6e6e6;
 	background: white;
-	padding: 0.1em 0.5em;
-	border-radius: 3px;
-	height: 1.26em;
-	line-height: 1.15em;
-	margin-top: 0.5em;
+	padding: 1em;
+	margin-bottom: 1em;
 }
 
-#modal form input[type="text"], input[type="password"]{
-	display: block;
-	width: 100%;
-	padding: 0.65em 0.75em;
-	background: none;
-	border: solid 2px rgba(185,186,187,0.25);
-	color: inherit;
-	border-radius: 0.5em;
-	outline: none;
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	-o-appearance: none;
-	-ms-appearance: none;
-	appearance: none;
-	-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-	-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-	-o-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-	-ms-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-	transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+	#work.connexion #connexion-container img {
+		margin-top: 1em;
+	}
+
+
+	form#connexion-form {
+		width: 50%;
+		margin: 1em auto;
+	}
+
+		form#connexion-form input[type="text"] {
+			display: block;
+			width: 100%;
+			padding: 0.65em 0.75em;
+			background: none;
+			border: solid 2px rgba(185,186,187,0.25);
+			color: inherit;
+			border-radius: 0.5em;
+			outline: none;
+			margin-bottom: 1em;
+		}
+
+		form#connexion-form input[type="password"] {
+			margin-bottom: 1em;
+		}
+
+		form#connexion-form input[type="submit"] {
+			width: 100%;
+			padding: 0.25em 0.5em;
+			background: #5c89c7;
+			border-radius: 3px;
+			color: white;
+			height: 2em;
+			line-height: 1em;
+			margin-bottom: 1em;
+			-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+			-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+			-o-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+			-ms-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+			transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+		}
+
+		form#connexion-form input[type="submit"]:hover {
+			background: #455a64;
+		}
+
+	#inscription a {
+		font-family: 'kenyan_coffeeregular';
+		color: #5c89c7;
+		text-decoration: none;
+		opacity: 1;
+		-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+			-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+			-o-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+			-ms-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+			transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+	}
+
+	#inscription a:hover {
+		opacity: 0.5;
+	}
+
+/*********************************************************************************/
+/* Inscription								                                     */
+/*********************************************************************************/
+
+#work.inscription {
+	padding-top: 3em;
+	padding-bottom: 3em;
 }
 
-#modal a.back_btn {
-	background: #455a64;
-	opacity: 1;
-	height: 2.5em;
-	border-radius: 3px;
-	-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-	-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-	-o-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-	-ms-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-	transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+	form#inscription-form {
+		width: 50%;
+		margin: 0 auto;
+	}
+
+		form#inscription-form label {
+			display: block;
+			width: 100%;
+			text-align: left;
+		}
+
+			form#inscription-form input {
+				margin-bottom: 1em;
+				border-radius: 3px;
+				background: white;
+			}
+
+				form#inscription-form input[type="text"] {
+					display: block;
+					width: 100%;
+					padding: 0.65em 0.75em;
+					border: solid 2px rgba(185,186,187,0.25);
+					color: inherit;
+					outline: none;
+				}
+
+				form#inscription-form input[type="submit"] {
+					width: 100%;
+					padding: 0.25em 0.5em;
+					background: #5c89c7;
+					color: white;
+					height: 2em;
+					margin-top: 1em;
+					line-height: 1em;
+					-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+					-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+					-o-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+					-ms-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+					transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+				}
+
+				form#inscription-form input[type="submit"]:hover {
+					background: #455a64;
+				}
+
+/*********************************************************************************/
+/* Inscription details						                                     */
+/*********************************************************************************/
+
+#work.inscription-details {
+	padding-top: 3em;
+	padding-bottom: 3em;
 }
 
-#modal a.back_btn:hover {
-	opacity: 0.5;
-}
+	form#inscription-details-form {
+		width: 75%;
+		margin: 0 auto;
+	}
 
-#modal a.btn_red {
-	background: #5c89c7;
-	opacity: 1;
-	height: 2.5em;
-	border-radius: 3px;
-	-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-	-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-	-o-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-	-ms-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-	transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-}
+		form#inscription-details-form .contact {
+			background: white;
+			padding: 1em 1em 0.01em 1em;
+			margin-bottom: 1em;
+		}
 
-#modal a.btn_red:hover {
-	opacity: 0.5;
-}
+		form#inscription-details-form label {
+			display: block;
+			width: 100%;
+			text-align: left;
+		}
 
-.btn {padding:10px 20px;}
-.btn_red {background: #ED6347; color: #FFF;}
+			form#inscription-details-form label.title {
+				font-family: 'kenyan_coffeeregular';
+				font-size: 1.5em;
+				margin: 1em 0;
+				text-align: center;
+				display: inline-block;
+			}
 
-.btn:hover {background: #E4E4E2;}
-.btn_red:hover {background: #C12B05;}
+			form#inscription-details-form label.sub-title {
+				background: #5c89c7;
+				border-radius: 3px;
+				color: white;
+				padding: 0.25em 1em;
+				margin-bottom: 1em;
+			}
 
-a.btn {color:#666; text-align: center; text-decoration: none;}
-a.btn_red {color: #FFF;}
+			form#inscription-details-form input {
+				margin-bottom: 1em;
+				border-radius: 3px;
+				background: white;
+			}
 
-.one_half {width:50%; display: block; float:left;}
-.one_half.last {width:45%; margin-left:5%;}
+				form#inscription-details-form input[type="text"] {
+					display: block;
+					width: 100%;
+					padding: 0.65em 0.75em;
+					border: solid 2px rgba(185,186,187,0.25);
+					color: inherit;
+					outline: none;
+				}
 
-/* Popup Styles*/
-.popupHeader {font-size:16px; text-transform: uppercase;}
+				form#inscription-details-form input[type="phone"] {
+					display: block;
+					width: 100%;
+					padding: 0.65em 0.75em;
+					border: solid 2px rgba(185,186,187,0.25);
+					color: inherit;
+					outline: none;
+				}
 
-.popupHeader {
-	font-family: 'kenyan_coffeeregular'; 
-	font-size: 1.25em; 
-	font-weight: normal !important; 
-	background: #5c89c7; 
-	color: white; 
-	position:relative; 
-	padding: 0 1em 0 0.7em; 
-	border-bottom:1px solid #DDD; 
-	font-weight:bold;
-	border-radius: 3px 3px 0 0;
-	margin-bottom: 0;
-}
+				form#inscription-details-form input[type="textarea"] {
+					display: block;
+					width: 100%;
+					padding: 0.65em 0.75em;
+					border: solid 2px rgba(185,186,187,0.25);
+					color: inherit;
+					outline: none;
+				}
 
-.popupHeader .modal_close {
-	position: absolute; 
-	right: 0; 
-	top:0; 
-	padding:0 1em; 
-	background:#3867a7; 
-	color: white; 
-	cursor: pointer; 
-	color:#aaa; 
-	font-size:16px;
-	border-radius: 0 3px 0 0;
-}
+				form#inscription-details-form input[type="submit"] {
+					width: 100%;
+					padding: 0.25em 0.5em;
+					background: #5c89c7;
+					color: white;
+					height: 2em;
+					margin-top: 1em;
+					line-height: 1em;
+					-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+					-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+					-o-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+					-ms-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+					transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+				}
 
-.popupHeader .modal_close .fa {color: white;}
+				form#inscription-details-form input[type="submit"]:hover {
+					background: #455a64;
+				}
 
-.popupBody {
-	padding: 1em; 
-	margin-top: -1em;
-	margin-bottom: -1em !important;
-	background: white;
-}
+				form#inscription-details-form input#profil-picture{
+					font-size: 0.8em;
+					padding: 1em;
+					width: 100%;
+					border-radius: 3px;
+					border: solid 2px rgba(185,186,187,0.25);
+				}
 
+				form#inscription-details-form input#anniversaire{
+					padding: 0.65em 0.75em;
+					width: 100%;
+					border-radius: 3px;
+					border: solid 2px rgba(185,186,187,0.25);
+				}
 
-/* Social Login Form */
-.social_login {}
-.social_login .social_box {display:block; clear:both; padding:10px; margin-bottom: 10px; background: #F4F4F2; overflow: hidden;}
-.social_login .icon {display:block; width:10px; padding:5px 10px; margin-right: 10px; float:left; color:#FFF; font-size:16px; text-align: center;} 
-.social_login .fb .icon {background:#3B5998;}
-.social_login .google .icon {background:#DD4B39;}
-.social_login .icon_title {display:block; padding:5px 0; float:left; font-weight: bold; font-size: 16px; color:#777;}
-.social_login .social_box:hover {background: #E4E4E2;}
+				form#inscription-details-form select {
+					margin-bottom: 1em;
+					border-radius: 3px;
+					background: white url('../images/tri-decroissant.png');
+					background-repeat: no-repeat;
+					background-position: 29em center;
+					outline: none;
+				}
 
-.centeredText {text-align: center; margin: 20px 0; clear: both; overflow: hidden; text-transform: uppercase;}
+				form#inscription-details-form select:hover {
+					cursor: pointer;
+				}
 
-.action_btns {clear:both; overflow: hidden; height: 3.2em;}
-.action_btns a {display: block;}
-
-/* User Login Form */
-.user_login {display: none;}
-.user_login label {display: block; margin-bottom:5px;}
-.user_login input[type="text"], .user_login input[type="email"], .user_login input[type="password"] {display: block; width:90%; padding: 10px; border:1px solid #DDD; color:#666;}
-.user_login input[type="checkbox"] {float:left; margin-right:5px;}
-.user_login input[type="checkbox"]+label {float:left;}
-
-.user_login .checkbox {margin-bottom: 10px; clear: both; overflow: hidden;}
-.forgot_password {display:block; margin: 20px 0 10px; clear: both; overflow: hidden; text-decoration: none; color:#ED6347;}
-
-/* User Register Form */
-.user_register {display: none;}
-.user_register label {display: block; margin-bottom:5px;}
-.user_register input[type="text"], .user_register input[type="email"], .user_register input[type="password"] {display: block; width:90%; padding: 10px; border:1px solid #DDD; color:#666;}
-.user_register input[type="checkbox"] {float:left; margin-right:5px;}
-.user_register input[type="checkbox"]+label {float:left;}
-
-.user_register .checkbox {margin-bottom: 10px; clear: both; overflow: hidden;}
+		#work.inscription-details .info {
+			font-size: 0.8em;
+			margin-bottom: 1em;
+		}
 
 /*********************************************************************************/
 /* Presentation                                                                  */
@@ -1345,14 +1419,10 @@ nav#releves-tri {
 
 		nav#releves-tri li {
 			display: inline-block;
-			margin-bottom: 1em;
-			margin-left: 0.5em;
-			margin-right: 0.5em;
+			margin: 0 0.25em 1em 0;
 		}
 
 			nav#releves-tri li a {
-				font-family: 'tall_filmsregular';
-				font-size: 1.7em;
 				color: white;
 				padding: 0.25em 0.8em;
 				border-radius: 3px;
@@ -1466,14 +1536,10 @@ table#table-releves {
 
 		nav#stats-tri li {
 			display: inline-block;
-			margin-bottom: 1em;
-			margin-left: 0.5em;
-			margin-right: 0.5em;
+			margin: 0 0.25em 1em 0;
 		}
 
 			nav#stats-tri li a {
-				font-family: 'tall_filmsregular';
-				font-size: 1.7em;
 				color: white;
 				padding: 0.25em 0.8em;
 				border-radius: 3px;
@@ -1556,8 +1622,6 @@ table#table-releves {
 			}
 
 		#btn-mdp {
-			font-family: 'tall_filmsregular';
-			font-size: 1.2em;
 			float: right;
 			background: #5c89c7;
 			border-radius: 3px;
@@ -1577,12 +1641,11 @@ table#table-releves {
 		}
 
 		#btn-photo {
-			font-family: 'tall_filmsregular';
-			font-size: 1.2em;
 			float: right;
 			background: #5c89c7;
 			border-radius: 3px;
 			padding: 0.25em 0.8em;
+			margin-top: -5em;
 			color: white;
 			-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
 			-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
@@ -1611,16 +1674,12 @@ table#table-releves {
 		}
 
 		.a-propos span.btn-modifier {
-			font-family: 'tall_filmsregular';
-			font-size: 1.2em;
 			position: relative;
 			float: right;
+			color: #d7d7d7;
 			right: 0;
-			top: -1.8em;
-			background: #d7d7d7;
-			border-radius: 3px;
+			top: -2em;
 			padding: 0.25em 0.8em;
-			color: white;
 			-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
 			-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
 			-o-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
@@ -1629,22 +1688,19 @@ table#table-releves {
 		}
 
 		.a-propos span.btn-modifier:hover {
-			background: #455a64;
 			cursor: pointer;
+			color: #39454b;
 		}
 
 		.a-propos span.btn-ajouter {
-			font-family: 'tall_filmsregular';
-			font-size: 1.2em;
 			position: relative;
 			float: right;
 			right: 0;
-			top: -1.8em;
-			background: #d7d7d7;
-			border-radius: 3px;
-			padding: 0.25em 0.8em;
+			top: -0.7em;
+			color: #d7d7d7;
+			padding: 0;
 			margin-right: 1em;
-			color: white;
+			font-size: 2.5em;
 			-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
 			-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
 			-o-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
@@ -1653,7 +1709,7 @@ table#table-releves {
 		}
 
 		.a-propos span.btn-ajouter:hover {
-			background: #455a64;
+			color: #39454b;
 			cursor: pointer;
 		}
 
@@ -1823,7 +1879,6 @@ table#table-releves {
 				float: right;
 				background: none;
 				padding: 0 2em 0 1em;
-				font-weight: 900;
 				color: #8cb02b;
 			}
 
@@ -1889,8 +1944,6 @@ table#table-releves {
 	    text-align: center
 	}
 	.alimentation-features .view a.info {
-		font-family: 'tall_filmsregular';
-		font-size: 1.5em;
 	    display: inline-block;
 	    text-decoration: none;
 	    padding: 0.25em 0.8em;

@@ -40,6 +40,11 @@ nav#navigation .flaticon-book118:before {
 	font-size: 1em;
 }
 
+#intro .flaticon-book118:before {
+	font-size: 1em;
+	font-weight: normal;
+}
+
 /* Alimentation - Pomme */
 .flaticon-apple55:before {
 	content: "\e001";
@@ -47,6 +52,11 @@ nav#navigation .flaticon-book118:before {
 
 nav#navigation .flaticon-apple55:before {
 	font-size: 0.8em;
+}
+
+#one .flaticon-apple55:before {
+	font-size: 0.8em;
+	font-weight: normal;
 }
 
 /* Conseils */
@@ -58,7 +68,18 @@ nav#navigation .flaticon-bald23:before {
 	font-size: 1.1em;
 }
 
+#two .flaticon-bald23:before {
+	font-size: 1.1em;
+	font-weight: normal;
+}
+
 /* --------------- CARNET --------------- */
+
+#carnet .flaticon-book118:before {
+	font-weight: normal;
+	font-size: 1em;
+	margin-right: 0.5em;
+}
 
 /* Mes Releves - liste */
 .flaticon-list1:before {
@@ -67,7 +88,8 @@ nav#navigation .flaticon-bald23:before {
 
 #work.carnet .flaticon-list1:before {
 	font-size: 1.2em;
-	margin-right: 0.2em;
+	margin-right: 0.3em;
+	font-weight: normal;
 }
 
 /* Mon Menu - Couverts */
@@ -77,6 +99,8 @@ nav#navigation .flaticon-bald23:before {
 
 #composer-menu .flaticon-restaurant23:before {
 	font-size: 0.9em;
+	font-weight: normal;
+	margin-right: 0.5em;
 }
 
 /* Mes Stats */
@@ -87,6 +111,7 @@ nav#navigation .flaticon-bald23:before {
 #work.carnet .flaticon-education12:before {
 	font-size: 0.8em;
 	margin-right: 0.5em;
+	font-weight: normal;
 }
 
 /* Mon Agenda */
@@ -97,6 +122,7 @@ nav#navigation .flaticon-bald23:before {
 #work.carnet .flaticon-small58:before {
 	font-size: 0.8em;
 	margin-right: 0.5em;
+	font-weight: normal;
 }
 
 /* Export */
@@ -143,7 +169,7 @@ nav#alimentation-sub-navigation .flaticon-book1:before {
 }
 
 .alimentation-features .flaticon-book1:before {
-	font-size: 0.9em;
+	font-size: 0.8em;
 	font-weight: normal;
 	margin-right: 0.4em;
 }
@@ -151,6 +177,7 @@ nav#alimentation-sub-navigation .flaticon-book1:before {
 /* Header */
 #alimentation .flaticon-apple55:before {
 	font-size: 0.8em;
+	font-weight: normal;
 }
 
 
@@ -161,9 +188,21 @@ nav#alimentation-sub-navigation .flaticon-book1:before {
 	content: "\e00c";
 }
 
+#work.menu .flaticon-healthyfood5:before {
+	font-weight: normal;
+	margin-right: 0.5em;
+	font-size: 0.9em;
+}
+
 /* Plat - poulet */
 .flaticon-turkey7:before {
 	content: "\e014";
+}
+
+#work.menu .flaticon-turkey7:before {
+	font-weight: normal;
+	margin-right: 0.5em;
+	font-size: 1.2em;
 }
 
 /* Laitage - fromage */
@@ -171,14 +210,32 @@ nav#alimentation-sub-navigation .flaticon-book1:before {
 	content: "\e005";
 }
 
+#work.menu .flaticon-cheese14:before {
+	font-weight: normal;
+	margin-right: 0.5em;
+	font-size: 0.9em;
+}
+
 /* Dessert - muffin */
 .flaticon-cupcake3:before {
 	content: "\e006";
 }
 
+#work.menu .flaticon-cupcake3:before {
+	font-weight: normal;
+	margin-right: 0.5em;
+	font-size: 1em;
+}
+
 /* Boissons - Verre*/
 .flaticon-glass23:before {
 	content: "\e00b";
+}
+
+#work.menu .flaticon-glass23:before {
+	font-weight: normal;
+	margin-right: 0.5em;
+	font-size: 0.9em;
 }
 
 
@@ -189,17 +246,39 @@ nav#alimentation-sub-navigation .flaticon-book1:before {
 	content: "\e007";
 }
 
+#profil-infos .flaticon-edit45:before {
+	font-size: 1.5em;
+}
+
 /* A propos - profil */
 .flaticon-profile4:before {
 	content: "\e00f";
+	font-size: 1em;
+	font-weight: 900;
+}
+
+#profil-infos .flaticon-profile4:before {
+	margin-right: 0.5em;
 }
 
 /* Mon diabete - carnet croix */
 .flaticon-folder160:before {
 	content: "\e00a";
+	font-size: 1em;
+	font-weight: normal;
+}
+
+#profil-infos .flaticon-folder160:before {
+	margin-right: 0.5em;
 }
 
 /* Contacts - annuaire */
 .flaticon-notebook32:before {
 	content: "\e00e";
+	font-size: 1em;
+	font-weight: normal;
+}
+
+#profil-infos .flaticon-notebook32:before {
+	margin-right: 0.5em;
 }

@@ -14,4 +14,7 @@ urlpatterns = patterns('',
 	url(r'^alimention/mon-menu/$', 'core.views.menu', name='menu'),
 	url(r'^mentions-legales/$', 'core.views.mentions', name='mentions'),
 	url(r'^equipe/$', 'core.views.equipe', name='equipe'),
+	url(r'^connexion/$', 'core.views.connexion', name='connexion'),
+	url(r'^inscription/$', 'core.views.inscription', name='inscription'),
+	url(r'^inscription-details/$', 'core.views.inscription_details', name='inscription-details'),
 )
