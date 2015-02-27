@@ -497,6 +497,7 @@
 			background: #fff;
 			color: #455a64;
 			padding: 2em;
+			box-shadow: 1px 1px 2px #e6e6e6;
 		}
 		
 			.box.style2 {
@@ -723,29 +724,33 @@
 /* Barre de recherche                                                            */
 /*********************************************************************************/
 
-form#nav-search input[name="nav-text-search"] {
-	width: 13em;
-	background: white;
-	border: none;
-	height: 2em;
-	border-radius: 3px 0 0 3px;
-	margin-right: -1.7em;
-	font-size: 0.8em;
-	color: #455a64;
-	padding: 0.5em;
-}
+	#navigation ul li#nav-barre-recherche {
+		margin-top: 0.25em;
+	}
 
-form#nav-search input[type="submit"] {
-	width: inherit;
-	background: white;
-	border-radius: 0 3px 3px 0;
-	color: #5c89c7;
-	height: 2em;
-	font-size: 0.8em;
-	padding: 0 0.5em;
-	display: block;
-	line-height: initial;
-}
+	form#nav-search input[name="nav-text-search"] {
+		width: 13em;
+		background: white;
+		border: none;
+		height: 2.6em;
+		border-radius: 3px 0 0 3px;
+		margin-right: -1.7em;
+		font-size: 0.8em;
+		color: #455a64;
+		padding: 0.5em;
+	}
+
+	form#nav-search input[type="submit"] {
+		width: inherit;
+		background: white;
+		border-radius: 0 3px 3px 0;
+		color: #5c89c7;
+		height: 2.6em;
+		font-size: 0.8em;
+		padding: 0 0.5em;
+		display: block;
+		line-height: initial;
+	}
 
 /*********************************************************************************/
 /* Header                                                                        */
@@ -783,18 +788,18 @@ form#nav-search input[type="submit"] {
 		}
 
 		#logo img {
-			height: 1em;
+			height: 0.85em;
 			padding-left: 0.5em;
 			padding-right: 0.5em;
-			margin-top: 0.3em;
+			margin-top: 0.4em;
 		}
 	
 	#navigation {
 		position: absolute;
-		right: 0.5em;
-		top: 0.4em;
-		height: 3em;
-		line-height: 3em;
+		right: 1em;
+		top: 0;
+		height: 4em;
+		line-height: 4em;
 	}
 
 		#navigation form {
@@ -818,14 +823,14 @@ form#nav-search input[type="submit"] {
 				}
 			
 				#navigation ul li a {
-					font-family: 'kenyan_coffeeregular';
-					font-size: 1.25em;
+					font-family: 'tall_filmsregular';
+					font-size: 1.75em;
 					display: block;
 					text-align: center;
 					color: white;
 					opacity: 1;
 					text-decoration: none;
-					height: 2.5em;
+					height: 1.75em;
 					padding: 0.1em 0 0 0;
 					outline: 0;
 					-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
@@ -841,12 +846,12 @@ form#nav-search input[type="submit"] {
 
 				#navigation ul li#connexion a {
 					background: white;
-					padding: 0.25em 0.8em;
+					padding: 0.15em 0.8em;
 					color: #5c89c7;
-					height: 1.5em;
+					height: 1.2em;
 					line-height: 1em;
 					border-radius: 3px;
-					margin-top: 0.55em;
+					margin-top: 0.6em;
 				}
 
 			#navigation ul li.search {
@@ -877,7 +882,7 @@ form#nav-search input[type="submit"] {
 	}
 	
 	#alimentation-sub-navigation {
-		width: 23.5em;
+		width: 24.5em;
 		margin-left: auto;
 		margin-right: auto;
 		height: 3em;
@@ -896,17 +901,17 @@ form#nav-search input[type="submit"] {
 			}
 			
 				#alimentation-sub-navigation ul li a {
-					font-family: 'kenyan_coffeeregular';
-					font-size: 1em;
+					font-family: 'tall_filmsregular';
+					font-size: 1.5em;
 					display: block;
 					text-align: center;
 					color: #8cb02b;
 					text-decoration: none;
 					height: 2em;
+					line-height: 2.1em;
 					padding: 0 0.5em;
 					outline: 0;
 					opacity: 1;
-					text-transform: uppercase;
 					-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
 					-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
 					-o-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
@@ -919,7 +924,7 @@ form#nav-search input[type="submit"] {
 				}
 
 	#carnet-sub-navigation {
-		width: 31.5em;
+		width: 33.5em;
 		margin-left: auto;
 		margin-right: auto;
 		height: 3em;
@@ -938,17 +943,17 @@ form#nav-search input[type="submit"] {
 			}
 			
 				#carnet-sub-navigation ul li a {
-					font-family: 'kenyan_coffeeregular';
-					font-size: 1em;
+					font-family: 'tall_filmsregular';
+					font-size: 1.5em;
 					display: block;
 					text-align: center;
 					color: #5c89c7;
 					text-decoration: none;
 					height: 2em;
+					line-height: 2.1em;
 					padding: 0 0.5em;
 					opacity: 1;
 					outline: 0;
-					text-transform: uppercase;
 					-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
 					-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
 					-o-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
@@ -1381,11 +1386,11 @@ form#nav-search input[type="submit"] {
 		font-size: 2em;
 		position: relative;
 		float: right;
-		height: 1em;
+		height: 1.25em;
 		width: 1.25em;
 		right: 0;
 		top: -1.25em;
-		margin-left: 1em;
+		margin-left: 0.5em;
 		padding-top: 0.15em;
 		color: #455a64;
 		-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
@@ -1395,14 +1400,83 @@ form#nav-search input[type="submit"] {
 		transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
 	}
 
+		.a-propos span.btn-option.export {	
+			background: #455a64;
+			color: white;
+			border-radius: 100%;
+			padding: 0 0.25em;
+			top: -1.1em;
+			width: 0.9em;
+			height: 0.9em;
+			-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+			-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+			-o-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+			-ms-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+			transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+		}
+
 	.a-propos span.btn-option:hover {
 		color: #5c89c7;
 		cursor: pointer;
 	}
 
-	#work.carnet header p {
-		margin: 0 0 1em 0;
-		text-align: left;
+		.a-propos span.btn-option.export:hover {	
+			background: #5c89c7;
+			color: white;
+			cursor: pointer;
+		}
+
+	#work.carnet header p.bulle-help {
+		margin: -1em 0 0 0;
+		text-align: justify;
+		border-radius: 0 0 3px 3px;
+		padding: 1em 1em 1em 4em;
+		color: #455a64;
+		line-height: 1.25em;
+		font-size: 0.75em;
+		border-bottom: 2px solid #aaa;
+		background: #eee url('../images/info.png') no-repeat 1em center;
+		background-size: 2em;
+	}
+
+	#work.alimentation header p.bulle-help {
+		margin: -10px 0 0 0;
+		text-align: justify;
+		border-radius: 0 0 3px 3px;
+		padding: 1em 1em 1em 4em;
+		color: #455a64;
+		line-height: 1.25em;
+		font-size: 0.75em;
+		border-bottom: 2px solid #aaa;
+		background: #eee url('../images/info.png') no-repeat left center;
+		background-size: 53px;
+	}
+
+	p.bulle-help {
+		display: block;
+		margin-bottom: 2em !important;
+	}
+
+	.hide-help {
+		background: url('../images/info.png') no-repeat center 8px;
+		background-size: 0.83em;
+		opacity: 1;
+		-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+		-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+		-o-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+		-ms-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+		transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+	}
+
+	.hide-help:hover {
+		cursor: pointer;
+		opacity: 0.5;
+	}
+
+	#work.alimentation .hide-help {
+		margin-left: 0;
+		background-size: 1.25em;
+		background-position-y: 8px;
 	}
 
 /*********************************************************************************/
@@ -1839,7 +1913,10 @@ table#table-releves {
 		 }
 
 		 	#work.alimentation header h2 {
-				padding-top: 1.5em;
+				padding-top: 2em;
+				color: #455a64;
+				margin-bottom: 1em;
+				font-size: 1.75em;
 			}
 
 			#work.alimentation header p {
@@ -1872,7 +1949,6 @@ table#table-releves {
 				border: 0;
 				padding-top: 1em;
 				padding-left: 1em;
-				color: #8cb02b;
 			}
 
 			form input[type="button"] {
@@ -1894,13 +1970,16 @@ table#table-releves {
 			margin-bottom: 0;
 		}
 
+		#work.carnet .alimentation-features {
+			margin-bottom: 2em;
+		}
+
 /*********************************************************************************/
 /* Alimentation Hover image effect                                               */
 /*********************************************************************************/
 
 	.alimentation-features .view {
 	    width: 100%;
-	    margin: 10px;
 	    float: left;
 	    border: 10px solid #fff;
 	    border-radius: 3px;
@@ -2026,6 +2105,7 @@ table#table-releves {
 			background: none;
 			border: solid 2px rgba(185,186,187,0.25);
 			color: #455a64;
+			width: 100%;
 		}
 
 		form.menu select.quantite {
@@ -2043,10 +2123,11 @@ table#table-releves {
 			color: white;
 			background: #8cb02b;
 			border-radius: 3px;
-			padding: 1em;
 			text-decoration: none;
-			line-height: initial;
-			height: initial;
+			height: 3em;
+			width: 100%;
+			line-height: 3em;
+			padding: 0;
 		}
 
 		form.menu input[type="submit"]:hover {
@@ -2065,6 +2146,7 @@ table#table-releves {
 		text-decoration: none;
 		line-height: initial;
 		height: initial;
+		width: 100%;
 	}
 
 	form#calculate input[type="submit"]:hover {
@@ -2083,7 +2165,7 @@ table#table-releves {
 }
 
 	#work.catalogue {
-		padding-top: 3em;
+		padding-top: 6em;
 	}
 
 	#catalogue h2 {
@@ -2169,35 +2251,28 @@ table#table-releves {
 				text-decoration: none;
 			}
 
-	/* RECHERCHE CATALOGUE */
-	.catalogue form {
-		width: 16em;
-		margin-left: auto;
-		margin-right: auto;
-	}
+/*********************************************************************************/
+/* Recherche catalogue                                                           */
+/*********************************************************************************/
+	form#recherche-catalogue {
+			width: 20em;
+			margin: 0 auto;
+		}
 
-			.catalogue form input[type="text"] {
-				float: none;
-				width: 100%;
-				border: 1px solid #eee;
-				padding-top: 1em;
-				padding-left: 1em;
-				color: #455a64;
-				background: white;
-			}
+		form#recherche-catalogue input[type="text"] {
+			width: 14em;
+			background: #eee;
+			height: 2em;
+			margin-top: 0.5em;
+			border-radius: 3px;
+		}
 
-			.catalogue form input[type="button"] {
-				top: -3.2em;
-				right: -1em;
-			}
-
-			.catalogue form input[type="button"]:hover {
-				background: none;
-			}
-
-			.catalogue form input[type="button"] {
-				color: #8cb02b;
-			}
+		form#recherche-catalogue input[type="button"] {
+			color: #8cb02b;
+			height: 3em;
+			line-height: 2em;
+			padding: 0 3em 0 0;
+		}
 
 /*********************************************************************************/
 /* Table catalogue catégorie                                                     */
@@ -2289,9 +2364,6 @@ table#table-releves {
 	}
 
 		#work.details-aliment #details-aliment-container {
-			width: 37em;
-			margin-right: auto;
-			margin-left: auto;
 		}
 
 		#work.details-aliment img {
@@ -2301,12 +2373,49 @@ table#table-releves {
 			margin-bottom: 1em;
 		}
 
+		#work.details-aliment header {
+			margin-bottom: 2em;
+		}
+
+			#work.details-aliment header h2 {
+				font-size: 2em;
+				margin-bottom: 1em;
+			}
+
+			#work.details-aliment header p {
+				padding: 0.5em;
+				float: left;
+				margin: 0 1em 0 0;
+			}
+
+				#work.details-aliment header p.aliment-name {
+					background: #eee;
+					border-bottom: 2px solid #aaa;
+					border-radius: 3px;
+					width: 82%;
+					margin: 0;
+					text-align: justify;
+				}
+
+				#work.details-aliment header p.aliment-picture {
+					width: 15%;
+					height: 5.5em;
+					padding: 0;
+				}
+
+					#work.details-aliment header p.aliment-picture img {
+						margin: 0;
+						width: auto;
+						height: 100%;
+					}
+
 		#work.details-aliment p {
 			text-align: left;
 		}
 
 		#work.details-aliment p.aliment-categorie {
 			text-align: center;
+			margin-top: 2em;
 		}
 
 		#work.details-aliment .details-aliment-content {
@@ -2321,8 +2430,9 @@ table#table-releves {
 
 		.glucide {
 			background: #8cb02b;
+			border-bottom: 2px solid #5B7513;
 			padding: 1em;
-			border-radius: 5px;
+			border-radius: 3px;
 		}
 
 			.glucide p {
@@ -2365,8 +2475,12 @@ table#table-releves {
 /*********************************************************************************/
 
 	section#work.articles {
-		padding-top: 4em;
+		padding-top: 6em;
 	}
+
+		section#work.articles header p {
+			margin: 1em 0 -2em 0;
+		}
 
 	nav#articles-tri {
 		z-index: 100;
@@ -2411,6 +2525,26 @@ table#table-releves {
 			height: 4.6em;
 			padding-top: 0.8em;
 			margin-top: 3em;
+		}
+
+		form#recherche-conseils {
+			width: 20em;
+			margin: 0 auto;
+		}
+
+		form#recherche-conseils input[type="text"] {
+			width: 14em;
+			background: #eee;
+			height: 2em;
+			margin-top: 0.5em;
+			border-radius: 3px;
+		}
+
+		form#recherche-conseils input[type="button"] {
+			color: #ed7e4a;
+			height: 3em;
+			line-height: 2em;
+			padding: 0 3em 0 0;
 		}
 		
 

@@ -2,14 +2,16 @@
 
 {% block content %}
 
+
 <!-- Connexion -->
     <section id="work" class="main style3 secondary connexion">
         <div class="content container 75%">
             <header>
-                <h2>Tout DiabON en 1 clique</h2>
+                <h2>Tout DiabON en 1 clic</h2>
             </header>
 
         <!-- Recherche -->
+        
         <div id="connexion-container">
             <img src="/static/images/profil-icone.png" alt="">
 
@@ -27,7 +29,27 @@
             </form>
         </div> 
 
-        <div id="inscription">Pas encore inscrit ? <a href={% url 'inscription' %}>Créez un compte</a></div>                 
+        <div id="inscription">Pas encore inscrit ? <a href={% url 'inscription' %}>Créez un compte</a></div>
+        
+        <!--
+        <h1>Se connecter</h1>
+
+        {% if error %}
+            <p><strong>Utilisateur inconnu ou mauvais de mot de passe.</strong></p>
+        {% endif %}
+
+        {% if user.is_authenticated %}
+            Vous êtes connecté, {{ user.username }} !
+        {% else %}
+            <form method="post" action=".">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Se connecter" />
+            </form>
+        {% endif %}
+        -->
     </section>
+
+
 
 {% endblock content %}

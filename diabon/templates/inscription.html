@@ -12,7 +12,7 @@
 
         <!-- Recherche -->
         <div id="inscription-container">
-            <form id="inscription-form" action="">
+            <form methode="post" id="inscription-form" action="user.py">
                 <label>Prénom et nom</label>
                 <input type="text" name="surname" id="surname" placeholder="Prénom"/>
                 <input type="text" name="name" id="name" placeholder="Nom"/>
@@ -26,8 +26,9 @@
                 <label>Confirmez votre mot de passe</label>
                 <input type="password" name="password-confirmation" id="password-confirmation" />
 
-                <a href={% url 'inscription-details' %}><input type="submit" name="inscription" value="Etape suivante"/></a>
+                <a href={% url 'inscription-details' %}><input type="submit" name="inscription" value="Etape suivante" onsubmit /></a>
             </form>
+            <form
         </div>                 
     </section>
 

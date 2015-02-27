@@ -206,6 +206,17 @@
 	cursor: pointer;
 }
 
+.fc-calendar .fc-row > div:hover {
+	background: #eee;
+}
+
+span#add-calendar {
+	position: initial;
+	padding-right: 2em;
+	margin-left: -2em;
+	padding-top: 0.35em;
+}
+
 .fc-calendar .fc-row > div:empty {
 	background: transparent;
 	cursor: default;

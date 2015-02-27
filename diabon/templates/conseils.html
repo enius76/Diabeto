@@ -1,21 +1,31 @@
 {% extends "layout/base.html" %}
 {% block content %}
 
+    <header id="sub-header">
+
+        <!-- Sub Nav -->
+            <nav role="navigation" id="conseils-sub-navigation">
+                <ul>
+                    <!-- Recherche -->
+                    <li>
+                        <form id="recherche-conseils" action="" class="formulaire">
+                            <input class="champs-recherche" type="text" placeholder="Rechercher un article"/>
+                            <input class="btn-recherche flaticon-dark37" type="button" value="OK" />  
+                        </form>
+                        <div class="clear"></div>
+                    </li>
+                </ul>
+            </nav>
+
+    </header>
+
 <!-- Articles -->
 	<section id="work" class="main style3 secondary articles">
 		<div class="content container 75%">
 			<header>
-				<h2><span class="flaticon-thumbs16"></span>Retrouvez toutes les bonnes pratiques et pleins de conseils</h2>
+				<h2><span class="flaticon-bald23"></span>Retrouvez toutes les bonnes pratiques et pleins de conseils</h2>
 				<p>Triez les publications suivant ce que vous recherchez ou recherchez en une en particulier.</p>
 			</header>
-
-			<!-- Recherche -->
-				<form action="" class="formulaire">
-	                <input class="champs-recherche" type="text" placeholder="Rechercher un article"/>
-	                <input class="btn-recherche flaticon-dark37" type="button" value="OK" />  
-                </form>
-                <div class="clear"></div>
-                
 
 			<!-- Choix tri  A faire en ajax a mon avis-->
 				<nav id="articles-tri">
@@ -75,6 +85,7 @@
     	$('#header').css('background-color', '#ed7e4a');
     	$('form#nav-search input[type="submit"]').css('color', '#ed7e4a');
     	$('a#modal_trigger.btn').css('color', '#ed7e4a');
+        $('#navigation ul li#connexion a').css('color', '#ed7e4a');
     </script>
 
 

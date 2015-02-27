@@ -9,14 +9,17 @@
 
 					<div class="box container 75%">
 						<header>
-							<h2>{{aliment.name}}</h2>							
+							<h2>Valeur glucidique pour :</h2>
+							<p class="aliment-picture"><img src="#" alt="" /></p>
+							<p class="aliment-name">{{aliment.name}}</p>	
+							<div class="clear"></div>						
 						</header>
             
             		<!-- Tableau Aliments  -->
                 		<div id="details-aliment-container">
-                    		<img src="#">
+                    		
                     		<div class="details-aliment-content">
-	                    		<p>Quantité : {{aliment.weight}} g</p>
+	                    		<p>Portion : {{aliment.weight}} g</p>
 	                    		<div class="glucide">
 									<p class="glucide-title">Quantité de glucide :</p>
 									<p class="glucide-quantite">{{aliment.glucide}} g</p>
@@ -25,7 +28,7 @@
 							</div>
 
 							<div class="details-aliment-content">
-	                    		<p>Quantité : {{aliment.weight|mul:3|intdiv:2}} g</p>
+	                    		<p>Portion : {{aliment.weight|mul:3|intdiv:2}} g</p>
 	                    		<div class="glucide">
 									<p class="glucide-title">Quantité de glucide :</p>
 									<p class="glucide-quantite">{{aliment.glucide|mul:3|intdiv:2}} g</p>
@@ -34,7 +37,7 @@
 							</div>
 
 							<div class="details-aliment-content">
-	                    		<p>Quantité : {{aliment.weight|mul:2}} g</p>
+	                    		<p>Portion : {{aliment.weight|mul:2}} g</p>
 	                    		<div class="glucide">
 									<p class="glucide-title">Quantité de glucide :</p>
 									<p class="glucide-quantite">{{aliment.glucide|mul:2}} g</p>
@@ -54,6 +57,13 @@
 
         <!-- Scroll to top -->
         	<a href="#" class="back-to-top">Haut de page</a>
+
+        <!-- changement couleur header et padding body -->
+		    <script type="text/javascript">
+		    	$('#header').css('background-color', '#8cb02b');
+		    	$('form#nav-search input[type="submit"]').css('color', '#8cb02b');
+		    	$('#navigation ul li#connexion a').css('color', '#8cb02b');
+		    </script>
 
 
 {% endblock content %}
