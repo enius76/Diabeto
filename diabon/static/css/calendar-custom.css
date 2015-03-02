@@ -43,9 +43,10 @@
 
 .custom-header h2,
 .custom-header h3 {
-	text-align: center;
+	text-align: center !important;
 	text-transform: uppercase;
 	letter-spacing: initial;
+	font-size: 1.25em !important;
 }
 
 .custom-header h2 {
@@ -56,7 +57,7 @@
 }
 
 .custom-header h3 {
-	font-size: 0.8em;
+	font-size: 0.8em  !important;
 	font-weight: 200;
 	color: #b7bbc2;
 	margin-top: -0.5em;
@@ -203,6 +204,17 @@
 .fc-calendar .fc-row > div {
 	background: #fff;
 	cursor: pointer;
+}
+
+.fc-calendar .fc-row > div:hover {
+	background: #eee;
+}
+
+span#add-calendar {
+	position: initial;
+	padding-right: 2em;
+	margin-left: -2em;
+	padding-top: 0.35em;
 }
 
 .fc-calendar .fc-row > div:empty {

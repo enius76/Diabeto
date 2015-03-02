@@ -7,5 +7,4 @@ from rest_framework import routers
 urlpatterns = [
     url(r'api/', include('api.urls')),
     url(r'', include('core.urls'))
-
 ]

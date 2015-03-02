@@ -1,6 +1,10 @@
 {% extends "layout/base.html" %}
 
 {% block content %}
+
+
+
+<!--
 <table>
    <tr bgcolor="bbbbbbb">
        <th>Nom de l'aliment</th>
@@ -16,9 +20,136 @@
    </tr>
 {% endfor %}
 </table>
+
+-->
+
+<header id="sub-header">
+
+    <!-- Sub Nav -->
+        <nav role="navigation" id="catalogue-sub-navigation">
+            <ul>
+                <!-- Recherche -->
+                <li>
+                    <form id="recherche-catalogue" action="" class="formulaire">
+                        <input class="champs-recherche" type="text" placeholder="Rechercher un aliment"/>
+                        <input class="btn-recherche flaticon-dark37" type="button" value="OK" />  
+                    </form>
+                    <div class="clear"></div>
+                </li>
+            </ul>
+        </nav>
+
+</header>
+
+<!-- Catalogue -->
+<section id="work" class="main style3 secondary catalogue">
+    <div class="content container">
+      <header>
+        <h2>Catalogue complet de nos aliments</h2>
+        <p>Rechercher un aliment par lettre ou naviguer parmi les catégories d'aliments pour trouver le vôtre.</p>
+      </header>
+
+      <!-- Choix alphabetique -->
+          <nav id="catalogue-alphabetique">
+              <ul>
+                  <li><a href="sub_content/aliments/lettre-a.html">A</a></li>
+                  <li><a href="sub_content/aliments/lettre-b.html">B</a></li>
+                  <li><a href="sub_content/aliments/lettre-c.html">C</a></li>
+                  <li><a href="sub_content/aliments/lettre-d.html">D</a></li>
+                  <li><a href="sub_content/aliments/lettre-e.html">E</a></li>
+                  <li><a href="sub_content/aliments/lettre-f.html">F</a></li>
+                  <li><a href="sub_content/aliments/lettre-g.html">G</a></li>
+                  <li><a href="sub_content/aliments/lettre-h.html">H</a></li>
+                  <li><a href="sub_content/aliments/lettre-i.html">I</a></li>
+                  <li><a href="sub_content/aliments/lettre-j.html">J</a></li>
+                  <li><a href="sub_content/aliments/lettre-k.html">K</a></li>
+                  <li><a href="sub_content/aliments/lettre-l.html">L</a></li>
+                  <li><a href="sub_content/aliments/lettre-m.html">M</a></li>
+                  <li><a href="sub_content/aliments/lettre-n.html">N</a></li>
+                  <li><a href="sub_content/aliments/lettre-o.html">O</a></li>
+                  <li><a href="sub_content/aliments/lettre-p.html">P</a></li>
+                  <li><a href="sub_content/aliments/lettre-q.html">Q</a></li>
+                  <li><a href="sub_content/aliments/lettre-r.html">R</a></li>
+                  <li><a href="sub_content/aliments/lettre-s.html">S</a></li>
+                  <li><a href="sub_content/aliments/lettre-t.html">T</a></li>
+                  <li><a href="sub_content/aliments/lettre-u.html">U</a></li>
+                  <li><a href="sub_content/aliments/lettre-v.html">V</a></li>
+                  <li><a href="sub_content/aliments/lettre-w.html">W</a></li>
+                  <li><a href="sub_content/aliments/lettre-x.html">X</a></li>
+                  <li><a href="sub_content/aliments/lettre-y.html">Y</a></li>
+                  <li><a href="sub_content/aliments/lettre-z.html">Z</a></li>
+                  <div class="clear"></div>
+              </ul>
+        </nav>
+
+      <!-- Choix tri -->
+        <nav id="catalogue-tri" class="box 75%">
+                      <ul>
+                          <li><a href={% url 'pain' %}>
+                            <img src="/static/images/catalogue/pains.png" alt="Pains, biscottes, céréales, viennoiseries" />
+                            Pains, crackers, céréales, pâtisseries
+                          </a></li>
+                          <li><a href={% url 'feculents' %}>
+                            <img src="/static/images/catalogue/feculents-legumes-secs.png" alt="Féculents et légumes secs" />
+                            Amidons et légumineuses
+                          </a></li>
+                          <li><a href={% url 'legumes' %}>
+                            <img src="/static/images/catalogue/legumes.png" alt="Légumes" />
+                            Légumes
+                          </a></li>
+                          <li><a href={% url 'fruits' %}>
+                            <img src="/static/images/catalogue/fruits.png" alt="Fruits et frtuis secs" />
+                            Fruits et fruits secs
+                          </a></li>
+                          <li><a href={% url 'produits_laitiers' %}>
+                            <img src="/static/images/catalogue/produits-laitiers.png" alt="Produits laitiers" />
+                            Produits laitiers
+                          </a></li>
+                          <li><a href={% url 'plats_cuisines' %}>
+                            <img src="/static/images/catalogue/plats-cuisines.png" alt="Plats cuisinés" />
+                            Plats cuisinés
+                          </a></li>
+                          <li><a href={% url 'dessert' %}>
+                            <img src="/static/images/catalogue/desserts.png" alt="Desserts" />
+                            Desserts
+                          </a></li>
+                          <li><a href={% url 'confiseries' %}>
+                            <img src="/static/images/catalogue/confiseries.png" alt="Produits sucrés, confiseries" />
+                            Produits sucrés, confiseries
+                          </a></li>
+                          <li><a href={% url 'aperitifs' %}>
+                            <img src="/static/images/catalogue/aperitifs.png" alt="Apéritifs" />
+                            Appéritifs
+                          </a></li>
+                          <li><a href={% url 'boissons' %}>
+                            <img src="/static/images/catalogue/boissons.png" alt="Boissons" />
+                            Boissons
+                          </a></li>
+                          <li><a href={% url 'restauration_rapide' %}>
+                            <img src="/static/images/catalogue/restauration-rapide.png" alt="Restauration rapide" />
+                            Restauration rapide
+                          </a></li>
+                          <li><a href={% url 'sauces' %}>
+                            <img src="/static/images/catalogue/sauces.png" alt="Sauces, assaisonnements" />
+                            Sauces, assaisonnements
+                          </a></li>
+                          <div class="clear"></div>
+                      </ul>
+                </nav>
+        
+            <!-- Aliments  -->
+                  <div class="container 75% tri-result"></div>
+          </div>                  
+      </section>
+
+    <!-- Scroll to top -->
+      <a href="#" class="back-to-top">Top</a>
+
+<!-- changement couleur header et padding body -->
+        <script type="text/javascript">
+          $('#header').css('background-color', '#8cb02b');
+          $('form#nav-search input[type="submit"]').css('color', '#8cb02b');
+          $('#navigation ul li#connexion a').css('color', '#8cb02b');
+        </script>
+
 {% endblock content %}
-
-
-
-
-
