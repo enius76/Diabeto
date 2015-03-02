@@ -1,75 +1,92 @@
 {% extends "layout/base.html" %}
 {% block content %}
 
-		<!-- Articles -->
-			<section id="work" class="main style3 secondary articles">
-				<div class="content container 75%">
-					<header>
-						<span class="flaticon-thumbs16"></span>
-						<h2>Retrouvez toutes les bonnes pratiques et conseils</h2>
-						<p>Triez les publications suivant ce que vous recherchez ou recherchez en une en particulier.</p>
-					</header>
+    <header id="sub-header">
 
-					<!-- Recherche -->
-						<form action="" class="formulaire">
-			                <input class="champs-recherche" type="text" placeholder="Rechercher un article"/>
-			                <input class="btn-recherche flaticon-dark37" type="button" value="OK" />  
-		                </form>
-		                <div class="clear"></div>
-		                
+        <!-- Sub Nav -->
+            <nav role="navigation" id="conseils-sub-navigation">
+                <ul>
+                    <!-- Recherche -->
+                    <li>
+                        <form id="recherche-conseils" action="" class="formulaire">
+                            <input class="champs-recherche" type="text" placeholder="Rechercher un article"/>
+                            <input class="btn-recherche flaticon-dark37" type="button" value="OK" />  
+                        </form>
+                        <div class="clear"></div>
+                    </li>
+                </ul>
+            </nav>
 
-					<!-- Choix tri  A faire en ajax a mon avis-->
-						<nav id="articles-tri">
-	                        <ul>
-	                            <li><a href="sub_content/articles/tous-les-articles.html" class="change_load actif">Tout</a></li>
-	                            <li><a href="sub_content/articles/actualite.html" class="change_load">Actualité</a></li>
-	                            <li><a href="sub_content/articles/activites-sportives.html" class="change_load">Activités sportives</a></li>
-	                            <li><a href="sub_content/articles/suivi-et-vie-pratique.html" class="change_load">Suivi et vie pratique</a></li>
-	                            <li><a href="sub_content/articles/alimentation.html" class="change_load">Alimentation</a></li>
-	                            <div class="clear"></div>
-	                        </ul>
-		                </nav>
-            
-            		<!-- Articles  -->
-	                    <div class="container 75% conseils-articles">
-	                    	<div class="row 0% images">
-								<div class="12u">
-									<div class="view">
-									    <img src="/static/images/articles/pic1.png" />  
-									    <h2><a href="#">Activité physique : de quoi parle-t-on ?</a></h2>  
-									    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu dui posuere ...</p>  
-								        <a href="#" class="info">lire l'article</a>  
-							    	</div>
-								</div>
-							</div>
+    </header>
 
-							<div class="row 0% images">
-								<div class="12u">
-									<div class="view">
-									    <img src="/static/images/articles/pic3.png" />  
-									    <h2><a href="article-details.html">L'épidémie de diabète ralentit sa progression</a></h2>  
-									    <p>INFOGRAPHIE - Les dernières données pour la France sont encourageantes, même si ...</p>  
-								        <a href="#" class="info">lire l'article</a>  
-							    	</div>
-								</div>
-							</div>
+<!-- Articles -->
+	<section id="work" class="main style3 secondary articles">
+		<div class="content container 75%">
+			<header>
+				<h2><span class="flaticon-bald23"></span>Retrouvez toutes les bonnes pratiques et pleins de conseils</h2>
+				<p>Triez les publications suivant ce que vous recherchez ou recherchez en une en particulier.</p>
+			</header>
 
-							<div class="row 0% images">
-								<div class="12u">
-									<div class="view">
-									    <img src="/static/images/articles/pic2.png" />  
-									    <h2><a href="#">Bien choisir son activité sportive</a></h2>  
-									    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu dui posuere...</p>  
-								        <a href="#" class="info">lire l'article</a>  
-							    	</div>
-								</div>
-							</div>
-	                    </div>
-	            </div>                  
-        	</section>
+			<!-- Choix tri  A faire en ajax a mon avis-->
+				<nav id="articles-tri">
+                    <ul>
+                        <li><a href="sub_content/articles/tous-les-articles.html" class="change_load actif">Tout</a></li>
+                        <li><a href="sub_content/articles/actualite.html" class="change_load">Actualité</a></li>
+                        <li><a href="sub_content/articles/activites-sportives.html" class="change_load">Activités sportives</a></li>
+                        <li><a href="sub_content/articles/suivi-et-vie-pratique.html" class="change_load">Suivi / vie pratique</a></li>
+                        <li><a href="sub_content/articles/alimentation.html" class="change_load">Alimentation</a></li>
+                        <div class="clear"></div>
+                    </ul>
+                </nav>
+    
+    		<!-- Articles  -->
+                <div class="container 75% conseils-articles">
+                	<div class="row 0% images">
+						<div class="12u">
+							<div class="view">
+							    <img src="/static/images/articles/pic1.png" />  
+							    <h2><a href="#">Activité physique : de quoi parle-t-on ?</a></h2>  
+							    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu dui posuere ...</p>  
+						        <a href="#" class="info">lire l'article</a>  
+					    	</div>
+						</div>
+					</div>
 
-        	<!-- Scroll to top -->
-        	<a href="#" class="back-to-top">Remonter</a>
+					<div class="row 0% images">
+						<div class="12u">
+							<div class="view">
+							    <img src="/static/images/articles/pic3.png" />  
+							    <h2><a href="article-details.html">L'épidémie de diabète ralentit sa progression</a></h2>  
+							    <p>INFOGRAPHIE - Les dernières données pour la France sont encourageantes, même si ...</p>  
+						        <a href="#" class="info">lire l'article</a>  
+					    	</div>
+						</div>
+					</div>
+
+					<div class="row 0% images">
+						<div class="12u">
+							<div class="view">
+							    <img src="/static/images/articles/pic2.png" />  
+							    <h2><a href="#">Bien choisir son activité sportive</a></h2>  
+							    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu dui posuere...</p>  
+						        <a href="#" class="info">lire l'article</a>  
+					    	</div>
+						</div>
+					</div>
+                </div>
+        </div>                  
+	</section>
+
+	<!-- Scroll to top -->
+	<a href="#" class="back-to-top">Remonter</a>
+
+	<!-- changement couleur background et bouton ok barre de recherche -->
+    <script type="text/javascript">
+    	$('#header').css('background-color', '#ed7e4a');
+    	$('form#nav-search input[type="submit"]').css('color', '#ed7e4a');
+    	$('a#modal_trigger.btn').css('color', '#ed7e4a');
+        $('#navigation ul li#connexion a').css('color', '#ed7e4a');
+    </script>
 
 
 {% endblock content %}
