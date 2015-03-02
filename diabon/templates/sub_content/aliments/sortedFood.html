@@ -6,7 +6,7 @@
 	<section id="work" class="main style3 primary">
 		<div class="content container">
 			<header>
-				<h2>Légumes</h2>
+				<h2>{{category}}</h2>
 			</header>
 
 			<!-- Choix alphabetique -->
@@ -47,32 +47,17 @@
                 	<div class="table catalogue">
 					    <table class="full">
 					        <tr class="table-title">
-					            <td></td>
 					            <td>Nom de l'aliment</td>
-					            <td>Calories</td>
-					            <td>Protéines</td>
 					            <td>Glucides</td>
-					            <td>Lipides</td>
 					            <td>Quantité</td>
 					        </tr>
+                            {% for aliment in aliments %}
 					        <tr>
-					            <td><img src="../../images/catalogue/apericubes.png" alt="Apéricubes" /></td>
-					            <td class="label">Apéricube</td>
-					            <td>267</td>
-					            <td>11.5</td>
-					            <td>4.5</td>
-					            <td>22.5</td>
-					            <td>100 g</td>
+					            <td class="label"><a href="{% url 'alimentdetails' aliment.slug %}" > {{aliment.name}} </a></td>
+					            <td>{{aliment.glucide}}g</td>
+					            <td>{{aliment.weight}}g</td>
 					        </tr>
-					        <tr>
-					            <td><img src="../../images/catalogue/bretzel.png" alt="Bretzel" /></td>
-					            <td class="label">Bretzel</td>
-					            <td>80</td>
-					            <td>2.4</td>
-					            <td>10.2</td>
-					            <td>3.3</td>
-					            <td>1 unité</td>
-					        </tr>
+                            {% endfor %}
 					    </table>
 					</div>
                 </div>

@@ -1,3 +1,5 @@
+# coding: utf-8
+
 from django.shortcuts import *
 from django.shortcuts import render_to_response
 import datetime
@@ -5,13 +7,11 @@ from core.models import *
 
 
 def home(request):
-	
 	return render_to_response('home.html')
 
 
 def carnet(request):
-	foo = 'Test Conseils'
-	return render_to_response('carnet.html', {'foo': foo})
+	return render_to_response('carnet.html')
 
 
 def alimentation(request):
@@ -20,8 +20,7 @@ def alimentation(request):
 
 
 def conseils(request):
-	foo = 'Test Conseils'
-	return render_to_response('conseils.html', {'foo': foo})
+	return render_to_response('conseils.html')
 
 
 def aliment_details(request, slug):
@@ -42,9 +41,7 @@ def carnet(request):
 
 
 def catalogue(request):
-	aliments = Food.objects.all()
-	#aliments = Food.objects.filter(name__istartswith=letter) #aliments commancant par a
-	return render_to_response('catalogue.html',{'aliments':aliments})
+	return render_to_response('catalogue.html')
 
 
 def contact(request):
@@ -72,11 +69,6 @@ def menu(request):
 	return render_to_response('mon-menu.html', {'foo': foo})
 
 
-def legumes(request):
-    foo = ''
-    return render_to_response('legumes.html', {'foo': foo})
-
-
 def connexion(request):
     foo = ''
     return render_to_response('connexion.html', {'foo': foo})
@@ -90,3 +82,67 @@ def inscription(request):
 def inscription_details(request):
     foo = ''
     return render_to_response('inscription-details.html', {'foo': foo})
+
+
+
+
+
+def pain(request):
+	aliments = Food.objects.filter(category_id='1')
+	category = 'Pains, biscottes, céréales, viennoiseries'
+	return render_to_response('sub_content/aliments/sortedFood.html',{'aliments':aliments, 'category':category})
+
+def feculents(request):
+	aliments = Food.objects.filter(category_id='2')
+	category = 'Féculents et légumes secs'
+	return render_to_response('sub_content/aliments/sortedFood.html',{'aliments':aliments, 'category':category})
+
+def legumes(request):
+	category = 'Légumes'
+	aliments = Food.objects.filter(category_id='3')
+	return render_to_response('sub_content/aliments/sortedFood.html',{'aliments':aliments, 'category':category})
+
+def fruits(request):
+	category = 'Fruits et fruits secs'
+	aliments = Food.objects.filter(category_id='4')
+	return render_to_response('sub_content/aliments/sortedFood.html',{'aliments':aliments, 'category':category})
+
+def produits_laitiers(request):
+	category = 'produits laitiers'
+	aliments = Food.objects.filter(category_id='5')
+	return render_to_response('sub_content/aliments/sortedFood.html',{'aliments':aliments, 'category':category})
+
+def plats_cuisines(request):
+	category = 'Plats cuisinés'
+	aliments = Food.objects.filter(category_id='6')
+	return render_to_response('sub_content/aliments/sortedFood.html',{'aliments':aliments, 'category':category})
+
+def dessert(request):
+	category = 'Désserts'
+	aliments = Food.objects.filter(category_id='7')
+	return render_to_response('sub_content/aliments/sortedFood.html',{'aliments':aliments, 'category':category})
+
+def confiseries(request):
+	category = 'Produits sucrés, confiseries'
+	aliments = Food.objects.filter(category_id='8')
+	return render_to_response('sub_content/aliments/sortedFood.html',{'aliments':aliments, 'category':category})
+
+def aperitifs(request):
+	category = 'Apéritifs'
+	aliments = Food.objects.filter(category_id='9')
+	return render_to_response('sub_content/aliments/sortedFood.html',{'aliments':aliments, 'category':category})
+
+def restauration_rapide(request):
+	category = 'Restauration rapide'
+	aliments = Food.objects.filter(category_id='11')
+	return render_to_response('sub_content/aliments/sortedFood.html',{'aliments':aliments, 'category':category})
+
+def boissons(request):
+	category = 'Boissons'
+	aliments = Food.objects.filter(category_id='10')
+	return render_to_response('sub_content/aliments/sortedFood.html',{'aliments':aliments, 'category':category})
+
+def sauces(request):
+	category = 'Sauces, assaisonnements'
+	aliments = Food.objects.filter(category_id='12')	
+	return render_to_response('sub_content/aliments/sortedFood.html',{'aliments':aliments, 'category':category})
