@@ -27,22 +27,21 @@ class Profile(models.Model):
 	glyc = models.ForeignKey('Glyc')
 
 	def __str__(self):
-        return "Profil de {0}".format(self.user.username)
-        
+		return "Profil de {0}".format(self.user.username)
+
 	def create_user(self, email, password=None):
-        """
-        Creates and saves a User with the given email and password.
-        """
-        if not email:
-            raise ValueError('Vous devez avoir une adresse mail')
+	#Creates and saves a User with the given email and password.
 
-        user = self.model(
-            email=self.normalize_email(email),
-        )
+		if not email:
+			raise ValueError('Vous devez avoir une adresse mail')
 
-        user.set_password(password)
-        user.save(using=self._db)
-        return user
+		user = self.model(
+			email=self.normalize_email(email),
+		)
+
+		user.set_password(password)
+		user.save(using=self._db)
+		return user
 
 class Glyc(models.Model):
 	value = models.FloatField()
