@@ -15,8 +15,8 @@
         <div id="connexion-container">
             <img src="/static/images/profil-icone.png" alt="">
 
-            <form id="connexion-form" action="">
-                <input type="text" name="login" id="login" placeholder="Adresse e-mail"/>
+            <!--form id="connexion-form" action="">
+                <input type="text" name="login" id="login" placeholder="Nom du compte"/>
 
                 <input type="password" name="password" id="password" placeholder="Mot de passe"/>
 
@@ -26,13 +26,9 @@
                     <input id="PersistentCookie" name="PersistentCookie" type="checkbox" value="yes" checked="checked">
                     <span>Rester connecté</span>
                 </label>
-            </form>
-        </div> 
+            </form-->
 
-        <div id="inscription">Pas encore inscrit ? <a href={% url 'inscription' %}>Créez un compte</a></div>
-        
-        <!--
-        <h1>Se connecter</h1>
+                    <h1>Se connecter</h1>
 
         {% if error %}
             <p><strong>Utilisateur inconnu ou mauvais de mot de passe.</strong></p>
@@ -47,7 +43,10 @@
                 <input type="submit" value="Se connecter" />
             </form>
         {% endif %}
-        -->
+        </div> 
+
+        <div id="inscription">Pas encore inscrit ? <a href={% url 'inscription' %}>Créez un compte</a></div>
+        
     </section>
 
 
