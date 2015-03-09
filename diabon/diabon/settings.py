@@ -24,7 +24,7 @@ DEBUG = False
 
 TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = [http://www.briceberthelot.fr/projet/Diabeto/]
+ALLOWED_HOSTS = [www.briceberthelot.fr/DiabON/]
 
 
 # Application definition
