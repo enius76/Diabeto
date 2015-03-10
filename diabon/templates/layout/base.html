@@ -95,31 +95,6 @@
 		    	{% block content %}{% endblock content %} 
 		    </div>
 
-		    <form id="test-form" class="white-popup-block mfp-hide" _lpchecked="1">
-				<h1>Ajouter un relevé</h1>
-				<fieldset style="border:0;">
-					<ul>
-						<li>
-							<label for="date-releve">Date</label>
-							<input id="date-releve" name="date" type="date" required="">
-						</li>
-						<li>
-							<label for="heure">Heure</label>
-							<input id="heure" name="heure" type="time" required="">
-						</li>
-						<li>
-							<label for="releve">Valeur du relevé</label>
-							<input id="releve" name="releve" type="number" required="">
-						</li>
-						<li>
-							<label for="note">Note</label>
-							<textarea id="note" placeholder="Ajouter un commentaire..."></textarea>
-						</li>
-					</ul>
-				</fieldset>
-				<input type="submit" value="Ajouter">
-			</form>
-
 <!-- Footer -->
 			<footer id="footer">
 
@@ -189,29 +164,6 @@
 			    });
 			}); 
     	</script>
-
-    	<!-- Pop Up Actions -->
-    	<script type="text/javascript">
-    		$(document).ready(function() {
-				$('.popup-with-form').magnificPopup({
-					type: 'inline',
-					preloader: false,
-					focus: '#date-releve',
-
-					// When elemened is focused, some mobile browsers in some cases zoom in
-					// It looks not nice, so we disable it:
-					callbacks: {
-						beforeOpen: function() {
-							if($(window).width() < 700) {
-								this.st.focus = false;
-							} else {
-								this.st.focus = '#date-releve';
-							}
-						}
-					}
-				});
-			});
-		</script>
 
 	</body>
 </html>

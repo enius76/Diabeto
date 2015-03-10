@@ -211,10 +211,20 @@
 }
 
 span#add-calendar {
-	position: initial;
+	position: absolute;
 	padding-right: 2em;
 	margin-left: -2em;
-	padding-top: 0.35em;
+	padding-top: 1.7em;
+	z-index: 999;
+}
+
+form#event-popup-form input[type="text"] {
+	outline: 0;
+	border: 1px solid #aaa;
+	margin-bottom: 1em;
+	width: 100%;
+	padding: 0.25em;
+	border-radius: 3px;
 }
 
 .fc-calendar .fc-row > div:empty {

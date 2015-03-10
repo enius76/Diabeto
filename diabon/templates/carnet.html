@@ -59,7 +59,7 @@
                         
                     </h2>
 					<span class="btn-option export" title="Exporter mes relevés"><span class="flaticon-export1"></span></span>
-					<a class="popup-with-form" href="#test-form"><span class="btn-option" title="Ajouter un relevé"><span class="flaticon-add182"></span></span></a>
+					<a class="popup-with-form" href="#releve-popup-form"><span class="btn-option" title="Ajouter un relevé"><span class="flaticon-add182"></span></span></a>
                     <span class="btn-option hide-help 1" title="Afficher/Masquer l'infobulle"></span>
 					<div class="clear"></div>
                     <p class="bulle-help 1" style="display:none;">Ajoutez facilement un relevé avec le '+'. Triez les résultats ou recherchez en un ou bien exportez les au format PDF pour les avoir toujours avec vous.</p>
@@ -146,7 +146,6 @@
 					<h2>
                         <span class="flaticon-calendar154"></span>Mon agenda
                     </h2>
-					<span class="btn-option" title="Ajouter un rendez-vous"><span class="flaticon-add182"></span></span>
                     <span class="btn-option hide-help 3" title="Afficher/Masquer l'infobulle"></span>
 					<div class="clear"></div>
                     <p class="bulle-help 3" style="display:none;">Le diabète entraîne de nombreux rendez-vous médical et il n'est pas toujours facil de se rappeler de tout. Diab'ON vous permet de créer des rendez-vous avec des rappels pour ne jamais oublier.</p>
@@ -156,7 +155,7 @@
 	                <div class="custom-calendar-wrap">
 	                    <div id="custom-inner" class="custom-inner">
 	                        <div class="custom-header clearfix">
-                                <span id="add-calendar" class="btn-option" title="Ajouter un rendez-vous"><span class="flaticon-add182"></span></span>
+                                <a class="popup-with-form" href="#event-popup-form"><span id="add-calendar" class="btn-option" title="Ajouter un événement"><span class="flaticon-add182"></span></span></a>
 	                            <nav>
 	                                <span id="custom-prev" class="custom-prev"></span>
 	                                <span id="custom-next" class="custom-next"></span>
@@ -175,6 +174,76 @@
 
 <!-- Scroll to top -->
 	<a href="#" class="back-to-top">Remonter</a>
+
+
+    <form id="releve-popup-form" class="white-popup-block mfp-hide" _lpchecked="1">
+        <h1>Ajouter un relevé</h1>
+        <fieldset style="border:0;">
+            <ul>
+                <li>
+                    <label for="date-releve">Date</label>
+                    <input id="date-releve" name="date-releve" type="date" required="">
+                </li>
+                <li>
+                    <label for="heure-releve">Heure</label>
+                    <input id="heure-releve" name="heure-releve" type="time" required="">
+                </li>
+                <li>
+                    <label for="releve-releve">Valeur du relevé</label>
+                    <input id="releve-releve" name="releve-releve" type="number" required="">
+                </li>
+                <li>
+                    <label for="note-releve">Note</label>
+                    <textarea id="note-releve" placeholder="Ajouter un commentaire..."></textarea>
+                </li>
+            </ul>
+        </fieldset>
+        <input type="submit" value="Ajouter">
+    </form>
+
+    <form id="event-popup-form" class="white-popup-block mfp-hide" _lpchecked="1">
+        <h1>Ajouter un événement</h1>
+        <fieldset style="border:0;">
+            <ul>
+                <li>
+                    <label for="date-event">Date</label>
+                    <input id="date-event" name="date" type="date" required="">
+                </li>
+                <li>
+                    <label for="heure-event">Heure</label>
+                    <input id="heure-event" name="heure-event" type="time" required="">
+                </li>
+                <li>
+                    <label for="title-event">Titre de l'événement</label>
+                    <input id="title-event" name="title-event" type="text" required="">
+                </li>
+            </ul>
+        </fieldset>
+        <input type="submit" value="Créer">
+    </form>
+
+<!-- Pop up actions -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.popup-with-form').magnificPopup({
+                type: 'inline',
+                preloader: false,
+                focus: '#date-releve',
+
+                // When elemened is focused, some mobile browsers in some cases zoom in
+                // It looks not nice, so we disable it:
+                callbacks: {
+                    beforeOpen: function() {
+                        if($(window).width() < 700) {
+                            this.st.focus = false;
+                        } else {
+                            this.st.focus = '#date-releve';
+                        }
+                    }
+                }
+            });
+        });
+    </script>
 
 
 <script type="text/javascript">

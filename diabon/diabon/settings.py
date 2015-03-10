@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '0%@3()4b%b&etnz+z06ds!*ppbi88oyrj1-kb=3&km$x+&=(5v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = [www.briceberthelot.fr/DiabON/]
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [www.briceberthelot.fr/DiabON/]
 
 
 # Application definition
