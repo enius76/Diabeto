@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '0%@3()4b%b&etnz+z06ds!*ppbi88oyrj1-kb=3&km$x+&=(5v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-TEMPLATE_DEBUG = False
+TEMPLATE_DEBUG = True
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['.briceberthelot.fr']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -90,8 +90,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-
-STATIC_URL = '/static/'
+STATIC_ROOT = '/home/briceberthelot/projects/Diabeto/diabon/public/static/'
+STATIC_URL = '/static/' if DEBUG else 'http://briceberthelot.alwaysdata.net/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static/'),
