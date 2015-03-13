@@ -24,7 +24,12 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = []
+=======
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+>>>>>>> 00c2f0e91b5e07021c0c142985fc66ed9f1ef05e
 
 AUTH_PROFILE_MODULE = 'core.Profile'
 
@@ -92,8 +97,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-
-STATIC_URL = '/static/'
+STATIC_ROOT = '/home/briceberthelot/projects/Diabeto/diabon/public/static/'
+STATIC_URL = '/static/' if DEBUG else 'http://briceberthelot.alwaysdata.net/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static/'),
