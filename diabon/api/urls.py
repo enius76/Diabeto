@@ -6,6 +6,10 @@ router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'food', views.FoodViewSet)
+# router.register(r'pains-crackers-cereales-patisseries', views.PainsViewSet)
+# router.register(r'feculents-legumes-secs', views.FeculentsViewSet)
+# router.register(r'legumes', views.LegumesViewSet)
+# router.register(r'aperitifs', views.AperitifsViewSet)
 
 
 # Wire up our API using automatic URL routing.

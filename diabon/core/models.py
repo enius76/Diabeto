@@ -13,7 +13,7 @@ class Food(models.Model):
 	name = models.CharField(max_length=200)
 	slug = models.SlugField(max_length=200)
 	weight = models.IntegerField()
-	glucide = models.IntegerField()
+	glucide = models.FloatField()
 	category = models.ForeignKey('Category')
 	def __unicode__(self):
 		return "%s" % (self.name)
@@ -22,8 +22,8 @@ class Profile(models.Model):
 	user = models.OneToOneField(User)
 	birth = models.DateField()
 	sexe = models.CharField(max_length=1)
-	weight = models.IntegerField()
-	height = models.IntegerField()
+	weight = models.FloatField()
+	height = models.FloatField()
 	glyc = models.ForeignKey('Glyc')
 
 	def __str__(self):

@@ -90,8 +90,6 @@ def inscription_details(request):
 
 
 
-
-
 def pain(request):
 	aliments = Food.objects.filter(category_id='1')
 	category = 'Pains, biscottes, céréales, viennoiseries'
