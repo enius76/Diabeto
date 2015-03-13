@@ -24,12 +24,10 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-<<<<<<< HEAD
+
 ALLOWED_HOSTS = []
-=======
-# ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['*']
->>>>>>> 00c2f0e91b5e07021c0c142985fc66ed9f1ef05e
+
+
 
 AUTH_PROFILE_MODULE = 'core.Profile'
 
