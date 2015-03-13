@@ -1,3 +1,4 @@
+# coding: utf-8
 from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('',
@@ -16,6 +17,7 @@ urlpatterns = patterns('',
 	url(r'^deconnexion$', 'core.views.deconnexion', name='deconnexion'),
 	url(r'^inscription/$', 'core.views.inscription', name='inscription'),
 	url(r'^inscription-details/$', 'core.views.inscription_details', name='inscription-details'),
+	url(r'^inscription-complete/$', 'core.views.inscriptionComplete', name='inscriptionComplete'),
 
 
 	url(r'^alimentation/catalogue/pains-biscottes-cereales-viennoiseries/$', 'core.views.pain', name='pain'),

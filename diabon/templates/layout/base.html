@@ -69,8 +69,11 @@
 							<li><a href={% url 'conseils' %}>
 								<span class="flaticon-bald23"></span>Conseils
 							</a></li>
-							<li style="display:none;"><a href={% url 'profil' %}>Profil</a></li>
+							{% if user.is_authenticated %}
+							<li><a href={% url 'profil' %}>Profil</a></li>
+							{% else %}
 							<li id="connexion"><a href={% url 'connexion' %}>Connexion</a></li>
+							{% endif %}
 						</ul>
 					</nav>
 
