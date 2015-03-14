@@ -518,10 +518,9 @@
 			}
 			
 				.main.style1 h2 {
-					font-size: 4.25em;
+					font-size: 3em;
 					line-height: 1em;
 					letter-spacing: inherit;
-					padding-top: 0.4em;
 				}
 
 					.main.style1 h2 a {
@@ -1283,6 +1282,117 @@
 			font-family: 'kenyan_coffeeregular';
 			letter-spacing: 0;
 		}
+
+		.presentation-content {
+			float: left;
+			width: 30%;
+			background: rgba(255,255,255,0.9);
+			border-radius: 5px;
+			padding: 1.5em;
+			margin: 0 0.5em 3em 0.5em;
+			height: 15em;
+		}
+
+			.presentation-content p {
+				color: #39454b;
+				font-size: 1em;
+				text-align: left;
+			}
+
+			.presentation-content header.carnet {
+				background: #5c89c7;
+				border-radius: 3px;
+				padding: 0.25em;
+			}
+
+			.presentation-content header.carnet h3 a {
+				font-family: 'tall_filmsregular';
+				font-size: 1.5em;
+				margin-bottom: 0.5em;
+				text-transform: uppercase;
+				color: white;
+			}
+
+			.presentation-content a.carnet {
+				text-decoration: none;
+				padding: 0.25em 0.8em;
+				background: #5c89c7;
+				border-radius: 0 0 3px 3px;
+				color: #fff;
+				position: absolute;
+				margin-top: 2em;
+				left: 0.5em;
+				width: 13.5em;
+			}
+
+			.presentation-content a.carnet:hover {
+				background: #39454b;
+			}
+
+			.presentation-content header.alimentation {
+				background: #8cb02b;
+				border-radius: 3px;
+				padding: 0.25em;
+			}
+
+			.presentation-content header.alimentation h3 a {
+				font-family: 'tall_filmsregular';
+				font-size: 1.5em;
+				margin-bottom: 0.5em;
+				text-transform: uppercase;
+				color: white;
+			}
+
+			.presentation-content a.alimentation {
+				text-decoration: none;
+				padding: 0.25em 0.8em;
+				background: #8cb02b;
+				border-radius: 0 0 3px 3px;
+				color: #fff;
+				position: absolute;
+				margin-top: 0.25em;
+				left: 15em;
+				width: 13.5em;
+			}
+
+			.presentation-content a.alimentation:hover {
+				background: #39454b;
+			}
+
+			.presentation-content header.conseils {
+				background: #ed7e4a;
+				border-radius: 3px;
+				padding: 0.25em;
+			}
+
+			.presentation-content header.conseils h3 a {
+				font-family: 'tall_filmsregular';
+				font-size: 1.5em;
+				margin-bottom: 0.5em;
+				text-transform: uppercase;
+				color: white;
+			}
+
+			.presentation-content a.conseils {
+				text-decoration: none;
+				padding: 0.25em 0.8em;
+				background: #ed7e4a;
+				border-radius: 0 0 3px 3px;
+				color: #fff;
+				position: absolute;
+				margin-top: 3.68em;
+				left: 29.5em;
+				width: 13.5em;
+			}
+
+			.presentation-content a.conseils:hover {
+				background: #39454b;
+			}
+
+			.presentation-content header h3 a:hover {
+				opacity: 0.5;
+			}			
+
 
 /*********************************************************************************/
 /* Intro                                                                         */
@@ -2093,7 +2203,7 @@ table#table-releves {
 		padding-bottom: 1em;
 	}
 
-		header p {
+		#work.menu .box header p {
 			margin: 1em 0 2em 0;
 		}
 

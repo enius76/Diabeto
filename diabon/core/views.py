@@ -27,6 +27,9 @@ def alimentation(request):
 def conseils(request):
 	return render_to_response('conseils.html')
 
+def article_details(request):
+	return render_to_response('article-details.html')
+
 
 def aliment_details(request, slug):
 	aliment = Food.objects.get(slug=slug)	

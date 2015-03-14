@@ -30,6 +30,10 @@ nav#navigation .flaticon-book118:before {
 	font-size: 1em;
 }
 
+.presentation-content .flaticon-book118:before {
+	vertical-align: text-bottom;
+}
+
 #intro .flaticon-book118:before {
 	font-size: 1em;
 	font-weight: normal;
@@ -44,6 +48,10 @@ nav#navigation .flaticon-apple55:before {
 	font-size: 0.8em;
 }
 
+.presentation-content .flaticon-apple55:before {
+	vertical-align: text-bottom;
+}
+
 #one .flaticon-apple55:before {
 	font-size: 0.8em;
 	font-weight: normal;
@@ -56,6 +64,10 @@ nav#navigation .flaticon-apple55:before {
 
 nav#navigation .flaticon-bald23:before {
 	font-size: 1.1em;
+}
+
+.presentation-content .flaticon-bald23:before {
+	vertical-align: text-bottom;
 }
 
 #two .flaticon-bald23:before {
