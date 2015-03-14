@@ -12,21 +12,10 @@
 
         <!-- Recherche -->
         <div id="inscription-container">
-            <form methode="post" id="inscription-form" action="user.py">
-                <label>Prénom et nom</label>
-                <input type="text" name="surname" id="surname" placeholder="Prénom"/>
-                <input type="text" name="name" id="name" placeholder="Nom"/>
-
-                <label>Adresse e-mail</label>
-                <input type="email" name="email" id="email" placeholder="exemple@diabon.fr"/>
-
-                <label>Choisissez un mot de passe</label>
-                <input type="password" name="password" id="password" />
-
-                <label>Confirmez votre mot de passe</label>
-                <input type="password" name="password-confirmation" id="password-confirmation" />
-
-                <a href={% url 'inscription-details' %}><input type="submit" name="inscription" value="Etape suivante" onsubmit /></a>
+            <form method="post" action="">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="S'inscrire" />
             </form>
         </div>                 
     </section>

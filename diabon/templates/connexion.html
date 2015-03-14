@@ -40,12 +40,14 @@
             <form method="post" action=".">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <input type="submit" value="Se connecter" />
+                <input type="submit" value="S'inscrire" />
             </form>
         {% endif %}
         </div> 
 
         <div id="inscription">Pas encore inscrit ? <a href={% url 'inscription' %}>Créez un compte</a></div>
+
+        <a href={% url 'deconnexion' %}> Se deconnecter </a>
         
     </section>
 

@@ -24,9 +24,14 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-# ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['*']
 
+ALLOWED_HOSTS = []
+
+
+
+AUTH_PROFILE_MODULE = 'core.Profile'
+
+LOGIN_URL = '/connexion/'
 
 # Application definition
 

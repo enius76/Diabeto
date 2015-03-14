@@ -1,7 +1,9 @@
+# coding: utf-8
 from django.db import models
 from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.models import User
+from django.conf import settings
 
 class Category(models.Model):
 	name = models.CharField(max_length=200)
@@ -19,12 +21,12 @@ class Food(models.Model):
 		return "%s" % (self.name)
 
 class Profile(models.Model):
-	user = models.OneToOneField(User)
 	birth = models.DateField()
 	sexe = models.CharField(max_length=1)
 	weight = models.FloatField()
 	height = models.FloatField()
 	glyc = models.ForeignKey('Glyc')
+	user = models.OneToOneField(User)
 
 	def __str__(self):
 		return "Profil de {0}".format(self.user.username)

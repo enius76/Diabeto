@@ -9,12 +9,15 @@ from django.contrib.auth import logout
 from django.shortcuts import render
 from django.core.urlresolvers import reverse
 from core.forms import *
+from django.contrib.auth.decorators import login_required
+
 
 
 def home(request):
 	return render_to_response('home.html')
 
 
+@login_required
 def carnet(request):
 	return render_to_response('carnet.html')
 
@@ -36,6 +39,7 @@ def aliment_details(request, slug):
 	return render_to_response('aliment_details.html', {'aliment': aliment})	
 
 
+@login_required
 def carnet(request):
     if request.method == 'POST':
         form = GlycForm(request.POST)
@@ -57,6 +61,7 @@ def contact(request):
 	return render_to_response('contact.html', {'foo': foo})
 
 
+@login_required
 def profil(request):
 	foo = ''
 	return render_to_response('profil.html', {'foo': foo})
@@ -165,6 +170,7 @@ def connexion(request):
 			user = authenticate(username=username, password=password)  # Nous vérifions si les données sont correctes
 			if user:  # Si l'objet renvoyé n'est pas None
 				login(request, user)  # nous connectons l'utilisateur
+				return redirect('carnet')
 			else: # sinon une erreur sera affichée
 				error = True
 	else:
@@ -174,4 +180,28 @@ def connexion(request):
 
 def deconnexion(request):
 	logout(request)
-	return redirect(reverse(connexion))
+	#return redirect(reverse(connexion))
+	return HttpResponseRedirect('/')
+
+def inscription(request):
+	if request.method == "POST":
+		form = RegistrationForm(request.POST)
+		if form.is_valid():
+			user = User.objects.create_user(
+            username=form.cleaned_data['username'],
+            password=form.cleaned_data['password1'],
+            email=form.cleaned_data['email']
+            )
+			return HttpResponseRedirect('/inscription-complete')
+	else:
+		form = RegistrationForm()
+	variables = RequestContext(request, {
+	'form': form
+	})
+	return render_to_response(
+	'inscription.html',
+	variables,
+	)
+
+def inscriptionComplete(request):
+	return render_to_response('merci.html')
