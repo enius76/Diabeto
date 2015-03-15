@@ -72,6 +72,7 @@
 							</a></li>
 							{% if user.is_authenticated %}
 							<li><a href={% url 'profil' %}>Profil</a></li>
+							<li><a href={% url 'deconnexion' %}>Déconnexion</a></li>
 							{% else %}
 							<li id="connexion"><a href={% url 'connexion' %}>Connexion</a></li>
 							{% endif %}

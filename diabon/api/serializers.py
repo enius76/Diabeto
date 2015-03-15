@@ -15,7 +15,6 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class FoodSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Food
-<<<<<<< HEAD
         fields = ('id','name', 'weight', 'glucide')
 
 '''class PainsSerializer(serializers.HyperlinkedModelSerializer):
@@ -37,7 +36,3 @@ class LegumesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Food
         fields = ('id','name', 'weight', 'glucide')'''
-
-=======
-        fields = ('id','name', 'weight', 'glucide')
->>>>>>> origin/master

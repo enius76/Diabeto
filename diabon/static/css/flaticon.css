@@ -31,7 +31,9 @@ nav#navigation .flaticon-book118:before {
 }
 
 .presentation-content .flaticon-book118:before {
-	vertical-align: text-bottom;
+	font-size: 0.9em;
+	font-weight: normal;
+	vertical-align: baseline;
 }
 
 #intro .flaticon-book118:before {
@@ -49,7 +51,8 @@ nav#navigation .flaticon-apple55:before {
 }
 
 .presentation-content .flaticon-apple55:before {
-	vertical-align: text-bottom;
+	font-size: 0.8em;
+    vertical-align: baseline !important;
 }
 
 #one .flaticon-apple55:before {
@@ -67,7 +70,8 @@ nav#navigation .flaticon-bald23:before {
 }
 
 .presentation-content .flaticon-bald23:before {
-	vertical-align: text-bottom;
+	vertical-align: baseline !important;
+    font-size: 0.9em;
 }
 
 #two .flaticon-bald23:before {

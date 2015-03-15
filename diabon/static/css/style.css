@@ -1032,6 +1032,7 @@
 	form#connexion-form {
 		width: 50%;
 		margin: 1em auto;
+		display: inline-block;
 	}
 
 		form#connexion-form input[type="text"] {
@@ -1068,6 +1069,21 @@
 
 		form#connexion-form input[type="submit"]:hover {
 			background: #455a64;
+		}
+
+		p#error-connexion {
+			background: #d13f3f;
+			border-radius: 3px;
+			padding: 0.25em;
+			color: white;
+		}
+
+		p#error-connexion a {
+			color: white;
+		}
+
+		p#error-connexion a:hover {
+			text-decoration: none;
 		}
 
 	#inscription a {
@@ -1284,115 +1300,76 @@
 		}
 
 		.presentation-content {
-			float: left;
-			width: 30%;
-			background: rgba(255,255,255,0.9);
 			border-radius: 5px;
-			padding: 1.5em;
-			margin: 0 0.5em 3em 0.5em;
-			height: 15em;
+			margin-bottom: 1.5em;
+			border: 10px solid rgba(255,255,255,0.9);
+			padding: 1em;
 		}
 
-			.presentation-content p {
-				color: #39454b;
-				font-size: 1em;
-				text-align: left;
+			.presentation-content a.btn {
+				text-decoration: none;
+				padding: 0.25em 0.8em;
+				border-radius: 3px;
+				color: #fff;
 			}
 
-			.presentation-content header.carnet {
-				background: #5c89c7;
-				border-radius: 3px;
+				.presentation-content a.btn:hover {
+					background: #39454b;
+				}
+
+			.presentation-content header {
 				padding: 0.25em;
 			}
 
-			.presentation-content header.carnet h3 a {
-				font-family: 'tall_filmsregular';
-				font-size: 1.5em;
-				margin-bottom: 0.5em;
-				text-transform: uppercase;
+				.presentation-content header h3 a {
+					font-family: 'tall_filmsregular';
+					font-size: 3em;
+					margin-bottom: 0.5em;
+					text-transform: uppercase;
+					color: white;
+					text-shadow: 0px 0px 0.2em rgba(0,0,0,0.2);
+				}
+
+					.presentation-content header h3 a:hover {
+						opacity: 0.5;
+					}	
+
+			.presentation-content p {
 				color: white;
+				font-size: 1em;
+				text-align: center;
+				text-shadow: 0px 0px 0.2em rgba(0,0,0,0.2);
+			}
+
+			.presentation-content.carnet {
+				background: url('/static/images/intro.jpg');
+				background-size: cover;
+				background-position: center;
 			}
 
 			.presentation-content a.carnet {
-				text-decoration: none;
-				padding: 0.25em 0.8em;
 				background: #5c89c7;
-				border-radius: 0 0 3px 3px;
-				color: #fff;
-				position: absolute;
-				margin-top: 2em;
-				left: 0.5em;
-				width: 13.5em;
 			}
 
-			.presentation-content a.carnet:hover {
-				background: #39454b;
-			}
-
-			.presentation-content header.alimentation {
-				background: #8cb02b;
-				border-radius: 3px;
-				padding: 0.25em;
-			}
-
-			.presentation-content header.alimentation h3 a {
-				font-family: 'tall_filmsregular';
-				font-size: 1.5em;
-				margin-bottom: 0.5em;
-				text-transform: uppercase;
-				color: white;
+			.presentation-content.alimentation {
+				background: url('/static/images/one.jpg');
+				background-size: cover;
+				background-position: bottom;
 			}
 
 			.presentation-content a.alimentation {
-				text-decoration: none;
-				padding: 0.25em 0.8em;
 				background: #8cb02b;
-				border-radius: 0 0 3px 3px;
-				color: #fff;
-				position: absolute;
-				margin-top: 0.25em;
-				left: 15em;
-				width: 13.5em;
 			}
 
-			.presentation-content a.alimentation:hover {
-				background: #39454b;
-			}
-
-			.presentation-content header.conseils {
-				background: #ed7e4a;
-				border-radius: 3px;
-				padding: 0.25em;
-			}
-
-			.presentation-content header.conseils h3 a {
-				font-family: 'tall_filmsregular';
-				font-size: 1.5em;
-				margin-bottom: 0.5em;
-				text-transform: uppercase;
-				color: white;
+			.presentation-content.conseils {
+				background: url('/static/images/two.jpg');
+				background-size: cover;
+				background-position: center;
 			}
 
 			.presentation-content a.conseils {
-				text-decoration: none;
-				padding: 0.25em 0.8em;
 				background: #ed7e4a;
-				border-radius: 0 0 3px 3px;
-				color: #fff;
-				position: absolute;
-				margin-top: 3.68em;
-				left: 29.5em;
-				width: 13.5em;
 			}
-
-			.presentation-content a.conseils:hover {
-				background: #39454b;
-			}
-
-			.presentation-content header h3 a:hover {
-				opacity: 0.5;
-			}			
-
 
 /*********************************************************************************/
 /* Intro                                                                         */
