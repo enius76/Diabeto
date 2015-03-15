@@ -12,17 +12,17 @@ class ConnexionForm(forms.Form):
  
 class RegistrationForm(forms.Form):
  
-    username = forms.RegexField(regex=r'^\w+$', widget=forms.TextInput(attrs=dict(required=True, max_length=30)), label=_("Username"), error_messages={ 'invalid': _("Ne peut contenir que des caractères alphanumérique.") })
-    email = forms.EmailField(widget=forms.TextInput(attrs=dict(required=True, max_length=30)), label=_("Email address"))
-    password1 = forms.CharField(widget=forms.PasswordInput(attrs=dict(required=True, max_length=30, render_value=False)), label=_("Password"))
-    password2 = forms.CharField(widget=forms.PasswordInput(attrs=dict(required=True, max_length=30, render_value=False)), label=_("Password (again)"))
+    username = forms.RegexField(regex=r'^\w+$', widget=forms.TextInput(attrs=dict(required=True, max_length=30)), label=_("Nom d'utilisateur"), error_messages={ 'invalid': _("Ne peut contenir que des caracteres alphanumeriques [a-z+0-9].") })
+    email = forms.EmailField(widget=forms.TextInput(attrs=dict(required=True, max_length=30)), label=_("Adresse email"), error_messages={ 'invalid': _("Veuillez rentrer une adresse email valide.")})
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs=dict(required=True, max_length=30, render_value=False)), label=_("Mot de passe"))
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs=dict(required=True, max_length=30, render_value=False)), label=_("Mot de passe (confirmation)"))
  
     def clean_username(self):
         try:
             user = User.objects.get(username__iexact=self.cleaned_data['username'])
         except User.DoesNotExist:
             return self.cleaned_data['username']
-        raise forms.ValidationError(_("Ce pseudo existe déjà. Merci d'en choisir un nouveau"))
+        raise forms.ValidationError(_("Ce pseudo existe deja. Merci d'en choisir un nouveau"))
  
     def clean(self):
         if 'password1' in self.cleaned_data and 'password2' in self.cleaned_data:

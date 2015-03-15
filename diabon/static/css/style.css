@@ -853,6 +853,16 @@
 					margin-top: 0.6em;
 				}
 
+				#navigation ul li#deconnexion a {
+					background: white;
+					padding: 0.15em 0.8em;
+					color: #5c89c7;
+					height: 1.2em;
+					line-height: 1em;
+					border-radius: 3px;
+					margin-top: 0.6em;
+				}
+
 			#navigation ul li.search {
 				width: 3em;
 				height: 3em;
@@ -1155,6 +1165,15 @@
 				form#inscription-form input[type="submit"]:hover {
 					background: #455a64;
 				}
+
+	ul.errorlist {
+		background: #d13f3f;
+		border-radius: 3px;
+		padding: 0.25em;
+		color: white;
+		display: inline-block;
+		width: 100%;
+	}
 
 /*********************************************************************************/
 /* Inscription details						                                     */
@@ -3208,30 +3227,48 @@ table#table-releves {
 /* Equipe                                                                        */
 /*********************************************************************************/
 
-#lea {
-	background: url('images/overlay.png'), url('../images/equipe/lea.jpg');
-	background-size: 256px 256px, cover;
-	background-attachment: fixed, fixed;
-	background-position: middle left, center center;
-}
-
-#brice {
-	background: url('images/overlay.png'), url('../images/equipe/brice.jpg');
+section#equipe {
+	background: url('images/overlay.png'), url('/static/images/profil.jpg');
 	background-size: 256px 256px, cover;
 	background-attachment: fixed, fixed;
 	background-position: top left, center center;
 }
+.presentation-equipe {
+		border-radius: 5px;
+		margin-bottom: 1.5em;
+		border: 10px solid rgba(255,255,255,0.9);
+		padding: 1em;
+		background: rgba(92,137,199,0.8);
+	}
 
-#florent {
-	background: url('images/overlay.png'), url('../images/equipe/florent.jpg');
-	background-size: 256px 256px, cover;
-	background-attachment: fixed, fixed;
-	background-position: middle left, center center;
-}
+		.presentation-equipe a.btn {
+			text-decoration: none;
+			padding: 0.25em 0.8em;
+			border-radius: 3px;
+			color: #5c89c7;
+			background: white;
+		}
 
-#olivier {
-	background: url('images/overlay.png'), url('../images/equipe/olivier.jpg');
-	background-size: 256px 256px, cover;
-	background-attachment: fixed, fixed;
-	background-position: top left, center center;
-}
+			.presentation-equipe a.btn:hover {
+				opacity: 0.5;
+			}
+
+		.presentation-equipe header {
+			padding: 0.25em;
+		}
+
+			.presentation-equipe header h3 {
+				font-family: 'tall_filmsregular';
+				font-size: 3em;
+				margin-bottom: 0.5em;
+				text-transform: uppercase;
+				color: white;
+				text-shadow: 0px 0px 0.2em rgba(0,0,0,0.2);
+			}
+
+		.presentation-equipe p {
+			color: white;
+			font-size: 1em;
+			text-align: center;
+			text-shadow: 0px 0px 0.2em rgba(0,0,0,0.2);
+		}
