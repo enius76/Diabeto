@@ -10,18 +10,6 @@
 		<!-- JavaScript -->
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
 		<script src="/static/js/jquery.min.js"></script>
-		<script src="/static/js/jquery.tablesorter.min.js"></script>
-		<script type="text/javascript">
-			$(document).ready(function() 
-			    { 
-			        $("#table-releves").tablesorter(); 
-			    } 
-			); 
-		</script>
-		<script src="/static/js/jquery.calendario.js"></script>
-		<script type="text/javascript">
-			$('#calendar').calendario();
-		</script>
 
 		<!-- CSS -->
 		<link rel="stylesheet" href="/static/css/skel.css" />
@@ -35,6 +23,7 @@
 		<link rel="stylesheet" href="/static/css/page-carnet.css" />
 		<link rel="stylesheet" href="/static/css/magnific-popup.css" />
 		<link rel="stylesheet" href="/static/css/share.min.css" />
+		<link rel="stylesheet" href="/static/css/chartist.min.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 
 		<!-- FAVICON -->
@@ -48,7 +37,7 @@
 				<!-- Logo -->
 					<h1 id="logo">
 						<a href={% url 'home' %}>
-							<img src="/static/images/logo2.png" alt="Diab'On" title="Accueil" />
+							<img src="/static/images/logo.png" alt="Diab'On" title="Accueil" />
 						</a>
 					</h1>
 				
@@ -71,8 +60,9 @@
 								<span class="flaticon-bald23"></span>Conseils
 							</a></li>
 							{% if user.is_authenticated %}
-								<li><a href={% url 'profil' %}>
-									<span class="flaticon-edit45"></span>Profil
+								<li id="profil" title="Profil"><a href={% url 'profil' %}>
+									<!-- <span class="flaticon-edit45"></span>Profil -->
+									 <!--<img src="/static/images/profil-picture.png" alt="Ma photo" title="Profil"> -->
 								</a></li>
 								<li id="deconnexion"><a href={% url 'deconnexion' %}>Déconnexion</a></li>
 							{% else %}
@@ -122,6 +112,18 @@
 			</footer>
 
 		<!-- JavaScript -->
+		<script src="/static/js/jquery.tablesorter.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() 
+			    { 
+			        $("#table-releves").tablesorter(); 
+			    } 
+			); 
+		</script>
+		<script src="/static/js/jquery.calendario.js"></script>
+		<script type="text/javascript">
+			$('#calendar').calendario();
+		</script>
 		<script src="/static/js/jquery.poptrox.min.js"></script>
 		<script src="/static/js/jquery.scrolly.min.js"></script>
 		<script src="/static/js/jquery.scrollgress.min.js"></script>
@@ -132,11 +134,12 @@
 		<script src="/static/js/change_content.js"></script>
 		<script src="/static/js/data.js"></script>
 		<script src="/static/js/modernizr.custom.63321.js"></script>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+		<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     	<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
-    	<script src="/static/js/morris-stats.js"></script>
+    	<script src="/static/js/morris-stats.js"></script> -->
     	<script src="/static/js/jquery.magnific-popup.min.js"></script>
     	<script src="/static/js/share.min.js"></script>
+    	<script src="/static/js/chartist.min.js"></script>
 
     	<!-- enlever les aides -->
     	<script type="text/javascript">

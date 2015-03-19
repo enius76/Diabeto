@@ -787,10 +787,10 @@
 		}
 
 		#logo img {
-			height: 0.85em;
-			padding-left: 0.5em;
-			padding-right: 0.5em;
-			margin-top: 0.4em;
+			  height: 1.25em;
+			  padding-left: 0.5em;
+			  padding-right: 0.5em;
+			  margin-top: 0.16em;
 		}
 	
 	#navigation {
@@ -862,6 +862,23 @@
 					border-radius: 3px;
 					margin-top: 0.6em;
 				}
+
+				#navigation ul li#profil {
+					background: url('/static/images/profil-picture.png');
+					background-size: cover;
+					width: 2.2em;
+					height: 2.2em;
+					margin-top: 0.9em;
+					-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+					-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+					-o-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+					-ms-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+					transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+				}
+
+					#navigation ul li#profil:hover {
+						opacity: 0.5;
+					}
 
 			#navigation ul li.search {
 				width: 3em;
@@ -2055,6 +2072,7 @@ table#table-releves {
 				border: 0;
 				padding-top: 1em;
 				padding-left: 1em;
+				color: black;
 			}
 
 			form input[type="button"] {

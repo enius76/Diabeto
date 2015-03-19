@@ -62,7 +62,7 @@
                         <span class="flaticon-list1"></span>Mes relevés
                         
                     </h2>
-					<span class="btn-option export" title="Exporter mes relevés"><span class="flaticon-export1"></span></span>
+					<span class="btn-option export" title="Exporter mes relevés au format PDF"><span class="flaticon-export1"></span></span>
 					<a class="popup-with-form" href="#releve-popup-form"><span class="btn-option" title="Ajouter un relevé"><span class="flaticon-add182"></span></span></a>
                     <span class="btn-option hide-help 1" title="Afficher/Masquer l'infobulle"></span>
 					<div class="clear"></div>
@@ -141,7 +141,7 @@
                     </ul>
                 </nav>
 				
-				<div id="carnetChart"></div>							
+                <div class="ct-chart ct-perfect-fourth" id="statistiques_chart"></div>							
 			</div>
 
 		<!-- Agenda  -->
@@ -249,87 +249,152 @@
         });
     </script>
 
+<!-- EXPORT -->
+    <script src="/static/js/tableExport.js"></script>
+    <script src="/static/js/jquery.base64.js"></script>
+        <!-- PDF EXPORT -->
+    <script src="/static/js/table-export/libs/sprintf.js"></script>
+    <script src="/static/js/table-export/jspdf.js"></script>
+    <script src="/static/js/table-export/libs/base64.js"></script>
+    <script type="text/javascript">
+        $('#releves span.export').click(function() {
+            $('table#table-releves').tableExport({
+                type:'pdf',
+                escape:'false',
+                tableName:'DiabON - Vos relevés',
+                pdfFontSize:12,
+                ignoreColumn: [3],
+                pdfLeftMargin:40
+            });
+        });
+    </script>
 
+
+<!-- AGENDA -->
 <script type="text/javascript">
 
-            $(function() {
-                $(document).on('shown.calendar.calendario', function(e, instance){
-                    if(!instance) instance = cal;
-                    var $cell = instance.getCell(new Date().getDate());
-                    if($cell.hasClass('fc-today')) $cell.trigger('click.calendario');
-                });
-            
-                var transEndEventNames = {
-                        'WebkitTransition' : 'webkitTransitionEnd',
-                        'MozTransition' : 'transitionend',
-                        'OTransition' : 'oTransitionEnd',
-                        'msTransition' : 'MSTransitionEnd',
-                        'transition' : 'transitionend'
-                    },
-                    transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
-                    $wrapper = $( '#custom-inner' ),
-                    $calendar = $( '#calendar' ),
-                    cal = $calendar.calendario({
-                        onDayClick : function( $el, data, dateProperties ) {
+    $(function() {
+        $(document).on('shown.calendar.calendario', function(e, instance){
+            if(!instance) instance = cal;
+            var $cell = instance.getCell(new Date().getDate());
+            if($cell.hasClass('fc-today')) $cell.trigger('click.calendario');
+        });
+    
+        var transEndEventNames = {
+                'WebkitTransition' : 'webkitTransitionEnd',
+                'MozTransition' : 'transitionend',
+                'OTransition' : 'oTransitionEnd',
+                'msTransition' : 'MSTransitionEnd',
+                'transition' : 'transitionend'
+            },
+            transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
+            $wrapper = $( '#custom-inner' ),
+            $calendar = $( '#calendar' ),
+            cal = $calendar.calendario({
+                onDayClick : function( $el, data, dateProperties ) {
 
-                            if(data.content.length > 0 ) {
-                                showEvents(data.content, dateProperties );
-                            }
-
-                        },
-                        caldata : codropsEvents,
-                        displayWeekAbbr : true,
-                        events: 'click'
-                    } ),
-                    $month = $( '#custom-month' ).html( cal.getMonthName() ),
-                    $year = $( '#custom-year' ).html( cal.getYear() );
-
-                $( '#custom-next' ).on( 'click', function() {
-                    cal.gotoNextMonth( updateMonthYear );
-                } );
-                $( '#custom-prev' ).on( 'click', function() {
-                    cal.gotoPreviousMonth( updateMonthYear );
-                } );
-
-                function updateMonthYear() {                
-                    $month.html( cal.getMonthName() );
-                    $year.html( cal.getYear() );
-                }
-
-                // just an example..
-                function showEvents( contentEl, dateProperties ) {
-
-                    hideEvents();
-                    
-                    var $events = $( '<div id="custom-content-reveal" class="custom-content-reveal"><h4>Événements du ' + dateProperties.day + ' ' + dateProperties.monthname + ' ' + dateProperties.year + '</h4></div>' ),
-                        $close = $( '<span class="custom-content-close"></span>' ).on( 'click', hideEvents );
-
-                    $events.append( contentEl.join('') , $close ).insertAfter( $wrapper );
-                    
-                    setTimeout( function() {
-                        $events.css( 'top', '0%' );
-                    }, 25 );
-
-                }
-                function hideEvents() {
-
-                    var $events = $( '#custom-content-reveal' );
-                    if( $events.length > 0 ) {
-                        
-                        $events.css( 'top', '100%' );
-                        Modernizr.csstransitions ? $events.on( transEndEventName, function() { $( this ).remove(); } ) : $events.remove();
-
+                    if(data.content.length > 0 ) {
+                        showEvents(data.content, dateProperties );
                     }
 
-                }
-            
-            });
-		</script>
+                },
+                caldata : codropsEvents,
+                displayWeekAbbr : true,
+                events: 'click'
+            } ),
+            $month = $( '#custom-month' ).html( cal.getMonthName() ),
+            $year = $( '#custom-year' ).html( cal.getYear() );
 
-        <!-- changement padding body -->
-            <script type="text/javascript">
-                $('body').css('padding-top', '7em');
-            </script>
+        $( '#custom-next' ).on( 'click', function() {
+            cal.gotoNextMonth( updateMonthYear );
+        } );
+        $( '#custom-prev' ).on( 'click', function() {
+            cal.gotoPreviousMonth( updateMonthYear );
+        } );
+
+        function updateMonthYear() {                
+            $month.html( cal.getMonthName() );
+            $year.html( cal.getYear() );
+        }
+
+        // just an example..
+        function showEvents( contentEl, dateProperties ) {
+
+            hideEvents();
+            
+            var $events = $( '<div id="custom-content-reveal" class="custom-content-reveal"><h4>Événements du ' + dateProperties.day + ' ' + dateProperties.monthname + ' ' + dateProperties.year + '</h4></div>' ),
+                $close = $( '<span class="custom-content-close"></span>' ).on( 'click', hideEvents );
+
+            $events.append( contentEl.join('') , $close ).insertAfter( $wrapper );
+            
+            setTimeout( function() {
+                $events.css( 'top', '0%' );
+            }, 25 );
+
+        }
+        function hideEvents() {
+
+            var $events = $( '#custom-content-reveal' );
+            if( $events.length > 0 ) {
+                
+                $events.css( 'top', '100%' );
+                Modernizr.csstransitions ? $events.on( transEndEventName, function() { $( this ).remove(); } ) : $events.remove();
+
+            }
+
+        }
+    
+    });
+</script>
+
+<!-- STATISTIQUES -->
+<script type="text/javascript">
+    // CHARTIST / config des stats
+    var data = {
+        // Labels en abscisse:
+        labels: ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'],
+        // Valeurs:
+        series: [
+            [5, 2.12, 4.45, 2.75, 0, 2, 4]
+        ],
+    };
+    //options:
+    // We are setting a few options for our chart and override the defaults
+    var options = {
+        // Don't draw the line chart points
+        showPoint: true,
+        // Disable line smoothing
+        lineSmooth: true,
+        // X-Axis specific configuration
+        axisX: {
+            // We can disable the grid for this axis
+            showGrid: true,
+            // and also don't show the label
+            showLabel: true
+        },
+        // Y-Axis specific configuration
+        axisY: {
+            // Lets offset the chart a bit from the labels
+            offset: 60,
+            // The label interpolation function enables you to modify the values
+            // used for the labels on each axis. Here we are converting the
+            // values into million pound.
+            // Changer la ligne suivante pour modifier le label sur l'axe des ordonnées:
+            /*labelInterpolationFnc: function(value) {
+                return '$' + value + 'm';
+            }*/
+        }
+    };
+    // Create a new line chart object where as first parameter we pass in a selector
+    // that is resolving to our chart container element. The Second parameter
+    // is the actual data object.
+    new Chartist.Line('.ct-chart', data, options);
+</script>
+
+<!-- changement padding body -->
+    <script type="text/javascript">
+        $('body').css('padding-top', '7em');
+    </script>
 
 
 {% endblock content %}
