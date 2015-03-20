@@ -98,35 +98,13 @@ def carnet(request):
     return render_to_response('carnet.html', {'form': form,}, context_instance=RequestContext(request))
 
 
-<<<<<<< HEAD
-def catalogue(request):
-	return render_to_response('catalogue.html')
-
-
-def contact(request):
-	return render_to_response('contact.html')
-
-
-@login_required
-def profil(request):
-	return render_to_response('profil.html')
-
-
-def mentions(request):
-	return render_to_response('mentions-legales.html')
-=======
->>>>>>> origin/master
 
 # ______________________________________________ ALIMENTATION ____________________________________________
 
-<<<<<<< HEAD
-def equipe(request):
-	return render_to_response('equipe.html')	
 
-=======
 def alimentation(request):
 	return render_to_response('alimentation.html')
->>>>>>> origin/master
+
 
 def menu(request):
 	return render_to_response('mon-menu.html')
@@ -134,30 +112,10 @@ def menu(request):
 def catalogue(request):
 	return render_to_response('catalogue.html')
 
-<<<<<<< HEAD
-def connexion(request):
-    return render_to_response('connexion.html')
-
-
-def inscription(request):
-    return render_to_response('inscription.html')
-=======
-'''def aliment_details(request, category, slug):
-	aliment = Food.objects.get(slug=slug)
-	category = aliment.category
-	System.out(category)
-	return render_to_response('aliment_details.html', {'category':category, 'aliment': aliment})'''
->>>>>>> origin/master
 
 def aliment_details(request, slug):
 	aliment = Food.objects.get(slug=slug)	
 	return render_to_response('aliment_details.html', {'aliment': aliment})	
-
-<<<<<<< HEAD
-def inscription_details(request):
-    return render_to_response('inscription-details.html')
-=======
->>>>>>> origin/master
 
 
 # ______________________________________________ aliments details ____________________________________________
