@@ -11,7 +11,6 @@ class ConnexionForm(forms.Form):
 
  
 class RegistrationForm(forms.Form):
- 
     username = forms.RegexField(regex=r'^\w+$', widget=forms.TextInput(attrs=dict(required=True, max_length=30)), label=_("Nom d'utilisateur"), error_messages={ 'invalid': _("Ne peut contenir que des caracteres alphanumeriques [a-z+0-9].") })
     email = forms.EmailField(widget=forms.TextInput(attrs=dict(required=True, max_length=30)), label=_("Adresse email"), error_messages={ 'invalid': _("Veuillez rentrer une adresse email valide.")})
     password1 = forms.CharField(widget=forms.PasswordInput(attrs=dict(required=True, max_length=30, render_value=False)), label=_("Mot de passe"))
@@ -29,3 +28,8 @@ class RegistrationForm(forms.Form):
             if self.cleaned_data['password1'] != self.cleaned_data['password2']:
                 raise forms.ValidationError(_("Les 2 mots de passes ne correspondent pas"))
         return self.cleaned_data
+
+class ContactForm(forms.Form):
+    subject = forms.CharField(label="Sujet", max_length=30)
+    message = forms.CharField(label="Message")
+    sender = forms.EmailField(widget=forms.TextInput(attrs=dict(required=True, max_length=30)), label=_("Votre adresse email"), error_messages={ 'invalid': _("Veuillez rentrer une adresse email valide.")})

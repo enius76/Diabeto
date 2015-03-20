@@ -2,28 +2,7 @@
 
 {% block content %}
 
-
-
-<!--
-<table>
-   <tr bgcolor="bbbbbbb">
-       <th>Nom de l'aliment</th>
-       <th>Portion</th>
-       <th>Glucides</th>
-   </tr>
-
-{% for aliment in aliments %}
-   <tr bgcolor="888888">
-       <td align="center"> <a href="{% url 'alimentdetails' aliment.slug %}" > {{aliment.name}} </a></td>
-       <td align="center"> {{aliment.weight}}g </td>
-       <td align="center"> {{aliment.glucide}}g </td>
-   </tr>
-{% endfor %}
-</table>
-
--->
-
-<header id="sub-header">
+<header id="sub-header" class="alimentation">
 
     <!-- Sub Nav -->
         <nav role="navigation" id="catalogue-sub-navigation">
@@ -150,6 +129,8 @@
           $('#header').css('background-color', '#8cb02b');
           $('form#nav-search input[type="submit"]').css('color', '#8cb02b');
           $('#navigation ul li#connexion a').css('color', '#8cb02b');
+          $('h1#logo img').attr('src','/static/images/logo-green.png');
+          document.title = 'Catalogue - DiabON';
         </script>
 
 {% endblock content %}

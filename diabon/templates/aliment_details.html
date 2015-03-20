@@ -7,49 +7,39 @@
 			<section id="work" class="main style3 secondary details-aliment">
 				<div class="content container">
 
+					<a class="retour-catalogue" href="" onClick="javascript:window.history.go(-1)">< Retourner à la catégorie</a>
+
 					<div class="box container 75%">
 						<header>
 							<h2>Valeur glucidique pour :</h2>
-							<p class="aliment-picture"><img src="#" alt="" /></p>
 							<p class="aliment-name">{{aliment.name}}</p>	
 							<div class="clear"></div>						
 						</header>
+
+					<p class="aliment-categorie">Catégorie : <a href="" onClick="javascript:window.history.go(-1)">{{aliment.category.name}}</a></p>
             
             		<!-- Tableau Aliments  -->
                 		<div id="details-aliment-container">
-                    		
-                    		<div class="details-aliment-content">
-	                    		<p>Portion : {{aliment.weight}} g</p>
-	                    		<div class="glucide">
-									<p class="glucide-title">Quantité de glucide :</p>
-									<p class="glucide-quantite">{{aliment.glucide}} g</p>
-									<div class="clear"></div>
-								</div>
-							</div>
 
-							<div class="details-aliment-content">
-	                    		<p>Portion : {{aliment.weight|mul:3|intdiv:2}} g</p>
-	                    		<div class="glucide">
-									<p class="glucide-title">Quantité de glucide :</p>
-									<p class="glucide-quantite">{{aliment.glucide|mul:3|intdiv:2}} g</p>
-									<div class="clear"></div>
-								</div>
-							</div>
-
-							<div class="details-aliment-content">
-	                    		<p>Portion : {{aliment.weight|mul:2}} g</p>
-	                    		<div class="glucide">
-									<p class="glucide-title">Quantité de glucide :</p>
-									<p class="glucide-quantite">{{aliment.glucide|mul:2}} g</p>
-									<div class="clear"></div>
-								</div>
-							</div>
-
-							<div class="clear"></div>
-
-							<p class="aliment-categorie">Appartient à la catégorie des <a href="#">{{aliment.category.name}}</a></p>
+                			<table id="details-aliments" class="full">
+						        <thead class="table-title">
+						            <th>Portion</th>
+						            <th>Glucide</th>
+						        </thead>
+						        <tr>
+						            <td>{{aliment.weight}} g</td>
+						            <td>{{aliment.glucide}} g</td>
+						        </tr>
+						        <tr>
+						            <td>{{aliment.weight|mul:3|intdiv:2}} g</td>
+						            <td>{{aliment.glucide|mul:3|intdiv:2}} g</td>
+						        </tr>
+						        <tr>
+						            <td>{{aliment.weight|mul:2}} g</td>
+						            <td>{{aliment.glucide|mul:2}} g</td>
+						        </tr>
+						    </table>
 						</div>
-
 
 	                </div>
 	            </div>                  
@@ -63,6 +53,8 @@
 		    	$('#header').css('background-color', '#8cb02b');
 		    	$('form#nav-search input[type="submit"]').css('color', '#8cb02b');
 		    	$('#navigation ul li#connexion a').css('color', '#8cb02b');
+		    	$('h1#logo img').attr('src','/static/images/logo-green.png');
+		    	document.title = '{{aliment.name}} - DiabON';
 		    </script>
 
 

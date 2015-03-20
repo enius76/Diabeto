@@ -10,34 +10,80 @@ from django.shortcuts import render
 from django.core.urlresolvers import reverse
 from core.forms import *
 from django.contrib.auth.decorators import login_required
-
+from django.core.mail import send_mail
 
 
 def home(request):
 	return render_to_response('home.html')
 
 
-@login_required
-def carnet(request):
-	return render_to_response('carnet.html')
+
+# _______________________________________________ CONNEXION _____________________________________________
+
+def connexion(request):
+    foo = ''
+    return render_to_response('connexion.html', {'foo': foo})
 
 
-def alimentation(request):
-	
-	return render_to_response('alimentation.html')
+
+# ______________________________________________ INSCRIPTION _____________________________________________
+
+def inscription(request):
+	if request.method == "POST":
+		form = RegistrationForm(request.POST)
+		if form.is_valid():
+			user = User.objects.create_user(
+            username=form.cleaned_data['username'],
+            password=form.cleaned_data['password1'],
+            email=form.cleaned_data['email']
+            )
+			return HttpResponseRedirect('/inscription-complete')
+	else:
+		form = RegistrationForm()
+	variables = RequestContext(request, {
+	'form': form
+	})
+	return render_to_response(
+	'inscription.html',
+	variables,
+	)
+
+def inscriptionComplete(request):
+	return render_to_response('merci.html')
+
+def inscription_details(request):
+    foo = ''
+    return render_to_response('inscription-details.html', {'foo': foo})
 
 
-def conseils(request):
-	return render_to_response('conseils.html')
 
-def article_details(request):
-	return render_to_response('article-details.html')
+# _____________________________________________ [DE]CONNEXION _____________________________________________
+
+def connexion(request):
+	error = False
+	if request.method == "POST":
+		form = ConnexionForm(request.POST)
+		if form.is_valid():
+			username = form.cleaned_data["username"]
+			password = form.cleaned_data["password"]
+			user = authenticate(username=username, password=password)  # Nous vérifions si les données sont correctes
+			if user:  # Si l'objet renvoyé n'est pas None
+				login(request, user)  # nous connectons l'utilisateur
+				return redirect('carnet')
+			else: # sinon une erreur sera affichée
+				error = True
+	else:
+		form = ConnexionForm()
+	return render(request, 'connexion.html', locals())
+
+def deconnexion(request):
+	logout(request)
+	#return redirect(reverse(connexion))
+	return HttpResponseRedirect('/')
 
 
-def aliment_details(request, slug):
-	aliment = Food.objects.get(slug=slug)	
-	return render_to_response('aliment_details.html', {'aliment': aliment})	
 
+# _________________________________________________ CARNET _______________________________________________
 
 @login_required
 def carnet(request):
@@ -52,51 +98,32 @@ def carnet(request):
     return render_to_response('carnet.html', {'form': form,}, context_instance=RequestContext(request))
 
 
-def catalogue(request):
-	return render_to_response('catalogue.html')
 
+# ______________________________________________ ALIMENTATION ____________________________________________
 
-def contact(request):
-	foo = ''
-	return render_to_response('contact.html', {'foo': foo})
-
-
-@login_required
-def profil(request):
-	foo = ''
-	return render_to_response('profil.html', {'foo': foo})
-
-
-def mentions(request):
-	foo = ''
-	return render_to_response('mentions-legales.html', {'foo': foo})
-
-
-def equipe(request):
-	foo = ''
-	return render_to_response('equipe.html', {'foo': foo})	
-
+def alimentation(request):
+	return render_to_response('alimentation.html')
 
 def menu(request):
 	foo = ''
 	return render_to_response('mon-menu.html', {'foo': foo})
 
+def catalogue(request):
+	return render_to_response('catalogue.html')
 
-def connexion(request):
-    foo = ''
-    return render_to_response('connexion.html', {'foo': foo})
+'''def aliment_details(request, category, slug):
+	aliment = Food.objects.get(slug=slug)
+	category = aliment.category
+	System.out(category)
+	return render_to_response('aliment_details.html', {'category':category, 'aliment': aliment})'''
 
-
-def inscription(request):
-    foo = ''
-    return render_to_response('inscription.html', {'foo': foo})
-
-
-def inscription_details(request):
-    foo = ''
-    return render_to_response('inscription-details.html', {'foo': foo})
+def aliment_details(request, slug):
+	aliment = Food.objects.get(slug=slug)	
+	return render_to_response('aliment_details.html', {'aliment': aliment})	
 
 
+
+# ______________________________________________ aliments details ____________________________________________
 
 def pain(request):
 	aliments = Food.objects.filter(category_id='1')
@@ -159,49 +186,63 @@ def sauces(request):
 	return render_to_response('sub_content/aliments/sortedFood.html',{'aliments':aliments, 'category':category})
 
 
-def connexion(request):
-	error = False
 
+# ________________________________________________ CONSEILS ______________________________________________
+
+def conseils(request):
+	return render_to_response('conseils.html')
+
+def article_details(request):
+	return render_to_response('article-details.html')
+
+
+
+# ________________________________________________ CONTACT ______________________________________________
+
+def contact(request):
+	foo = ''
+	return render_to_response('contact.html', {'foo': foo})
+
+def contact(request):
 	if request.method == "POST":
-		form = ConnexionForm(request.POST)
+		form = ContactForm(request.POST)
 		if form.is_valid():
-			username = form.cleaned_data["username"]
-			password = form.cleaned_data["password"]
-			user = authenticate(username=username, password=password)  # Nous vérifions si les données sont correctes
-			if user:  # Si l'objet renvoyé n'est pas None
-				login(request, user)  # nous connectons l'utilisateur
-				return redirect('carnet')
-			else: # sinon une erreur sera affichée
-				error = True
-	else:
-		form = ConnexionForm()
+			subject = form.cleaned_data['subject']
+			message = form.cleaned_data['message']
+			sender = form.cleaned_data['sender']
+			cc_myself = form.cleaned_data['cc_myself']
 
-	return render(request, 'connexion.html', locals())
+			recipients = ['briceberthelot64@gmail.com']
+			if cc_myself:
+				recipients.append(sender)
 
-def deconnexion(request):
-	logout(request)
-	#return redirect(reverse(connexion))
-	return HttpResponseRedirect('/')
+			send_mail(subject, message, sender, recipients)
+			return HttpResponseRedirect('/contact-effectue/')
 
-def inscription(request):
-	if request.method == "POST":
-		form = RegistrationForm(request.POST)
-		if form.is_valid():
-			user = User.objects.create_user(
-            username=form.cleaned_data['username'],
-            password=form.cleaned_data['password1'],
-            email=form.cleaned_data['email']
-            )
-			return HttpResponseRedirect('/inscription-complete')
-	else:
-		form = RegistrationForm()
-	variables = RequestContext(request, {
-	'form': form
-	})
-	return render_to_response(
-	'inscription.html',
-	variables,
-	)
-
-def inscriptionComplete(request):
+def contactEffectue(request):
 	return render_to_response('merci.html')
+
+
+
+# ________________________________________________ PROFIL ______________________________________________
+
+@login_required
+def profil(request):
+	foo = ''
+	return render_to_response('profil.html', {'foo': foo})
+
+
+
+# ____________________________________________ MENTIONS LEGALES ________________________________________
+
+def mentions(request):
+	foo = ''
+	return render_to_response('mentions-legales.html', {'foo': foo})
+
+
+
+# ________________________________________________ L'EQUIPE ______________________________________________
+
+def equipe(request):
+	foo = ''
+	return render_to_response('equipe.html', {'foo': foo})	

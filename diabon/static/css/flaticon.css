@@ -16,6 +16,7 @@
 	font-style: normal;
 	margin-right: 5px;
 	vertical-align: bottom;
+	  font-weight: normal;
 }
 
 
@@ -51,8 +52,9 @@ nav#navigation .flaticon-apple55:before {
 }
 
 .presentation-content .flaticon-apple55:before {
-	font-size: 0.8em;
-    vertical-align: baseline !important;
+	font-size: 0.7em;
+    vertical-align: 0.1em !important;
+    font-weight: normal;
 }
 
 #one .flaticon-apple55:before {
@@ -72,6 +74,7 @@ nav#navigation .flaticon-bald23:before {
 .presentation-content .flaticon-bald23:before {
 	vertical-align: baseline !important;
     font-size: 0.9em;
+    font-weight: normal;
 }
 
 #two .flaticon-bald23:before {
@@ -160,7 +163,7 @@ nav#carnet-sub-navigation .flaticon-list1:before {
 }
 
 span.btn-option .flaticon-export1:before {
-	font-size: 0.4em;
+	font-size: 0.7em;
 }
 
 /* --------------- ALIMENTATION --------------- */
