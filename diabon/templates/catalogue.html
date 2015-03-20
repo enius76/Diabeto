@@ -4,25 +4,6 @@
 
 
 
-<!--
-<table>
-   <tr bgcolor="bbbbbbb">
-       <th>Nom de l'aliment</th>
-       <th>Portion</th>
-       <th>Glucides</th>
-   </tr>
-
-{% for aliment in aliments %}
-   <tr bgcolor="888888">
-       <td align="center"> <a href="{% url 'alimentdetails' aliment.slug %}" > {{aliment.name}} </a></td>
-       <td align="center"> {{aliment.weight}}g </td>
-       <td align="center"> {{aliment.glucide}}g </td>
-   </tr>
-{% endfor %}
-</table>
-
--->
-
 <header id="sub-header">
 
     <!-- Sub Nav -->
@@ -52,33 +33,33 @@
       <!-- Choix alphabetique -->
           <nav id="catalogue-alphabetique">
               <ul>
-                  <li><a href="sub_content/aliments/lettre-a.html">A</a></li>
-                  <li><a href="sub_content/aliments/lettre-b.html">B</a></li>
-                  <li><a href="sub_content/aliments/lettre-c.html">C</a></li>
-                  <li><a href="sub_content/aliments/lettre-d.html">D</a></li>
-                  <li><a href="sub_content/aliments/lettre-e.html">E</a></li>
-                  <li><a href="sub_content/aliments/lettre-f.html">F</a></li>
-                  <li><a href="sub_content/aliments/lettre-g.html">G</a></li>
-                  <li><a href="sub_content/aliments/lettre-h.html">H</a></li>
-                  <li><a href="sub_content/aliments/lettre-i.html">I</a></li>
-                  <li><a href="sub_content/aliments/lettre-j.html">J</a></li>
-                  <li><a href="sub_content/aliments/lettre-k.html">K</a></li>
-                  <li><a href="sub_content/aliments/lettre-l.html">L</a></li>
-                  <li><a href="sub_content/aliments/lettre-m.html">M</a></li>
-                  <li><a href="sub_content/aliments/lettre-n.html">N</a></li>
-                  <li><a href="sub_content/aliments/lettre-o.html">O</a></li>
-                  <li><a href="sub_content/aliments/lettre-p.html">P</a></li>
-                  <li><a href="sub_content/aliments/lettre-q.html">Q</a></li>
-                  <li><a href="sub_content/aliments/lettre-r.html">R</a></li>
-                  <li><a href="sub_content/aliments/lettre-s.html">S</a></li>
-                  <li><a href="sub_content/aliments/lettre-t.html">T</a></li>
-                  <li><a href="sub_content/aliments/lettre-u.html">U</a></li>
-                  <li><a href="sub_content/aliments/lettre-v.html">V</a></li>
-                  <li><a href="sub_content/aliments/lettre-w.html">W</a></li>
-                  <li><a href="sub_content/aliments/lettre-x.html">X</a></li>
-                  <li><a href="sub_content/aliments/lettre-y.html">Y</a></li>
-                  <li><a href="sub_content/aliments/lettre-z.html">Z</a></li>
-                  <div class="clear"></div>
+                        <li><a href="{% url 'alimentletter' letter='A' %}">A</a></li>
+                        <li><a href="{% url 'alimentletter' letter='B' %}">B</a></li>
+                        <li><a href="{% url 'alimentletter' letter='C' %}">C</a></li>
+                        <li><a href="{% url 'alimentletter' letter='D' %}">D</a></li>
+                        <li><a href="{% url 'alimentletter' letter='E' %}">E</a></li>
+                        <li><a href="{% url 'alimentletter' letter='F' %}">F</a></li>
+                        <li><a href="{% url 'alimentletter' letter='G' %}">G</a></li>
+                        <li><a href="{% url 'alimentletter' letter='H' %}">H</a></li>
+                        <li><a href="{% url 'alimentletter' letter='I' %}">I</a></li>
+                        <li><a href="{% url 'alimentletter' letter='J' %}">J</a></li>
+                        <li><a href="{% url 'alimentletter' letter='K' %}">K</a></li>
+                        <li><a href="{% url 'alimentletter' letter='L' %}">L</a></li>
+                        <li><a href="{% url 'alimentletter' letter='M' %}">M</a></li>
+                        <li><a href="{% url 'alimentletter' letter='N' %}">N</a></li>
+                        <li><a href="{% url 'alimentletter' letter='O' %}">O</a></li>
+                        <li><a href="{% url 'alimentletter' letter='P' %}">P</a></li>
+                        <li><a href="{% url 'alimentletter' letter='Q' %}">Q</a></li>
+                        <li><a href="{% url 'alimentletter' letter='R' %}">R</a></li>
+                        <li><a href="{% url 'alimentletter' letter='S' %}">S</a></li>
+                        <li><a href="{% url 'alimentletter' letter='T' %}">T</a></li>
+                        <li><a href="{% url 'alimentletter' letter='U' %}">U</a></li>
+                        <li><a href="{% url 'alimentletter' letter='V' %}">V</a></li>
+                        <li><a href="{% url 'alimentletter' letter='W' %}">W</a></li>
+                        <li><a href="{% url 'alimentletter' letter='X' %}">X</a></li>
+                        <li><a href="{% url 'alimentletter' letter='Y' %}">Y</a></li>
+                        <li><a href="{% url 'alimentletter' letter='Z' %}">Z</a></li>
+                        <div class="clear"></div>
               </ul>
         </nav>
 

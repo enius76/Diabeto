@@ -33,4 +33,11 @@ urlpatterns = patterns('',
 	url(r'^alimentation/catalogue/restauration-rapide/$', 'core.views.restauration_rapide', name='restauration_rapide'),
 	url(r'^alimentation/catalogue/boissons/$', 'core.views.boissons', name='boissons'),
 	url(r'^alimentation/catalogue/sauces-assaisonnements/$', 'core.views.sauces', name='sauces'),
+
+	url(r'^alimentation/catalogue/(?P<letter>\w{1})/$', 'core.views.letterSort', name='alimentletter'),
+	url(r'^alimentation/catalogue/(?P<category>[\w-]+)/(?P<letter>\w{1})/$', 'core.views.letterSortByCategory', name='letterSortByCategory'),
+
+
+
+
 )

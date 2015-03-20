@@ -1,0 +1,77 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+			
+<!-- Catalogue -->
+	<section id="work" class="main style3 primary">
+		<div class="content container">
+			<header>
+				<h2>{{category}} et des bananes</h2>
+			</header>
+
+			<!-- Choix alphabetique -->
+				<nav id="catalogue-alphabetique">
+                    <ul>
+                        <li><a href="{% url 'letterSortByCategory' aliment.category  %}">A</a></li>
+                        <li><a href="{% url 'letterSortByCategory' letter='B' %}">B</a></li>
+                        <li><a href="{% url 'letterSortByCategory' letter='C' %}">C</a></li>
+                        <li><a href="{% url 'letterSortByCategory' letter='D' %}">D</a></li>
+                        <li><a href="{% url 'letterSortByCategory' letter='E' %}">E</a></li>
+                        <li><a href="{% url 'letterSortByCategory' letter='F' %}">F</a></li>
+                        <li><a href="{% url 'letterSortByCategory' letter='G' %}">G</a></li>
+                        <li><a href="{% url 'letterSortByCategory' letter='H' %}">H</a></li>
+                        <li><a href="{% url 'letterSortByCategory' letter='I' %}">I</a></li>
+                        <li><a href="{% url 'letterSortByCategory' letter='J' %}">J</a></li>
+                        <li><a href="{% url 'letterSortByCategory' letter='K' %}">K</a></li>
+                        <li><a href="{% url 'letterSortByCategory' letter='L' %}">L</a></li>
+                        <li><a href="{% url 'letterSortByCategory' letter='M' %}">M</a></li>
+                        <li><a href="{% url 'letterSortByCategory' letter='N' %}">N</a></li>
+                        <li><a href="{% url 'letterSortByCategory' letter='O' %}">O</a></li>
+                        <li><a href="{% url 'letterSortByCategory' letter='P' %}">P</a></li>
+                        <li><a href="{% url 'letterSortByCategory' letter='Q' %}">Q</a></li>
+                        <li><a href="{% url 'letterSortByCategory' letter='R' %}">R</a></li>
+                        <li><a href="{% url 'letterSortByCategory' letter='S' %}">S</a></li>
+                        <li><a href="{% url 'letterSortByCategory' letter='T' %}">T</a></li>
+                        <li><a href="{% url 'letterSortByCategory' letter='U' %}">U</a></li>
+                        <li><a href="{% url 'letterSortByCategory' letter='V' %}">V</a></li>
+                        <li><a href="{% url 'letterSortByCategory' letter='W' %}">W</a></li>
+                        <li><a href="{% url 'letterSortByCategory' letter='X' %}">X</a></li>
+                        <li><a href="{% url 'letterSortByCategory' letter='Y' %}">Y</a></li>
+                        <li><a href="{% url 'letterSortByCategory' letter='Z' %}">Z</a></li>
+                        <div class="clear"></div>
+                    </ul>
+                </nav>
+    
+    		<!-- Aliments  -->
+                <div class="container 75% tri-result">
+                	<div class="table catalogue">
+					    <table class="full">
+					        <tr class="table-title">
+					            <td>Nom de l'aliment</td>
+					            <td>Glucides</td>
+					            <td>Quantité</td>
+					        </tr>
+                            {% for aliment in aliments %}
+					        <tr>
+					            <td class="label"><a href="{% url 'alimentdetails' aliment.slug %}" > {{aliment.name}} </a></td>
+					            <td>{{aliment.glucide}}g</td>
+					            <td>{{aliment.weight}}g</td>
+					        </tr>
+                            {% endfor %}
+					    </table>
+					</div>
+                </div>
+        </div>                  
+	</section>
+
+	<!-- Scroll to top -->
+        <a href="#" class="back-to-top">Haut de page</a>
+
+<!-- changement couleur header et padding body -->
+        <script type="text/javascript">
+          $('#header').css('background-color', '#8cb02b');
+          $('form#nav-search input[type="submit"]').css('color', '#8cb02b');
+          $('#navigation ul li#connexion a').css('color', '#8cb02b');
+        </script>
+
+{% endblock content %}
