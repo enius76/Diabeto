@@ -5,6 +5,8 @@
 <!-- Catalogue -->
 	<section id="work" class="main style3 primary">
 		<div class="content container">
+            <a class="retour-catalogue" href={% url 'catalogue' %}>< Retourner au catalogue</a>
+
 			<header>
 				<h2>{{category}}</h2>
 			</header>
@@ -45,12 +47,12 @@
     		<!-- Aliments  -->
                 <div class="container 75% tri-result">
                 	<div class="table catalogue">
-					    <table class="full">
-					        <tr class="table-title">
-					            <td>Nom de l'aliment</td>
-					            <td>Glucides</td>
-					            <td>Quantité</td>
-					        </tr>
+					    <table id="catalogue-categorie" class="full tablesorter">
+					        <thead class="table-title">
+					            <th class="name">Nom de l'aliment</th>
+					            <th class="glucide">Glucides</th>
+					            <th class="quantite">Portion</th>
+					        </thead>
                             {% for aliment in aliments %}
 					        <tr>
 					            <td class="label"><a href="{% url 'alimentdetails' aliment.slug %}" > {{aliment.name}} </a></td>
@@ -64,14 +66,25 @@
         </div>                  
 	</section>
 
-	<!-- Scroll to top -->
+    <!-- Scroll to top -->
         <a href="#" class="back-to-top">Haut de page</a>
 
-<!-- changement couleur header et padding body -->
+    <!-- changement couleur header et padding body -->
         <script type="text/javascript">
           $('#header').css('background-color', '#8cb02b');
           $('form#nav-search input[type="submit"]').css('color', '#8cb02b');
           $('#navigation ul li#connexion a').css('color', '#8cb02b');
+          $('h1#logo img').attr('src','/static/images/logo-green.png');
+          document.title = '{{category}} - DiabON';
         </script>
+
+    <!-- TABLEAU RELEVE TRI -->
+    <script type="text/javascript">
+        $(document).ready(function() 
+            { 
+                $("table#catalogue-categorie").tablesorter(); 
+            } 
+        ); 
+    </script>
 
 {% endblock content %}

@@ -12,7 +12,7 @@
 
 -->
 
-	<header id="sub-header">
+	<header id="sub-header" class="carnet">
 
 		<!-- Sub Nav -->
 			<nav role="navigation" id="carnet-sub-navigation">
@@ -63,8 +63,8 @@
                         
                     </h2>
 					<span class="btn-option export" title="Exporter mes relevés au format PDF"><span class="flaticon-export1"></span></span>
-					<a class="popup-with-form" href="#releve-popup-form"><span class="btn-option" title="Ajouter un relevé"><span class="flaticon-add182"></span></span></a>
-                    <span class="btn-option hide-help 1" title="Afficher/Masquer l'infobulle"></span>
+					<a class="popup-with-form" href="#releve-popup-form"><span class="btn-option add" title="Ajouter un relevé">+</span></a>
+                    <span class="btn-option hide-help 1" title="Afficher/Masquer l'infobulle">i</span>
 					<div class="clear"></div>
                     <p class="bulle-help 1" style="display:none;">Ajoutez facilement un relevé avec le '+'. Triez les résultats ou recherchez en un ou bien exportez les au format PDF pour les avoir toujours avec vous.</p>
 				</header>
@@ -94,7 +94,7 @@
 							<tr> 
 							    <td>18 Jan 2014</td> 
 							    <td>11h54</td> 
-							    <td><div class="indice-green"></div>135 mg/dl</td> 
+							    <td>135 mg/dl</td> 
 							    <td>Tremblement ! J'ai augmenté ma dose d'insuline.</td> 
 							</tr> 
 						</tbody> 
@@ -125,7 +125,7 @@
                         <span class="flaticon-business143"></span>Mes statistiques
                     </h2>
 					<span class="btn-option export" tit exportle="Exporter mes statistiques"><span class="flaticon-export1"></span></span>
-                    <span class="btn-option hide-help 2" title="Afficher/Masquer l'infobulle"></span>
+                    <span class="btn-option hide-help 2" title="Afficher/Masquer l'infobulle">i</span>
 					<div class="clear"></div>
                     <p class="bulle-help 2" style="display:none;">Visualisez en toute simplicité sous forme de graphique vos taux de glycémie et exportez vos résultats.</p>
 				</header>
@@ -150,9 +150,9 @@
 					<h2>
                         <span class="flaticon-calendar154"></span>Mon agenda
                     </h2>
-                    <span class="btn-option hide-help 3" title="Afficher/Masquer l'infobulle"></span>
+                    <span class="btn-option hide-help 3" title="Afficher/Masquer l'infobulle">i</span>
 					<div class="clear"></div>
-                    <p class="bulle-help 3" style="display:none;">Le diabète entraîne de nombreux rendez-vous médical et il n'est pas toujours facil de se rappeler de tout. Diab'ON vous permet de créer des rendez-vous avec des rappels pour ne jamais oublier.</p>
+                    <p class="bulle-help 3" style="display:none;">Le diabète entraîne de nombreux rendez-vous médical et il n'est pas toujours facil de se rappeler de tout. DiabON vous permet de créer des rendez-vous avec des rappels pour ne jamais oublier.</p>
 				</header>
 				
 				<section class="main">
@@ -268,6 +268,16 @@
             });
         });
     </script>
+
+
+<!-- TABLEAU RELEVE TRI -->
+<script type="text/javascript">
+    $(document).ready(function() 
+        { 
+            $("#table-releves").tablesorter(); 
+        } 
+    ); 
+</script>
 
 
 <!-- AGENDA -->
@@ -394,6 +404,7 @@
 <!-- changement padding body -->
     <script type="text/javascript">
         $('body').css('padding-top', '7em');
+        document.title = 'Carnet - DiabON';
     </script>
 
 

@@ -1,7 +1,7 @@
 {% extends "layout/base.html" %}
 {% block content %}
 
-	<header id="sub-header">
+	<header id="sub-header" class="alimentation">
 		<!-- Sub Nav -->
 			<nav role="navigation" id="alimentation-sub-navigation">
 				<ul>
@@ -67,7 +67,7 @@
 						     <div class="mask">  
 						     <h2><span class="flaticon-add182"></span>Aliment manquant</h2>  
 						     <p>Il manque un aliment dans notre catalogue ? Soumettez le nous.</p>  
-						         <a href="#" class="info">ajouter</a>  
+						         <a href={% url 'contact' %} class="info">ajouter</a>  
 						     </div>  
 						</div>  
 					</div>
@@ -105,6 +105,8 @@
     	$('a#modal_trigger.btn').css('color', '#8cb02b');
     	$('body').css('padding-top', '7em');
     	$('#navigation ul li#connexion a').css('color', '#8cb02b');
+    	$('h1#logo img').attr('src','/static/images/logo-green.png');
+    	document.title = 'Alimentation - DiabON';
     </script>
 
 {% endblock content %}

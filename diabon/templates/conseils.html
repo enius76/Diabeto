@@ -1,7 +1,7 @@
 {% extends "layout/base.html" %}
 {% block content %}
 
-    <header id="sub-header">
+    <header id="sub-header" class="conseils">
 
         <!-- Sub Nav -->
             <nav role="navigation" id="conseils-sub-navigation">
@@ -30,18 +30,19 @@
 			<!-- Choix tri  A faire en ajax a mon avis-->
 				<nav id="articles-tri">
                     <ul>
-                        <li><a href="sub_content/articles/tous-les-articles.html" class="change_load actif">Tout</a></li>
-                        <li><a href="sub_content/articles/actualite.html" class="change_load">Actualité</a></li>
-                        <li><a href="sub_content/articles/activites-sportives.html" class="change_load">Activités sportives</a></li>
-                        <li><a href="sub_content/articles/suivi-et-vie-pratique.html" class="change_load">Suivi / vie pratique</a></li>
-                        <li><a href="sub_content/articles/alimentation.html" class="change_load">Alimentation</a></li>
+                        <li><a href="#" data-filter="*" class="current">Tout</a></li>
+                        <li><a href="#" data-filter=".actu">Actualité</a></li>
+                        <li><a href="#" data-filter=".sport">Activités sportives</a></li>
+                        <li><a href="#" data-filter=".life">Suivi / vie pratique</a></li>
+                        <li><a href="#" data-filter=".food">Alimentation</a></li>
                         <div class="clear"></div>
                     </ul>
                 </nav>
-    
+
     		<!-- Articles  -->
-                <div class="container 75% conseils-articles">
-                	<div class="row 0% images">
+                <div class="container 75% conseils-articles js-isotope data-isotope-options='{ "itemSelector": ".item", "masonry": { "columnWidth": 200 } }'">
+
+                	<div class="row 0% images actu">
 						<div class="12u">
 							<div class="view">
 							    <img src="/static/images/articles/pic1.png" />  
@@ -52,7 +53,29 @@
 						</div>
 					</div>
 
-					<div class="row 0% images">
+                    <div class="row 0% images life">
+                        <div class="12u">
+                            <div class="view">
+                                <img src="/static/images/articles/pic2.png" />  
+                                <h2><a href="#">Diabète : comment fait-on pour le dépister ?</a></h2>  
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu dui posuere...</p>  
+                                <a href="#" class="info">lire l'article</a>  
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row 0% images food life">
+                        <div class="12u">
+                            <div class="view">
+                                <img src="/static/images/articles/pic2.png" />  
+                                <h2><a href="#">Le régime du diabète gestationnel</a></h2>  
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu dui posuere...</p>  
+                                <a href="#" class="info">lire l'article</a>  
+                            </div>
+                        </div>
+                    </div>
+
+					<div class="row 0% images actu">
 						<div class="12u">
 							<div class="view">
 							    <img src="/static/images/articles/pic3.png" />  
@@ -63,16 +86,83 @@
 						</div>
 					</div>
 
-					<div class="row 0% images">
+                    <div class="row 0% images life food">
+                        <div class="12u">
+                            <div class="view">
+                                <img src="/static/images/articles/pic2.png" />  
+                                <h2><a href="#">Lutte contre le diabète, les AVC, les rides : les vertus du thé</a></h2> 
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu dui posuere...</p>  
+                                <a href="#" class="info">lire l'article</a>  
+                            </div>
+                        </div>
+                    </div>
+
+					<div class="row 0% images sport">
 						<div class="12u">
 							<div class="view">
 							    <img src="/static/images/articles/pic2.png" />  
-							    <h2><a href="#">Bien choisir son activité sportive</a></h2>  
+							    <h2><a href="#">Diabète : méditer pour diminuer le risque</a></h2>  
 							    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu dui posuere...</p>  
 						        <a href="#" class="info">lire l'article</a>  
 					    	</div>
 						</div>
 					</div>
+
+                    <div class="row 0% images life">
+                        <div class="12u">
+                            <div class="view">
+                                <img src="/static/images/articles/pic2.png" />  
+                                <h2><a href="#">La vie d'un nouveau diabétique</a></h2>  
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu dui posuere...</p>  
+                                <a href="#" class="info">lire l'article</a>  
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row 0% images sport">
+                        <div class="12u">
+                            <div class="view">
+                                <img src="/static/images/articles/pic2.png" />  
+                                <h2><a href="#">Le cercle des nageurs de Marseille ouvre son bassin aux enfants diabétiques pour sensibiliser le public</a></h2>  
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu dui posuere...</p>  
+                                <a href="#" class="info">lire l'article</a>  
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row 0% images life food">
+                        <div class="12u">
+                            <div class="view">
+                                <img src="/static/images/articles/pic2.png" />  
+                                <h2><a href="#">Diabète de type 2 : bien manger le matin et dîner léger</a></h2> 
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu dui posuere...</p>  
+                                <a href="#" class="info">lire l'article</a>  
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row 0% images food">
+                        <div class="12u">
+                            <div class="view">
+                                <img src="/static/images/articles/pic2.png" />  
+                                <h2><a href="#">Les conservateurs alimentaires causeraient diabète, obésité ou maladie de Crohn</a></h2>  
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu dui posuere...</p>  
+                                <a href="#" class="info">lire l'article</a>  
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row 0% images sport">
+                        <div class="12u">
+                            <div class="view">
+                                <img src="/static/images/articles/pic2.png" />  
+                                <h2><a href="#">Quand le sport remplace les médicaments</a></h2>  
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu dui posuere...</p>  
+                                <a href="#" class="info">lire l'article</a>  
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
         </div>                  
 	</section>
@@ -80,12 +170,46 @@
 	<!-- Scroll to top -->
 	<a href="#" class="back-to-top">Remonter</a>
 
-	<!-- changement couleur background et bouton ok barre de recherche -->
+    <!-- ISOTOPE -->
+    <script type="text/javascript">
+       $(window).load(function(){
+            var $container = $('.conseils-articles');
+            $container.isotope({
+                filter: '*',
+                animationOptions: {
+                    duration: 750,
+                    easing: 'linear',
+                    queue: false
+                }
+            });
+
+            $('nav#articles-tri a').click(function(){
+                $('nav#articles-tri .current').removeClass('current');
+                $(this).addClass('current');
+
+                var selector = $(this).attr('data-filter');
+                $container.isotope({
+                    filter: selector,
+                    animationOptions: {
+                        duration: 750,
+                        easing: 'linear',
+                        queue: false
+                    }
+                 });
+                 return false;
+            }); 
+        });
+    </script>
+
+
+	<!-- changement couleur background et bouton ok barre de recherche et logo -->
     <script type="text/javascript">
     	$('#header').css('background-color', '#ed7e4a');
     	$('form#nav-search input[type="submit"]').css('color', '#ed7e4a');
     	$('a#modal_trigger.btn').css('color', '#ed7e4a');
         $('#navigation ul li#connexion a').css('color', '#ed7e4a');
+        $('h1#logo img').attr('src','/static/images/logo-orange.png');
+        document.title = 'Conseils - DiabON';
     </script>
 
 
