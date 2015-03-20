@@ -5,14 +5,16 @@
 <!-- Catalogue -->
 	<section id="work" class="main style3 primary">
 		<div class="content container">
+            <a class="retour-catalogue" href={% url 'catalogue' %}>< Retourner au catalogue</a>
+
 			<header>
-				<h2>{{category}} et des bananes</h2>
+				<h2>{{category}}</h2>
 			</header>
 
-			<!-- Choix alphabetique -->
-				<nav id="catalogue-alphabetique">
+            <!-- Choix alphabetique -->
+                <nav id="catalogue-alphabetique">
                     <ul>
-                        <li><a href="{% url 'letterSortByCategory' letter='A'  %}">A</a></li>
+                        <li><a href="{% url 'letterSortByCategory' slug letter='A' %}">A</a></li>
                         <li><a href="{% url 'letterSortByCategory' letter='B' %}">B</a></li>
                         <li><a href="{% url 'letterSortByCategory' letter='C' %}">C</a></li>
                         <li><a href="{% url 'letterSortByCategory' letter='D' %}">D</a></li>
@@ -45,12 +47,12 @@
     		<!-- Aliments  -->
                 <div class="container 75% tri-result">
                 	<div class="table catalogue">
-					    <table class="full">
-					        <tr class="table-title">
-					            <td>Nom de l'aliment</td>
-					            <td>Glucides</td>
-					            <td>Quantité</td>
-					        </tr>
+					    <table id="catalogue-categorie" class="full tablesorter">
+					        <thead class="table-title">
+					            <th class="name">Nom de l'aliment</th>
+					            <th class="glucide">Glucides</th>
+					            <th class="quantite">Portion</th>
+					        </thead>
                             {% for aliment in aliments %}
 					        <tr>
 					            <td class="label"><a href="{% url 'alimentdetails' aliment.slug %}" > {{aliment.name}} </a></td>
@@ -64,14 +66,25 @@
         </div>                  
 	</section>
 
-	<!-- Scroll to top -->
+    <!-- Scroll to top -->
         <a href="#" class="back-to-top">Haut de page</a>
 
-<!-- changement couleur header et padding body -->
+    <!-- changement couleur header et padding body -->
         <script type="text/javascript">
           $('#header').css('background-color', '#8cb02b');
           $('form#nav-search input[type="submit"]').css('color', '#8cb02b');
           $('#navigation ul li#connexion a').css('color', '#8cb02b');
+          $('h1#logo img').attr('src','/static/images/logo-green.png');
+          document.title = '{{category}} - DiabON';
         </script>
+
+    <!-- TABLEAU RELEVE TRI -->
+    <script type="text/javascript">
+        $(document).ready(function() 
+            { 
+                $("table#catalogue-categorie").tablesorter(); 
+            } 
+        ); 
+    </script>
 
 {% endblock content %}
