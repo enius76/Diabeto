@@ -60,7 +60,7 @@
 								<span class="flaticon-bald23"></span>Conseils
 							</a></li>
 							{% if user.is_authenticated %}
-								<li id="profil" title="{{user.username}}"><a href={% url 'profil' %}>
+								<li id="profil" title="Profil"><a href={% url 'profil' %}>
 									<!-- <span class="flaticon-edit45"></span>Profil -->
 									 <!--<img src="/static/images/profil-picture.png" alt="Ma photo" title="Profil"> -->
 								</a></li>
@@ -97,8 +97,8 @@
 
 				<!-- Icons -->
 					<ul class="actions">
-						<li><a target="_blank" href="https://twitter.com/appdiabon" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a target="_blank" href="https://www.facebook.com/pages/DiabON/1545716815689157?fref=ts" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
 					</ul>
 
 				<!-- Menu -->
@@ -112,15 +112,29 @@
 			</footer>
 
 		<!-- JavaScript -->
-		<script src="/static/js/skel.min.js"></script>
-		<script src="/static/js/init.js"></script>
+		<script src="/static/js/jquery.tablesorter.min.js"></script>
+		
+		<script src="/static/js/jquery.calendario.js"></script>
+		<script type="text/javascript">
+			$('#calendar').calendario();
+		</script>
 		<script src="/static/js/jquery.poptrox.min.js"></script>
 		<script src="/static/js/jquery.scrolly.min.js"></script>
 		<script src="/static/js/jquery.scrollgress.min.js"></script>
-		<script src="/static/js/jquery.tablesorter.min.js"></script>
+		<script src="/static/js/skel.min.js"></script>
+		<script src="/static/js/init.js"></script>
 		<script src="/static/js/scrollToTop.js"></script>
 		<script src="/static/js/navigation.js"></script>
+		<script src="/static/js/change_content.js"></script>
+		<script src="/static/js/data.js"></script>
 		<script src="/static/js/modernizr.custom.63321.js"></script>
+		<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    	<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+    	<script src="/static/js/morris-stats.js"></script> -->
+    	<script src="/static/js/jquery.magnific-popup.min.js"></script>
+    	<script src="/static/js/share.min.js"></script>
+    	<script src="/static/js/chartist.min.js"></script>
+    	<script src="/static/js/jquery.isotope.js"></script>
 
     	<!-- enlever les aides -->
     	<script type="text/javascript">

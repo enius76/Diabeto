@@ -1,33 +1,3 @@
-{% extends "layout/base.html" %}
+<h1> Merci <h1>
 
-{% block content %}
-
-
-<!-- Connexion -->
-    <section id="work" class="main style3 secondary inscription-complete">
-        <div class="content container 75%">
-            <header>
-                <h2>Félicitations, votre inscription est réussie</h2>
-                <p>Connectez-vous pour profiter de toutes les fonctionnalités ou continuez à remplir votre profil pour un service encore plus personnalisé.</p>
-            </header>
-        
-        <div id="connexion-container">
-            <img src="/static/images/icone-thumbs.png" alt="">
-
-            <h1></h1>
-
-            <a href={% url 'connexion' %}>Se connecter</a>
-            <a href={% url 'inscription-details' %}>Continuer à remplir mon profil</a>
-        </div>
-        
-    </section>
-
-    <script type="text/javascript">
-        document.title = 'Inscription réussie - DiabON';
-    </script>
-
-
-
-{% endblock content %}
-
-	
+	<a href="/connexion">Se connecter</a>

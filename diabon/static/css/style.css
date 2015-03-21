@@ -1157,39 +1157,6 @@
 		background: #455a64;
 	}
 
-	section#work.inscription-complete {
-		padding-top: 4em;
-	}
-
-		section#work.inscription-complete a {
-			display: inline-block;
-			background: #5c89c7;
-			color: white;
-			text-decoration: none;
-			padding: 0.25em 0.8em;
-			border-radius: 3px;
-			margin-top: 2em;
-			opacity: 1;
-			-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-			-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-			-o-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-			-ms-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-			transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-		}
-
-		section#work.inscription-complete a:hover {
-			background: #455a64;
-		}
-
-		section#work.inscription-complete #connexion-container {
-			border-radius: 3px;
-			text-align: center;
-			box-shadow: 1px 1px 2px #e6e6e6;
-			background: white;
-			padding: 1em;
-			margin-bottom: 1em;
-		}
-
 /*********************************************************************************/
 /* Inscription								                                     */
 /*********************************************************************************/
@@ -1271,13 +1238,6 @@
 	padding-top: 3em;
 	padding-bottom: 3em;
 }
-
-	#work.inscription-details #inscription-details-container {
-		display: -webkit-box;
-		border-radius: 3px;
-		box-shadow: 1px 1px 2px #e6e6e6;
-		background: white;
-	}
 
 	form#inscription-details-form {
 		width: 75%;
@@ -1384,7 +1344,7 @@
 					border-radius: 3px;
 					background: white url('../images/tri-decroissant.png');
 					background-repeat: no-repeat;
-					background-position: 32em center;
+					background-position: 29em center;
 					outline: none;
 				}
 
@@ -1787,25 +1747,33 @@ table#table-releves {
 		nav#stats-tri li {
 			display: inline-block;
 			margin: 0 0.25em 1em 0;
-			color: white;
-			padding: 0.25em 0.8em;
-			border-radius: 3px;
-			cursor: pointer;
-			background: #5c89c7;
-			-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-			-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-			-o-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-			-ms-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-			transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
 		}
 
-			nav#stats-tri li:hover {
+			nav#stats-tri li a {
+				color: white;
+				padding: 0.25em 0.8em;
+				border-radius: 3px;
+				cursor: pointer;
+				background: #5c89c7;
+				-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+				-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+				-o-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+				-ms-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+				transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+				text-decoration: none;
+			}
+
+			nav#stats-tri li a:hover {
 				cursor: pointer;
 				background-color: #455a64;
 			}
 
-			nav#stats-tri li.current {
+			nav#stats-tri li a.actif {
+				color:white;
 				background: #455a64;
+				border-radius: 3px;
+				padding: 0.25em 0.8em;
+				text-decoration: none;
 			}
 
 	#carnetChart {
@@ -3071,13 +3039,13 @@ table#table-releves {
 /* Contact                                                                       */
 /*********************************************************************************/
 
-	section#work.contact {
+	#contact {
 		padding-bottom: 3em;
 		padding-top: 3em;
 		overflow: hidden;
 	}
 	
-		section#work.contact .box {
+		#contact .box {
 			position: relative;
 			bottom: 0;
 			
@@ -3094,66 +3062,40 @@ table#table-releves {
 			transform: translateZ(0);
 		}
 
-		.box.contact-form {
-			display: -webkit-box;
+		#contact form input[type="text"], form input[type="email"], form input[type="password"], form select, form textarea {
+			display: block;
+			width: 100%;
+			padding: 0.65em 0.75em;
+			background: none;
+			border: solid 2px rgba(185,186,187,0.25);
+			color: inherit;
+			border-radius: 0.5em;
+			outline: none;
+			-moz-appearance: none;
+			-webkit-appearance: none;
+			-o-appearance: none;
+			-ms-appearance: none;
+			appearance: none;
+			-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+			-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+			-o-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+			-ms-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+			transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
 		}
 
-		form#contact-form {
-			width: 50%;
-			margin: 0 auto;
+		#contact form input[type="submit"] {
+			background-color: #5c89c7;
+			border-radius: 3px;
+			padding: 0.25em 0.8em;
+			line-height: initial;
+			height: initial;
+			font-family: 'tall_filmsregular';
+ 			font-size: 2em;
 		}
 
-			form#contact-form label {
-				text-align: left;
-			}
-
-			form#contact-form input[type="text"], form#contact-form input[type="email"], form#contact-form input[type="password"], form#contact-form select, form#contact-form textarea {
-				display: block;
-				width: 100%;
-				padding: 0.65em 0.75em;
-				background: none;
-				border: solid 2px rgba(185,186,187,0.25);
-				color: inherit;
-				border-radius: 0.5em;
-				outline: none;
-				-moz-appearance: none;
-				-webkit-appearance: none;
-				-o-appearance: none;
-				-ms-appearance: none;
-				appearance: none;
-				-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-				-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-				-o-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-				-ms-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-				transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-			}
-
-			form#contact-form textarea#id_message {
-				height: 3em;
-			}
-
-			form#contact-form input[type="submit"] {
-				width: 100%;
-				padding: 0.25em 0.5em;
-				background: #5c89c7;
-				color: white;
-				height: 2em;
-				margin-top: 1em;
-				line-height: 1em;
-				-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-				-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-				-o-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-				-ms-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-				transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
-			}
-
-			form#contact-form input[type="submit"]:hover {
-				background-color: #455a64;
-			}
-
-			form#contact-form ul.errorlist {
-				margin: 1em 0;
-			}
+		#contact form input[type="submit"]:hover {
+			background-color: #455a64;
+		}
 		
 
 /*********************************************************************************/
