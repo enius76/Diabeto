@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    /*$("#catalogue-tri a.change_load").click(function(){
+    $("#catalogue-tri a.change_load").click(function(){
         //on recup l'url de la page dans une variable 'page'
         page=$(this).attr("href");
         $.ajax({
@@ -13,9 +13,9 @@ $(document).ready(function(){
             }
         })
         return false;
-    });*/
+    });
 
-    /*$("#articles-tri a.change_load").click(function(){
+    $("#articles-tri a.change_load").click(function(){
         //on recup l'url de la page dans une variable 'page'
         page=$(this).attr("href");
         $.ajax({
@@ -34,7 +34,7 @@ $(document).ready(function(){
         $(this).addClass('actif');
         
         return false;
-    });*/
+    });
 
     $("#releves-tri a.change_load").click(function(){
         //on recup l'url de la page dans une variable 'page'

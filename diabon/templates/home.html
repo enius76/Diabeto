@@ -18,13 +18,7 @@
 						</header>
 						<p>Gérez vos <strong>relevés</strong>, visualisez votre <strong>évolution</strong> et planifiez 
 						vos <strong>rendez-vous</strong>.</p>
-						{% if user.is_authenticated %}
-			                <a class="btn carnet" href={% url 'carnet' %}>Voir</a>
-			            {% else %}
-			                <a class="btn carnet" href={% url 'connexion' %}>Connectez-vous</a>
-			            {% endif %}
-
-						
+						<a class="btn carnet" href={% url 'connexion' %}>Connectez-vous</a>
 					</div>
 					<div class="presentation-content alimentation">
 						<header class="alimentation">
