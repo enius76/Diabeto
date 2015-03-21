@@ -6,8 +6,8 @@
     <section id="header-article" class="main style3 dark">
         <div class="content container 75%">
             <header>
-                <h2>La recherche sur le diabète s'intéresse aux causes</h2>
-                <p>De <strong>Martine Lochouarn</strong>, le 23/12/2014<br>Publié dans <a target="_blank" href="http://www.lefigaro.com">Le Figaro</a></p>                 
+                <h2>{{article.title}}</h2>
+                <p>De <strong>{{article.author}}</strong>, le {{article.date}}</p>                 
             </header>
         </div>
     </section>
@@ -16,17 +16,11 @@
     <section id="work" class="main style3 secondary article">
         <div class="content container">
 
+            <a class="retour-conseils" href={% url 'conseils' %}>< Retourner aux articles</a>
+
             <!-- Article  -->
                 <div class="box container 75% article">
-                    <p class="sub-title">Des chercheurs ont identifié chez des diabétiques de type 1 un gène qui amplifie fortement leur réponse inflammatoire à ces virus.</p>
-
-                    <p>Les scientifiques s'intéressent beaucoup dans le diabète de type 1 au déclenchement de la réaction auto-immune par laquelle les lymphocytes T se retournent contre les cellules bêta du pancréas. Les facteurs génétiques jouent un rôle important. Mais les soupçons se portent aussi sur un possible rôle d'infections virales par des entérovirus. «La trace de ces virus a été détectée dans le plasma d'un tiers des diabétiques de type 1, mais n'est présent que chez 2 à 4 % des non-diabétiques», explique le Pr Didier Hober (Université-CHU de Lille). Ces virus (CBV4) inoculés chez des souris déclenchent un diabète.</p>
-
-                    <p>Des chercheurs ont identifié chez des diabétiques de type 1 un gène qui amplifie fortement leur réponse inflammatoire à ces virus. «Cette réponse exagérée pourrait initier la réponse auto-immune. Des scientifiques scandinaves ont d'ailleurs détecté chez des diabétiques la trace d'infections par entérovirus antérieures au début de la réaction auto-immune», indique le chercheur.</p>
-
-                    <p>Côté traitements, l'immunothérapie vise à restaurer la tolérance immunitaire de l'organisme envers lui-même, grâce à des auto-antigènes impliqués dans la maladie, mais préparés pour ne pas susciter de réaction auto-immune. Avec GAD, un auto-antigène majeur dans le diabète de type 1, les résultats ont été très bons chez des souris diabétiques, mais décevants lors d'essais chez l'homme. Les anticorps anti-CD3, dirigés contre un antigène des lymphocytes T responsables de la réaction auto-immune, avaient permis, à faible dose, de rétablir une glycémie normale chez des souris diabétiques. Depuis 2000, plus de 700 patients ayant un diabète récent ont été traités par anti-CD3 pendant une à deux semaines, et ces essais ont permis de maintenir une sécrétion d'insuline pendant 1 à 4 ans, donc de réduire leurs injections d'insuline, et pour certains de les arrêter.</p>
-
-                    <p>«Un nouvel essai de phase 3, de grande taille, est prévu, mais il faudrait l'engagement d'un grand groupe pour le piloter et assurer la production industrielle de l'anti-CD3», explique le Pr Lucienne Chatenoud, immunologiste (Institut Necker, Paris). Or, les groupes pharmaceutiques font de moins en moins de recherche…</p>
+                    {{article.content}}
                 </div>
 
             <!-- Sharing buttons -->
@@ -34,7 +28,7 @@
                     <img src="/static/images/share.png" alt="Partager" /><p>Partagez l'article sur vos réseaux sociaux :</p>
                     <ul class="rrssb-buttons clearfix">
                         <li class="rrssb-facebook">
-                            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.diabon.fr/articles/l-epidemie-de-diabete-ralentit.html" class="popup">
+                            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://briceberthelot.alwaysdata.net/conseils/{{article.slug}}" class="popup">
                                 <span class="rrssb-icon">
                                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
                                         <path d="M27.825,4.783c0-2.427-2.182-4.608-4.608-4.608H4.783c-2.422,0-4.608,2.182-4.608,4.608v18.434
@@ -47,7 +41,7 @@
                         </li>
 
                         <li class="rrssb-twitter">
-                            <a target="_blank" href="http://twitter.com/home?status=@Diab'ON%20-%20L'épidémie%20de%20diabete%20ralentit%20sa%20progression%20http://www.diabon.fr/articles/l-epidemie-de-diabete-ralentit.html" class="popup">
+                            <a target="_blank" href="http://twitter.com/home?status=@DiabON%20-%20{{article.title}}%20http://briceberthelot.alwaysdata.net/conseils/{{article.slug}}" class="popup">
                                 <span class="rrssb-icon">
                                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                          width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
@@ -62,24 +56,9 @@
                                 <span class="rrssb-text">Twitter</span>
                             </a>
                         </li>
-                        <li class="rrssb-linkedin">
-                            <!-- Replace href with your meta and URL information -->
-                            <a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://www.diabon.fr/articles/l-epidemie-de-diabete-ralentit.html&amp;title=Diab'ON%20-%20L'épidémie%20de%20diabete%20ralentit%20sa%20progression&amp;summary=Diab'ON%20-%20L'épidémie%20de%20diabete%20ralentit%20sa%20progression" class="popup">
-                                <span class="rrssb-icon">
-                                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
-                                        <path d="M25.424,15.887v8.447h-4.896v-7.882c0-1.979-0.709-3.331-2.48-3.331c-1.354,0-2.158,0.911-2.514,1.803
-                                            c-0.129,0.315-0.162,0.753-0.162,1.194v8.216h-4.899c0,0,0.066-13.349,0-14.731h4.899v2.088c-0.01,0.016-0.023,0.032-0.033,0.048
-                                            h0.033V11.69c0.65-1.002,1.812-2.435,4.414-2.435C23.008,9.254,25.424,11.361,25.424,15.887z M5.348,2.501
-                                            c-1.676,0-2.772,1.092-2.772,2.539c0,1.421,1.066,2.538,2.717,2.546h0.032c1.709,0,2.771-1.132,2.771-2.546
-                                            C8.054,3.593,7.019,2.501,5.343,2.501H5.348z M2.867,24.334h4.897V9.603H2.867V24.334z"/>
-                                    </svg>
-                                </span>
-                                <span class="rrssb-text">LinkedIn</span>
-                            </a>
-                        </li>
                         <li class="rrssb-googleplus">
                             <!-- Replace href with your meta and URL information.  -->
-                            <a target="_blank" href="https://plus.google.com/share?url=Diab'ON%20-%20L'épidémie%20de%20diabete%20ralentit%20sa%20progression%20http://www.diabon.fr/articles/l-epidemie-de-diabete-ralentit.html" class="popup">
+                            <a target="_blank" href="https://plus.google.com/share?url=DiabON%20-%20{{article.title}}%20http://briceberthelot.alwaysdata.net/conseils/{{article.slug}}" class="popup">
                                 <span class="rrssb-icon">
                                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
                                         <g>
@@ -118,7 +97,26 @@
         $('a#modal_trigger.btn').css('color', '#ed7e4a');
         $('#navigation ul li#connexion a').css('color', '#ed7e4a');
         $('h1#logo img').attr('src','/static/images/logo-orange.png');
+        document.title = '{{article.title}} - DiabON';
     </script>
 
+    <!-- changement couleur background titre suivant category -->
+    {% if article.category_article_id == 1 %}
+        <script type="text/javascript">
+            $('#header-article').css('background', '#e46c6c');
+        </script>
+    {% elif article.category_article_id == 2 %}
+        <script type="text/javascript">
+            $('#header-article').css('background', '#f9c935');
+        </script>
+    {% elif article.category_article_id == 3 %}
+        <script type="text/javascript">
+            $('#header-article').css('background', '#fbad35');
+        </script>
+    {% elif article.category_article_id == 4 %}
+        <script type="text/javascript">
+            $('#header-article').css('background', '#8db126');
+        </script>
+    {% endif %}
 
 {% endblock content %}

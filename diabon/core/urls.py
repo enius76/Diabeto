@@ -4,8 +4,6 @@ from django.conf.urls import patterns, include, url
 urlpatterns = patterns('',
 	url(r'^$', 'core.views.home', name='home'),
 	url(r'^carnet-de-bord/$', 'core.views.carnet', name='carnet'),
-	url(r'^conseils/$', 'core.views.conseils', name='conseils'),
-	url(r'^conseils/article-details/$', 'core.views.article_details', name='articledetails'),
 	url(r'^profil/$', 'core.views.profil', name='profil'),
 	url(r'^contact/$', 'core.views.contact', name='contact'),
 	url(r'^contact-effectue/$', 'core.views.contactEffectue', name='contactEffectue'),
@@ -36,4 +34,6 @@ urlpatterns = patterns('',
 	url(r'^alimentation/catalogue/sauces-assaisonnements/$', 'core.views.sauces', name='sauces'),
 	#url(r'^alimentation/catalogue/(?P<category>[\w-]+)/(?P<slug>[\w-]+)/$', 'core.views.aliment_details', name='alimentdetails'),
 
+	url(r'^conseils/$', 'core.views.conseils', name='conseils'),
+	url(r'^conseils/(?P<slug>[\w-]+)/$', 'core.views.article_details', name='articledetails'),
 )
