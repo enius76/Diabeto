@@ -24,10 +24,6 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.core.context_processors.request',
-)
-
 
 ALLOWED_HOSTS = ['*']
 
