@@ -5,12 +5,6 @@ from django.forms import ModelForm
 from django.contrib.auth.models import User
 from django.conf import settings
 
-class Category(models.Model):
-	name = models.CharField(max_length=200)
-	slug = models.SlugField(max_length=200)
-	def __unicode__(self):
-		return "%s %s" % (self.name)
-
 class Food(models.Model):
 	name = models.CharField(max_length=200)
 	slug = models.SlugField(max_length=200)
@@ -20,16 +14,24 @@ class Food(models.Model):
 	def __unicode__(self):
 		return "%s" % (self.name)
 
+class Category(models.Model):
+	name = models.CharField(max_length=100)
+	slug = models.SlugField(max_length=100)
+	def __unicode__(self):
+		return "%s" % (self.name)
+
+
 class Profile(models.Model):
+	user = models.OneToOneField(User)
 	birth = models.DateField()
 	sexe = models.CharField(max_length=1)
 	weight = models.FloatField()
 	height = models.FloatField()
 	glyc = models.ForeignKey('Glyc')
-	user = models.OneToOneField(User)
 
-	def __str__(self):
-		return "Profil de {0}".format(self.user.username)
+
+	def __unicode__(self):
+		return "Profile de %s" % self.user
 
 	def create_user(self, email, password=None):
 	#Creates and saves a User with the given email and password.

@@ -101,90 +101,35 @@ def carnet(request):
 
 # ______________________________________________ ALIMENTATION ____________________________________________
 
+
 def alimentation(request):
 	return render_to_response('alimentation.html')
 
 def menu(request):
-	foo = ''
-	return render_to_response('mon-menu.html', {'foo': foo})
+	return render_to_response('mon-menu.html')
 
 def catalogue(request):
 	return render_to_response('catalogue.html')
-
-'''def aliment_details(request, category, slug):
-	aliment = Food.objects.get(slug=slug)
-	category = aliment.category
-	System.out(category)
-	return render_to_response('aliment_details.html', {'category':category, 'aliment': aliment})'''
 
 def aliment_details(request, slug):
 	aliment = Food.objects.get(slug=slug)	
 	return render_to_response('aliment_details.html', {'aliment': aliment})	
 
 
-
 # ______________________________________________ aliments details ____________________________________________
 
-def pain(request):
-	aliments = Food.objects.filter(category_id='1')
-	category = 'Pains, biscottes, céréales, viennoiseries'
-	return render_to_response('sub_content/aliments/sortedFood.html',{'aliments':aliments, 'category':category})
+def category(request, slug):
+	aliments = Food.objects.filter(category__slug=slug)
+	return render_to_response('sub_content/aliments/sortedFoodCategory.html',{'aliments':aliments})
 
-def feculents(request):
-	aliments = Food.objects.filter(category_id='2')
-	category = 'Féculents et légumes secs'
-	return render_to_response('sub_content/aliments/sortedFood.html',{'aliments':aliments, 'category':category})
+def letterSort(request, letter):
+	aliments = Food.objects.filter(name__istartswith=letter)
+	return render_to_response('sub_content/aliments/sortedFood.html', {'aliments': aliments})
 
-def legumes(request):
-	category = 'Légumes'
-	aliments = Food.objects.filter(category_id='3')
-	return render_to_response('sub_content/aliments/sortedFood.html',{'aliments':aliments, 'category':category})
-
-def fruits(request):
-	category = 'Fruits et fruits secs'
-	aliments = Food.objects.filter(category_id='4')
-	return render_to_response('sub_content/aliments/sortedFood.html',{'aliments':aliments, 'category':category})
-
-def produits_laitiers(request):
-	category = 'produits laitiers'
-	aliments = Food.objects.filter(category_id='5')
-	return render_to_response('sub_content/aliments/sortedFood.html',{'aliments':aliments, 'category':category})
-
-def plats_cuisines(request):
-	category = 'Plats cuisinés'
-	aliments = Food.objects.filter(category_id='6')
-	return render_to_response('sub_content/aliments/sortedFood.html',{'aliments':aliments, 'category':category})
-
-def dessert(request):
-	category = 'Désserts'
-	aliments = Food.objects.filter(category_id='7')
-	return render_to_response('sub_content/aliments/sortedFood.html',{'aliments':aliments, 'category':category})
-
-def confiseries(request):
-	category = 'Produits sucrés, confiseries'
-	aliments = Food.objects.filter(category_id='8')
-	return render_to_response('sub_content/aliments/sortedFood.html',{'aliments':aliments, 'category':category})
-
-def aperitifs(request):
-	category = 'Apéritifs'
-	aliments = Food.objects.filter(category_id='9')
-	return render_to_response('sub_content/aliments/sortedFood.html',{'aliments':aliments, 'category':category})
-
-def restauration_rapide(request):
-	category = 'Restauration rapide'
-	aliments = Food.objects.filter(category_id='11')
-	return render_to_response('sub_content/aliments/sortedFood.html',{'aliments':aliments, 'category':category})
-
-def boissons(request):
-	category = 'Boissons'
-	aliments = Food.objects.filter(category_id='10')
-	return render_to_response('sub_content/aliments/sortedFood.html',{'aliments':aliments, 'category':category})
-
-def sauces(request):
-	category = 'Sauces, assaisonnements'
-	aliments = Food.objects.filter(category_id='12')	
-	return render_to_response('sub_content/aliments/sortedFood.html',{'aliments':aliments, 'category':category})
-
+def letterSortByCategory(request, letter, slug):
+	aliments = Food.objects.filter(category__slug = slug).filter(name__istartswith=letter)
+	cat = aliments[0]
+	return render_to_response('sub_content/aliments/sortedFoodCategory.html', {'aliments': aliments, 'cat':cat})
 
 
 # ________________________________________________ CONSEILS ______________________________________________
@@ -201,8 +146,7 @@ def article_details(request, slug):
 # ________________________________________________ CONTACT ______________________________________________
 
 def contact(request):
-	foo = ''
-	return render_to_response('contact.html', {'foo': foo})
+	return render_to_response('contact.html')
 
 def contact(request):
 	if request.method == "POST":
@@ -229,21 +173,18 @@ def contactEffectue(request):
 
 @login_required
 def profil(request):
-	foo = ''
-	return render_to_response('profil.html', {'foo': foo})
+	return render_to_response('profil.html')
 
 
 
 # ____________________________________________ MENTIONS LEGALES ________________________________________
 
 def mentions(request):
-	foo = ''
-	return render_to_response('mentions-legales.html', {'foo': foo})
+	return render_to_response('mentions-legales.html')
 
 
 
 # ________________________________________________ L'EQUIPE ______________________________________________
 
 def equipe(request):
-	foo = ''
-	return render_to_response('equipe.html', {'foo': foo})	
+	return render_to_response('equipe.html')	

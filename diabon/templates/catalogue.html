@@ -2,7 +2,9 @@
 
 {% block content %}
 
+
 <header id="sub-header" class="alimentation">
+
 
     <!-- Sub Nav -->
         <nav role="navigation" id="catalogue-sub-navigation">
@@ -31,84 +33,84 @@
       <!-- Choix alphabetique -->
           <nav id="catalogue-alphabetique">
               <ul>
-                  <li><a href="sub_content/aliments/lettre-a.html">A</a></li>
-                  <li><a href="sub_content/aliments/lettre-b.html">B</a></li>
-                  <li><a href="sub_content/aliments/lettre-c.html">C</a></li>
-                  <li><a href="sub_content/aliments/lettre-d.html">D</a></li>
-                  <li><a href="sub_content/aliments/lettre-e.html">E</a></li>
-                  <li><a href="sub_content/aliments/lettre-f.html">F</a></li>
-                  <li><a href="sub_content/aliments/lettre-g.html">G</a></li>
-                  <li><a href="sub_content/aliments/lettre-h.html">H</a></li>
-                  <li><a href="sub_content/aliments/lettre-i.html">I</a></li>
-                  <li><a href="sub_content/aliments/lettre-j.html">J</a></li>
-                  <li><a href="sub_content/aliments/lettre-k.html">K</a></li>
-                  <li><a href="sub_content/aliments/lettre-l.html">L</a></li>
-                  <li><a href="sub_content/aliments/lettre-m.html">M</a></li>
-                  <li><a href="sub_content/aliments/lettre-n.html">N</a></li>
-                  <li><a href="sub_content/aliments/lettre-o.html">O</a></li>
-                  <li><a href="sub_content/aliments/lettre-p.html">P</a></li>
-                  <li><a href="sub_content/aliments/lettre-q.html">Q</a></li>
-                  <li><a href="sub_content/aliments/lettre-r.html">R</a></li>
-                  <li><a href="sub_content/aliments/lettre-s.html">S</a></li>
-                  <li><a href="sub_content/aliments/lettre-t.html">T</a></li>
-                  <li><a href="sub_content/aliments/lettre-u.html">U</a></li>
-                  <li><a href="sub_content/aliments/lettre-v.html">V</a></li>
-                  <li><a href="sub_content/aliments/lettre-w.html">W</a></li>
-                  <li><a href="sub_content/aliments/lettre-x.html">X</a></li>
-                  <li><a href="sub_content/aliments/lettre-y.html">Y</a></li>
-                  <li><a href="sub_content/aliments/lettre-z.html">Z</a></li>
-                  <div class="clear"></div>
+                        <li><a href="{% url 'letterSort' letter='A' %}">A</a></li>
+                        <li><a href="{% url 'letterSort' letter='B' %}">B</a></li>
+                        <li><a href="{% url 'letterSort' letter='C' %}">C</a></li>
+                        <li><a href="{% url 'letterSort' letter='D' %}">D</a></li>
+                        <li><a href="{% url 'letterSort' letter='E' %}">E</a></li>
+                        <li><a href="{% url 'letterSort' letter='F' %}">F</a></li>
+                        <li><a href="{% url 'letterSort' letter='G' %}">G</a></li>
+                        <li><a href="{% url 'letterSort' letter='H' %}">H</a></li>
+                        <li><a href="{% url 'letterSort' letter='I' %}">I</a></li>
+                        <li><a href="{% url 'letterSort' letter='J' %}">J</a></li>
+                        <li><a href="{% url 'letterSort' letter='K' %}">K</a></li>
+                        <li><a href="{% url 'letterSort' letter='L' %}">L</a></li>
+                        <li><a href="{% url 'letterSort' letter='M' %}">M</a></li>
+                        <li><a href="{% url 'letterSort' letter='N' %}">N</a></li>
+                        <li><a href="{% url 'letterSort' letter='O' %}">O</a></li>
+                        <li><a href="{% url 'letterSort' letter='P' %}">P</a></li>
+                        <li><a href="{% url 'letterSort' letter='Q' %}">Q</a></li>
+                        <li><a href="{% url 'letterSort' letter='R' %}">R</a></li>
+                        <li><a href="{% url 'letterSort' letter='S' %}">S</a></li>
+                        <li><a href="{% url 'letterSort' letter='T' %}">T</a></li>
+                        <li><a href="{% url 'letterSort' letter='U' %}">U</a></li>
+                        <li><a href="{% url 'letterSort' letter='V' %}">V</a></li>
+                        <li><a href="{% url 'letterSort' letter='W' %}">W</a></li>
+                        <li><a href="{% url 'letterSort' letter='X' %}">X</a></li>
+                        <li><a href="{% url 'letterSort' letter='Y' %}">Y</a></li>
+                        <li><a href="{% url 'letterSort' letter='Z' %}">Z</a></li>
+                        <div class="clear"></div>
               </ul>
         </nav>
 
       <!-- Choix tri -->
         <nav id="catalogue-tri" class="box 75%">
                       <ul>
-                          <li><a href={% url 'pain' %}>
+                          <li><a href="{% url 'category' slug='pains' %}">
                             <img src="/static/images/catalogue/pains.png" alt="Pains, biscottes, céréales, viennoiseries" />
                             Pains, crackers, céréales, pâtisseries
                           </a></li>
-                          <li><a href={% url 'feculents' %}>
+                          <li><a href="{% url 'category' slug='feculents' %}">
                             <img src="/static/images/catalogue/feculents-legumes-secs.png" alt="Féculents et légumes secs" />
                             Féculents et légumes secs
                           </a></li>
-                          <li><a href={% url 'legumes' %}>
+                          <li><a href="{% url 'category' slug='legumes' %}">
                             <img src="/static/images/catalogue/legumes.png" alt="Légumes" />
                             Légumes
                           </a></li>
-                          <li><a href={% url 'fruits' %}>
+                          <li><a href="{% url 'category' slug='fruits' %}">
                             <img src="/static/images/catalogue/fruits.png" alt="Fruits et frtuis secs" />
                             Fruits et fruits secs
                           </a></li>
-                          <li><a href={% url 'produits_laitiers' %}>
+                          <li><a href="{% url 'category' slug='laitages' %}">
                             <img src="/static/images/catalogue/produits-laitiers.png" alt="Produits laitiers" />
                             Produits laitiers
                           </a></li>
-                          <li><a href={% url 'plats_cuisines' %}>
+                          <li><a href="{% url 'category'  slug='platsCuisines' %}">
                             <img src="/static/images/catalogue/plats-cuisines.png" alt="Plats cuisinés" />
                             Plats cuisinés
                           </a></li>
-                          <li><a href={% url 'dessert' %}>
+                          <li><a href="{% url 'category' slug='desserts' %}">
                             <img src="/static/images/catalogue/desserts.png" alt="Desserts" />
                             Desserts
                           </a></li>
-                          <li><a href={% url 'confiseries' %}>
+                          <li><a href="{% url 'category' slug='sucrerie' %}">
                             <img src="/static/images/catalogue/confiseries.png" alt="Produits sucrés, confiseries" />
                             Produits sucrés, confiseries
                           </a></li>
-                          <li><a href={% url 'aperitifs' %}>
+                          <li><a href="{% url 'category' slug='aperitifs' %}">
                             <img src="/static/images/catalogue/aperitifs.png" alt="Apéritifs" />
                             Appéritifs
                           </a></li>
-                          <li><a href={% url 'boissons' %}>
+                          <li><a href="{% url 'category' slug='boissons' %}">
                             <img src="/static/images/catalogue/boissons.png" alt="Boissons" />
                             Boissons
                           </a></li>
-                          <li><a href={% url 'restauration_rapide' %}>
+                          <li><a href="{% url 'category' slug='fastfood' %}">
                             <img src="/static/images/catalogue/restauration-rapide.png" alt="Restauration rapide" />
                             Restauration rapide
                           </a></li>
-                          <li><a href={% url 'sauces' %}>
+                          <li><a href="{% url 'category' slug='sauces' %}">
                             <img src="/static/images/catalogue/sauces.png" alt="Sauces, assaisonnements" />
                             Sauces, assaisonnements
                           </a></li>
