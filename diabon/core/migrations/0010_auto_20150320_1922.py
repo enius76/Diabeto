@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
             bases=(models.Model,),
         ),
         migrations.CreateModel(
-            name='Category_article',
+            name='Categoryarticle',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=30)),
@@ -38,7 +38,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='article',
             name='category_article',
-            field=models.ForeignKey(to='core.Category_article'),
+            field=models.ForeignKey(to='core.Categoryarticle'),
             preserve_default=True,
         ),
     ]

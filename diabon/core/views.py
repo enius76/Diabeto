@@ -142,8 +142,9 @@ def letterSortByCategory(request, letter, slug):
 def conseils(request):
 	return render_to_response('conseils.html')
 
-def article_details(request):
-	return render_to_response('article-details.html')
+def article_details(request, slug):
+	article = Article.objects.get(slug=slug)	
+	return render_to_response('article_details.html', {'article': article})
 
 
 

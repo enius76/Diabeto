@@ -6,10 +6,9 @@
 <header id="sub-header" class="alimentation">
 
 
-    <!-- Sub Nav -->
+    <!-- Sub Nav 
         <nav role="navigation" id="catalogue-sub-navigation">
             <ul>
-                <!-- Recherche -->
                 <li>
                     <form id="recherche-catalogue" action="" class="formulaire">
                         <input class="champs-recherche" type="text" placeholder="Rechercher un aliment"/>
@@ -18,6 +17,38 @@
                     <div class="clear"></div>
                 </li>
             </ul>
+        </nav>-->
+
+        <nav id="catalogue-alphabetique">
+          <ul>
+            <li><a href="{% url 'letterSort' letter='A' %}">A</a></li>
+            <li><a href="{% url 'letterSort' letter='B' %}">B</a></li>
+            <li><a href="{% url 'letterSort' letter='C' %}">C</a></li>
+            <li><a href="{% url 'letterSort' letter='D' %}">D</a></li>
+            <li><a href="{% url 'letterSort' letter='E' %}">E</a></li>
+            <li><a href="{% url 'letterSort' letter='F' %}">F</a></li>
+            <li><a href="{% url 'letterSort' letter='G' %}">G</a></li>
+            <li><a href="{% url 'letterSort' letter='H' %}">H</a></li>
+            <li><a href="{% url 'letterSort' letter='I' %}">I</a></li>
+            <li><a href="{% url 'letterSort' letter='J' %}">J</a></li>
+            <li><a href="{% url 'letterSort' letter='K' %}">K</a></li>
+            <li><a href="{% url 'letterSort' letter='L' %}">L</a></li>
+            <li><a href="{% url 'letterSort' letter='M' %}">M</a></li>
+            <li><a href="{% url 'letterSort' letter='N' %}">N</a></li>
+            <li><a href="{% url 'letterSort' letter='O' %}">O</a></li>
+            <li><a href="{% url 'letterSort' letter='P' %}">P</a></li>
+            <li><a href="{% url 'letterSort' letter='Q' %}">Q</a></li>
+            <li><a href="{% url 'letterSort' letter='R' %}">R</a></li>
+            <li><a href="{% url 'letterSort' letter='S' %}">S</a></li>
+            <li><a href="{% url 'letterSort' letter='T' %}">T</a></li>
+            <li><a href="{% url 'letterSort' letter='U' %}">U</a></li>
+            <li><a href="{% url 'letterSort' letter='V' %}">V</a></li>
+            <li><a href="{% url 'letterSort' letter='W' %}">W</a></li>
+            <li><a href="{% url 'letterSort' letter='X' %}">X</a></li>
+            <li><a href="{% url 'letterSort' letter='Y' %}">Y</a></li>
+            <li><a href="{% url 'letterSort' letter='Z' %}">Z</a></li>
+            <div class="clear"></div>
+          </ul>
         </nav>
 
 </header>
@@ -30,7 +61,7 @@
         <p>Rechercher un aliment par lettre ou naviguer parmi les catégories d'aliments pour trouver le vôtre.</p>
       </header>
 
-      <!-- Choix alphabetique -->
+      <!-- Choix alphabetique
           <nav id="catalogue-alphabetique">
               <ul>
                         <li><a href="{% url 'letterSort' letter='A' %}">A</a></li>
@@ -61,7 +92,7 @@
                         <li><a href="{% url 'letterSort' letter='Z' %}">Z</a></li>
                         <div class="clear"></div>
               </ul>
-        </nav>
+        </nav> -->
 
       <!-- Choix tri -->
         <nav id="catalogue-tri" class="box 75%">
