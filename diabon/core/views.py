@@ -11,6 +11,7 @@ from django.core.urlresolvers import reverse
 from core.forms import *
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
+from django.template import *
 
 
 def home(request):
@@ -21,8 +22,7 @@ def home(request):
 # _______________________________________________ CONNEXION _____________________________________________
 
 def connexion(request):
-    foo = ''
-    return render_to_response('connexion.html', {'foo': foo})
+    return render_to_response('connexion.html')
 
 
 
@@ -120,7 +120,10 @@ def aliment_details(request, slug):
 
 def category(request, slug):
 	aliments = Food.objects.filter(category__slug=slug)
-	return render_to_response('sub_content/aliments/sortedFoodCategory.html',{'aliments':aliments})
+	currentUrl = request.path
+	currentUrl = currentUrl.split('/')
+	currentUrl = currentUrl[3]
+	return render_to_response('sub_content/aliments/sortedFoodCategory.html',{'aliments':aliments, 'currentUrl': currentUrl}, context_instance=RequestContext(request))
 
 def letterSort(request, letter):
 	aliments = Food.objects.filter(name__istartswith=letter)
@@ -128,8 +131,10 @@ def letterSort(request, letter):
 
 def letterSortByCategory(request, letter, slug):
 	aliments = Food.objects.filter(category__slug = slug).filter(name__istartswith=letter)
-	cat = aliments[0]
-	return render_to_response('sub_content/aliments/sortedFoodCategory.html', {'aliments': aliments, 'cat':cat})
+	currentUrl = request.path
+	currentUrl = currentUrl.split('/')
+	currentUrl = currentUrl[3]
+	return render_to_response('sub_content/aliments/sortedFoodCategory.html',{'aliments':aliments, 'currentUrl': currentUrl}, context_instance=RequestContext(request))
 
 
 # ________________________________________________ CONSEILS ______________________________________________

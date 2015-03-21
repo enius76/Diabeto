@@ -25,9 +25,7 @@ urlpatterns = patterns('',
 	url(r'^alimentation/catalogue/$', 'core.views.catalogue', name='catalogue'),
 	url(r'^alimentation/catalogue/(?P<slug>[\w-]+)/$', 'core.views.category', name='category'),
 	url(r'^alimentation/catalogue/lettre/(?P<letter>\w{1})/$', 'core.views.letterSort', name='letterSort'),
-
-
-
+	
 	url(r'^alimentation/catalogue/(?P<slug>[\w-]+)/lettre/(?P<letter>\w{1})/$', 'core.views.letterSortByCategory', name='letterSortByCategory'),
 
 
