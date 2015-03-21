@@ -4,13 +4,7 @@ from django.conf.urls import patterns, include, url
 urlpatterns = patterns('',
 	url(r'^$', 'core.views.home', name='home'),
 	url(r'^carnet-de-bord/$', 'core.views.carnet', name='carnet'),
-<<<<<<< HEAD
-=======
 
-	url(r'^conseils/$', 'core.views.conseils', name='conseils'),
-	url(r'^conseils/article-details/$', 'core.views.article_details', name='articledetails'),
-	
->>>>>>> 87677b74b9ac1925277e5901f756f996742a9930
 	url(r'^profil/$', 'core.views.profil', name='profil'),
 	url(r'^contact/$', 'core.views.contact', name='contact'),
 
@@ -28,12 +22,7 @@ urlpatterns = patterns('',
 	url(r'^alimentation/catalogue/$', 'core.views.catalogue', name='catalogue'),
 	url(r'^alimentation/catalogue/(?P<slug>[\w-]+)/$', 'core.views.category', name='category'),
 	url(r'^alimentation/catalogue/lettre/(?P<letter>\w{1})/$', 'core.views.letterSort', name='letterSort'),
-
-
-
 	url(r'^alimentation/catalogue/(?P<slug>[\w-]+)/lettre/(?P<letter>\w{1})/$', 'core.views.letterSortByCategory', name='letterSortByCategory'),
-
-
 
 	url(r'^conseils/$', 'core.views.conseils', name='conseils'),
 	url(r'^conseils/(?P<slug>[\w-]+)/$', 'core.views.article_details', name='articledetails'),

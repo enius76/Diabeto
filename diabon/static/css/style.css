@@ -1140,11 +1140,11 @@
 		}
 
 	section#work #connexion-container #inscription a {
-		background: #5c89c7;
+		background: #86ade4;
 		color: white;
-		margin-left: 0em;
+		margin-left: 1em;
 		text-decoration: none;
-		width: 19.5em;
+		width: 10em;
 		opacity: 1;
 		-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
 		-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
@@ -2419,7 +2419,8 @@ table#table-releves {
 	}
 
 	nav#catalogue-alphabetique {
-		width: 100%;
+		width: 47.5em;
+		margin: 0 auto;
 	}
 
 		nav#catalogue-alphabetique ul {
@@ -2428,19 +2429,21 @@ table#table-releves {
 
 		nav#catalogue-alphabetique li {
 			display: inline-block;
-			margin-bottom: 1em;
-			margin-left: 0.5em;
-			margin-right: 0.5em;
+			line-height: 3em;
+			margin: 0 0.25em;
 		}
 
 			nav#catalogue-alphabetique li a {
-				color: #8cb02b;
+				color: white;
+				text-decoration: none;
+				padding: 0.15em 0.25em;
 			}
 
 			nav#catalogue-alphabetique li a:hover {
 				cursor: pointer;
-				color: #455a64;
-				text-decoration: none;
+				color: #8cb02b;
+				background: white;
+				border-radius: 3px;
 			}
 
 /*********************************************************************************/
