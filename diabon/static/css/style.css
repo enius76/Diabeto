@@ -1140,11 +1140,11 @@
 		}
 
 	section#work #connexion-container #inscription a {
-		background: #5c89c7;
+		background: #86ade4;
 		color: white;
-		margin-left: 0em;
+		margin-left: 1em;
 		text-decoration: none;
-		width: 19.5em;
+		width: 10em;
 		opacity: 1;
 		-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
 		-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
@@ -2387,6 +2387,21 @@ table#table-releves {
 		width: 100%;
 		left: 0;
 		top: 4em;
+		box-shadow: 0 0 0.15em 0 rgba(0,0,0,0.1);
+	}
+
+	a.retour-conseils {
+		display: inline-block;
+		text-decoration: none;
+		padding: 0.25em 0.8em;
+		background: #ffa072;
+		border-radius: 0;
+		color: #fff;
+		position: fixed;
+		width: 100%;
+		left: 0;
+		top: 4em;
+		box-shadow: 0 0 0.15em 0 rgba(0,0,0,0.1);
 	}
 
 	#work.details-aliment a.retour-catalogue {
@@ -2404,7 +2419,8 @@ table#table-releves {
 	}
 
 	nav#catalogue-alphabetique {
-		width: 100%;
+		width: 47.5em;
+		margin: 0 auto;
 	}
 
 		nav#catalogue-alphabetique ul {
@@ -2413,19 +2429,21 @@ table#table-releves {
 
 		nav#catalogue-alphabetique li {
 			display: inline-block;
-			margin-bottom: 1em;
-			margin-left: 0.5em;
-			margin-right: 0.5em;
+			line-height: 3em;
+			margin: 0 0.25em;
 		}
 
 			nav#catalogue-alphabetique li a {
-				color: #8cb02b;
+				color: white;
+				text-decoration: none;
+				padding: 0.15em 0.25em;
 			}
 
 			nav#catalogue-alphabetique li a:hover {
 				cursor: pointer;
-				color: #455a64;
-				text-decoration: none;
+				color: #8cb02b;
+				background: white;
+				border-radius: 3px;
 			}
 
 /*********************************************************************************/
@@ -2618,7 +2636,7 @@ table#table-releves {
 /*********************************************************************************/
 
 	section#work.articles {
-		padding-top: 6em;
+		padding-top: 5em;
 	}
 
 		section#work.articles header p {
@@ -2626,15 +2644,12 @@ table#table-releves {
 		}
 
 	nav#articles-tri {
-		z-index: 100;
-		background: #f5f6f7;
-		padding-top: 10px;
-		margin-bottom: 2em;
+		width: 29.5em;
+  		margin: 0 auto;
 	}
 
 		nav#articles-tri ul {
-			width: 100%;
-			padding-top: 1em;
+			line-height: 3em
 		}
 
 		nav#articles-tri li {
@@ -2644,24 +2659,61 @@ table#table-releves {
 		}
 
 			nav#articles-tri li a {
-				color:white;
-				background: #ed7e4a;
+				font-family: 'tall_filmsregular';
+  				font-size: 1.5em;
+				color:#ed7e4a;
+				background: white;
 				border-radius: 3px;
-				padding: 0.25em 0.8em;
+				padding: 0.15em 0.8em;
+				margin: 0 0.25em;
 				text-decoration: none;
 			}
 
 			nav#articles-tri li a.current {
 				color:white;
-				background: #455a64;
+				background: #ed7e4a;
 				border-radius: 3px;
-				padding: 0.25em 0.8em;
+				padding: 0.15em 0.8em;
 				text-decoration: none;
 			}
 
 			nav#articles-tri li a:hover {
 				cursor: pointer;
-				background: #455a64;
+				color: white;
+				background: #ed7e4a;
+			}
+
+			.article-category {
+				  height: 2em;
+				  color: white;
+				  padding: 0 0.5em;
+				  position: relative;
+				  width: 7.5em !important;
+				  float: left;
+				  line-height: 2em;
+				  text-align: left;
+				  margin-right: 1em;
+				  border-radius: 3px;
+			}
+
+				.article-category.actu {
+					background: #e46c6c;
+				}
+
+				.article-category.sport {
+					background: #f9c935;
+				}
+
+				.article-category.vie {
+					background: #fbad35;
+				}
+
+				.article-category.alimentation {
+					background: #8db126;
+				}
+
+			.article-category:before {
+				content: '#';
 			}
 
 		a.scroll-top {
@@ -2692,6 +2744,7 @@ table#table-releves {
 
 		.isotope-item {
 		    z-index: 2;
+		    width: 100%;
 		}
 		.isotope-hidden.isotope-item {
 		    pointer-events: none;
@@ -2763,6 +2816,9 @@ table#table-releves {
 	    position: relative;
 	    font-size: 1.6em;
 	    margin-bottom: 0.5em;
+	    padding-left: 5.25em;
+	    padding-bottom: 0.5em;
+	    border-bottom: #eee 1px solid;
 	}
 
 	.conseils-articles .view h2:hover {
@@ -2834,11 +2890,11 @@ table#table-releves {
 /*********************************************************************************/
 
 #header-article {
-	background: url('images/overlay.png'), url('../images/articles/article.jpg');
+	background: #ee7f4a;
 	background-size: 256px 256px, cover;
 	background-attachment: fixed, fixed;
 	background-position: top left, center center;
-	padding: 3em 0;
+	padding: 4em 0 2em;
 }
 
 	#header-article header {
@@ -2852,18 +2908,18 @@ table#table-releves {
 
 	#header-article h2 {
 		font-family: 'coolveticaregular';
-		font-size: 2.5em;
+		font-size: 2em;
 		letter-spacing: inherit;
+	}
+
+	#work.article .article {
+		text-align: justify;
 	}
 
  	#work.article {
  		padding-top: 3em;
  		padding-bottom: 3em;
  	}
-
- 		#work.article img {
- 			width: 100%;
-	 	}
 
  		.article p {
  			text-align: justify;
@@ -3257,6 +3313,14 @@ table#table-releves {
 /*********************************************************************************/
 /* Boutons partage réseaux sociaux                                                */
 /*********************************************************************************/
+
+.container.btn-share {
+	width: 75% !important;
+}
+
+ul.rrssb-buttons li {
+	width: 30% !important;
+}
 
 .btn-share {
 	margin-top: 3em;

@@ -56,6 +56,25 @@ class Glyc(models.Model):
 		return "%s" % (self.value)
 
 class GlycForm(ModelForm):
-    class Meta:
-    	model = Glyc
-    	fields = ['value', 'note']
+	class Meta:
+		model = Glyc
+		fields = ['value', 'note']
+
+
+# ______________________________________ ARTICLES _______________________________________
+
+class Article(models.Model):
+	title = models.CharField(max_length=100)
+	author = models.CharField(max_length=42)
+	content= models.TextField(null=True)
+	date = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Date de parution")
+	slug = models.SlugField(max_length=100, default='null')
+	category_article = models.ForeignKey('Categoryarticle')
+	def __unicode__(self):
+		return self.titre
+
+class Categoryarticle(models.Model):
+	name = models.CharField(max_length=30)
+	slug = models.SlugField(max_length=30)
+	def __unicode__(self):
+		return "%s" % (self.name)
