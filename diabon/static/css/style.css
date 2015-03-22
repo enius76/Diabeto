@@ -1814,6 +1814,34 @@ table#table-releves {
 		margin: 0 auto;			
 	}
 
+	.canvasjs-chart-credit {
+		display: none;
+	}
+
+	.canvasjs-chart-toolbar {
+		  position: absolute !important;
+		  top: -10.75em !important;
+		  right: 0em !important;
+	}
+
+	.canvasjs-chart-toolbar button {
+		background: none !important;
+  		border: none !important;
+  		height: 3em;
+  		outline: none;
+	}
+
+	.canvasjs-chart-toolbar button img {
+		height: 2.5em !important;
+		width: 3.5em !important;
+		margin-right: -1em !important;
+		opacity: 0 !important;
+	}
+
+	.canvasjs-chart-toolbar button img:hover {
+		cursor: pointer !important;
+	}
+
 
 
 /*********************************************************************************/

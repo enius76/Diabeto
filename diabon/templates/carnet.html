@@ -132,7 +132,8 @@
 					</ul>
 				</nav>
 				
-				<div class="ct-chart ct-golden-section" id="statistiques_chart"></div>							
+				<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+										
 			</div>
 
 
@@ -357,135 +358,227 @@
 
 <!--  ___________________________________________ STATS _______________________________________________  -->
 
-<script src="/static/js/chartist.min.js"></script>
+<script src="/static/js/canvasjs.min.js"></script>
 
 <script type="text/javascript">
 
-	var options = {
-		height: 320,
-		showPoint: true,
-		lineSmooth: true,
-		axisX: {
-			showGrid: true,
-			showLabel: true
-		},
-		axisY: {
-			offset: 80,
-		}
-	};
+	window.onload = function () {
+	    var chart = new CanvasJS.Chart("chartContainer",
+	    {
+	      theme: "theme1",
+	      exportEnabled: true,
+	      animationEnabled: true,
+	      axisX: {
+	        valueFormatString: "DDD",
+	        interval:1,
+	        intervalType: "month",
+	        labelFontFamily: "tall_filmsregular",
+	        labelFontWeight: "bold",
+	        labelFontSize: 25,
+	      },
+	      axisY:{
+	        includeZero: false,
+	        labelFontFamily: "tall_filmsregular",
+	        labelFontWeight: "bold",
+	        labelFontSize: 20,
+	      },
+	      legend: {
+	        fontFamily: "kenyan_coffeeregular"
+	      },
+	      data: [
+	      {        
+	        type: "line",
+	        color: "#5c89c7",
+	        //lineThickness: 3,        
+	        dataPoints: [
+	        { x: new Date(2012, 00, 1), y: 450 },
+	        { x: new Date(2012, 01, 1), y: 414},
+	        { x: new Date(2012, 02, 1), y: 520},
+	        { x: new Date(2012, 03, 1), y: 460 },
+	        { x: new Date(2012, 04, 1), y: 450 },
+	        { x: new Date(2012, 05, 1), y: 500 },
+	        { x: new Date(2012, 06, 1), y: 480 },
+	        { x: new Date(2012, 07, 1), y: 480 },
+	        { x: new Date(2012, 08, 1), y: 410},
+	        { x: new Date(2012, 09, 1), y: 500 },
+	        { x: new Date(2012, 10, 1), y: 480 },
+	        { x: new Date(2012, 11, 1), y: 510 }
+	        
+	        ]
+	      }
+	      
+	      
+	      ]
+	    });
 
-	/* GESTION HOVER POINT */
-	var $tooltip = $('<div class="tooltip tooltip-hidden"></div>').appendTo($('.ct-chart'));
-	$(document).on('mouseenter', '.ct-point', function() {
-		var /*seriesName = $(this).closest('.ct-series').attr('ct:series-name'),*/
-			value = $(this).attr('ct:value');
-		$tooltip.text(/*seriesName + ' : ' + */value);
-		$tooltip.removeClass('tooltip-hidden');
-	});
-	$(document).on('mouseleave', '.ct-point', function() {
-		$tooltip.addClass('tooltip-hidden');
-	});
-	$(document).on('mousemove', '.ct-point', function(event) {
-		$tooltip.css({
-			left: event.offsetX - $tooltip.width() / 2,
-			top: event.offsetY - $tooltip.height() - 20
-		});
-	});
-
-	/* ________________ AUJOURD'HUI _____________ */
-	if ($("nav#stats-tri li.current").text()=="Aujourd'hui") {
-		var data = {
-			// Labels en abscisse:
-			labels: ['08:00', '12:45', '19:30'],
-			// Valeurs:
-			series: [
-				[136, 130, 135]
-			],
-		};		
+	chart.render();
 	}
-
-	/* ________________ 3 DERNIERS JOURS _____________ */
-	if ($("nav#stats-tri li.current").text()=="3 derniers jours") {
-		var now = new Date();
-		var data = {
-			// Labels en abscisse:
-			labels: ['08:00', 'Hier', now],
-			// Valeurs:
-			series: [
-				[136, 130, 135]
-			],
-		};		
-	}
-
-	/* ________________ 3 DERNIERES SEMAINES _____________ */
-	if ($("nav#stats-tri li.current").text()=="3 dernières semaines") {
-		var data = {
-			// Labels en abscisse:
-			labels: ['08:00', '12:45', '19:30'],
-			// Valeurs:
-			series: [
-				[136, 130, 135]
-			],
-		};		
-	}
-
-	/* ________________ 3 DERNIERS MOIS _____________ */
-	if ($("nav#stats-tri li.current").text()=="3 derniers mois") {
-		var data = {
-			// Labels en abscisse:
-			labels: ['08:00', '12:45', '19:30'],
-			// Valeurs:
-			series: [
-				[136, 130, 135]
-			],
-		};		
-	}
-
-	/* STATS : CHANGE CURRENT */
+	
+	/* STATS : CHANGE CURRENT + UPDATE */
 	$("nav#stats-tri li").click(function(){
 		//on supprime la classe current actuel
 		$(".current").removeClass('current');
 		//on change la classe du nouveau pour qu'il soit current
 		$(this).addClass('current');
-		location.reload(true);
+
+		/* ________________ AUJOURD'HUI _____________ */
+		if ($("nav#stats-tri li.current").text()=="Aujourd'hui") {
+			var chart = new CanvasJS.Chart("chartContainer",
+		    {
+		      theme: "theme1",
+		      animationEnabled: true,
+		      axisX: {
+		        valueFormatString: "MMM",
+		        interval:1,
+		        intervalType: "month"
+		      },
+		      axisY:{
+		        includeZero: false
+		      },
+		      data: [
+		      {        
+		        type: "line",
+		        //lineThickness: 3,        
+		        dataPoints: [
+		        { x: new Date(2012, 00, 1), y: 450 },
+		        { x: new Date(2012, 01, 1), y: 414},
+		        { x: new Date(2012, 02, 1), y: 520},
+		        { x: new Date(2012, 03, 1), y: 460 },
+		        { x: new Date(2012, 04, 1), y: 450 },
+		        { x: new Date(2012, 05, 1), y: 500 },
+		        { x: new Date(2012, 06, 1), y: 480 },
+		        { x: new Date(2012, 07, 1), y: 480 },
+		        { x: new Date(2012, 08, 1), y: 410},
+		        { x: new Date(2012, 09, 1), y: 500 },
+		        { x: new Date(2012, 10, 1), y: 480 },
+		        { x: new Date(2012, 11, 1), y: 510 }
+		        
+		        ]
+		      }
+		      
+		      
+		      ]
+		    });
+		}
+
+		/* ________________ 3 DERNIERS JOURS _____________ */
+		if ($("nav#stats-tri li.current").text()=="3 derniers jours") {
+			var chart = new CanvasJS.Chart("chartContainer",
+		    {
+		      theme: "theme1",
+		      animationEnabled: true,
+		      axisX: {
+		        valueFormatString: "MMM",
+		        interval:1,
+		        intervalType: "month"
+		      },
+		      axisY:{
+		        includeZero: false
+		      },
+		      data: [
+		      {        
+		        type: "line",
+		        //lineThickness: 3,        
+		        dataPoints: [
+		        { x: new Date(2012, 00, 1), y: 500 },
+		        { x: new Date(2012, 01, 1), y: 222},
+		        { x: new Date(2012, 02, 1), y: 557},
+		        { x: new Date(2012, 03, 1), y: 357 },
+		        { x: new Date(2012, 04, 1), y: 452 },
+		        { x: new Date(2012, 05, 1), y: 485 },
+		        { x: new Date(2012, 06, 1), y: 322 },
+		        { x: new Date(2012, 07, 1), y: 257 },
+		        { x: new Date(2012, 08, 1), y: 752},
+		        { x: new Date(2012, 09, 1), y: 377 },
+		        { x: new Date(2012, 10, 1), y: 553 },
+		        { x: new Date(2012, 11, 1), y: 530 }
+		        
+		        ]
+		      }
+		      ]
+		    });		
+		}
+
+		/* ________________ 3 DERNIERES SEMAINES _____________ */
+		if ($("nav#stats-tri li.current").text()=="3 dernières semaines") {
+			var chart = new CanvasJS.Chart("chartContainer",
+		    {
+		      theme: "theme1",
+		      animationEnabled: true,
+		      axisX: {
+		        valueFormatString: "MMM",
+		        interval:1,
+		        intervalType: "month"
+		      },
+		      axisY:{
+		        includeZero: false
+		      },
+		      data: [
+		      {        
+		        type: "line",
+		        //lineThickness: 3,        
+		        dataPoints: [
+		        { x: new Date(2012, 00, 1), y: 450 },
+		        { x: new Date(2012, 01, 1), y: 414},
+		        { x: new Date(2012, 02, 1), y: 520},
+		        { x: new Date(2012, 03, 1), y: 460 },
+		        { x: new Date(2012, 04, 1), y: 450 },
+		        { x: new Date(2012, 05, 1), y: 500 },
+		        { x: new Date(2012, 06, 1), y: 480 },
+		        { x: new Date(2012, 07, 1), y: 480 },
+		        { x: new Date(2012, 08, 1), y: 410},
+		        { x: new Date(2012, 09, 1), y: 500 },
+		        { x: new Date(2012, 10, 1), y: 480 },
+		        { x: new Date(2012, 11, 1), y: 510 }
+		        
+		        ]
+		      }
+		      
+		      
+		      ]
+		    });	
+		}
+
+		/* ________________ 3 DERNIERS MOIS _____________ */
+		if ($("nav#stats-tri li.current").text()=="3 derniers mois") {
+			var chart = new CanvasJS.Chart("chartContainer",
+		    {
+		      theme: "theme1",
+		      animationEnabled: true,
+		      axisX: {
+		        valueFormatString: "MMM",
+		        interval:1,
+		        intervalType: "month"
+		      },
+		      axisY:{
+		        includeZero: false
+		      },
+		      data: [
+		      {        
+		        type: "line",
+		        //lineThickness: 3,        
+		        dataPoints: [
+		        { x: new Date(2012, 00, 1), y: 500 },
+		        { x: new Date(2012, 01, 1), y: 222},
+		        { x: new Date(2012, 02, 1), y: 557},
+		        { x: new Date(2012, 03, 1), y: 357 },
+		        { x: new Date(2012, 04, 1), y: 452 },
+		        { x: new Date(2012, 05, 1), y: 485 },
+		        { x: new Date(2012, 06, 1), y: 322 },
+		        { x: new Date(2012, 07, 1), y: 257 },
+		        { x: new Date(2012, 08, 1), y: 752},
+		        { x: new Date(2012, 09, 1), y: 377 },
+		        { x: new Date(2012, 10, 1), y: 553 },
+		        { x: new Date(2012, 11, 1), y: 530 }
+		        
+		        ]
+		      }
+		      ]
+		    });	
+		}
+		chart.render();
 		return false;
 	});
-
-	//update
-	function update(data, options, override) {
-	  if(data) {
-		this.data = data;
-		// Event for data transformation that allows to manipulate the data before it gets rendered in the charts
-		this.eventEmitter.emit('data', {
-		  type: 'update',
-		  data: this.data
-		});
-	  }
-
-	  if(options) {
-		this.options = Chartist.extend({}, override ? this.options : this.defaultOptions, options);
-
-		// If chartist was not initialized yet, we just set the options and leave the rest to the initialization
-		// Otherwise we re-create the optionsProvider at this point
-		if(!this.initializeTimeoutId) {
-		  this.optionsProvider.removeMediaQueryListeners();
-		  this.optionsProvider = Chartist.optionsProvider(this.options, this.responsiveOptions, this.eventEmitter);
-		}
-	  }
-
-	  // Only re-created the chart if it has been initialized yet
-	  if(!this.initializeTimeoutId) {
-		this.createChart(this.optionsProvider.currentOptions);
-	  }
-
-	  // Return a reference to the chart object to chain up calls
-	  return this;
-	}
-
-	//update();
-
-	// initialisation des stats
-	new Chartist.Line('.ct-chart', data, options);
 
 
 </script>
