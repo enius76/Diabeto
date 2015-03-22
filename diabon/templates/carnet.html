@@ -132,7 +132,7 @@
 					</ul>
 				</nav>
 				
-				<div class="ct-chart ct-perfect-fourth" id="statistiques_chart"></div>							
+				<div class="ct-chart ct-golden-section" id="statistiques_chart"></div>							
 			</div>
 
 
@@ -360,6 +360,38 @@
 <script src="/static/js/chartist.min.js"></script>
 
 <script type="text/javascript">
+
+	var options = {
+		height: 320,
+		showPoint: true,
+		lineSmooth: true,
+		axisX: {
+			showGrid: true,
+			showLabel: true
+		},
+		axisY: {
+			offset: 80,
+		}
+	};
+
+	/* GESTION HOVER POINT */
+	var $tooltip = $('<div class="tooltip tooltip-hidden"></div>').appendTo($('.ct-chart'));
+	$(document).on('mouseenter', '.ct-point', function() {
+		var /*seriesName = $(this).closest('.ct-series').attr('ct:series-name'),*/
+			value = $(this).attr('ct:value');
+		$tooltip.text(/*seriesName + ' : ' + */value);
+		$tooltip.removeClass('tooltip-hidden');
+	});
+	$(document).on('mouseleave', '.ct-point', function() {
+		$tooltip.addClass('tooltip-hidden');
+	});
+	$(document).on('mousemove', '.ct-point', function(event) {
+		$tooltip.css({
+			left: event.offsetX - $tooltip.width() / 2,
+			top: event.offsetY - $tooltip.height() - 20
+		});
+	});
+
 	/* ________________ AUJOURD'HUI _____________ */
 	if ($("nav#stats-tri li.current").text()=="Aujourd'hui") {
 		var data = {
@@ -372,34 +404,90 @@
 		};		
 	}
 
+	/* ________________ 3 DERNIERS JOURS _____________ */
+	if ($("nav#stats-tri li.current").text()=="3 derniers jours") {
+		var now = new Date();
+		var data = {
+			// Labels en abscisse:
+			labels: ['08:00', 'Hier', now],
+			// Valeurs:
+			series: [
+				[136, 130, 135]
+			],
+		};		
+	}
 
+	/* ________________ 3 DERNIERES SEMAINES _____________ */
+	if ($("nav#stats-tri li.current").text()=="3 dernières semaines") {
+		var data = {
+			// Labels en abscisse:
+			labels: ['08:00', '12:45', '19:30'],
+			// Valeurs:
+			series: [
+				[136, 130, 135]
+			],
+		};		
+	}
 
-	var options = {
-		showPoint: true,
-		lineSmooth: true,
-		axisX: {
-			showGrid: true,
-			showLabel: true
-		},
-		axisY: {
-			offset: 80,
-		}
-	};
+	/* ________________ 3 DERNIERS MOIS _____________ */
+	if ($("nav#stats-tri li.current").text()=="3 derniers mois") {
+		var data = {
+			// Labels en abscisse:
+			labels: ['08:00', '12:45', '19:30'],
+			// Valeurs:
+			series: [
+				[136, 130, 135]
+			],
+		};		
+	}
 
-	// initialisation des stats
-	new Chartist.Line('.ct-chart', data, options);
-</script>
-
-<!--   STATS : CHANGE CURRENT  -->
-
-<script type="text/javascript">
+	/* STATS : CHANGE CURRENT */
 	$("nav#stats-tri li").click(function(){
 		//on supprime la classe current actuel
 		$(".current").removeClass('current');
 		//on change la classe du nouveau pour qu'il soit current
 		$(this).addClass('current');
+		location.reload(true);
 		return false;
 	});
+
+	//update
+	function update(data, options, override) {
+	  if(data) {
+		this.data = data;
+		// Event for data transformation that allows to manipulate the data before it gets rendered in the charts
+		this.eventEmitter.emit('data', {
+		  type: 'update',
+		  data: this.data
+		});
+	  }
+
+	  if(options) {
+		this.options = Chartist.extend({}, override ? this.options : this.defaultOptions, options);
+
+		// If chartist was not initialized yet, we just set the options and leave the rest to the initialization
+		// Otherwise we re-create the optionsProvider at this point
+		if(!this.initializeTimeoutId) {
+		  this.optionsProvider.removeMediaQueryListeners();
+		  this.optionsProvider = Chartist.optionsProvider(this.options, this.responsiveOptions, this.eventEmitter);
+		}
+	  }
+
+	  // Only re-created the chart if it has been initialized yet
+	  if(!this.initializeTimeoutId) {
+		this.createChart(this.optionsProvider.currentOptions);
+	  }
+
+	  // Return a reference to the chart object to chain up calls
+	  return this;
+	}
+
+	//update();
+
+	// initialisation des stats
+	new Chartist.Line('.ct-chart', data, options);
+
+
 </script>
 
 
