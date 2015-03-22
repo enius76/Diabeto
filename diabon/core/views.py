@@ -11,7 +11,6 @@ from django.core.urlresolvers import reverse
 from core.forms import *
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
-from django.template import *
 
 
 def home(request):
@@ -22,7 +21,8 @@ def home(request):
 # _______________________________________________ CONNEXION _____________________________________________
 
 def connexion(request):
-    return render_to_response('connexion.html')
+    foo = ''
+    return render_to_response('connexion.html', {'foo': foo})
 
 
 
@@ -120,10 +120,7 @@ def aliment_details(request, slug):
 
 def category(request, slug):
 	aliments = Food.objects.filter(category__slug=slug)
-	currentUrl = request.path
-	currentUrl = currentUrl.split('/')
-	currentUrl = currentUrl[3]
-	return render_to_response('sub_content/aliments/sortedFoodCategory.html',{'aliments':aliments, 'currentUrl': currentUrl}, context_instance=RequestContext(request))
+	return render_to_response('sub_content/aliments/sortedFoodCategory.html',{'aliments':aliments})
 
 def letterSort(request, letter):
 	aliments = Food.objects.filter(name__istartswith=letter)
@@ -131,10 +128,8 @@ def letterSort(request, letter):
 
 def letterSortByCategory(request, letter, slug):
 	aliments = Food.objects.filter(category__slug = slug).filter(name__istartswith=letter)
-	currentUrl = request.path
-	currentUrl = currentUrl.split('/')
-	currentUrl = currentUrl[3]
-	return render_to_response('sub_content/aliments/sortedFoodCategory.html',{'aliments':aliments, 'currentUrl': currentUrl}, context_instance=RequestContext(request))
+	cat = aliments[0]
+	return render_to_response('sub_content/aliments/sortedFoodCategory.html', {'aliments': aliments, 'cat':cat})
 
 
 # ________________________________________________ CONSEILS ______________________________________________
@@ -151,23 +146,24 @@ def article_details(request, slug):
 # ________________________________________________ CONTACT ______________________________________________
 
 def contact(request):
-	return render_to_response('contact.html')
-
-def contact(request):
 	if request.method == "POST":
 		form = ContactForm(request.POST)
 		if form.is_valid():
 			subject = form.cleaned_data['subject']
 			message = form.cleaned_data['message']
 			sender = form.cleaned_data['sender']
-			cc_myself = form.cleaned_data['cc_myself']
-
 			recipients = ['briceberthelot64@gmail.com']
-			if cc_myself:
-				recipients.append(sender)
-
 			send_mail(subject, message, sender, recipients)
 			return HttpResponseRedirect('/contact-effectue/')
+	else:
+		form = ContactForm()
+	variables = RequestContext(request, {
+	'form': form
+	})
+	return render_to_response(
+	'contact.html',
+	variables,
+	)	
 
 def contactEffectue(request):
 	return render_to_response('merci.html')

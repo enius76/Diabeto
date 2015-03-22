@@ -1,17 +1,6 @@
 {% extends "layout/base.html" %}
 {% block content %}
 
- <!-- Formulaire pour ajouter un relevé
-
- <form  method="post" >{% csrf_token %}
-{{ form.as_p }}
-<input type="submit" value="Envoyer" />
-</form>
-
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-
--->
-
 	<header id="sub-header" class="carnet">
 
 		<!-- Sub Nav -->
@@ -32,17 +21,17 @@
 			<header>
 				<h2><span class="flaticon-book118"></span>
 					{% if user.is_authenticated %}
-    				Salut {{ user.username }},
+					Salut {{ user.username }},
 					{% endif %}
-        		voici votre dernier relevé :</h2>
+				voici votre dernier relevé :</h2>
 				<div class="border-search">
 					<div class="background-search">
 						<span class="flaticon-thumbs16"></span>
 						<p class="glycemie">138.8 mg/dl</p>
 						<p class="date">effectué le 18 Novembre 2014 à 11h48</p>
-		                <div class="clear"></div>
-	            	</div>
-            	</div>
+						<div class="clear"></div>
+					</div>
+				</div>
 			</header>
 			<footer>
 				<p>accédez aux autres fonctionnalités</p>
@@ -55,122 +44,126 @@
 	<section id="work" class="main style3 secondary carnet">
 		<div class="content container 75%">
 			
-		<!-- Relevés  -->
+		<!--  ____________________________________________ RELEVES ____________________________________________  -->
+
 			<div id="releves" class="box container 75% a-propos">
 				<header>
 					<h2>
-                        <span class="flaticon-list1"></span>Mes relevés
-                        
-                    </h2>
+						<span class="flaticon-list1"></span>Mes relevés
+						
+					</h2>
 					<span class="btn-option export" title="Exporter mes relevés au format PDF"><span class="flaticon-export1"></span></span>
 					<a class="popup-with-form" href="#releve-popup-form"><span class="btn-option add" title="Ajouter un relevé">+</span></a>
-                    <span class="btn-option hide-help 1" title="Afficher/Masquer l'infobulle">i</span>
+					<span class="btn-option hide-help 1" title="Afficher/Masquer l'infobulle">i</span>
 					<div class="clear"></div>
-                    <p class="bulle-help 1" style="display:none;">Ajoutez facilement un relevé avec le '+'. Triez les résultats ou recherchez en un ou bien exportez les au format PDF pour les avoir toujours avec vous.</p>
+					<p class="bulle-help 1" style="display:none;">Ajoutez facilement un relevé avec le '+'. Triez les résultats ou recherchez en un ou bien exportez les au format PDF pour les avoir toujours avec vous.</p>
 				</header>
 
 				<!-- Choix date -->
 				<nav id="releves-tri">
-                    <ul>
-                        <li><a href="sub_content/releves/aujourdhui.html" class="change_load actif">Aujourd'hui</a></li>
-                        <li><a href="sub_content/releves/3-derniers-jours.html" class="change_load">3 derniers jours</a></li>
-                        <li><a href="sub_content/releves/3-dernieres-semaines.html" class="change_load">3 dernières semaines</a></li>
-                        <li><a href="sub_content/releves/3-derniers-mois.html" class="change_load">3 derniers mois</a></li>
-                        <div class="clear"></div>
-                    </ul>
-                </nav>
+					<ul>
+						<li><a href="sub_content/releves/aujourdhui.html" class="change_load actif">Aujourd'hui</a></li>
+						<li><a href="sub_content/releves/3-derniers-jours.html" class="change_load">3 derniers jours</a></li>
+						<li><a href="sub_content/releves/3-dernieres-semaines.html" class="change_load">3 dernières semaines</a></li>
+						<li><a href="sub_content/releves/3-derniers-mois.html" class="change_load">3 derniers mois</a></li>
+						<div class="clear"></div>
+					</ul>
+				</nav>
 
-                <div id="table-releve-container">
-                	<table id="table-releves" class="tablesorter"> 
+				<div id="table-releve-container">
+					<table id="table-releves" class="tablesorter"> 
 						<thead> 
 							<tr> 
-							    <th>Date</th> 
-							    <th>Heure</th> 
-							    <th>Relevé</th> 
-							    <th class="note">Note</th>
+								<th>Date</th> 
+								<th>Heure</th> 
+								<th>Relevé</th> 
+								<th class="note">Note</th>
 							</tr> 
 						</thead> 
 						<tbody> 
 							<tr> 
-							    <td>18 Jan 2014</td> 
-							    <td>11h54</td> 
-							    <td>135 mg/dl</td> 
-							    <td>Tremblement ! J'ai augmenté ma dose d'insuline.</td> 
+								<td>18 Jan 2014</td> 
+								<td>11h54</td> 
+								<td>135 mg/dl</td> 
+								<td>Tremblement ! J'ai augmenté ma dose d'insuline.</td> 
 							</tr> 
 						</tbody> 
 					</table> 
-                </div>
+				</div>
 			</div>
 
 		<!-- Menu  -->					
 			<div id="composer-menu" class="container 75% alimentation-features">
 				<div class="row 0% images">
 					<div class="12u">
-		            	<div class="view view-first">  
-						     <img src="/static/images/thumbs/01.jpg" />  
-						     <div class="mask">  
-						     <h2><span class="flaticon-restaurant23"></span>Mon menu</h2>  
-						     <p>Composez votre menu pour en connaître la valeur glucidique.</p>  
-						         <a href={% url 'menu' %} class="info">composer</a>  
-						     </div>  
+						<div class="view view-first">  
+							 <img src="/static/images/thumbs/01.jpg" />  
+							 <div class="mask">  
+							 <h2><span class="flaticon-restaurant23"></span>Mon menu</h2>  
+							 <p>Composez votre menu pour en connaître la valeur glucidique.</p>  
+								 <a href={% url 'menu' %} class="info">composer</a>  
+							 </div>  
 						</div>  
 					</div>
 				</div>
 			</div>
 
-		<!-- Stats  -->
+
+		<!--  ____________________________________________ STATS ____________________________________________  -->
+
 			<div id="statistiques" class="box container 75% a-propos">
 				<header>
 					<h2>
-                        <span class="flaticon-business143"></span>Mes statistiques
-                    </h2>
+						<span class="flaticon-business143"></span>Mes statistiques
+					</h2>
 					<span class="btn-option export" tit exportle="Exporter mes statistiques"><span class="flaticon-export1"></span></span>
-                    <span class="btn-option hide-help 2" title="Afficher/Masquer l'infobulle">i</span>
+					<span class="btn-option hide-help 2" title="Afficher/Masquer l'infobulle">i</span>
 					<div class="clear"></div>
-                    <p class="bulle-help 2" style="display:none;">Visualisez en toute simplicité sous forme de graphique vos taux de glycémie et exportez vos résultats.</p>
+					<p class="bulle-help 2" style="display:none;">Visualisez en toute simplicité sous forme de graphique vos taux de glycémie et exportez vos résultats.</p>
 				</header>
 
-				<!-- Choix tri -->
 				<nav id="stats-tri">
-                    <ul>
-                        <li><a href="#" class="change_load actif">Aujourd'hui</a></li>
-                        <li><a href="#" class="change_load">3 derniers jours</a></li>
-                        <li><a href="#" class="change_load">3 dernières semaines</a></li>
-                        <li><a href="#" class="change_load">3 derniers mois</a></li>
-                        <div class="clear"></div>
-                    </ul>
-                </nav>
+					<ul>
+						<li class="current">Aujourd'hui</li>
+						<li>3 derniers jours</li>
+						<li>3 dernières semaines</li>
+						<li>3 derniers mois</li>
+						<div class="clear"></div>
+					</ul>
+				</nav>
 				
-                <div class="ct-chart ct-perfect-fourth" id="statistiques_chart"></div>							
+				<div class="ct-chart ct-perfect-fourth" id="statistiques_chart"></div>							
 			</div>
 
-		<!-- Agenda  -->
+
+		<!--  ____________________________________________ AGENDA ____________________________________________  -->
+
 			<div id="agenda" class="box container 75% a-propos">
 				<header>
 					<h2>
-                        <span class="flaticon-calendar154"></span>Mon agenda
-                    </h2>
-                    <span class="btn-option hide-help 3" title="Afficher/Masquer l'infobulle">i</span>
+						<span class="flaticon-calendar154"></span>Mon agenda
+					</h2>
+					<span class="btn-option hide-help 3" title="Afficher/Masquer l'infobulle">i</span>
+					<a class="popup-with-form" href="#event-popup-form"><span id="add-calendar" class="btn-option" title="Créer un événement">+</span></a>
 					<div class="clear"></div>
-                    <p class="bulle-help 3" style="display:none;">Le diabète entraîne de nombreux rendez-vous médical et il n'est pas toujours facil de se rappeler de tout. DiabON vous permet de créer des rendez-vous avec des rappels pour ne jamais oublier.</p>
+					<p class="bulle-help 3" style="display:none;">Le diabète entraîne de nombreux rendez-vous médical et il n'est pas toujours facil de se rappeler de tout. DiabON vous permet de créer des rendez-vous avec des rappels pour ne jamais oublier.</p>
 				</header>
 				
 				<section class="main">
-	                <div class="custom-calendar-wrap">
-	                    <div id="custom-inner" class="custom-inner">
-	                        <div class="custom-header clearfix">
-                                <a class="popup-with-form" href="#event-popup-form"><span id="add-calendar" class="btn-option" title="Ajouter un événement"><span class="flaticon-add182"></span></span></a>
-	                            <nav>
-	                                <span id="custom-prev" class="custom-prev"></span>
-	                                <span id="custom-next" class="custom-next"></span>
-	                            </nav>
-	                            <h2 id="custom-month" class="custom-month"></h2>
-	                            <h3 id="custom-year" class="custom-year"></h3>
-	                        </div>
-	                        <div id="calendar" class="fc-calendar-container"></div>
-	                    </div>
-	                </div>
-	            </section>
+					<div class="custom-calendar-wrap">
+						<div id="custom-inner" class="custom-inner">
+							<div class="custom-header clearfix">
+								<nav>
+									<span id="custom-prev" class="custom-prev"></span>
+									<span id="custom-next" class="custom-next"></span>
+								</nav>
+								<h2 id="custom-month" class="custom-month"></h2>
+								<h3 id="custom-year" class="custom-year"></h3>
+							</div>
+							<div id="calendar" class="fc-calendar-container"></div>
+						</div>
+					</div>
+				</section>
 			</div>
 
 		</div>
@@ -180,232 +173,246 @@
 	<a href="#" class="back-to-top">Remonter</a>
 
 
-    <form id="releve-popup-form" class="white-popup-block mfp-hide" _lpchecked="1">
-        <h1>Ajouter un relevé</h1>
-        <fieldset style="border:0;">
-            <ul>
-                <li>
-                    <label for="date-releve">Date</label>
-                    <input id="date-releve" name="date-releve" type="date" required="">
-                </li>
-                <li>
-                    <label for="heure-releve">Heure</label>
-                    <input id="heure-releve" name="heure-releve" type="time" required="">
-                </li>
-                <li>
-                    <label for="releve-releve">Valeur du relevé</label>
-                    <input id="releve-releve" name="releve-releve" type="number" required="">
-                </li>
-                <li>
-                    <label for="note-releve">Note</label>
-                    <textarea id="note-releve" placeholder="Ajouter un commentaire..."></textarea>
-                </li>
-            </ul>
-        </fieldset>
-        <input type="submit" value="Ajouter">
-    </form>
+	<!--  ____________________________________________ POP UP FORMS ____________________________________________  -->
 
-    <form id="event-popup-form" class="white-popup-block mfp-hide" _lpchecked="1">
-        <h1>Ajouter un événement</h1>
-        <fieldset style="border:0;">
-            <ul>
-                <li>
-                    <label for="date-event">Date</label>
-                    <input id="date-event" name="date" type="date" required="">
-                </li>
-                <li>
-                    <label for="heure-event">Heure</label>
-                    <input id="heure-event" name="heure-event" type="time" required="">
-                </li>
-                <li>
-                    <label for="title-event">Titre de l'événement</label>
-                    <input id="title-event" name="title-event" type="text" required="">
-                </li>
-            </ul>
-        </fieldset>
-        <input type="submit" value="Créer">
-    </form>
+	<form id="releve-popup-form" class="white-popup-block mfp-hide" _lpchecked="1">
+		<h1>Ajouter un relevé</h1>
+		<fieldset style="border:0;">
+			<ul>
+				<li>
+					<label for="date-releve">Date</label>
+					<input id="date-releve" name="date-releve" type="date" required="">
+				</li>
+				<li>
+					<label for="heure-releve">Heure</label>
+					<input id="heure-releve" name="heure-releve" type="time" required="">
+				</li>
+				<li>
+					<label for="releve-releve">Valeur du relevé</label>
+					<input id="releve-releve" name="releve-releve" type="number" required="">
+				</li>
+				<li>
+					<label for="note-releve">Note</label>
+					<textarea id="note-releve" placeholder="Ajouter un commentaire..."></textarea>
+				</li>
+			</ul>
+		</fieldset>
+		<input type="submit" value="Ajouter">
+	</form>
 
-<!-- Pop up actions -->
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('.popup-with-form').magnificPopup({
-                type: 'inline',
-                preloader: false,
-                focus: '#date-releve',
-
-                // When elemened is focused, some mobile browsers in some cases zoom in
-                // It looks not nice, so we disable it:
-                callbacks: {
-                    beforeOpen: function() {
-                        if($(window).width() < 700) {
-                            this.st.focus = false;
-                        } else {
-                            this.st.focus = '#date-releve';
-                        }
-                    }
-                }
-            });
-        });
-    </script>
-
-<!-- EXPORT -->
-    <script src="/static/js/tableExport.js"></script>
-    <script src="/static/js/jquery.base64.js"></script>
-        <!-- PDF EXPORT -->
-    <script src="/static/js/table-export/libs/sprintf.js"></script>
-    <script src="/static/js/table-export/jspdf.js"></script>
-    <script src="/static/js/table-export/libs/base64.js"></script>
-    <script type="text/javascript">
-        $('#releves span.export').click(function() {
-            $('table#table-releves').tableExport({
-                type:'pdf',
-                escape:'false',
-                tableName:'DiabON - Vos relevés',
-                pdfFontSize:12,
-                ignoreColumn: [3],
-                pdfLeftMargin:40
-            });
-        });
-    </script>
+	<form id="event-popup-form" class="white-popup-block mfp-hide" _lpchecked="1">
+		<h1>Ajouter un événement</h1>
+		<fieldset style="border:0;">
+			<ul>
+				<li>
+					<label for="date-event">Date</label>
+					<input id="date-event" name="date" type="date" required="">
+				</li>
+				<li>
+					<label for="heure-event">Heure</label>
+					<input id="heure-event" name="heure-event" type="time" required="">
+				</li>
+				<li>
+					<label for="title-event">Titre de l'événement</label>
+					<input id="title-event" name="title-event" type="text" required="">
+				</li>
+			</ul>
+		</fieldset>
+		<input type="submit" value="Créer">
+	</form>
 
 
-<!-- TABLEAU RELEVE TRI -->
+<!--  ____________________________________________ POP UP ACTIONS ____________________________________________  -->
+
+	<script src="/static/js/jquery.magnific-popup.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.popup-with-form').magnificPopup({
+				type: 'inline',
+				preloader: false,
+				focus: '#date-releve',
+
+				// When elemened is focused, some mobile browsers in some cases zoom in
+				// It looks not nice, so we disable it:
+				callbacks: {
+					beforeOpen: function() {
+						if($(window).width() < 700) {
+							this.st.focus = false;
+						} else {
+							this.st.focus = '#date-releve';
+						}
+					}
+				}
+			});
+		});
+	</script>
+
+
+<!--  ____________________________________________ EXPORT ____________________________________________  -->
+
+	<script src="/static/js/tableExport.js"></script>
+	<script src="/static/js/jquery.base64.js"></script>
+		<!-- PDF EXPORT -->
+	<script src="/static/js/table-export/libs/sprintf.js"></script>
+	<script src="/static/js/table-export/jspdf.js"></script>
+	<script src="/static/js/table-export/libs/base64.js"></script>
+	<script type="text/javascript">
+		$('#releves span.export').click(function() {
+			$('table#table-releves').tableExport({
+				type:'pdf',
+				escape:'false',
+				tableName:'DiabON - Vos relevés',
+				pdfFontSize:12,
+				ignoreColumn: [3],
+				pdfLeftMargin:40
+			});
+		});
+	</script>
+
+
+<!--  ________________________________________ TABLEAU RELEVE TRI ____________________________________________  -->
+
+	<script type="text/javascript">
+		$(document).ready(function() 
+			{ 
+				$("#table-releves").tablesorter(); 
+			} 
+		); 
+	</script>
+
+
+<!--  ________________________________________ AGENDA ____________________________________________  -->
+	<script src="/static/js/jquery.calendario.js"></script>
+	<script type="text/javascript">
+		$('#calendar').calendario();
+	</script>
+
+	<script src="/static/js/data.js"></script>
+
 <script type="text/javascript">
-    $(document).ready(function() 
-        { 
-            $("#table-releves").tablesorter(); 
-        } 
-    ); 
+
+	$(function() {
+		$(document).on('shown.calendar.calendario', function(e, instance){
+			if(!instance) instance = cal;
+			var $cell = instance.getCell(new Date().getDate());
+			if($cell.hasClass('fc-today')) $cell.trigger('click.calendario');
+		});
+	
+		var transEndEventNames = {
+				'WebkitTransition' : 'webkitTransitionEnd',
+				'MozTransition' : 'transitionend',
+				'OTransition' : 'oTransitionEnd',
+				'msTransition' : 'MSTransitionEnd',
+				'transition' : 'transitionend'
+			},
+			transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
+			$wrapper = $( '#custom-inner' ),
+			$calendar = $( '#calendar' ),
+			cal = $calendar.calendario({
+				onDayClick : function( $el, data, dateProperties ) {
+					if(data.content.length > 0 ) {
+						showEvents(data.content, dateProperties );
+					}
+				},
+				caldata : codropsEvents,
+				displayWeekAbbr : true,
+				events: 'click'
+			} ),
+			$month = $( '#custom-month' ).html( cal.getMonthName() ),
+			$year = $( '#custom-year' ).html( cal.getYear() );
+
+		$( '#custom-next' ).on( 'click', function() {
+			cal.gotoNextMonth( updateMonthYear );
+		} );
+		$( '#custom-prev' ).on( 'click', function() {
+			cal.gotoPreviousMonth( updateMonthYear );
+		} );
+
+		function updateMonthYear() {                
+			$month.html( cal.getMonthName() );
+			$year.html( cal.getYear() );
+		}
+
+		// just an example..
+		function showEvents( contentEl, dateProperties ) {
+			hideEvents();
+			var $events = $( '<div id="custom-content-reveal" class="custom-content-reveal"><h4>Événements du ' + dateProperties.day + ' ' + dateProperties.monthname + ' ' + dateProperties.year + '</h4></div>' ),
+				$close = $( '<span class="custom-content-close"></span>' ).on( 'click', hideEvents );
+			$events.append( contentEl.join('') , $close ).insertAfter( $wrapper );
+			setTimeout( function() {
+				$events.css( 'top', '0%' );
+			}, 25 );
+		}
+
+		function hideEvents() {
+			var $events = $( '#custom-content-reveal' );
+			if( $events.length > 0 ) {
+				$events.css( 'top', '100%' );
+				Modernizr.csstransitions ? $events.on( transEndEventName, function() { $( this ).remove(); } ) : $events.remove();
+			}
+		}
+	});
 </script>
 
 
-<!-- AGENDA -->
+<!--  ___________________________________________ STATS _______________________________________________  -->
+
+<script src="/static/js/chartist.min.js"></script>
+
 <script type="text/javascript">
+	/* ________________ AUJOURD'HUI _____________ */
+	if ($("nav#stats-tri li.current").text()=="Aujourd'hui") {
+		var data = {
+			// Labels en abscisse:
+			labels: ['08:00', '12:45', '19:30'],
+			// Valeurs:
+			series: [
+				[136, 130, 135]
+			],
+		};		
+	}
 
-    $(function() {
-        $(document).on('shown.calendar.calendario', function(e, instance){
-            if(!instance) instance = cal;
-            var $cell = instance.getCell(new Date().getDate());
-            if($cell.hasClass('fc-today')) $cell.trigger('click.calendario');
-        });
-    
-        var transEndEventNames = {
-                'WebkitTransition' : 'webkitTransitionEnd',
-                'MozTransition' : 'transitionend',
-                'OTransition' : 'oTransitionEnd',
-                'msTransition' : 'MSTransitionEnd',
-                'transition' : 'transitionend'
-            },
-            transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
-            $wrapper = $( '#custom-inner' ),
-            $calendar = $( '#calendar' ),
-            cal = $calendar.calendario({
-                onDayClick : function( $el, data, dateProperties ) {
 
-                    if(data.content.length > 0 ) {
-                        showEvents(data.content, dateProperties );
-                    }
 
-                },
-                caldata : codropsEvents,
-                displayWeekAbbr : true,
-                events: 'click'
-            } ),
-            $month = $( '#custom-month' ).html( cal.getMonthName() ),
-            $year = $( '#custom-year' ).html( cal.getYear() );
+	var options = {
+		showPoint: true,
+		lineSmooth: true,
+		axisX: {
+			showGrid: true,
+			showLabel: true
+		},
+		axisY: {
+			offset: 80,
+		}
+	};
 
-        $( '#custom-next' ).on( 'click', function() {
-            cal.gotoNextMonth( updateMonthYear );
-        } );
-        $( '#custom-prev' ).on( 'click', function() {
-            cal.gotoPreviousMonth( updateMonthYear );
-        } );
-
-        function updateMonthYear() {                
-            $month.html( cal.getMonthName() );
-            $year.html( cal.getYear() );
-        }
-
-        // just an example..
-        function showEvents( contentEl, dateProperties ) {
-
-            hideEvents();
-            
-            var $events = $( '<div id="custom-content-reveal" class="custom-content-reveal"><h4>Événements du ' + dateProperties.day + ' ' + dateProperties.monthname + ' ' + dateProperties.year + '</h4></div>' ),
-                $close = $( '<span class="custom-content-close"></span>' ).on( 'click', hideEvents );
-
-            $events.append( contentEl.join('') , $close ).insertAfter( $wrapper );
-            
-            setTimeout( function() {
-                $events.css( 'top', '0%' );
-            }, 25 );
-
-        }
-        function hideEvents() {
-
-            var $events = $( '#custom-content-reveal' );
-            if( $events.length > 0 ) {
-                
-                $events.css( 'top', '100%' );
-                Modernizr.csstransitions ? $events.on( transEndEventName, function() { $( this ).remove(); } ) : $events.remove();
-
-            }
-
-        }
-    
-    });
+	// initialisation des stats
+	new Chartist.Line('.ct-chart', data, options);
 </script>
 
-<!-- STATISTIQUES -->
+<!--   STATS : CHANGE CURRENT  -->
+
 <script type="text/javascript">
-    // CHARTIST / config des stats
-    var data = {
-        // Labels en abscisse:
-        labels: ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'],
-        // Valeurs:
-        series: [
-            [5, 2.12, 4.45, 2.75, 0, 2, 4]
-        ],
-    };
-    //options:
-    // We are setting a few options for our chart and override the defaults
-    var options = {
-        // Don't draw the line chart points
-        showPoint: true,
-        // Disable line smoothing
-        lineSmooth: true,
-        // X-Axis specific configuration
-        axisX: {
-            // We can disable the grid for this axis
-            showGrid: true,
-            // and also don't show the label
-            showLabel: true
-        },
-        // Y-Axis specific configuration
-        axisY: {
-            // Lets offset the chart a bit from the labels
-            offset: 60,
-            // The label interpolation function enables you to modify the values
-            // used for the labels on each axis. Here we are converting the
-            // values into million pound.
-            // Changer la ligne suivante pour modifier le label sur l'axe des ordonnées:
-            /*labelInterpolationFnc: function(value) {
-                return '$' + value + 'm';
-            }*/
-        }
-    };
-    // Create a new line chart object where as first parameter we pass in a selector
-    // that is resolving to our chart container element. The Second parameter
-    // is the actual data object.
-    new Chartist.Line('.ct-chart', data, options);
+	$("nav#stats-tri li").click(function(){
+		//on supprime la classe current actuel
+		$(".current").removeClass('current');
+		//on change la classe du nouveau pour qu'il soit current
+		$(this).addClass('current');
+		return false;
+	});
 </script>
 
-<!-- changement padding body -->
-    <script type="text/javascript">
-        $('body').css('padding-top', '7em');
-        document.title = 'Carnet - DiabON';
-    </script>
+
+<!--  ___________________________________ CHANGE CONTENT RELEVES _______________________________________________  -->
+
+<script src="/static/js/change_content.js"></script>
+
+
+<!--  _________________________________________ JQUERY _______________________________________________  -->
+	<script type="text/javascript">
+		$('body').css('padding-top', '7em');
+		document.title = 'Carnet - DiabON';
+	</script>
 
 
 {% endblock content %}
