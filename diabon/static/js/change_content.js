@@ -58,7 +58,7 @@ $(document).ready(function(){
     });
 }); 
 
-function afficher_apropos(data){
+/*function afficher_apropos(data){
     $(".tri-result").fadeOut(300,function(){
         $(".tri-result").empty();
         $(".tri-result").append(data);
@@ -72,7 +72,7 @@ function afficher_articles(data){
         $(".conseils-articles").append(data);
         $(".conseils-articles").fadeIn(500);
     })
-}
+}*/
 
 function afficher_releves(data){
     $("#table-releve-container").fadeOut(300,function(){
