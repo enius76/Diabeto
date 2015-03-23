@@ -1,0 +1,169 @@
+{% extends "layout/base.html" %}
+{% block content %}
+
+
+			<header id="sub-header" class="carnet">
+
+				<!-- Sub Nav -->
+					<nav role="navigation" id="profil-sub-navigation">
+						<ul>
+							<li><a href="#a-propos-details"><span class="flaticon-user168"></span>A propos</a></li>
+							<li><a href="#mon-diabete"><span class="flaticon-shield104"></span>Mon diabète</a></li>
+							<li><a href="#mes-contacts"><span class="flaticon-notebook32"></span>Mes contacts</a></li>
+						</ul>
+					</nav>
+
+			</header>
+			
+		<!-- Profil -->
+			<section id="profil-infos" class="main style3 secondary">
+				<div class="content container">
+					<div id="profil-en-tete" class="box container 75%">
+						<header>
+							<img id="profil-picture" src="/static/images/profil-picture.png" alt="Ma photo" />
+							<div id="profil-name">
+								<h2>{% if user.is_authenticated %}
+									{{ user.username }}
+									{% endif %}
+								</h2>
+								<p>Inscrit le {{ user.date_joined }}<!--26 novembre 2014--></p>
+							</div>
+							<div id="btn-mdp" title="Changer mon mot de passe">mot de passe</div>
+							<div class="clear"></div>
+							<div id="btn-photo" title="Changer ma photo de profil">photo de profil</div>
+							<div class="clear"></div>
+						</header>
+					</div>
+
+					<div id="a-propos-details"></div>
+
+					<div class="box container 75% a-propos">
+						<header>
+							<h2><span class="flaticon-user168"></span>A propos</h2>
+							<span class="btn-modifier flaticon-edit45" title="Modifier mes infos personnelles"></span>
+							<div class="clear"></div>
+						</header>
+
+						<div class="table">
+							<table class="left">
+							    <tr>
+							        <td class="label">Nom&nbsp;:</td>
+							        <td>Brice Berthelot</td>
+							    </tr>
+							    <tr>
+							        <td class="label">Anniversaire&nbsp;:</td>
+							        <td>10/01/1992</td>
+							    </tr>
+							    <tr>
+							        <td class="label">Sexe&nbsp;:</td>
+							        <td>Homme</td>
+							    </tr>
+							</table>
+							<table class="right">
+							    <tr>
+							        <td class="label">Taille&nbsp;:</td>
+							        <td>1,86 m</td>
+							    </tr>
+							    <tr>
+							        <td class="label">Poids&nbsp;:</td>
+							        <td>80 Kg</td>
+							    </tr>
+							    <tr>
+							        <td class="label">Adresse&nbsp;mail&nbsp;:</td>
+							        <td>brice.berthelot@sfr.fr</td>
+							    </tr>
+							</table>
+							<div class="clear"></div>
+						</div>
+					</div>
+
+					<div id="mon-diabete"></div>
+
+					<div class="box container 75% a-propos">
+						<header>
+							<h2><span class="flaticon-shield104"></span>Mon diabète</h2>
+							<span class="btn-modifier flaticon-edit45" title="Modifier les infos sur mon diabète"></span>
+							<div class="clear"></div>
+						</header>
+
+						<div class="table">
+							<table class="full">
+							    <tr>
+							        <td class="label">Diabète&nbsp;:</td>
+							        <td>Type 1</td>
+							    </tr>
+							    <tr>
+							        <td class="label">Glycémie&nbsp;moyenne&nbsp;:</td>
+							        <td>134 mg/dl</td>
+							    </tr>
+							    <tr>
+							        <td class="label note">Note&nbsp;:</td>
+							        <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis neque velit. Sed fermentum risus dui, vel lobortis risus varius nec. Nulla sodales dolor eget nisi porttitor porta.</td>
+							    </tr>
+							</table>
+						</div>
+					</div>
+
+					<div id="mes-contacts"></div>
+
+					<div class="box container 75% a-propos">
+						<header>
+							<h2><span class="flaticon-notebook32"></span>Mes contacts</h2>
+							<span class="btn-modifier flaticon-edit45" title="Modifier un contact"></span>
+							<span class="btn-ajouter" title="Ajouter un contact">+</span>
+							<div class="clear"></div>
+						</header>
+
+						<div class="table">
+							<table class="full contact">
+							    <div class="name-contact">Docteur Dumoulin</div>
+							    <tr>
+							    	<td></td>
+							        <td class="label">Téléphone&nbsp;:</td>
+							        <td><a href="tel:+33559331857">05 59 33 18 57</a></td>
+							    </tr>
+							    <tr>
+							    	<td></td>
+							        <td class="label">Email&nbsp;:</td>
+							        <td><a href="mailto:dr.dumoulin@gmail.com">dr.dumoulin@gmail.com</a></td>
+							    </tr>
+							    <tr>
+							    	<td></td>
+							        <td class="label note">Note&nbsp;:</td>
+							        <td>Nulla facilisi. Ut tortor justo, efficitur non iaculis quis, consectetur lacinia nisi. Etiam vestibulum placerat ex a vehicula.</td>
+							    </tr>
+							</table>
+
+							<div class="divider"></div>
+
+							<table class="full contact">
+							    <div class="name-contact">Andochrinologue Pontel</div>
+							    <tr>
+							    	<td></td>
+							        <td class="label">Téléphone&nbsp;:</td>
+							        <td><a href="tel:+33559331235">05 59 33 12 35</a></td>
+							    </tr>
+							    <tr>
+							    	<td></td>
+							        <td class="label">Email&nbsp;:</td>
+							        <td><a href="mailto:alain.pontel@hotmail.com">alain.pontel@hotmail.com</a></td>
+							    </tr>
+							    <tr>
+							    	<td></td>
+							        <td class="label note">Note&nbsp;:</td>
+							        <td>Ut tortor justo, efficitur non iaculis quis, consectetur lacinia nisi. Etiam vestibulum placerat ex a vehicula.</td>
+							    </tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Scroll to top -->
+        	<a href="#" class="back-to-top">Remonter</a>
+
+        <script type="text/javascript">
+        	document.title = 'Profil de {{ user.username }} - DiabON';
+        </script>
+
+{% endblock content %}

@@ -1,0 +1,112 @@
+{% extends "layout/base.html" %}
+{% block content %}
+
+	<header id="sub-header" class="alimentation">
+		<!-- Sub Nav -->
+			<nav role="navigation" id="alimentation-sub-navigation">
+				<ul>
+					<li><a href="#composer-menu"><span class="flaticon-restaurant23"></span>Mon Menu</a></li>
+					<li><a href="#aliment-manquant"><span class="flaticon-add182"></span>Aliment manquant</a></li>
+					<li><a href="#catalogue-complet"><span class="flaticon-book1"></span>Catalogue</a></li>
+				</ul>
+			</nav>
+	</header>
+	
+<!-- Alimentation -->
+	<section id="alimentation" class="main style1 dark fullscreen">
+		<div class="content container 75%">
+			<header>
+				<h2><span class="flaticon-apple55"></span>Recherchez un aliment ou découvrez nos nombreuses recettes</h2>
+				<div class="border-search">
+					<div class="background-search">
+						<form action="" class="formulaire">
+			                <input class="champs-recherche" type="text" placeholder="Haricots verts, lasagnes, ..."/>
+			                <input class="btn-recherche flaticon-dark37" type="button" value="OK" />  
+		                </form>
+		                <div class="clear"></div>
+	            	</div>
+            	</div>
+			</header>
+			<footer>
+				<p>accédez aux autres fonctionnalités</p>
+				<a href="#work" class="button style2 down">More</a>
+			</footer>
+		</div>
+	</section>
+	
+<!-- Fonctionnalités -->
+	<section id="work" class="main style3 secondary alimentation">
+		<div class="content container 75% features-container">
+			<header id="composer-menu">
+				<h2>Composez votre menu</h2>
+			</header>
+			
+			<div id="composer-menu" class="container 75% alimentation-features">
+				<div class="row 0% images">
+					<div class="12u">
+		            	<div class="view view-first">  
+						     <img src="/static/images/thumbs/01.jpg" />  
+						     <div class="mask">  
+						     <h2><span class="flaticon-restaurant23"></span>Mon menu</h2>  
+						     <p>Composez votre menu pour en connaître la valeur glucidique.</p>  
+						         <a href="{% url 'menu' %}" class="info">composer</a>  
+						     </div>  
+						</div>  
+					</div>
+				</div>
+			</div>
+
+			<header id="aliment-manquant">
+				<h2>Rajoutez un aliment à notre catalogue</h2>
+			</header>
+			<div class="container 75% alimentation-features">
+				<div class="row 0% images">
+					<div class="12u">
+		            	<div class="view view-first">  
+						     <img src="/static/images/thumbs/02.jpg" />  
+						     <div class="mask">  
+						     <h2><span class="flaticon-add182"></span>Aliment manquant</h2>  
+						     <p>Il manque un aliment dans notre catalogue ? Soumettez le nous.</p>  
+						         <a href={% url 'contact' %} class="info">ajouter</a>  
+						     </div>  
+						</div>  
+					</div>
+				</div>
+			</div>
+
+			<header id="catalogue-complet">
+				<h2>Accédez au catalogue complet</h2>
+			</header>
+			<div class="container 75% alimentation-features">
+				<div class="row 0% images">
+					<div class="12u">
+		            	<div class="view view-first">  
+						     <img src="/static/images/thumbs/03.jpg" />  
+						     <div class="mask">  
+						     <h2><span class="flaticon-book1"></span>Catalogue</h2>  
+						     <p>Accédez au catalogue complet de nos aliments.</p>  
+						         <a href={% url 'catalogue' %} class="info">accéder</a>  
+						     </div>  
+						</div>  
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- Scroll to top -->
+    	<a href="#" class="back-to-top">Remonter</a>
+
+    <!-- changement couleur header et padding body -->
+    <script type="text/javascript">
+    	$('#header').css('background-color', '#8cb02b');
+    	$('form#nav-search input[type="submit"]').css('color', '#8cb02b');
+    	$('a#modal_trigger.btn').css('color', '#8cb02b');
+    	$('body').css('padding-top', '7em');
+    	$('#navigation ul li#connexion a').css('color', '#8cb02b');
+    	$('h1#logo img').attr('src','/static/images/logo-green.png');
+    	document.title = 'Alimentation - DiabON';
+    </script>
+
+{% endblock content %}
