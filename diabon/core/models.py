@@ -24,7 +24,7 @@ class Category(models.Model):
 
 class Profile(models.Model):
 	user = models.OneToOneField(User)
-	birth = models.DateField('date of birth', blank=True, null=True)
+	birth = models.DateField()
 	sexe = models.CharField(max_length=1)
 	weight = models.FloatField()
 	height = models.FloatField()
