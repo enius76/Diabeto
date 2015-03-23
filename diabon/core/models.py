@@ -5,6 +5,8 @@ from django.forms import ModelForm
 from django.contrib.auth.models import User
 from django.conf import settings
 from django.db.models.signals import post_save
+from datetime import datetime
+
 
 class Food(models.Model):
 	name = models.CharField(max_length=200)
@@ -22,14 +24,13 @@ class Category(models.Model):
 		return "%s" % (self.name)
 
 
+
 class Profile(models.Model):
 	user = models.OneToOneField(User)
-	birth = models.DateField()
+	birth = models.DateField(default=datetime.now())
 	sexe = models.CharField(max_length=1)
-	weight = models.FloatField()
-	height = models.FloatField()
-	glyc = models.ForeignKey('Glyc')
-
+	weight = models.FloatField(default=0.0)
+	height = models.FloatField(default=0.0)
 
 	def __unicode__(self):
 		return "Profile de %s" % self.user
@@ -56,17 +57,14 @@ class Profile(models.Model):
 
 
 class Glyc(models.Model):
+	id_user= models.AutoField(primary_key=True)
 	value = models.FloatField()
-	#time = models.DateTimeField()
+	time = models.DateTimeField(default=datetime.now())
 	note = models.CharField(max_length=150, default=' ')
 
 	def __unicode__(self):
 		return "%s" % (self.value)
 
-class GlycForm(ModelForm):
-	class Meta:
-		model = Glyc
-		fields = ['value', 'note']
 
 
 # ______________________________________ ARTICLES _______________________________________

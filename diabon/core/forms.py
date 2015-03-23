@@ -33,4 +33,7 @@ class ContactForm(forms.Form):
 	subject = forms.CharField(label="Sujet", max_length=30, required=True)
 	sender = forms.EmailField(widget=forms.TextInput(attrs=dict(required=True, max_length=30)), label=_("Votre adresse email"), error_messages={ 'invalid': _("Veuillez rentrer une adresse email valide.")})
 	message = forms.CharField(widget=forms.Textarea, label="Message")
-	
+
+class GlycForm(forms.Form):
+	value = forms.FloatField()
+	note = forms.CharField(max_length=100)
