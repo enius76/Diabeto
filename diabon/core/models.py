@@ -4,6 +4,7 @@ from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.models import User
 from django.conf import settings
+from django.db.models.signals import post_save
 
 class Food(models.Model):
 	name = models.CharField(max_length=200)
@@ -23,7 +24,7 @@ class Category(models.Model):
 
 class Profile(models.Model):
 	user = models.OneToOneField(User)
-	birth = models.DateField()
+	birth = models.DateField('date of birth', blank=True, null=True)
 	sexe = models.CharField(max_length=1)
 	weight = models.FloatField()
 	height = models.FloatField()
@@ -32,6 +33,12 @@ class Profile(models.Model):
 
 	def __unicode__(self):
 		return "Profile de %s" % self.user
+
+	def create_user_profile(sender, instance, created, **kwargs):
+		if created:
+			Profile.objects.create(user=instance)
+
+	post_save.connect(create_user_profile, sender=settings.AUTH_USER_MODEL)
 
 	def create_user(self, email, password=None):
 	#Creates and saves a User with the given email and password.
@@ -46,6 +53,7 @@ class Profile(models.Model):
 		user.set_password(password)
 		user.save(using=self._db)
 		return user
+
 
 class Glyc(models.Model):
 	value = models.FloatField()
