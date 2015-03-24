@@ -1,0 +1,52 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+
+
+<!-- Connexion -->
+    <section id="work" class="main style3 secondary connexion">
+        <div class="content container 75%">
+            <header>
+                <h2>Tout DiabON en 1 clic : connectez-vous !</h2>
+            </header>
+        
+        <div id="connexion-container">
+            <img src="/static/images/icone-bg-grey.png" alt="">
+
+            {% if user.is_authenticated %}
+                <h1></h1>
+            {% else %}
+                <h1></h1>
+            {% endif %}
+
+            {% if error %}
+                <p id="error-connexion">Utilisateur inconnu ou mauvais de mot de passe. <br>Si le problème persiste malgré des identifiants correctes, <a href={% url 'contact' %}>contactez-nous</a> !</p>
+            {% endif %}
+
+            {% if user.is_authenticated %}
+                <p>Vous êtes déjà connecté, {{ user.username }} !</p>
+                <br>
+                <a href={% url 'deconnexion' %}>Déconnexion</a>
+                <br>
+                <a href={% url 'carnet' %}>Aller à mon carnet</a>
+                <br>
+                <a href={% url 'profil' %}>Voir mon profil</a>
+            {% else %}
+                <form id="connexion-form" method="post" action=".">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Se connecter" />
+                </form>
+                <div id="inscription">Vous n'êtes pas encore inscrit ? <a href={% url 'inscription' %}>Créez un compte</a> </div>
+            {% endif %}
+        </div>
+        
+    </section>
+
+    <script type="text/javascript">
+        document.title = 'Connexion - DiabON';
+    </script>
+
+
+
+{% endblock content %}

@@ -1,0 +1,164 @@
+{% extends "layout/base.html" %}
+{% block content %}
+
+	<header id="sub-header" class="carnet">
+
+		<!-- Sub Nav -->
+			<nav role="navigation" id="profil-sub-navigation">
+				<ul>
+					<li><a href="#a-propos-details"><span class="flaticon-user168"></span>A propos</a></li>
+					<li><a href="#mon-diabete"><span class="flaticon-shield104"></span>Mon diabète</a></li>
+				</ul>
+			</nav>
+
+	</header>
+	
+<!-- Profil -->
+	<section id="profil-infos" class="main style3 secondary">
+		<div class="content container">
+			<div id="profil-en-tete" class="box container 75%">
+				<header>
+					<img id="profil-picture" src="/static/images/profil-picture.png" alt="Ma photo" />
+					<div id="profil-name">
+						<h2>{% if user.is_authenticated %}
+								{{ user.get_full_name }}
+							{% else %}
+								Non Connecté
+							{% endif %}
+						</h2>
+						<p>
+							{% if user.is_authenticated %}
+								Inscrit le {{ user.date_joined }}<!--26 novembre 2014-->
+							{% else %}
+								Inscrit le Non/Inscrit/2015
+							{% endif %}
+						</p>
+					</div>
+					<a id="remplir-profil" href={% url 'inscription-details' %}>compléter mon profil</a>
+					<!--<div id="btn-mdp" title="Changer mon mot de passe">mot de passe</div>
+					<div class="clear"></div>
+					<div id="btn-photo" title="Changer ma photo de profil">photo de profil</div>-->
+					<div class="clear"></div>
+				</header>
+			</div>
+
+			<div id="a-propos-details"></div>
+
+			<div class="box container 75% a-propos">
+				<header>
+					<h2><span class="flaticon-user168"></span>A propos</h2>
+					<a href={% url 'inscription-details' %}><span class="btn-modifier flaticon-edit45" title="Modifier mes infos personnelles"></span></a>
+					<div class="clear"></div>
+				</header>
+
+				<div class="table">
+					<table class="left">
+					    <tr>
+					        <td class="label">Nom&nbsp;:</td>
+					        <td>{{ user.get_full_name }}</td>
+					    </tr>
+					    <tr>
+					        <td class="label">Anniversaire&nbsp;:</td>
+					        <td>
+					        	{% if profile.birth %}
+									{{ profile.birth }}
+								{% else %}
+									non précisé
+								{% endif %}
+					        </td>
+					    </tr>
+					    <tr>
+					        <td class="label">Sexe&nbsp;:</td>
+					        <td>
+					        	{% if profile.sexe == 'H' %}
+									Homme
+								{% elif profile.sexe == 'F' %}
+									Femme
+								{% else %}
+									non précisé
+								{% endif %}
+					        </td>
+					    </tr>
+					</table>
+					<table class="right">
+					    <tr>
+					        <td class="label">Taille&nbsp;:</td>
+					        <td>
+					        	{% if profile.height < 1 %}
+					        		non précisé
+								{% else %}
+									{{ profile.height }} m
+								{% endif %}
+					        </td>
+					    </tr>
+					    <tr>
+					        <td class="label">Poids&nbsp;:</td>
+					        <td>
+					        	{% if profile.weight < 1 %}
+					        		non précisé
+								{% else %}
+									{{ profile.weight }} kg
+								{% endif %}
+					        </td>
+					    </tr>
+					    <tr>
+					        <td class="label">Adresse&nbsp;mail&nbsp;:</td>
+					        <td>
+					        	{% if user.is_authenticated %}
+									{{ user.email }}
+								{% else %}
+									non précisé
+								{% endif %}
+					        </td>
+					    </tr>
+					</table>
+					<div class="clear"></div>
+				</div>
+			</div>
+
+			<div id="mon-diabete"></div>
+
+			<div class="box container 75% a-propos">
+				<header>
+					<h2><span class="flaticon-shield104"></span>Mon diabète</h2>
+					<a href={% url 'inscription-details' %}><span class="btn-modifier flaticon-edit45" title="Modifier les infos sur mon diabète"></span></a>
+					<div class="clear"></div>
+				</header>
+
+				<div class="table">
+					<table class="full">
+					    <tr>
+					        <td class="label">Diabète&nbsp;:</td>
+					        <td>
+					        	{% if profile.typeDiabete %}
+					        		{{ profile.typeDiabete }}
+								{% else %}
+									non précisé
+								{% endif %}
+					        </td>
+					    </tr>
+					    <tr>
+					        <td class="label">Glycémie&nbsp;moyenne&nbsp;:</td>
+					        <td>
+					        	{% if profile.glycMoyenne != 0 %}
+					        		{{ profile.glycMoyenne }} mg/dl
+								{% else %}
+									non précisé
+								{% endif %}
+					        </td>
+					    </tr>
+					</table>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+<!-- Scroll to top -->
+	<a href="#" class="back-to-top">Remonter</a>
+
+<script type="text/javascript">
+	document.title = 'Profil de {{ user.username }} - DiabON';
+</script>
+
+{% endblock content %}

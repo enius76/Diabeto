@@ -1,0 +1,27 @@
+{% extends "layout/base.html" %}
+{% block content %}
+
+<!-- Contact -->
+	<section id="work" class="main style3 secondary contact">
+		<div class="content container">
+			<header>
+				<h2>Formulaire de contact</h2>
+				<p>Qu'il s'agisse d'une remarque, d'un conseil ou d'une question, notre équipe sera heureuse de vous répondre.<br>N'hésitez pas non plus s'il manque un aliment dans notre base de données.</p>
+			</header>
+
+			<div class="box container 75% contact-form">
+				<!-- Contact Form -->
+				<form id="contact-form" method="post" action=".">
+					{% csrf_token %}
+        			{{ form.as_p }}
+					<input type="submit" value="Envoyer" />
+				</form>
+			</div>
+		</div>
+	</section>
+
+	<script type="text/javascript">
+		document.title = 'Contact - DiabON';
+	</script>
+
+{% endblock content %}

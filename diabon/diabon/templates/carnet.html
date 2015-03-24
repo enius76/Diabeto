@@ -1,0 +1,602 @@
+{% extends "layout/base.html" %}
+{% block content %}
+
+	<header id="sub-header" class="carnet">
+
+		<!-- Sub Nav -->
+			<nav role="navigation" id="carnet-sub-navigation">
+				<ul>
+					<li><a href="#releves"><span class="flaticon-list1"></span>Mes relevés</a></li>
+					<!--<li><a href="#composer-menu"><span class="flaticon-restaurant23"></span>Mon menu</a></li>-->
+					<li><a href="#statistiques"><span class="flaticon-business143"></span>Mes statistiques</a></li>
+					<li><a href="#agenda"><span class="flaticon-calendar154"></span>Mon agenda</a></li>
+				</ul>
+			</nav>
+
+	</header>
+
+<!-- Carnet -->
+	<section id="carnet" class="main style1 dark fullscreen">
+		<div class="content container 75%">
+			<header>
+				<h2><span class="flaticon-book118"></span>
+					{% if user.is_authenticated %}
+						{{ user.first_name }},
+					{% endif %}
+				voici votre dernier relevé :</h2>
+				<div class="border-search">
+					<div class="background-search">
+						<span class="flaticon-thumbs16"></span>
+						<p class="glycemie">{{lastGlyc.value}} mg/dl</p>
+						<p class="date">effectué le {{lastGlyc.date|date:" d/m"}} à {{lastGlyc.time}}</p>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</header>
+			<footer>
+				<p>accédez aux autres fonctionnalités</p>
+				<a href="#work" class="button style2 down">More</a>
+			</footer>
+		</div>
+	</section>
+	
+<!-- Carnet -->
+	<section id="work" class="main style3 secondary carnet">
+		<div class="content container 75%">
+			
+		<!--  ____________________________________________ RELEVES ____________________________________________  -->
+
+			<div id="releves" class="box container 75% a-propos">
+				<header>
+					<h2>
+						<span class="flaticon-list1"></span>Mes relevés
+						
+					</h2>
+					<span class="btn-option export" title="Exporter mes relevés au format PDF"><span class="flaticon-export1"></span></span>
+					<a class="popup-with-form" href="#releve-popup-form"><span class="btn-option add" title="Ajouter un relevé">+</span></a>
+					<span class="btn-option hide-help 1" title="Afficher/Masquer l'infobulle">i</span>
+					<div class="clear"></div>
+					<p class="bulle-help 1" style="display:none;">Ajoutez facilement un relevé avec le '+'. Triez les résultats ou recherchez en un ou bien exportez les au format PDF pour les avoir toujours avec vous.</p>
+				</header>
+
+				<!-- Choix date -->
+				<nav id="releves-tri">
+					<ul>
+						<li><a href="" class="change_load actif">Aujourd'hui</a></li>
+						<li><a href="" class="change_load">7 derniers jours</a></li>
+						<li><a href="" class="change_load">Dernier mois</a></li>
+						<li><a href="" class="change_load">3 derniers mois</a></li>
+						<div class="clear"></div>
+					</ul>
+				</nav>
+
+				<div id="table-releve-container">
+					<table id="table-releves" class="tablesorter"> 
+						<thead> 
+							<tr> 
+								<th>Date</th> 
+								<th>Heure</th> 
+								<th>Relevé</th> 
+								<th class="note">Note</th>
+							</tr> 
+						</thead> 
+						<tbody> 
+							<tr> 
+								<td>18 Jan 2014</td> 
+								<td>11h54</td> 
+								<td>135 mg/dl</td> 
+								<td>Tremblement ! J'ai augmenté ma dose d'insuline.</td> 
+							</tr> 
+						</tbody> 
+					</table> 
+				</div>
+			</div>
+
+
+		<!--  ____________________________________________ STATS ____________________________________________  -->
+
+			<div id="statistiques" class="box container 75% a-propos">
+				<header>
+					<h2>
+						<span class="flaticon-business143"></span>Mes statistiques
+					</h2>
+					<span class="btn-option export" tit exportle="Exporter mes statistiques"><span class="flaticon-export1"></span></span>
+					<span class="btn-option hide-help 2" title="Afficher/Masquer l'infobulle">i</span>
+					<div class="clear"></div>
+					<p class="bulle-help 2" style="display:none;">Visualisez en toute simplicité sous forme de graphique vos taux de glycémie et exportez vos résultats.</p>
+				</header>
+
+				<nav id="stats-tri">
+					<ul>
+						<li class="current">Aujourd'hui</li>
+						<li>7 derniers jours</li>
+						<li>Dernier mois</li>
+						<li>3 derniers mois</li>
+						<div class="clear"></div>
+					</ul>
+				</nav>
+				
+				<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+										
+			</div>
+
+
+		<!--  ____________________________________________ AGENDA ____________________________________________  -->
+
+			<div id="agenda" class="box container 75% a-propos">
+				<header>
+					<h2>
+						<span class="flaticon-calendar154"></span>Mon agenda
+					</h2>
+					<span class="btn-option hide-help 3" title="Afficher/Masquer l'infobulle">i</span>
+					<a class="popup-with-form" href="#event-popup-form"><span id="add-calendar" class="btn-option" title="Créer un événement">+</span></a>
+					<div class="clear"></div>
+					<p class="bulle-help 3" style="display:none;">Le diabète entraîne de nombreux rendez-vous médical et il n'est pas toujours facil de se rappeler de tout. DiabON vous permet de créer des rendez-vous avec des rappels pour ne jamais oublier.</p>
+				</header>
+				
+				<section class="main">
+					<div class="custom-calendar-wrap">
+						<div id="custom-inner" class="custom-inner">
+							<div class="custom-header clearfix">
+								<nav>
+									<span id="custom-prev" class="custom-prev"></span>
+									<span id="custom-next" class="custom-next"></span>
+								</nav>
+								<h2 id="custom-month" class="custom-month"></h2>
+								<h3 id="custom-year" class="custom-year"></h3>
+							</div>
+							<div id="calendar" class="fc-calendar-container"></div>
+						</div>
+					</div>
+				</section>
+			</div>
+
+		</div>
+	</section>
+
+<!-- Scroll to top -->
+	<a href="#" class="back-to-top">Remonter</a>
+
+
+	<!--  ____________________________________________ POP UP FORMS ____________________________________________  -->
+
+
+	<form id="releve-popup-form"  method="post" action="." class="white-popup-block mfp-hide" _lpchecked="1">
+		{% csrf_token %}
+		<h1>Ajouter un relevé</h1>
+		{{ form.as_p }}
+
+		<input type="submit" value="Ajouter" />
+	</form>
+
+	<form id="event-popup-form" class="white-popup-block mfp-hide" _lpchecked="1">
+		<h1>Ajouter un événement</h1>
+		<fieldset style="border:0;">
+			<ul>
+				<li>
+					<label for="date-event">Date</label>
+					<input id="date-event" name="date" type="date" required="">
+				</li>
+				<li>
+					<label for="heure-event">Heure</label>
+					<input id="heure-event" name="heure-event" type="time" required="">
+				</li>
+				<li>
+					<label for="title-event">Titre de l'événement</label>
+					<input id="title-event" name="title-event" type="text" required="">
+				</li>
+			</ul>
+		</fieldset>
+		<input type="submit" value="Créer">
+	</form>
+
+
+<!--  ____________________________________________ JAVASCRIPTS ____________________________________________  -->
+
+<!--   POP UP ACTIONS   -->
+	<script src="/static/js/jquery.magnific-popup.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.popup-with-form').magnificPopup({
+				type: 'inline',
+				preloader: false,
+				focus: '#date-releve',
+
+				// When elemened is focused, some mobile browsers in some cases zoom in
+				// It looks not nice, so we disable it:
+				callbacks: {
+					beforeOpen: function() {
+						if($(window).width() < 700) {
+							this.st.focus = false;
+						} else {
+							this.st.focus = '#date-releve';
+						}
+					}
+				}
+			});
+		});
+	</script>
+
+
+<!--   EXPORT   -->
+	<script src="/static/js/tableExport.js"></script>
+	<script src="/static/js/jquery.base64.js"></script>
+		<!-- PDF EXPORT -->
+	<script src="/static/js/table-export/libs/sprintf.js"></script>
+	<script src="/static/js/table-export/jspdf.js"></script>
+	<script src="/static/js/table-export/libs/base64.js"></script>
+	<script type="text/javascript">
+		$('#releves span.export').click(function() {
+			$('table#table-releves').tableExport({
+				type:'pdf',
+				escape:'false',
+				tableName:'DiabON - Vos relevés',
+				pdfFontSize:12,
+				ignoreColumn: [3],
+				pdfLeftMargin:40
+			});
+		});
+	</script>
+
+
+<!--   TABLEAU RELEVE TRI   -->
+	<script type="text/javascript">
+		$(document).ready(function() 
+			{ 
+				$("#table-releves").tablesorter(); 
+			} 
+		); 
+	</script>
+
+
+<!--   STATS   -->
+<script src="/static/js/canvasjs.min.js"></script>
+<script src="/static/js/manageStats.js"></script>
+
+<script type="text/javascript">
+
+	window.onload = function () {
+		var chart = new CanvasJS.Chart("chartContainer",
+		{
+			theme: "theme1",
+			exportEnabled: true,
+			animationEnabled: true,
+			title: {
+				text: "Mes relevés du jour"               
+			},
+			legend: {
+				fontFamily: "kenyan_coffeeregular",
+				fontStyle: "normal",
+			},
+				axisX: {
+				valueFormatString: "HH:mm",
+				interval:1,
+				labelFontFamily: "tall_filmsregular",
+				labelFontWeight: "bold",
+				labelFontSize: 25,
+			},
+			axisY:{
+				includeZero: false,
+				labelFontFamily: "tall_filmsregular",
+				labelFontWeight: "bold",
+				labelFontSize: 20,
+			},
+			data: [{        
+				type: "line",
+				color: "#5c89c7",
+				//lineThickness: 3,        
+				dataPoints: [
+					{ x:  new Date(2015, 06, 15, 08, 30), y: 130 },
+					{ x:  new Date(2015, 06, 15, 12, 45), y: 135},
+					{ x:  new Date(2015, 06, 15, 19, 20), y: 133},        
+				]
+		  	}]
+		});
+
+		chart.render();
+	}
+
+	/* STATS : CHANGE CURRENT + UPDATE */
+	$("nav#stats-tri li").click(function(){
+		//on supprime la classe current actuel
+		$(".current").removeClass('current');
+		//on change la classe du nouveau pour qu'il soit current
+		$(this).addClass('current');
+
+		/* ________________ AUJOURD'HUI _____________ */
+		if ($("nav#stats-tri li.current").text()=="Aujourd'hui") {
+			var chart = new CanvasJS.Chart("chartContainer",
+			{
+				theme: "theme1",
+				exportEnabled: true,
+				animationEnabled: true,
+				title: {
+					text: "Mes relevés du jour"               
+				},
+				legend: {
+					fontFamily: "kenyan_coffeeregular",
+					fontStyle: "normal",
+				},
+					axisX: {
+					valueFormatString: "HH:mm",
+					interval:1,
+					labelFontFamily: "tall_filmsregular",
+					labelFontWeight: "bold",
+					labelFontSize: 25,
+				},
+				axisY:{
+					includeZero: false,
+					labelFontFamily: "tall_filmsregular",
+					labelFontWeight: "bold",
+					labelFontSize: 20,
+				},
+				data: [{        
+					type: "line",
+					color: "#5c89c7",
+					//lineThickness: 3,        
+					dataPoints: [
+						{ x:  new Date(2015, 03, 24, 08, 30), y: 130 },
+						{ x:  new Date(2015, 03, 24, 12, 45), y: 135},
+						{ x:  new Date(2015, 03, 24, 19, 20), y: 133},        
+					]
+			  	}]
+			});
+		}
+
+		/* ________________ 7 DERNIERS JOURS _____________ */
+		if ($("nav#stats-tri li.current").text()=="7 derniers jours") {
+			var chart = new CanvasJS.Chart("chartContainer",
+			{
+				theme: "theme1",
+				exportEnabled: true,
+				animationEnabled: true,
+				title: {
+					text: "Mes statistiques des 7 derniers jours (moyenne sur chaque jour)"               
+				},
+				legend: {
+					fontFamily: "kenyan_coffeeregular",
+					fontStyle: "normal",
+				},
+					axisX: {
+					valueFormatString: "DD/MM",
+					interval:1,
+					labelFontFamily: "tall_filmsregular",
+					labelFontWeight: "bold",
+					labelFontSize: 25,
+				},
+				axisY:{
+					includeZero: false,
+					labelFontFamily: "tall_filmsregular",
+					labelFontWeight: "bold",
+					labelFontSize: 20,
+				},
+				data: [{        
+					type: "line",
+					color: "#5c89c7",
+					//lineThickness: 3,        
+					dataPoints: [
+						{ x:  new Date(2015, 03, 18), y: 130 },
+						{ x:  new Date(2015, 03, 19), y: 135},
+						{ x:  new Date(2015, 03, 20), y: 133}, 
+						{ x:  new Date(2015, 03, 21), y: 136 },
+						{ x:  new Date(2015, 03, 22), y: 130},
+						{ x:  new Date(2015, 03, 23), y: 145},
+						{ x:  new Date(2015, 03, 24), y: 132 },
+					]
+			  	}]
+			});
+		}
+
+		/* ________________ DERNIER MOIS _____________ */
+		if ($("nav#stats-tri li.current").text()=="Dernier mois") {
+			var chart = new CanvasJS.Chart("chartContainer",
+			{
+				theme: "theme1",
+				exportEnabled: true,
+				animationEnabled: true,
+				title: {
+					text: "Mes statistiques du dernier mois (moyenne sur chaque jour)"               
+				},
+				legend: {
+					fontFamily: "kenyan_coffeeregular",
+					fontStyle: "normal",
+				},
+					axisX: {
+					valueFormatString: "DD/MM",
+					interval:1,
+					labelFontFamily: "tall_filmsregular",
+					labelFontWeight: "bold",
+					labelFontSize: 25,
+				},
+				axisY:{
+					includeZero: false,
+					labelFontFamily: "tall_filmsregular",
+					labelFontWeight: "bold",
+					labelFontSize: 20,
+				},
+				data: [{        
+					type: "line",
+					color: "#5c89c7",
+					//lineThickness: 3,        
+					dataPoints: [
+						{ x:  new Date(2015, 03, 01), y: 129},
+						{ x:  new Date(2015, 03, 02), y: 136},
+						{ x:  new Date(2015, 03, 03), y: 140 },
+						{ x:  new Date(2015, 03, 04), y: 145 },
+						{ x:  new Date(2015, 03, 05), y: 150},
+						{ x:  new Date(2015, 03, 06), y: 123}, 
+						{ x:  new Date(2015, 03, 07), y: 156 },
+						{ x:  new Date(2015, 03, 08), y: 154},
+						{ x:  new Date(2015, 03, 09), y: 140},
+						{ x:  new Date(2015, 03, 10), y: 150 },
+						{ x:  new Date(2015, 03, 11), y: 143 },
+						{ x:  new Date(2015, 03, 12), y: 135},
+						{ x:  new Date(2015, 03, 13), y: 157}, 
+						{ x:  new Date(2015, 03, 14), y: 138 },
+						{ x:  new Date(2015, 03, 15), y: 155},
+						{ x:  new Date(2015, 03, 16), y: 145},
+						{ x:  new Date(2015, 03, 17), y: 156 },
+						{ x:  new Date(2015, 03, 18), y: 125 },
+						{ x:  new Date(2015, 03, 19), y: 135},
+						{ x:  new Date(2015, 03, 20), y: 133}, 
+						{ x:  new Date(2015, 03, 21), y: 136 },
+						{ x:  new Date(2015, 03, 22), y: 130},
+						{ x:  new Date(2015, 03, 23), y: 145},
+						{ x:  new Date(2015, 03, 24), y: 132 },
+					]
+			  	}]
+			});
+		}
+
+		/* ________________ 3 DERNIERS MOIS _____________ */
+		if ($("nav#stats-tri li.current").text()=="3 derniers mois") {
+			var chart = new CanvasJS.Chart("chartContainer",
+			{
+				theme: "theme1",
+				exportEnabled: true,
+				animationEnabled: true,
+				title: {
+					text: "Mes statistiques des 3 derniers mois (moyenne sur chaque jour)"               
+				},
+				legend: {
+					fontFamily: "kenyan_coffeeregular",
+					fontStyle: "normal",
+				},
+					axisX: {
+					valueFormatString: "DD/MM",
+					interval:1,
+					labelFontFamily: "tall_filmsregular",
+					labelFontWeight: "bold",
+					labelFontSize: 25,
+				},
+				axisY:{
+					includeZero: false,
+					labelFontFamily: "tall_filmsregular",
+					labelFontWeight: "bold",
+					labelFontSize: 20,
+				},
+				data: [{        
+					type: "line",
+					color: "#5c89c7",
+					//lineThickness: 3,        
+					dataPoints: [
+						// mois -2
+						{ x:  new Date(2015, 01, 01), y: 129},
+						{ x:  new Date(2015, 01, 02), y: 136},
+						{ x:  new Date(2015, 01, 03), y: 140},
+						{ x:  new Date(2015, 01, 04), y: 145},
+						{ x:  new Date(2015, 01, 05), y: 150},
+						{ x:  new Date(2015, 01, 06), y: 123}, 
+						{ x:  new Date(2015, 01, 07), y: 156},
+						{ x:  new Date(2015, 01, 08), y: 154},
+						{ x:  new Date(2015, 01, 09), y: 140},
+						{ x:  new Date(2015, 01, 10), y: 150},
+						{ x:  new Date(2015, 01, 11), y: 143},
+						{ x:  new Date(2015, 01, 12), y: 135},
+						{ x:  new Date(2015, 01, 13), y: 157}, 
+						{ x:  new Date(2015, 01, 14), y: 138},
+						{ x:  new Date(2015, 01, 15), y: 155},
+						{ x:  new Date(2015, 01, 16), y: 145},
+						{ x:  new Date(2015, 01, 17), y: 156},
+						{ x:  new Date(2015, 01, 18), y: 125},
+						{ x:  new Date(2015, 01, 19), y: 135},
+						{ x:  new Date(2015, 01, 20), y: 133}, 
+						{ x:  new Date(2015, 01, 21), y: 136},
+						{ x:  new Date(2015, 01, 22), y: 130},
+						{ x:  new Date(2015, 01, 23), y: 145},
+						{ x:  new Date(2015, 01, 24), y: 132},
+						{ x:  new Date(2015, 01, 25), y: 150},
+						{ x:  new Date(2015, 01, 26), y: 143},
+						{ x:  new Date(2015, 01, 27), y: 148},
+						{ x:  new Date(2015, 01, 28), y: 138},
+						{ x:  new Date(2015, 01, 29), y: 150},
+						{ x:  new Date(2015, 01, 30), y: 157},
+
+						// mois -1
+						{ x:  new Date(2015, 02, 01), y: 129},
+						{ x:  new Date(2015, 02, 02), y: 136},
+						{ x:  new Date(2015, 02, 03), y: 140},
+						{ x:  new Date(2015, 02, 04), y: 145},
+						{ x:  new Date(2015, 02, 05), y: 150},
+						{ x:  new Date(2015, 02, 06), y: 123}, 
+						{ x:  new Date(2015, 02, 07), y: 156},
+						{ x:  new Date(2015, 02, 08), y: 154},
+						{ x:  new Date(2015, 02, 09), y: 140},
+						{ x:  new Date(2015, 02, 10), y: 150},
+						{ x:  new Date(2015, 02, 11), y: 143},
+						{ x:  new Date(2015, 02, 12), y: 135},
+						{ x:  new Date(2015, 02, 13), y: 157}, 
+						{ x:  new Date(2015, 02, 14), y: 138},
+						{ x:  new Date(2015, 02, 15), y: 155},
+						{ x:  new Date(2015, 02, 16), y: 145},
+						{ x:  new Date(2015, 02, 17), y: 156},
+						{ x:  new Date(2015, 02, 18), y: 125},
+						{ x:  new Date(2015, 02, 19), y: 135},
+						{ x:  new Date(2015, 02, 20), y: 133}, 
+						{ x:  new Date(2015, 02, 21), y: 136},
+						{ x:  new Date(2015, 02, 22), y: 130},
+						{ x:  new Date(2015, 02, 23), y: 145},
+						{ x:  new Date(2015, 02, 24), y: 132},
+						{ x:  new Date(2015, 02, 25), y: 150},
+						{ x:  new Date(2015, 02, 26), y: 143},
+						{ x:  new Date(2015, 02, 27), y: 148},
+						{ x:  new Date(2015, 02, 28), y: 138},
+						{ x:  new Date(2015, 02, 29), y: 150},
+						{ x:  new Date(2015, 02, 30), y: 157},
+
+						// mois en cours
+						{ x:  new Date(2015, 03, 01), y: 129},
+						{ x:  new Date(2015, 03, 02), y: 136},
+						{ x:  new Date(2015, 03, 03), y: 140},
+						{ x:  new Date(2015, 03, 04), y: 145},
+						{ x:  new Date(2015, 03, 05), y: 150},
+						{ x:  new Date(2015, 03, 06), y: 123}, 
+						{ x:  new Date(2015, 03, 07), y: 156},
+						{ x:  new Date(2015, 03, 08), y: 154},
+						{ x:  new Date(2015, 03, 09), y: 140},
+						{ x:  new Date(2015, 03, 10), y: 150},
+						{ x:  new Date(2015, 03, 11), y: 143},
+						{ x:  new Date(2015, 03, 12), y: 135},
+						{ x:  new Date(2015, 03, 13), y: 157}, 
+						{ x:  new Date(2015, 03, 14), y: 138},
+						{ x:  new Date(2015, 03, 15), y: 155},
+						{ x:  new Date(2015, 03, 16), y: 145},
+						{ x:  new Date(2015, 03, 17), y: 156},
+						{ x:  new Date(2015, 03, 18), y: 125},
+						{ x:  new Date(2015, 03, 19), y: 135},
+						{ x:  new Date(2015, 03, 20), y: 133}, 
+						{ x:  new Date(2015, 03, 21), y: 136},
+						{ x:  new Date(2015, 03, 22), y: 130},
+						{ x:  new Date(2015, 03, 23), y: 145},
+						{ x:  new Date(2015, 03, 24), y: 132},
+					]
+			  	}]
+			});
+		}
+		chart.render();
+		return false;
+	});
+
+</script>
+
+
+<!--   AGENDA   -->
+	<script src="/static/js/jquery.calendario.js"></script>
+	<script type="text/javascript">
+		$('#calendar').calendario();
+	</script>
+	<script src="/static/js/data.js"></script>
+	<script src="/static/js/manageAgenda.js"></script>
+
+
+<!--   CHANGE CONTENT RELEVES   -->
+<script src="/static/js/change_content.js"></script>
+
+
+<!--   JQUERY   -->
+	<script type="text/javascript">
+		$('body').css('padding-top', '7em');
+		document.title = 'Carnet de {{ user.username }} - DiabON';
+	</script>
+
+{% endblock content %}

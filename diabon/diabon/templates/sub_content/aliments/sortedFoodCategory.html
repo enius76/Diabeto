@@ -1,0 +1,121 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+
+<header id="sub-header" class="alimentation">
+
+	<!-- Sub Nav -->
+		<nav id="catalogue-alphabetique">
+		  <ul>
+			<li><a href="{% url 'letterSortByCategory' currentUrl 'A' %}"> A</a></li>
+			<li><a href="{% url 'letterSortByCategory' currentUrl 'B' %}"> B</a></li>
+			<li><a href="{% url 'letterSortByCategory' currentUrl 'C' %}"> C</a></li>
+			<li><a href="{% url 'letterSortByCategory' currentUrl 'D' %}"> D</a></li>
+			<li><a href="{% url 'letterSortByCategory' currentUrl 'E' %}"> E</a></li>
+			<li><a href="{% url 'letterSortByCategory' currentUrl 'F' %}"> F</a></li>
+			<li><a href="{% url 'letterSortByCategory' currentUrl 'G' %}"> G</a></li>
+			<li><a href="{% url 'letterSortByCategory' currentUrl 'H' %}"> H</a></li>
+			<li><a href="{% url 'letterSortByCategory' currentUrl 'I' %}"> I</a></li>
+			<li><a href="{% url 'letterSortByCategory' currentUrl 'J' %}"> J</a></li>
+			<li><a href="{% url 'letterSortByCategory' currentUrl 'K' %}"> K</a></li>
+			<li><a href="{% url 'letterSortByCategory' currentUrl 'L' %}"> L</a></li>
+			<li><a href="{% url 'letterSortByCategory' currentUrl 'M' %}"> M</a></li>
+			<li><a href="{% url 'letterSortByCategory' currentUrl 'N' %}"> N</a></li>
+			<li><a href="{% url 'letterSortByCategory' currentUrl 'O' %}"> O</a></li>
+			<li><a href="{% url 'letterSortByCategory' currentUrl 'P' %}"> P</a></li>
+			<li><a href="{% url 'letterSortByCategory' currentUrl 'Q' %}"> Q</a></li>
+			<li><a href="{% url 'letterSortByCategory' currentUrl 'R' %}"> R</a></li>
+			<li><a href="{% url 'letterSortByCategory' currentUrl 'S' %}"> S</a></li>
+			<li><a href="{% url 'letterSortByCategory' currentUrl 'T' %}"> T</a></li>
+			<li><a href="{% url 'letterSortByCategory' currentUrl 'U' %}"> U</a></li>
+			<li><a href="{% url 'letterSortByCategory' currentUrl 'V' %}"> V</a></li>
+			<li><a href="{% url 'letterSortByCategory' currentUrl 'W' %}"> W</a></li>
+			<li><a href="{% url 'letterSortByCategory' currentUrl 'X' %}"> X</a></li>
+			<li><a href="{% url 'letterSortByCategory' currentUrl 'Y' %}"> Y</a></li>
+			<li><a href="{% url 'letterSortByCategory' currentUrl 'Z' %}"> Z</a></li>
+			<div class="clear"></div>
+		  </ul>
+		</nav>
+
+</header>
+
+		
+<!-- Catalogue -->
+	<section id="work" class="main style3 primary sorted-food-category">
+		<div class="content container">
+			<a class="retour-catalogue" href={% url 'catalogue' %}>< Retourner au catalogue</a>
+
+			<header>
+				<h2>
+					{% if nb_aliment == 0 %}
+						Pas d'aliment commençant par {{letter}} dans cette catégorie
+					{% elif letter %}
+						{{aliments.0.category.name}} commençant par {{letter}}
+					{% else %}
+						{{aliments.0.category.name}}
+					{% endif %}
+
+					</h2>
+			</header>
+	
+			<!-- Aliments  -->
+			{% if nb_aliment == 0 %}
+				<!-- pas d'aliment commencant par cette lettre dans cette cateogire -->
+				<p> Veuillez choisir une autre lettre pour cette catégorie ou revenir au catalogue. </p>
+			{% else %}
+				<div class="container 75% tri-result">
+					<div class="table catalogue">
+						<table id="catalogue-categorie" class="full tablesorter">
+							<thead class="table-title">
+								<th class="name">Nom de l'aliment</th>
+								<th class="glucide">Glucides</th>
+								<th class="quantite">Portion</th>
+							</thead>
+							{% for aliment in aliments %}
+							<tr>
+								<td class="label"><a href="{% url 'alimentdetails' aliment.slug %}" > {{aliment.name}} </a></td>
+								<td>{{aliment.glucide}}g</td>
+								<td>{{aliment.weight}}g</td>
+							</tr>
+							{% endfor %}
+						</table>
+					</div>
+				</div>
+			{% endif %}
+		</div>                  
+	</section>
+
+	<!-- Scroll to top -->
+		<a href="#" class="back-to-top">Haut de page</a>
+
+	<!-- changement couleur header et padding body -->
+		<script type="text/javascript">
+			$('#header').css('background-color', '#8cb02b');
+			$('form#nav-search input[type="submit"]').css('color', '#8cb02b');
+			$('#navigation ul li#connexion a').css('color', '#8cb02b');
+			$('h1#logo img').attr('src','/static/images/logo-green.png');
+		</script>
+		{% if nb_aliment == 0 %}
+			<script type="text/javascript">
+	  			document.title = 'Pas d\'aliments commençant par {{letter}} dans cette catégorie - DiabON';
+  			</script>
+		{% elif letter %}
+			<script type="text/javascript">
+	  			document.title = '{{aliments.0.category.name}} commençant par {{letter}} - DiabON';
+  			</script>
+		{% else %}
+			<script type="text/javascript">
+				document.title = '{{aliments.0.category.name}} - DiabON';
+			</script>
+		{% endif %}
+
+	<!-- TABLEAU RELEVE TRI -->
+	<script type="text/javascript">
+		$(document).ready(function() 
+			{ 
+				$("table#catalogue-categorie").tablesorter(); 
+			} 
+		); 
+	</script>
+
+{% endblock content %}

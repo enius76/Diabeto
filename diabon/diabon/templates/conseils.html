@@ -1,0 +1,223 @@
+{% extends "layout/base.html" %}
+{% block content %}
+
+    <header id="sub-header" class="conseils">
+        <!-- Sub Nav -->
+            <nav id="articles-tri">
+                <ul>
+                    <li><a href="#" data-filter="*" class="current">Tout</a></li>
+                    <li><a class="actu" href="#" data-filter=".actu">Actu</a></li>
+                    <li><a class="sport" href="#" data-filter=".sport">Sport</a></li>
+                    <li><a class="vie" href="#" data-filter=".vie">Vie pratique</a></li>
+                    <li><a class="alimentation" href="#" data-filter=".alimentation">Alimentation</a></li>
+                    <div class="clear"></div>
+                </ul>
+            </nav>
+    </header>
+
+<!-- Articles -->
+	<section id="work" class="main style3 secondary articles">
+		<div class="content container 75%">
+			<header>
+				<h2><span class="flaticon-bald23"></span>Découvez tous nos articles sur les bonnes pratiques et pleins de conseils</h2>
+			</header>
+
+    		<!-- Articles  -->
+                <div class="container 75% conseils-articles js-isotope data-isotope-options='{ "itemSelector": ".item", "masonry": { "columnWidth": 200 } }'">
+
+                	<div class="row 0% actu">
+						<div class="view">
+						    <div class="article-category actu">Actualité</div> 
+						    <h2>
+                                <a href="{% url 'articledetails' slug="diabete_mediter_pour_diminuer_le_risque" %}">
+                                    Diabète : méditer pour diminuer le risque
+                                </a>
+                            </h2>
+
+                            <p>Pour lutter contre le diabète, des méthodes non médicamenteuses existent. La méditation de pleine conscience en est une : elle réduit la glycémie à jeun chez les femmes en surpoids ou obèses.</p> 
+
+					        <a href="{% url 'articledetails' slug="diabete_mediter_pour_diminuer_le_risque" %}" class="info">lire l'article</a>  
+				    	</div>
+					</div>
+
+                    <div class="row 0% vie">
+                        <div class="view">
+                            <div class="article-category vie">Vie quotidienne</div> 
+                            <h2>
+                                <a href="{% url 'articledetails' slug="diabete_comment_fait_on_pour_le_depister" %}">
+                                    Diabète : comment fait-on pour le dépister ?
+                                </a>
+                            </h2> 
+
+                            <p>La Haute autorité de santé vient d'actualiser ses recommandations pour la prévention et le dépistage du diabète de type 2 et des maladies liées au diabète. Le test de dépistage recommandé est la mesure de la glycémie veineuse à</p>  
+
+                            <a href="{% url 'articledetails' slug="diabete_comment_fait_on_pour_le_depister" %}" class="info">lire l'article</a>  
+                        </div>
+                    </div>
+
+                    <div class="row 0% alimentation">
+                        <div class="view">
+                            <div class="article-category alimentation">Alimentation</div> 
+                            <h2>
+                                <a href="{% url 'articledetails' slug="le_regime_du_diabete_gestationnel" %}">
+                                    Le régime du diabète gestationnel
+                                </a>
+                            </h2>  
+
+                            <p>Vous attendez un bébé et naturellement vous espérez que tout se passe pour le mieux. Malheureusement, votre médecin vient de vous annoncer que vous faites un diabète gestationnel. Qu'est-ce que cela signifie et quel régime allez-vous devoir adopter ?</p>  
+
+                            <a href="{% url 'articledetails' slug="le_regime_du_diabete_gestationnel" %}" class="info">lire l'article</a>  
+                        </div>
+                    </div>
+
+                    <div class="row 0% vie">
+                        <div class="view">
+                            <div class="article-category vie">Vie quotidienne</div> 
+                            <h2>
+                                <a href="{% url 'articledetails' slug="lutte_contre_le_diabete_les_avc_les_rides_les_vertus_du_the" %}">
+                                    Lutte contre le diabète, les AVC, les rides : les vertus du thé
+                                </a>
+                            </h2> 
+
+                            <p>Une étude scientifique américaine avance que boire du thé noir pourrait réduire les risques de diabète de type 2, le plus courant. L'occasion de se pencher sur les autres bienfaits de cette boisson chaude.</p>
+
+                            <a href="{% url 'articledetails' slug="lutte_contre_le_diabete_les_avc_les_rides_les_vertus_du_the" %}" class="info">lire l'article</a>  
+                        </div>
+                    </div>
+
+                    <div class="row 0% sport">
+                        <div class="view">
+                            <div class="article-category sport">Sport</div> 
+                            <h2>
+                                <a href="{% url 'articledetails' slug="le_cercle_des_nageurs_de_marseille_ouvre_son_bassin_aux_enfants_diabetiques_pour_sensibiliser_le_public" %}">
+                                    Le cercle des nageurs de Marseille ouvre son bassin aux enfants diabétiques pour sensibiliser le public
+                                </a>
+                            </h2>  
+
+                            <p>L’AP-HM, partenaire du Comité Régional de Provence de natation, compte sur le Meeting Open Méditerranée qui s’est ouvert ce vendredi à Marseille, pour sensibiliser la population au dépistage précoce de diabète de type 1.</p>  
+
+                            <a href="{% url 'articledetails' slug="le_cercle_des_nageurs_de_marseille_ouvre_son_bassin_aux_enfants_diabetiques_pour_sensibiliser_le_public" %}" class="info">lire l'article</a>  
+                        </div>
+                    </div>
+
+                    <div class="row 0% alimentation">
+                        <div class="view">
+                            <div class="article-category alimentation">Alimentation</div> 
+                            <h2>
+                                <a href="{% url 'articledetails' slug="diabete_de_type_2_bien_manger_le_matin_et_diner_leger" %}">
+                                    Diabète de type 2 : bien manger le matin et dîner léger
+                                </a>
+                            </h2> 
+
+                            <p>D’après des chercheurs suédois et israéliens, les personnes atteintes de diabète de type 2 doivent prendre un solide petit déjeuner et doivent en revanche, dîner léger. Une récente étude menée sur 10 femmes et 8 hommes souffrant tous du</p> 
+
+                            <a href="{% url 'articledetails' slug="diabete_de_type_2_bien_manger_le_matin_et_diner_leger" %}" class="info">lire l'article</a>  
+                        </div>
+                    </div>
+
+                    <div class="row 0% alimentation">
+                        <div class="view">
+                            <div class="article-category alimentation">Alimentation</div> 
+                            <h2>
+                                <a href="{% url 'articledetails' slug="les_conservateurs_alimentaires_causeraient_diabete_obesite_ou_maladie_de_crohn" %}">
+                                    Les conservateurs alimentaires causeraient diabète, obésité ou maladie de Crohn
+                                </a>
+                            </h2>
+
+                            <p>Les émulsifiants, utilisés par l'industrie agroalimentaire pour leur pouvoir de conservation, sont pointés du doigt par une étude américaine. En modifiant la flore intestinale, ils causeraient maladies inflammatoires, diabète ou encore obésité.</p>
+
+                            <a href="{% url 'articledetails' slug="les_conservateurs_alimentaires_causeraient_diabete_obesite_ou_maladie_de_crohn" %}" class="info">lire l'article</a>  
+                        </div>
+                    </div>
+
+                    <div class="row 0% sport">
+                            <div class="view">
+                                <div class="article-category sport">Sport</div> 
+                                <h2>
+                                    <a href="{% url 'articledetails' slug="quand_le_sport_remplace_les_medicaments" %}">
+                                        Quand le sport remplace les médicaments
+                                    </a>
+                                </h2>  
+
+                                <p>Cancer, infarctus, AVC, diabète, myopathies… toutes ces maladies peuvent être évitées avec une pratique sportive régulière. Les Français sont les champions européens en matière de consommation</p>  
+
+                                <a href="{% url 'articledetails' slug="quand_le_sport_remplace_les_medicaments" %}" class="info">lire l'article</a>  
+                            </div>
+                    </div>
+
+                    <div class="row 0% actu">
+                            <div class="view">
+                                <div class="article-category actu">Actu</div> 
+                                <h2>
+                                    <a href="{% url 'articledetails' slug="la_recherche_sur_le_diabete_s_interesse_aux_causes" %}">
+                                        La recherche sur le diabète s'intéresse aux causes
+                                    </a>
+                                </h2>  
+
+                                <p>Cancer, infarctus, AVC, diabète, myopathies… toutes ces maladies peuvent être évitées avec une pratique sportive régulière. Les Français sont les champions européens en matière de consommation</p>  
+
+                                <a href="{% url 'articledetails' slug="la_recherche_sur_le_diabete_s_interesse_aux_causes" %}" class="info">lire l'article</a>  
+                            </div>
+                    </div>
+
+                </div>
+        </div>                  
+	</section>
+
+	<!-- Scroll to top -->
+	<a href="#" class="back-to-top">Remonter</a>
+
+    <!-- ISOTOPE -->
+    <script src="/static/js/jquery.isotope.js"></script>
+    
+    <script type="text/javascript">
+       $(window).load(function(){
+            var $container = $('.conseils-articles');
+            $container.isotope({
+                filter: '*',
+                animationOptions: {
+                    duration: 750,
+                    easing: 'linear',
+                    queue: false
+                }
+            });
+
+            $('nav#articles-tri a').click(function(){
+                $('nav#articles-tri .current').removeClass('current');
+                $(this).addClass('current');
+
+                var selector = $(this).attr('data-filter');
+                $container.isotope({
+                    filter: selector,
+                    animationOptions: {
+                        duration: 750,
+                        easing: 'linear',
+                        queue: false
+                    }
+                 });
+                 return false;
+            }); 
+        });
+    </script>
+
+    <!-- TRONCAGE TEXTE -->
+    <script src="/static/js/jquery.truncatable.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('.conseils-articles p').truncatable({limit:175});
+        });
+    </script>
+
+
+	<!-- changement couleur background et bouton ok barre de recherche et logo -->
+    <script type="text/javascript">
+    	$('#header').css('background-color', '#ed7e4a');
+    	$('form#nav-search input[type="submit"]').css('color', '#ed7e4a');
+    	$('a#modal_trigger.btn').css('color', '#ed7e4a');
+        $('#navigation ul li#connexion a').css('color', '#ed7e4a');
+        $('h1#logo img').attr('src','/static/images/logo-orange.png');
+        document.title = 'Conseils - DiabON';
+    </script>
+
+
+{% endblock content %}
