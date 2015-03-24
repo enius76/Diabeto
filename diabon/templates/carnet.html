@@ -160,29 +160,12 @@
 
 	<!--  ____________________________________________ POP UP FORMS ____________________________________________  -->
 
-	<form id="releve-popup-form" class="white-popup-block mfp-hide" _lpchecked="1">
+
+	<form id="releve-popup-form"  method="post" action="." class="white-popup-block mfp-hide" _lpchecked="1">
+		{% csrf_token %}
 		<h1>Ajouter un relevé</h1>
-		<fieldset style="border:0;">
-			<ul>
-				<li>
-					<label for="date-releve">Date</label>
-					<input id="date-releve" name="date-releve" type="date" required="">
-				</li>
-				<li>
-					<label for="heure-releve">Heure</label>
-					<input id="heure-releve" name="heure-releve" type="time" required="">
-				</li>
-				<li>
-					<label for="releve-releve">Valeur du relevé</label>
-					<input id="releve-releve" name="releve-releve" type="number" step="any" required="">
-				</li>
-				<li>
-					<label for="note-releve">Note</label>
-					<textarea id="note-releve" placeholder="Ajouter un commentaire..."></textarea>
-				</li>
-			</ul>
-		</fieldset>
-		<input type="submit" value="Ajouter">
+		{{ form.as_p }}
+		<input type="submit" value="Ajouter" />
 	</form>
 
 	<form id="event-popup-form" class="white-popup-block mfp-hide" _lpchecked="1">

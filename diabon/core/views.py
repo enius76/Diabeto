@@ -2,7 +2,7 @@
 
 from django.shortcuts import *
 from django.shortcuts import render_to_response
-import datetime
+from datetime import datetime
 from core.models import *
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
@@ -11,10 +11,11 @@ from django.core.urlresolvers import reverse
 from core.forms import *
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
-
+import datetime
 
 def home(request):
 	return render_to_response('home.html')
+
 
 
 # ______________________________________________ INSCRIPTION _____________________________________________
@@ -136,15 +137,22 @@ def deconnexion(request):
 
 @login_required
 def carnet(request):
-    if request.method == 'POST':
-        form = GlycForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/carnet/') 
-    else:
-        form = GlycForm() 
-
-    return render_to_response('carnet.html', {'form': form,}, context_instance=RequestContext(request))
+	if request.method == 'POST':
+		form = GlycForm(request.POST)
+		if form.is_valid():
+			print form.cleaned_data
+			userID= request.user.id
+			value = form.cleaned_data["value"]
+			note  = form.cleaned_data["note"]
+			date  = form.cleaned_data['date']
+			time  = form.cleaned_data["time"]
+			bday = datetime.datetime(date.year, date.month, date.day)
+			glyc  = Glyc( id_user=userID, value=value, date=bday, time=time, note=note)
+			glyc.save()
+			return redirect('carnet') 
+	else:
+		form = GlycForm() 
+	return render_to_response( 'carnet.html', {'form': form}, context_instance=RequestContext(request))
 
 def tois_derniers_mois(request):
 	return render_to_response('3-derniers-mois.html')

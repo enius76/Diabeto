@@ -4,6 +4,7 @@ from django import forms
 from django.core import validators
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
+from datetime import datetime
 from django.forms.extras.widgets import SelectDateWidget
 
 class ConnexionForm(forms.Form):
@@ -55,5 +56,7 @@ class ContactForm(forms.Form):
 	message = forms.CharField(widget=forms.Textarea, label="Message")
 
 class GlycForm(forms.Form):
-	value = forms.FloatField()
-	note = forms.CharField(max_length=100)
+	value = forms.FloatField(label =_("Valeur:"))
+	date  = forms.DateTimeField(widget=SelectDateWidget, label =_("Date:"))
+	time  = forms.CharField(max_length=6, label =_("Heure:"))
+	note  = forms.CharField(max_length=150, label =_("Note:"))
