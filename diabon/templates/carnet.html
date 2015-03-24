@@ -27,7 +27,11 @@
 				<div class="border-search">
 					<div class="background-search">
 						<span class="flaticon-thumbs16"></span>
-						<p class="glycemie">{{lastGlyc.value}} mg/dl</p>
+						{% if len(userGlyc) =< 0 %}
+							<p class="glycemie"> Pas de relevé </p>
+						{% else %}
+							<p class="glycemie">{{lastGlyc.value}} mg/dl</p>
+						{% endif %}
 						<p class="date">effectué le {{lastGlyc.date|date:" d/m"}} à {{lastGlyc.time}}</p>
 						<div class="clear"></div>
 					</div>
