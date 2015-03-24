@@ -12,34 +12,49 @@
 						<p>Diab’On vous permet de suivre votre diabète au quotidien.</p>
 					</header>
 
-					<div class="presentation-content carnet">
-						<header class="carnet">
-							<h3><a href={% url 'carnet' %}><span class="flaticon-book118"></span>Carnet</a></h3>
-						</header>
-						<p>Gérez vos <strong>relevés</strong>, visualisez votre <strong>évolution</strong> et planifiez 
-						vos <strong>rendez-vous</strong>.</p>
-						{% if user.is_authenticated %}
-			                <a class="btn carnet" href={% url 'carnet' %}>Voir</a>
-			            {% else %}
-			                <a class="btn carnet" href={% url 'connexion' %}>Connectez-vous</a>
-			            {% endif %}
+					<div class="container 75% alimentation-features">
+						<div class="row 0% images">
+							<div class="12u">
+				            	<div class="view view-first">  
+								     <img src="/static/images/carnet.png" />  
+								     <div class="mask">  
+								     <h2><span class="flaticon-book118"></span>Carnet</h2>  
+								     <p>Gérez vos <strong>relevés</strong>, visualisez votre <strong>évolution</strong> et planifiez vos <strong>rendez-vous</strong>.</p>  
+								         <a href="{% url 'carnet' %}" class="info blue">accéder</a>  
+								     </div>  
+								</div>  
+							</div>
+						</div>
+					</div>
 
-						
+					<div class="container 75% alimentation-features">
+						<div class="row 0% images">
+							<div class="12u">
+				            	<div class="view view-first">  
+								     <img src="/static/images/alimentation.png" />  
+								     <div class="mask">  
+								     <h2><span class="flaticon-apple55"></span>Alimentation</h2>  
+								     <p>Informez vous sur des <strong>aliments</strong>, composez votre <strong>menu</strong> et aidez nous à remplir notre <strong>catalogue</strong>.</p>  
+								         <a href="{% url 'alimentation' %}" class="info green">découvrir</a>  
+								     </div>  
+								</div>  
+							</div>
+						</div>
 					</div>
-					<div class="presentation-content alimentation">
-						<header class="alimentation">
-							<h3><a href={% url 'alimentation' %}><span class="flaticon-apple55"></span>Alimentation</a></h3>
-						</header>
-						<p>Informez vous sur des <strong>aliments</strong>, composez votre <strong>menu</strong> et aidez 
-						nous à remplir notre <strong>catalogue</strong>.</p>
-						<a class="btn alimentation" href={% url 'alimentation' %}>Découvrir</a>
-					</div>
-					<div class="presentation-content conseils">
-						<header class="conseils">
-							<h3><a href={% url 'conseils' %}><span class="flaticon-bald23"></span>Conseils</a></h3>
-						</header>
-						<p>Lisez nos <strong>articles</strong>, découvez nos <strong>conseils</strong> et <strong>bonnes pratiques</strong>.</p>
-						<a class="btn conseils" href={% url 'conseils' %}>Lire</a>
+
+					<div class="container 75% alimentation-features">
+						<div class="row 0% images">
+							<div class="12u">
+				            	<div class="view view-first">  
+								     <img src="/static/images/conseils.png" />  
+								     <div class="mask">  
+								     <h2><span class="flaticon-bald23"></span>Conseils</h2>  
+								     <p>Lisez nos <strong>articles</strong>, découvez nos <strong>conseils</strong> et <strong>bonnes pratiques</strong>.</p>  
+								         <a href="{% url 'conseils' %}" class="info orange">lire</a>  
+								     </div>  
+								</div>  
+							</div>
+						</div>
 					</div>
 
 					<div class="clear"></div>

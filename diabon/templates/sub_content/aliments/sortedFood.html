@@ -40,21 +40,26 @@
 </header>
 			
 <!-- Catalogue -->
-	<section id="work" class="main style3 primary">
+	<section id="work" class="main style3 primary sorted-food-category">
 		<div class="content container">
             <a class="retour-catalogue" href={% url 'catalogue' %}>< Retourner au catalogue</a>
 
 			<header>
 				<h2>
-                    {% if category %}
-                        {{category}}
-                    {% else %}
+                    {% if nb_aliment == 0 %}
+                        Pas d'aliment commençant par {{letter}}
+                    {% elif letter %}
                         Aliments commençant par {{letter}}
                     {% endif %}
+
                 </h2>
 			</header>
     
     		<!-- Aliments  -->
+            {% if nb_aliment == 0 %}
+                <!-- pas d'aliment commencant par cette lettre dans cette cateogire -->
+                <p> Veuillez choisir une autre lettre ou revenir au catalogue. </p>
+            {% else %}
                 <div class="container 75% tri-result">
                 	<div class="table catalogue">
 					    <table id="catalogue-categorie" class="full tablesorter">
@@ -73,6 +78,7 @@
 					    </table>
 					</div>
                 </div>
+            {% endif %}
         </div>                  
 	</section>
 
@@ -85,8 +91,17 @@
           $('form#nav-search input[type="submit"]').css('color', '#8cb02b');
           $('#navigation ul li#connexion a').css('color', '#8cb02b');
           $('h1#logo img').attr('src','/static/images/logo-green.png');
-          document.title = '{{category}} - DiabON';
         </script>
+
+        {% if nb_aliment == 0 %}
+            <script type="text/javascript">
+                document.title = 'Pas d\'aliments commençant par {{letter}} - DiabON';
+            </script>
+        {% elif letter %}
+            <script type="text/javascript">
+                document.title = 'Aliments commençant par {{letter}} - DiabON';
+            </script>
+        {% endif %}
 
     <!-- TABLEAU RELEVE TRI -->
     <script type="text/javascript">

@@ -1,9 +1,11 @@
 # coding: utf-8
 from django.conf.urls import patterns, include, url
+from django.conf import settings
 
 urlpatterns = patterns('',
 	url(r'^$', 'core.views.home', name='home'),
 	url(r'^carnet-de-bord/$', 'core.views.carnet', name='carnet'),
+	url(r'^carnet-de-bord/releves/3-derniers-mois/$', 'core.views.tois_derniers_mois', name='3-derniers-mois'),
 
 	url(r'^profil/$', 'core.views.profil', name='profil'),
 	url(r'^contact/$', 'core.views.contact', name='contact'),
@@ -13,8 +15,9 @@ urlpatterns = patterns('',
 	url(r'^connexion/$', 'core.views.connexion', name='connexion'),
 	url(r'^deconnexion$', 'core.views.deconnexion', name='deconnexion'),
 	url(r'^inscription/$', 'core.views.inscription', name='inscription'),
-	url(r'^inscription-details/$', 'core.views.inscription_details', name='inscription-details'),
 	url(r'^inscription-complete/$', 'core.views.inscriptionComplete', name='inscriptionComplete'),
+	url(r'^inscription-details/$', 'core.views.inscription_details', name='inscription-details'),
+	url(r'^inscription-details-complete/$', 'core.views.inscription_detailsComplete', name='inscription-detailsComplete'),
 
 	url(r'^aliment/(?P<slug>[\w-]+)/$', 'core.views.aliment_details', name='alimentdetails'),
 	url(r'^alimentation/$', 'core.views.alimentation', name='alimentation'),

@@ -23,7 +23,14 @@ class Category(models.Model):
 	def __unicode__(self):
 		return "%s" % (self.name)
 
+class Glyc(models.Model):
+	id_user= models.AutoField(primary_key=True)
+	value = models.FloatField()
+	time = models.DateTimeField(default=datetime.now())
+	note = models.CharField(max_length=150, default=' ')
 
+	def __unicode__(self):
+		return "%s" % (self.value)
 
 class Profile(models.Model):
 	user = models.OneToOneField(User)
@@ -31,6 +38,10 @@ class Profile(models.Model):
 	sexe = models.CharField(max_length=1)
 	weight = models.FloatField(default=0.0)
 	height = models.FloatField(default=0.0)
+	# picture = models.FileField(upload_to='/static/images/user/')
+	typeDiabete = models.CharField(max_length=50)
+	glycMoyenne = models.IntegerField(default=0)
+
 
 	def __unicode__(self):
 		return "Profile de %s" % self.user
@@ -54,18 +65,6 @@ class Profile(models.Model):
 		user.set_password(password)
 		user.save(using=self._db)
 		return user
-
-
-class Glyc(models.Model):
-	id_user= models.AutoField(primary_key=True)
-	value = models.FloatField()
-	time = models.DateTimeField(default=datetime.now())
-	note = models.CharField(max_length=150, default=' ')
-
-	def __unicode__(self):
-		return "%s" % (self.value)
-
-
 
 # ______________________________________ ARTICLES _______________________________________
 

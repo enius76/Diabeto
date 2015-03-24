@@ -17,14 +17,6 @@ def home(request):
 	return render_to_response('home.html')
 
 
-
-# _______________________________________________ CONNEXION _____________________________________________
-
-def connexion(request):
-    return render_to_response('connexion.html')
-
-
-
 # ______________________________________________ INSCRIPTION _____________________________________________
 
 def inscription(request):
@@ -33,6 +25,8 @@ def inscription(request):
 		if form.is_valid():
 			user = User.objects.create_user(
             username=form.cleaned_data['username'],
+            first_name=form.cleaned_data['firstName'],
+            last_name=form.cleaned_data['lastName'],
             password=form.cleaned_data['password1'],
             email=form.cleaned_data['email']
             )
@@ -48,10 +42,67 @@ def inscription(request):
 	)
 
 def inscriptionComplete(request):
-	return render_to_response('merci.html')
+	error = False
+	if request.method == "POST":
+		form = ConnexionForm(request.POST)
+		if form.is_valid():
+			username = form.cleaned_data["username"]
+			password = form.cleaned_data["password"]
+			user = authenticate(username=username, password=password)  # Nous vérifions si les données sont correctes
+			if user:  # Si l'objet renvoyé n'est pas None
+				login(request, user)  # nous connectons l'utilisateur
+				return redirect('carnet')
+			else: # sinon une erreur sera affichée
+				error = True
+	else:
+		form = ConnexionForm()
+	return render(request, 'merci.html', locals())
 
 def inscription_details(request):
-    return render_to_response('inscription-details.html')
+	if request.method == "POST":
+		form = InscriptionDetailsForm(request.POST)
+		if form.is_valid():
+			userId = request.user.id
+			userInfo =  Profile.objects.get(user_id=userId) # on recup la ligne de son profil dans 'profile'
+
+			# recuperation des champs du form si ils sont remplis
+
+			birth = form.cleaned_data["birth"] 
+			userInfo.birth = birth
+
+			sexe = form.cleaned_data["sexe"]
+			userInfo.sexe = sexe
+
+			height = form.cleaned_data["height"] 
+			userInfo.height = height
+
+			weight = form.cleaned_data["weight"]
+			userInfo.weight = weight
+			'''if picture:
+			picture = request.FILES["picture"] 
+			userInfo.picture = picture'''
+
+			typeDiabete = form.cleaned_data["typeDiabete"]
+			userInfo.typeDiabete = typeDiabete
+
+			glycMoyenne = form.cleaned_data["glycMoyenne"] 
+			userInfo.glycMoyenne = glycMoyenne
+
+			# on enregistre
+			userInfo.save()
+			return redirect('profil')
+	else:
+		form = InscriptionDetailsForm()
+	variables = RequestContext(request, {
+	'form': form
+	})
+	return render_to_response(
+	'inscription-details.html',
+	variables,
+	)
+
+def inscription_detailsComplete(request):
+	return render_to_response('merci.html')
 
 
 
@@ -95,7 +146,8 @@ def carnet(request):
 
     return render_to_response('carnet.html', {'form': form,}, context_instance=RequestContext(request))
 
-
+def tois_derniers_mois(request):
+	return render_to_response('3-derniers-mois.html')
 
 # ______________________________________________ ALIMENTATION ____________________________________________
 
@@ -125,14 +177,16 @@ def category(request, slug):
 
 def letterSort(request, letter):
 	aliments = Food.objects.filter(name__istartswith=letter)
-	return render_to_response('sub_content/aliments/sortedFood.html', {'letter':letter, 'aliments': aliments})
+	nb_aliment = len(aliments)
+	return render_to_response('sub_content/aliments/sortedFood.html', {'nb_aliment':nb_aliment, 'letter':letter, 'aliments': aliments})
 
 def letterSortByCategory(request, letter, slug):
 	aliments = Food.objects.filter(category__slug = slug).filter(name__istartswith=letter)
+	nb_aliment = len(aliments)
 	currentUrl = request.path
 	currentUrl = currentUrl.split('/')
 	currentUrl = currentUrl[3]
-	return render_to_response('sub_content/aliments/sortedFoodCategory.html',{'letter':letter, 'aliments':aliments, 'currentUrl': currentUrl}, context_instance=RequestContext(request))
+	return render_to_response('sub_content/aliments/sortedFoodCategory.html',{'nb_aliment':nb_aliment, 'letter':letter, 'aliments':aliments, 'currentUrl': currentUrl}, context_instance=RequestContext(request))
 
 
 
@@ -178,7 +232,9 @@ def contactEffectue(request):
 
 @login_required
 def profil(request):
-	return render_to_response('profil.html')
+	userId = request.user.id
+	profile =  Profile.objects.get(user_id=userId)
+	return render_to_response('profil.html', {'profile':profile}, context_instance=RequestContext(request))
 
 
 

@@ -59,7 +59,7 @@
 								<span class="flaticon-bald23"></span>Conseils
 							</a></li>
 							{% if user.is_authenticated %}
-								<li id="profil" title="{{user.username}}"><a href={% url 'profil' %}>
+								<li id="profil" title="Profil de {{user.first_name}}"><a href={% url 'profil' %}>
 									<!-- <span class="flaticon-edit45"></span>Profil -->
 									 <!--<img src="/static/images/profil-picture.png" alt="Ma photo" title="Profil"> -->
 								</a></li>

@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'rest_framework',
     'mathfilters',
+    #'django_filters',
     'api',
     'core'
     
@@ -99,6 +100,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 STATIC_ROOT = '/home/briceberthelot/projects/Diabeto/diabon/public/static/'
 STATIC_URL = '/static/' if DEBUG else 'http://briceberthelot.alwaysdata.net/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'user')
+MEDIA_URL = '/static/images/user/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static/'),
