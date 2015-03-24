@@ -15,7 +15,6 @@ import datetime
 def home(request):
 	return render_to_response('home.html')
 
-
 # ______________________________________________ INSCRIPTION _____________________________________________
 
 def inscription(request):
@@ -63,7 +62,6 @@ def inscription_details(request):
 		if form.is_valid():
 			userId = request.user.id
 			userInfo =  Profile.objects.get(user_id=userId) # on recup la ligne de son profil dans 'profile'
-
 			# recuperation des champs du form si ils sont remplis
 			birth = form.cleaned_data["birth"] 
 			userInfo.birth = birth
@@ -73,11 +71,13 @@ def inscription_details(request):
 			userInfo.height = height
 			weight = form.cleaned_data["weight"]
 			userInfo.weight = weight
+			'''if picture:
+			picture = request.FILES["picture"] 
+			userInfo.picture = picture'''
 			typeDiabete = form.cleaned_data["typeDiabete"]
 			userInfo.typeDiabete = typeDiabete
 			glycMoyenne = form.cleaned_data["glycMoyenne"] 
 			userInfo.glycMoyenne = glycMoyenne
-
 			# on enregistre
 			userInfo.save()
 			return redirect('profil')
@@ -171,7 +171,6 @@ def category(request, slug):
 def letterSort(request, letter):
 	aliments = Food.objects.filter(name__istartswith=letter)
 	nb_aliment = len(aliments)
-
 	return render_to_response('sub_content/aliments/sortedFood.html', {'nb_aliment':nb_aliment, 'letter':letter, 'aliments': aliments}, context_instance=RequestContext(request))
 
 def letterSortByCategory(request, letter, slug):
@@ -181,7 +180,6 @@ def letterSortByCategory(request, letter, slug):
 	currentUrl = currentUrl.split('/')
 	currentUrl = currentUrl[3]
 	return render_to_response('sub_content/aliments/sortedFoodCategory.html',{'nb_aliment':nb_aliment, 'letter':letter, 'aliments':aliments, 'currentUrl': currentUrl}, context_instance=RequestContext(request))
-
 
 # ________________________________________________ CONSEILS ______________________________________________
 
@@ -224,7 +222,6 @@ def profil(request):
 	userId = request.user.id
 	profile =  Profile.objects.get(user_id=userId)
 	return render_to_response('profil.html', {'profile':profile}, context_instance=RequestContext(request))
-
 
 # ____________________________________________ MENTIONS LEGALES ________________________________________
 

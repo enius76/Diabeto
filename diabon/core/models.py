@@ -22,7 +22,6 @@ class Category(models.Model):
 	def __unicode__(self):
 		return "%s" % (self.name)
 
-
 class Profile(models.Model):
 	user = models.OneToOneField(User)
 	birth = models.DateField(default=datetime.datetime.now())
@@ -32,7 +31,6 @@ class Profile(models.Model):
 	# picture = models.FileField(upload_to='/static/images/user/')
 	typeDiabete = models.CharField(max_length=50)
 	glycMoyenne = models.IntegerField(default=0)
-
 	def __unicode__(self):
 		return "Profile de %s" % self.user
 	def create_user_profile(sender, instance, created, **kwargs):
@@ -58,7 +56,6 @@ class Glyc(models.Model):
 	note = models.CharField(max_length=150)
 	def __unicode__(self):
 		return "%s" % (self.value)
-
 
 # ______________________________________ ARTICLES _______________________________________
 

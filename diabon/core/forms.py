@@ -40,10 +40,10 @@ class InscriptionDetailsForm(forms.Form):
 	    ('Type 2', 'Type 2'),
 	)
 
+	#picture = forms.FileField(label='Ajoutez une photo de profil')
 	birth = forms.DateField(widget=SelectDateWidget(years=range(1900, 2010)), label='Date d\'anniversaire')
 	sexe = forms.ChoiceField(label = "Sexe", choices = SEXE_CHOICES, widget = forms.widgets.RadioSelect())
 	height = forms.FloatField(label='Taille (en m)')
-
 	weight = forms.FloatField(label='Poids (en kg)')
 	typeDiabete = forms.ChoiceField(label = "Type de diabète", choices = DIABETE_CHOICES, widget = forms.widgets.RadioSelect())
 	glycMoyenne = forms.IntegerField(label='Glycémie moyenne (en mg/dl)')
