@@ -95,9 +95,6 @@ def carnet(request):
 			date  = form.cleaned_data['date']
 			time  = form.cleaned_data["time"]
 			bday = datetime.datetime(date.year, date.month, date.day)
-			#date = datetime.datetime.strptime(request.POST.get('date'),"%Y-%m-%d").date()
-			#date = date.strftime("%Y-%m-%d")
-			print bday
 			glyc  = Glyc( id_user=userID, value=value, date=bday, time=time, note=note)
 			glyc.save()
 			return redirect('carnet') 
