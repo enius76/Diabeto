@@ -15,11 +15,7 @@ import datetime
 def home(request):
 	return render_to_response('home.html')
 
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 2af1201f83fdbca12da84286bdd3d41125e25d30
 # ______________________________________________ INSCRIPTION _____________________________________________
 
 def inscription(request):
@@ -67,7 +63,7 @@ def inscription_details(request):
 		if form.is_valid():
 			userId = request.user.id
 			userInfo =  Profile.objects.get(user_id=userId) # on recup la ligne de son profil dans 'profile'
-<<<<<<< HEAD
+
 			# recuperation des champs du form si ils sont remplis
 			birth = form.cleaned_data["birth"] 
 			userInfo.birth = birth
@@ -75,39 +71,13 @@ def inscription_details(request):
 			userInfo.sexe = sexe
 			height = form.cleaned_data["height"] 
 			userInfo.height = height
-=======
-
-			# recuperation des champs du form si ils sont remplis
-
-			birth = form.cleaned_data["birth"] 
-			userInfo.birth = birth
-
-			sexe = form.cleaned_data["sexe"]
-			userInfo.sexe = sexe
-
-			height = form.cleaned_data["height"] 
-			userInfo.height = height
-
->>>>>>> 2af1201f83fdbca12da84286bdd3d41125e25d30
 			weight = form.cleaned_data["weight"]
 			userInfo.weight = weight
-			'''if picture:
-			picture = request.FILES["picture"] 
-			userInfo.picture = picture'''
-<<<<<<< HEAD
 			typeDiabete = form.cleaned_data["typeDiabete"]
 			userInfo.typeDiabete = typeDiabete
 			glycMoyenne = form.cleaned_data["glycMoyenne"] 
 			userInfo.glycMoyenne = glycMoyenne
-=======
 
-			typeDiabete = form.cleaned_data["typeDiabete"]
-			userInfo.typeDiabete = typeDiabete
-
-			glycMoyenne = form.cleaned_data["glycMoyenne"] 
-			userInfo.glycMoyenne = glycMoyenne
-
->>>>>>> 2af1201f83fdbca12da84286bdd3d41125e25d30
 			# on enregistre
 			userInfo.save()
 			return redirect('profil')
@@ -120,13 +90,6 @@ def inscription_details(request):
 	'inscription-details.html',
 	variables,
 	)
-<<<<<<< HEAD
-=======
-
-def inscription_detailsComplete(request):
-	return render_to_response('merci.html')
-
->>>>>>> 2af1201f83fdbca12da84286bdd3d41125e25d30
 
 def inscription_detailsComplete(request):
 	return render_to_response('merci.html', context_instance=RequestContext(request))
@@ -208,11 +171,8 @@ def category(request, slug):
 def letterSort(request, letter):
 	aliments = Food.objects.filter(name__istartswith=letter)
 	nb_aliment = len(aliments)
-<<<<<<< HEAD
+
 	return render_to_response('sub_content/aliments/sortedFood.html', {'nb_aliment':nb_aliment, 'letter':letter, 'aliments': aliments}, context_instance=RequestContext(request))
-=======
-	return render_to_response('sub_content/aliments/sortedFood.html', {'nb_aliment':nb_aliment, 'letter':letter, 'aliments': aliments})
->>>>>>> 2af1201f83fdbca12da84286bdd3d41125e25d30
 
 def letterSortByCategory(request, letter, slug):
 	aliments = Food.objects.filter(category__slug = slug).filter(name__istartswith=letter)
@@ -221,11 +181,7 @@ def letterSortByCategory(request, letter, slug):
 	currentUrl = currentUrl.split('/')
 	currentUrl = currentUrl[3]
 	return render_to_response('sub_content/aliments/sortedFoodCategory.html',{'nb_aliment':nb_aliment, 'letter':letter, 'aliments':aliments, 'currentUrl': currentUrl}, context_instance=RequestContext(request))
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 2af1201f83fdbca12da84286bdd3d41125e25d30
 
 # ________________________________________________ CONSEILS ______________________________________________
 
@@ -268,11 +224,7 @@ def profil(request):
 	userId = request.user.id
 	profile =  Profile.objects.get(user_id=userId)
 	return render_to_response('profil.html', {'profile':profile}, context_instance=RequestContext(request))
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 2af1201f83fdbca12da84286bdd3d41125e25d30
 
 # ____________________________________________ MENTIONS LEGALES ________________________________________
 
