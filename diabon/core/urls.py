@@ -5,7 +5,6 @@ from django.conf import settings
 urlpatterns = patterns('',
 	url(r'^$', 'core.views.home', name='home'),
 	url(r'^carnet-de-bord/$', 'core.views.carnet', name='carnet'),
-	url(r'^carnet-de-bord/releves/3-derniers-mois/$', 'core.views.tois_derniers_mois', name='3-derniers-mois'),
 
 	url(r'^profil/$', 'core.views.profil', name='profil'),
 	url(r'^contact/$', 'core.views.contact', name='contact'),

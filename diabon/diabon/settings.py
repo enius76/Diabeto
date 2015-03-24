@@ -36,33 +36,34 @@ LOGIN_URL = '/connexion/'
 # Application definition
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'rest_framework',
-    'mathfilters',
-    #'django_filters',
-    'api',
-    'core'
-    
+	'django.contrib.admin',
+	'django.contrib.auth',
+	'django.contrib.contenttypes',
+	'django.contrib.sessions',
+	'django.contrib.messages',
+	'django.contrib.staticfiles',
+	'rest_framework',
+	'mathfilters',
+	'django_filters',
+	'api',
+	'core'
+	
 )
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
-    'PAGINATE_BY': 10
+	'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',),
+	'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+	'PAGINATE_BY': 10
 }
 
 MIDDLEWARE_CLASSES = (
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+	'django.contrib.sessions.middleware.SessionMiddleware',
+	'django.middleware.common.CommonMiddleware',
+	'django.middleware.csrf.CsrfViewMiddleware',
+	'django.contrib.auth.middleware.AuthenticationMiddleware',
+	'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+	'django.contrib.messages.middleware.MessageMiddleware',
+	'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
 ROOT_URLCONF = 'diabon.urls'
@@ -74,10 +75,10 @@ WSGI_APPLICATION = 'diabon.wsgi.application'
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+	'default': {
+		'ENGINE': 'django.db.backends.sqlite3',
+		'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+	}
 }
 
 # Internationalization
@@ -93,7 +94,7 @@ USE_L10N = False
 
 USE_TZ = True
 
-# DATE_FORMAT = "d-m-Y"
+DATE_FORMAT = "d-m-Y"
 
 
 # Static files (CSS, JavaScript, Images)
@@ -101,12 +102,9 @@ USE_TZ = True
 STATIC_ROOT = '/home/briceberthelot/projects/Diabeto/diabon/public/static/'
 STATIC_URL = '/static/' if DEBUG else 'http://briceberthelot.alwaysdata.net/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'user')
-MEDIA_URL = '/static/images/user/'
-
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static/'),
+	os.path.join(BASE_DIR, 'static/'),
 )
 TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'templates'),
+	os.path.join(BASE_DIR, 'templates'),
 )

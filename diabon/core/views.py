@@ -154,8 +154,7 @@ def carnet(request):
 		form = GlycForm() 
 	return render_to_response( 'carnet.html', {'form': form}, context_instance=RequestContext(request))
 
-def tois_derniers_mois(request):
-	return render_to_response('3-derniers-mois.html')
+
 
 # ______________________________________________ ALIMENTATION ____________________________________________
 
