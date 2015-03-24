@@ -1,11 +1,12 @@
 from api import views
 from rest_framework import routers
-from django.conf.urls import url, include
+from django.conf.urls import url, include, patterns
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'food', views.FoodViewSet)
+
 # router.register(r'food/$', views.FoodViewSet, 'food-list')
 # router.register(r'pains-crackers-cereales-patisseries', views.PainsViewSet)
 # router.register(r'feculents-legumes-secs', views.FeculentsViewSet)
@@ -18,5 +19,5 @@ router.register(r'food', views.FoodViewSet)
 urlpatterns = [
     url(r'', include(router.urls)),
     url(r'^auth/', include('rest_framework.urls', namespace='rest_framework')),
-
+    url('^foods/(?P<category>\w+)/$', views.FoodCategory.as_view()),
 ]

@@ -1,3 +1,4 @@
+import django_filters
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from api.serializers import *
@@ -26,6 +27,17 @@ class FoodViewSet(viewsets.ModelViewSet):
 	"""
 	queryset = Food.objects.all()
 	serializer_class = FoodSerializer
+
+
+class FoodCategory(generics.ListAPIView):
+
+	serializer_class = FoodSerializer
+	def get_queryset(self):
+		queryset = Food.objects.all()
+		category = self.kwargs['category']
+
+		queryset = queryset.filter(category_id=category)
+		return queryset
 
 '''class FoodViewSet(generics.ListAPIView):
 	"""

@@ -2,7 +2,7 @@
 
 from django.shortcuts import *
 from django.shortcuts import render_to_response
-import datetime
+from datetime import datetime
 from core.models import *
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
@@ -11,7 +11,7 @@ from django.core.urlresolvers import reverse
 from core.forms import *
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
-
+import datetime
 
 def home(request):
 	return render_to_response('home.html')
@@ -21,7 +21,7 @@ def home(request):
 # _______________________________________________ CONNEXION _____________________________________________
 
 def connexion(request):
-    return render_to_response('connexion.html')
+	return render_to_response('connexion.html')
 
 
 
@@ -32,10 +32,10 @@ def inscription(request):
 		form = RegistrationForm(request.POST)
 		if form.is_valid():
 			user = User.objects.create_user(
-            username=form.cleaned_data['username'],
-            password=form.cleaned_data['password1'],
-            email=form.cleaned_data['email']
-            )
+			username=form.cleaned_data['username'],
+			password=form.cleaned_data['password1'],
+			email=form.cleaned_data['email']
+			)
 			return HttpResponseRedirect('/inscription-complete')
 	else:
 		form = RegistrationForm()
@@ -51,7 +51,7 @@ def inscriptionComplete(request):
 	return render_to_response('merci.html')
 
 def inscription_details(request):
-    return render_to_response('inscription-details.html')
+	return render_to_response('inscription-details.html')
 
 
 
@@ -85,15 +85,25 @@ def deconnexion(request):
 
 @login_required
 def carnet(request):
-    if request.method == 'POST':
-        form = GlycForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/carnet/') 
-    else:
-        form = GlycForm() 
-
-    return render_to_response('carnet.html', {'form': form,}, context_instance=RequestContext(request))
+	if request.method == 'POST':
+		form = GlycForm(request.POST)
+		if form.is_valid():
+			print form.cleaned_data
+			userID= request.user.id
+			value = form.cleaned_data["value"]
+			note  = form.cleaned_data["note"]
+			date  = form.cleaned_data['date']
+			time  = form.cleaned_data["time"]
+			bday = datetime.datetime(date.year, date.month, date.day)
+			#date = datetime.datetime.strptime(request.POST.get('date'),"%Y-%m-%d").date()
+			#date = date.strftime("%Y-%m-%d")
+			print bday
+			glyc  = Glyc( id_user=userID, value=value, date=bday, time=time, note=note)
+			glyc.save()
+			return redirect('carnet') 
+	else:
+		form = GlycForm() 
+	return render_to_response( 'carnet.html', {'form': form}, context_instance=RequestContext(request))
 
 
 

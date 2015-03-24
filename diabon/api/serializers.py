@@ -12,10 +12,19 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 		model = Group
 		fields = ('url', 'name')
 
+class CategorySerializer(serializers.HyperlinkedModelSerializer):
+	class Meta:
+		model = Category
+		fields = ('name', 'slug')		
+
 class FoodSerializer(serializers.HyperlinkedModelSerializer):
+	category = CategorySerializer()
 	class Meta:
 		model = Food
-		fields = ('id','name', 'weight', 'glucide')
+		fields = ('id','name', 'weight', 'glucide', 'category')
+
+
+
 
 '''class PainsSerializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
