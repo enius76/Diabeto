@@ -43,13 +43,12 @@ INSTALLED_APPS = (
 	'django.contrib.messages',
 	'django.contrib.staticfiles',
 	'rest_framework',
-	'django_filters',
 	'mathfilters',
+	'django_filters',
 	'api',
 	'core'
 	
 )
-
 
 REST_FRAMEWORK = {
 	'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',),

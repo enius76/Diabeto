@@ -62,10 +62,17 @@
 				<!-- Choix date -->
 				<nav id="releves-tri">
 					<ul>
+<<<<<<< HEAD
 						<li><a href="" class="change_load actif">Aujourd'hui</a></li>
 						<li><a href="" class="change_load">7 derniers jours</a></li>
 						<li><a href="" class="change_load">Dernier mois</a></li>
 						<li><a href="" class="change_load">3 derniers mois</a></li>
+=======
+						<li><a href="aujourdhui.html" class="change_load actif">Aujourd'hui</a></li>
+						<li><a href="7-derniers-jours.html" class="change_load">7 derniers jours</a></li>
+						<li><a href="dernier-mois.html" class="change_load">Dernier mois</a></li>
+						<li><a href={% url '3-derniers-mois' %} class="change_load">3 derniers mois</a></li>
+>>>>>>> 2af1201f83fdbca12da84286bdd3d41125e25d30
 						<div class="clear"></div>
 					</ul>
 				</nav>
@@ -165,7 +172,6 @@
 		{% csrf_token %}
 		<h1>Ajouter un relevé</h1>
 		{{ form.as_p }}
-
 		<input type="submit" value="Ajouter" />
 	</form>
 
@@ -191,8 +197,14 @@
 	</form>
 
 
+<<<<<<< HEAD
 <!--  ____________________________________________ JAVASCRIPTS ____________________________________________  -->
 
+=======
+
+<!--  ____________________________________________ JAVASCRIPTS ____________________________________________  -->
+
+>>>>>>> 2af1201f83fdbca12da84286bdd3d41125e25d30
 <!--   POP UP ACTIONS   -->
 	<script src="/static/js/jquery.magnific-popup.min.js"></script>
 	<script type="text/javascript">
@@ -253,6 +265,7 @@
 <script src="/static/js/canvasjs.min.js"></script>
 <script src="/static/js/manageStats.js"></script>
 
+<<<<<<< HEAD
 <script type="text/javascript">
 
 	window.onload = function () {
@@ -579,6 +592,8 @@
 
 </script>
 
+=======
+>>>>>>> 2af1201f83fdbca12da84286bdd3d41125e25d30
 
 <!--   AGENDA   -->
 	<script src="/static/js/jquery.calendario.js"></script>
