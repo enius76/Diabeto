@@ -1,9 +1,9 @@
-import django_filters
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from api.serializers import *
 from core.models import *
 from rest_framework import generics
+# import django_filters
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -28,22 +28,15 @@ class FoodViewSet(viewsets.ModelViewSet):
 	queryset = Food.objects.all()
 	serializer_class = FoodSerializer
 
-
 class FoodCategory(generics.ListAPIView):
-
-	serializer_class = FoodSerializer
-	def get_queryset(self):
-		queryset = Food.objects.all()
-		category = self.kwargs['category']
-
-		queryset = queryset.filter(category_id=category)
-		return queryset
+    queryset = Food.objects.all()
+    serializer_class = FoodViewSet
+    filter_fields = ('category_id')
 
 '''class FoodViewSet(generics.ListAPIView):
 	"""
 	API endpoint that allows groups to be viewed or edited.
 	"""
-	# queryset = Food.objects.all()
 	serializer_class = FoodSerializer
 	def get_queryset(self):
 		"""
@@ -53,7 +46,7 @@ class FoodCategory(generics.ListAPIView):
 		queryset = Food.objects.all()
 		category_id = self.request.QUERY_PARAMS.get('category_id', None)
 		if category_id is not None:
-			queryset = queryset.filter(purchaser__category_id=category_id)
+			queryset = queryset.filter(food__category_id=category_id)
 		return queryset'''
 
 '''class PainsViewSet(viewsets.ModelViewSet):
