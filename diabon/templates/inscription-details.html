@@ -6,14 +6,38 @@
     <section id="work" class="main style3 secondary inscription-details">
         <div class="content container 75%">
             <header>
-                <h2>Profitez d'un service plus personnalisé</h2>
-                <p>Remplissez vos informations personnelles pour rendre unique votre expérience.</p>
+                <h2>
+                    {% if user.is_authenticated %}
+                        {{ user.first_name }}, profitez d'un service encore plus personnalisé
+                    {% else %}
+                        Profitez d'un service encore plus personnalisé
+                    {% endif %}
+                </h2>
+                <p>Remplissez vos informations personnelles pour rendre votre expérience unique.</p>
             </header>
 
         <!-- Recherche -->
         <div id="inscription-details-container">
-            <form id="inscription-details-form" action="">
-                <label class="title">Ma photo</label>
+            <form id="inscription-details-form" method="post" action=".">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" name="inscription-details" value="Valider mes infos"/>
+            </form>
+        </div>                 
+    </section>
+
+
+    <!-- Scroll to top -->
+    <a href="#" class="back-to-top">Remonter</a>
+
+    <script type="text/javascript">
+        document.title = 'Compléter mon profil - DiabON';
+    </script>
+
+
+
+
+                    <!--<label class="title">Ma photo</label>
 
                 <label>Ajoutez une photo de profil</label>
                 <input type="file" name="profil-picture" id="profil-picture"/>
@@ -84,20 +108,8 @@
                 </div>
 
                 <div class="info">Vous pourrez ajouter d'autres contacts plus tard en allant dans votre profil.</div>
+                -->
 
-
-                <input type="submit" name="inscription-details" value="Valider mes infos"/>
-            </form>
-        </div>                 
-    </section>
-
-
-    <!-- Scroll to top -->
-    <a href="#" class="back-to-top">Remonter</a>
-
-    <script type="text/javascript">
-        document.title = 'Inscription - DiabON';
-    </script>
 
 
 {% endblock content %}

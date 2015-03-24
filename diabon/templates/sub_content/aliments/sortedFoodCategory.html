@@ -47,16 +47,22 @@
 
 			<header>
 				<h2>
-					{% if letter %}
-						{{aliments.1.category.name}} commençant par {{letter}}
+					{% if nb_aliment == 0 %}
+						Pas d'aliment commençant par {{letter}} dans cette catégorie
+					{% elif letter %}
+						{{aliments.0.category.name}} commençant par {{letter}}
 					{% else %}
-						{{aliments.1.category.name}}
+						{{aliments.0.category.name}}
 					{% endif %}
 
 					</h2>
 			</header>
 	
 			<!-- Aliments  -->
+			{% if nb_aliment == 0 %}
+				<!-- pas d'aliment commencant par cette lettre dans cette cateogire -->
+				<p> Veuillez choisir une autre lettre pour cette catégorie ou revenir au catalogue. </p>
+			{% else %}
 				<div class="container 75% tri-result">
 					<div class="table catalogue">
 						<table id="catalogue-categorie" class="full tablesorter">
@@ -75,6 +81,7 @@
 						</table>
 					</div>
 				</div>
+			{% endif %}
 		</div>                  
 	</section>
 
@@ -83,12 +90,24 @@
 
 	<!-- changement couleur header et padding body -->
 		<script type="text/javascript">
-		  $('#header').css('background-color', '#8cb02b');
-		  $('form#nav-search input[type="submit"]').css('color', '#8cb02b');
-		  $('#navigation ul li#connexion a').css('color', '#8cb02b');
-		  $('h1#logo img').attr('src','/static/images/logo-green.png');
-		  document.title = '{{category}} - DiabON';
+			$('#header').css('background-color', '#8cb02b');
+			$('form#nav-search input[type="submit"]').css('color', '#8cb02b');
+			$('#navigation ul li#connexion a').css('color', '#8cb02b');
+			$('h1#logo img').attr('src','/static/images/logo-green.png');
 		</script>
+		{% if nb_aliment == 0 %}
+			<script type="text/javascript">
+	  			document.title = 'Pas d\'aliments commençant par {{letter}} dans cette catégorie - DiabON';
+  			</script>
+		{% elif letter %}
+			<script type="text/javascript">
+	  			document.title = '{{aliments.0.category.name}} commençant par {{letter}} - DiabON';
+  			</script>
+		{% else %}
+			<script type="text/javascript">
+				document.title = '{{aliments.0.category.name}} - DiabON';
+			</script>
+		{% endif %}
 
 	<!-- TABLEAU RELEVE TRI -->
 	<script type="text/javascript">

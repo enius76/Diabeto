@@ -22,34 +22,28 @@ class Category(models.Model):
 	def __unicode__(self):
 		return "%s" % (self.name)
 
-
-
 class Profile(models.Model):
 	user = models.OneToOneField(User)
 	birth = models.DateField(default=datetime.datetime.now())
 	sexe = models.CharField(max_length=1)
 	weight = models.FloatField(default=0.0)
 	height = models.FloatField(default=0.0)
-
+	# picture = models.FileField(upload_to='/static/images/user/')
+	typeDiabete = models.CharField(max_length=50)
+	glycMoyenne = models.IntegerField(default=0)
 	def __unicode__(self):
 		return "Profile de %s" % self.user
-
 	def create_user_profile(sender, instance, created, **kwargs):
 		if created:
 			Profile.objects.create(user=instance)
-
 	post_save.connect(create_user_profile, sender=settings.AUTH_USER_MODEL)
-
 	def create_user(self, email, password=None):
 	#Creates and saves a User with the given email and password.
-
 		if not email:
 			raise ValueError('Vous devez avoir une adresse mail')
-
 		user = self.model(
 			email=self.normalize_email(email),
 		)
-
 		user.set_password(password)
 		user.save(using=self._db)
 		return user
@@ -60,16 +54,13 @@ class Glyc(models.Model):
 	date = models.DateTimeField()
 	time = models.CharField(max_length=5)
 	note = models.CharField(max_length=150)
-
 	def __unicode__(self):
 		return "%s" % (self.value)
-
-
-
 
 # ______________________________________ ARTICLES _______________________________________
 
 class Article(models.Model):
+
 	title = models.CharField(max_length=100)
 	author = models.CharField(max_length=42)
 	content= models.TextField(null=True)
@@ -78,7 +69,7 @@ class Article(models.Model):
 	category_article = models.ForeignKey('Categoryarticle')
 	def __unicode__(self):
 		return self.titre
-
+		
 class Categoryarticle(models.Model):
 	name = models.CharField(max_length=30)
 	slug = models.SlugField(max_length=30)

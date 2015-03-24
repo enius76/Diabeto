@@ -7,6 +7,10 @@
 /* Basic                                                                         */
 /*********************************************************************************/
 
+	#work {
+		min-height: 35.3em;
+	}
+
 	.clear {
 		clear: both;
 	}
@@ -61,7 +65,7 @@
 		
 	h2 {
 		font-family: 'kenyan_coffeeregular';
-		font-size: 2.7em;
+		font-size: 1.75em;
 		letter-spacing: 0;
 		line-height: 1.25em;
 	}
@@ -896,7 +900,7 @@
 
 	#sub-header {
 		position: fixed;
-		z-index: 10000;
+		z-index: 9990;
 		left: 0;
 		top: 4em;
 		width: 100%;
@@ -960,7 +964,7 @@
 				}
 
 	#carnet-sub-navigation {
-		width: 33.5em;
+		width: 25.5em;
 		margin-left: auto;
 		margin-right: auto;
 		height: 3em;
@@ -1002,7 +1006,7 @@
 				}
 
 	#profil-sub-navigation {
-		width: 22.5em;
+		width: 14.5em;
 		margin-left: auto;
 		margin-right: auto;
 		height: 3em;
@@ -1190,6 +1194,13 @@
 			margin-bottom: 1em;
 		}
 
+		#work.inscription-complete #connexion-container img {
+			margin-top: 2em;
+			margin-left: 1.5em;
+			float: left;
+			height: 12em;
+		}
+
 /*********************************************************************************/
 /* Inscription								                                     */
 /*********************************************************************************/
@@ -1275,6 +1286,7 @@
 	#work.inscription-details #inscription-details-container {
 		display: -webkit-box;
 		border-radius: 3px;
+		padding: 1em;
 		box-shadow: 1px 1px 2px #e6e6e6;
 		background: white;
 	}
@@ -1406,89 +1418,67 @@
 		background-size: 256px 256px, cover;
 		background-attachment: fixed, fixed;
 		background-position: top left, center center;
+		padding-top: 2em !important;
 	}
 
+		#presentation header {
+			width: 34em;
+			margin: 2em auto 4em;
+			text-shadow: 0px 0px 0.2em rgba(0,0,0,0.2);
+		}
+
 		#presentation header img {
-			margin-top: -3em;
+			float: left;
+			width: 6em;
+			margin-right: 1em
 		}
 
-		#presentation h2 {
-			font-family: 'kenyan_coffeeregular';
-			letter-spacing: 0;
+		#presentation header h2, #presentation header p {
+			text-align: right;
 		}
 
-		.presentation-content {
-			border-radius: 5px;
-			margin-bottom: 1.5em;
-			border: 10px solid rgba(255,255,255,0.9);
-			padding: 1em;
+		#presentation .alimentation-features {
+			margin: 1em 0;
 		}
 
-			.presentation-content a.btn {
-				text-decoration: none;
-				padding: 0.25em 0.8em;
-				border-radius: 3px;
-				color: #fff;
-			}
 
-				.presentation-content a.btn:hover {
-					background: #39454b;
-				}
+		#presentation .alimentation-features a.info.blue{
+			background: #5c89c8;
+		}
 
-			.presentation-content header {
-				padding: 0.25em;
-			}
+		#presentation .alimentation-features a.info.green{
+			background: #8db126;
+		}
 
-				.presentation-content header h3 a {
-					font-family: 'tall_filmsregular';
-					font-size: 3em;
-					margin-bottom: 0.5em;
-					text-transform: uppercase;
-					color: white;
-					text-shadow: 0px 0px 0.2em rgba(0,0,0,0.2);
-					font-weight: normal;
-				}
+		#presentation .alimentation-features a.info.orange{
+			background: #ee7f4a;
+		}
 
-					.presentation-content header h3 a:hover {
-						opacity: 0.5;
-					}	
+		#presentation .alimentation-features a.info:hover{
+			background: #455a64;
+		}
 
-			.presentation-content p {
-				color: white;
-				font-size: 1em;
-				text-align: center;
-				text-shadow: 0px 0px 0.2em rgba(0,0,0,0.2);
-			}
+		#presentation .alimentation-features h2 {
+			font-size: 2.5em;
+			margin-top: 1%;
+		}
 
-			.presentation-content.carnet {
-				background: url('/static/images/intro.jpg');
-				background-size: cover;
-				background-position: center;
-			}
+		#presentation .alimentation-features .mask:hover h2 {
+			margin-top: 3%;
+		}
 
-			.presentation-content a.carnet {
-				background: #5c89c7;
-			}
+		#presentation .alimentation-features h2 span:before {
+			font-size: 1em;
+		}
 
-			.presentation-content.alimentation {
-				background: url('/static/images/one.jpg');
-				background-size: cover;
-				background-position: bottom;
-			}
+		#presentation .alimentation-features h2 span.flaticon-apple55:before {
+			font-size: 0.8em;
+		}
 
-			.presentation-content a.alimentation {
-				background: #8cb02b;
-			}
+		#presentation .alimentation-features h2 span.flaticon-bald23:before {
+			font-size: 1.2em;
+		}
 
-			.presentation-content.conseils {
-				background: url('/static/images/two.jpg');
-				background-size: cover;
-				background-position: 0 -9em;
-			}
-
-			.presentation-content a.conseils {
-				background: #ed7e4a;
-			}
 
 /*********************************************************************************/
 /* Intro                                                                         */
@@ -1683,6 +1673,20 @@
 	}
 
 /*********************************************************************************/
+/* Pop up  relevés                                                               */
+/*********************************************************************************/
+
+form#releve-popup-form input {
+	outline: 0;
+	border: 1px solid #aaa;
+	margin-bottom: 1em;
+	width: 100%;
+	padding: 0.25em;
+	border-radius: 3px;
+}
+
+
+/*********************************************************************************/
 /* Tableau relevés                                                               */
 /*********************************************************************************/
 
@@ -1870,7 +1874,7 @@ table#table-releves {
 	}
 
 		img#profil-picture {
-			width: 6em;
+			width: 4.5em;
 			float: left;
 			-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
 			-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
@@ -1928,6 +1932,24 @@ table#table-releves {
 		#btn-photo:hover {
 			background: #455a64;
 			cursor: pointer;
+		}
+
+		#profil-en-tete a#remplir-profil {
+			float: right;
+			background: #5c89c7;
+			border-radius: 3px;
+			padding: 0.25em 0.8em;
+			color: white;
+			text-decoration: none;
+			-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+			-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+			-o-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+			-ms-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+			transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+		}
+
+		#profil-en-tete a#remplir-profil:hover {
+			background: #455a64;
 		}
 
 	.a-propos {

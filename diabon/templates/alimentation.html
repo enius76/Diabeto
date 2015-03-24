@@ -5,9 +5,9 @@
 		<!-- Sub Nav -->
 			<nav role="navigation" id="alimentation-sub-navigation">
 				<ul>
+					<li><a href="#catalogue-complet"><span class="flaticon-book1"></span>Catalogue</a></li>
 					<li><a href="#composer-menu"><span class="flaticon-restaurant23"></span>Mon Menu</a></li>
 					<li><a href="#aliment-manquant"><span class="flaticon-add182"></span>Aliment manquant</a></li>
-					<li><a href="#catalogue-complet"><span class="flaticon-book1"></span>Catalogue</a></li>
 				</ul>
 			</nav>
 	</header>
@@ -37,6 +37,24 @@
 <!-- Fonctionnalités -->
 	<section id="work" class="main style3 secondary alimentation">
 		<div class="content container 75% features-container">
+			<header id="catalogue-complet">
+				<h2>Accédez au catalogue complet</h2>
+			</header>
+			<div class="container 75% alimentation-features">
+				<div class="row 0% images">
+					<div class="12u">
+		            	<div class="view view-first">  
+						     <img src="/static/images/thumbs/03.jpg" />  
+						     <div class="mask">  
+						     <h2><span class="flaticon-book1"></span>Catalogue</h2>  
+						     <p>Accédez au catalogue complet de nos aliments.</p>  
+						         <a href={% url 'catalogue' %} class="info">accéder</a>  
+						     </div>  
+						</div>  
+					</div>
+				</div>
+			</div>
+
 			<header id="composer-menu">
 				<h2>Composez votre menu</h2>
 			</header>
@@ -68,24 +86,6 @@
 						     <h2><span class="flaticon-add182"></span>Aliment manquant</h2>  
 						     <p>Il manque un aliment dans notre catalogue ? Soumettez le nous.</p>  
 						         <a href={% url 'contact' %} class="info">ajouter</a>  
-						     </div>  
-						</div>  
-					</div>
-				</div>
-			</div>
-
-			<header id="catalogue-complet">
-				<h2>Accédez au catalogue complet</h2>
-			</header>
-			<div class="container 75% alimentation-features">
-				<div class="row 0% images">
-					<div class="12u">
-		            	<div class="view view-first">  
-						     <img src="/static/images/thumbs/03.jpg" />  
-						     <div class="mask">  
-						     <h2><span class="flaticon-book1"></span>Catalogue</h2>  
-						     <p>Accédez au catalogue complet de nos aliments.</p>  
-						         <a href={% url 'catalogue' %} class="info">accéder</a>  
 						     </div>  
 						</div>  
 					</div>
