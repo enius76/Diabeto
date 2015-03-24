@@ -125,7 +125,10 @@ def carnet(request):
 	userId = request.user.id
 	userInfo = Profile.objects.get(user_id=userId)
 	userGlyc = Glyc.objects.filter(id_user=userId)
-	lastGlyc = userGlyc[len(userGlyc)-1]
+	if len(userGlyc) != 0 :
+		lastGlyc = userGlyc[len(userGlyc)-1]
+	else:
+		lastGlyc = 0
 	
 	if request.method == 'POST':
 		form = GlycForm(request.POST)
