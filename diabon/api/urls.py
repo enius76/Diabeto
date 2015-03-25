@@ -1,6 +1,8 @@
 from api import views
 from rest_framework import routers
 from django.conf.urls import url, include, patterns
+from rest_framework.authtoken.views import obtain_auth_token
+from django.contrib.auth.models import User
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
@@ -19,7 +21,6 @@ router.register(r'article', views.ArticleViewSet)
 # Additionally, we include login URLs for the browseable API.
 urlpatterns = [
     url(r'', include(router.urls)),
-    url(r'^auth/', include('rest_framework.urls', namespace='rest_framework')),
     url('^foods/(?P<category>\w+)/$', views.FoodCategory.as_view()),
     url('^articles/(?P<category_article>\w+)/$', views.ArticleCategory.as_view()),
 ]

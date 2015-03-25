@@ -11,6 +11,7 @@ from core.forms import *
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 import datetime
+from rest_framework.authtoken.models import Token
 
 def home(request):
 	return render_to_response('home.html')
@@ -28,6 +29,7 @@ def inscription(request):
             password=form.cleaned_data['password1'],
             email=form.cleaned_data['email']
             )
+			Token.objects.create(user=user)
 			return HttpResponseRedirect('/inscription-complete')
 	else:
 		form = RegistrationForm()
@@ -125,6 +127,7 @@ def carnet(request):
 	userId = request.user.id
 	userInfo = Profile.objects.get(user_id=userId)
 	userGlyc = Glyc.objects.filter(id_user=userId)
+
 	if len(userGlyc) != 0 :
 		lastGlyc = userGlyc[len(userGlyc)-1]
 	else:

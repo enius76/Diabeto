@@ -43,6 +43,7 @@ INSTALLED_APPS = (
 	'django.contrib.messages',
 	'django.contrib.staticfiles',
 	'rest_framework',
+	'rest_framework.authtoken',
 	'django_filters',
 	'mathfilters',
 	'api',
@@ -52,10 +53,15 @@ INSTALLED_APPS = (
 
 
 REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+		'rest_framework.authentication.BasicAuthentication',
+		'rest_framework.authentication.SessionAuthentication',),
 	'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',),
 	'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
 	'PAGINATE_BY': 10
 }
+
+
 
 MIDDLEWARE_CLASSES = (
 	'django.contrib.sessions.middleware.SessionMiddleware',
