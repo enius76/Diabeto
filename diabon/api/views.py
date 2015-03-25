@@ -27,9 +27,10 @@ class FoodViewSet(viewsets.ModelViewSet):
 	"""
 	queryset = Food.objects.all()
 	serializer_class = FoodSerializer
+	paginate_by =0
 
 class FoodCategory(generics.ListAPIView):
-
+	paginate_by =0
 	serializer_class = FoodSerializer
 	def get_queryset(self):
 		queryset = Food.objects.all()
@@ -44,9 +45,10 @@ class ArticleViewSet(viewsets.ModelViewSet):
 	"""
 	queryset = Article.objects.all()
 	serializer_class = ArticleSerializer
+	paginate_by=0
 
 class ArticleCategory(generics.ListAPIView):
-
+	paginate_by=0
 	serializer_class = ArticleSerializer
 	def get_queryset(self):
 		queryset = Article.objects.all()
