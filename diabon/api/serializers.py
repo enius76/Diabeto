@@ -5,7 +5,7 @@ from core.models import *
 class UserSerializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
 		model = User
-		fields = ('url', 'username', 'email', 'groups')
+		fields = ('id', 'username', 'email')
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
