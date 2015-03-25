@@ -6,6 +6,7 @@ router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'food', views.FoodViewSet)
+router.register(r'article', views.ArticleViewSet)
 
 # router.register(r'food/$', views.FoodViewSet, 'food-list')
 # router.register(r'pains-crackers-cereales-patisseries', views.PainsViewSet)
@@ -20,4 +21,5 @@ urlpatterns = [
     url(r'', include(router.urls)),
     url(r'^auth/', include('rest_framework.urls', namespace='rest_framework')),
     url('^foods/(?P<category>\w+)/$', views.FoodCategory.as_view()),
+    url('^articles/(?P<category_article>\w+)/$', views.ArticleCategory.as_view()),
 ]

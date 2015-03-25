@@ -12,6 +12,8 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 		model = Group
 		fields = ('url', 'name')
 
+# ------ Food ------
+
 class CategorySerializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
 		model = Category
@@ -24,24 +26,16 @@ class FoodSerializer(serializers.HyperlinkedModelSerializer):
 		fields = ('id','name', 'weight', 'glucide', 'category')
 
 
+# ------ Article ------
 
 
-'''class PainsSerializer(serializers.HyperlinkedModelSerializer):
+class ArticleCategorySerializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
-		model = Food
-		fields = ('id','name', 'weight', 'glucide')
+		model = Categoryarticle
+		fields = ('name', 'slug')
 
-class FeculentsSerializer(serializers.HyperlinkedModelSerializer):
+class ArticleSerializer(serializers.HyperlinkedModelSerializer):
+	category_article = ArticleCategorySerializer()
 	class Meta:
-		model = Food
-		fields = ('id','name', 'weight', 'glucide')
-
-class AperitifsSerializer(serializers.HyperlinkedModelSerializer):
-	class Meta:
-		model = Food
-		fields = ('id','name', 'weight', 'glucide')
-
-class LegumesSerializer(serializers.HyperlinkedModelSerializer):
-	class Meta:
-		model = Food
-		fields = ('id','name', 'weight', 'glucide')'''
+		model = Article
+		fields = ('id','title', 'author', 'content', 'date', 'slug', 'category_article')

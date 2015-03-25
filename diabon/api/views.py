@@ -28,7 +28,6 @@ class FoodViewSet(viewsets.ModelViewSet):
 	queryset = Food.objects.all()
 	serializer_class = FoodSerializer
 
-
 class FoodCategory(generics.ListAPIView):
 
 	serializer_class = FoodSerializer
@@ -39,50 +38,19 @@ class FoodCategory(generics.ListAPIView):
 		queryset = queryset.filter(category_id=category)
 		return queryset
 
-'''class FoodViewSet(generics.ListAPIView):
+class ArticleViewSet(viewsets.ModelViewSet):
 	"""
 	API endpoint that allows groups to be viewed or edited.
 	"""
-	# queryset = Food.objects.all()
-	serializer_class = FoodSerializer
+	queryset = Article.objects.all()
+	serializer_class = ArticleSerializer
+
+class ArticleCategory(generics.ListAPIView):
+
+	serializer_class = ArticleSerializer
 	def get_queryset(self):
-		"""
-		Optionally restricts the returned purchases to a given user,
-		by filtering against a `username` query parameter in the URL.
-		"""
-		queryset = Food.objects.all()
-		category_id = self.request.QUERY_PARAMS.get('category_id', None)
-		if category_id is not None:
-			queryset = queryset.filter(purchaser__category_id=category_id)
-		return queryset'''
+		queryset = Article.objects.all()
+		category_article = self.kwargs['category_article']
 
-'''class PainsViewSet(viewsets.ModelViewSet):
-	"""
-	API endpoint that allows Pains to be viewed or edited.
-	"""
-	queryset = Food.objects.filter(category_id='1')
-	serializer_class = PainsSerializer
-
-
-class FeculentsViewSet(viewsets.ModelViewSet):
-	"""
-	API endpoint that allows Feculents to be viewed or edited.
-	"""
-	queryset = Food.objects.filter(category_id='2')
-	serializer_class = FeculentsSerializer
-
-
-class LegumesViewSet(viewsets.ModelViewSet):
-	"""
-	API endpoint that allows Legumes to be viewed or edited.
-	"""
-	queryset = Food.objects.filter(category_id='3')
-	serializer_class = LegumesSerializer
-
-
-class AperitifsViewSet(viewsets.ModelViewSet):
-	"""
-	API endpoint that allows aperitifs to be viewed or edited.
-	"""
-	queryset = Food.objects.filter(category_id='9')
-	serializer_class = AperitifsSerializer'''
+		queryset = queryset.filter(category_article_id=category_article)
+		return queryset
