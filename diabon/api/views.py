@@ -12,7 +12,7 @@ class UserViewSet(viewsets.ModelViewSet):
 	"""
 	queryset = User.objects.all()
 	serializer_class = UserSerializer
-
+	paginate_by =0
 
 class GroupViewSet(viewsets.ModelViewSet):
 	"""
@@ -20,6 +20,7 @@ class GroupViewSet(viewsets.ModelViewSet):
 	"""
 	queryset = Group.objects.all()
 	serializer_class = GroupSerializer
+	paginate_by =0
 
 class FoodViewSet(viewsets.ModelViewSet):
 	"""
