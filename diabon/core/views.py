@@ -205,7 +205,7 @@ def contact(request):
 			subject = form.cleaned_data['subject']
 			message = form.cleaned_data['message']
 			sender = form.cleaned_data['sender']
-			recipients = ['briceberthelot64@gmail.com']
+			recipients = ['enius76@hotmail.com']
 			send_mail(subject, message, sender, recipients)
 			return HttpResponseRedirect('/contact-effectue/')
 	else:

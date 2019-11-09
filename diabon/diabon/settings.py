@@ -107,7 +107,7 @@ DATE_FORMAT = "d-m-Y"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 STATIC_ROOT = '/home/briceberthelot/projects/Diabeto/diabon/public/static/'
-STATIC_URL = '/static/' if DEBUG else 'http://briceberthelot.alwaysdata.net/static/'
+STATIC_URL = '/static/' if DEBUG else 'http://enius76.alwaysdata.net/static/'
 
 STATICFILES_DIRS = (
 	os.path.join(BASE_DIR, 'static/'),
